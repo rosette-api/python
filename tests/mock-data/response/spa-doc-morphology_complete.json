@@ -1,0 +1,3221 @@
+{
+  "compounds": [], 
+  "hanReadings": [], 
+  "lemmas": [
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "entregar", 
+      "text": "Entrega"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "mar", 
+      "text": "mar"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "devolver", 
+      "text": "devuelve"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "mar", 
+      "text": "mar"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "gritar", 
+      "text": "gritaron"
+    }, 
+    {
+      "lemma": "alguno", 
+      "text": "algunos"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "los"
+    }, 
+    {
+      "lemma": "ciudadano", 
+      "text": "ciudadanos"
+    }, 
+    {
+      "lemma": "paceño", 
+      "text": "paceños"
+    }, 
+    {
+      "lemma": "apostar", 
+      "text": "apostados"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "Plaza", 
+      "text": "Plaza"
+    }, 
+    {
+      "lemma": "Murillo", 
+      "text": "Murillo"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "a", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "las"
+    }, 
+    {
+      "lemma": "afueras", 
+      "text": "afueras"
+    }, 
+    {
+      "lemma": "de el", 
+      "text": "del"
+    }, 
+    {
+      "lemma": "palacio", 
+      "text": "palacio"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "gobierno", 
+      "text": "gobierno"
+    }, 
+    {
+      "lemma": "y", 
+      "text": "y"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "sede", 
+      "text": "sede"
+    }, 
+    {
+      "lemma": "de el", 
+      "text": "del"
+    }, 
+    {
+      "lemma": "congreso", 
+      "text": "Congreso"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "Bolivia", 
+      "text": "Bolivia"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "mientras", 
+      "text": "mientras"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "presidente", 
+      "text": "Presidenta"
+    }, 
+    {
+      "lemma": "Michelle", 
+      "text": "Michelle"
+    }, 
+    {
+      "lemma": "Bachelet", 
+      "text": "Bachelet"
+    }, 
+    {
+      "lemma": "salir", 
+      "text": "salía"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "extenso", 
+      "text": "extensa"
+    }, 
+    {
+      "lemma": "ceremonia", 
+      "text": "ceremonia"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "Evo", 
+      "text": "Evo"
+    }, 
+    {
+      "lemma": "Morales", 
+      "text": "Morales"
+    }, 
+    {
+      "lemma": "renovar", 
+      "text": "renovó"
+    }, 
+    {
+      "lemma": "por", 
+      "text": "por"
+    }, 
+    {
+      "lemma": "cinco", 
+      "text": "cinco"
+    }, 
+    {
+      "lemma": "año", 
+      "text": "años"
+    }, 
+    {
+      "lemma": "más", 
+      "text": "más"
+    }, 
+    {
+      "lemma": "como", 
+      "text": "como"
+    }, 
+    {
+      "lemma": "mandatario", 
+      "text": "Mandatario"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "ese", 
+      "text": "ese"
+    }, 
+    {
+      "lemma": "país", 
+      "text": "país"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "el", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "presidente", 
+      "text": "Presidenta"
+    }, 
+    {
+      "lemma": "ya", 
+      "text": "ya"
+    }, 
+    {
+      "lemma": "haber", 
+      "text": "había"
+    }, 
+    {
+      "lemma": "abordar", 
+      "text": "abordado"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "tema", 
+      "text": "tema"
+    }, 
+    {
+      "lemma": "marítimo", 
+      "text": "marítimo"
+    }, 
+    {
+      "lemma": "a", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "primero", 
+      "text": "primera"
+    }, 
+    {
+      "lemma": "hora", 
+      "text": "hora"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "ayer", 
+      "text": "ayer"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "mientras", 
+      "text": "mientras"
+    }, 
+    {
+      "lemma": "visitar", 
+      "text": "visitaba"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "hospital", 
+      "text": "hospital"
+    }, 
+    {
+      "lemma": "para", 
+      "text": "para"
+    }, 
+    {
+      "lemma": "niño", 
+      "text": "niños"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "ahí", 
+      "text": "Ahí"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Bachelet", 
+      "text": "Bachelet"
+    }, 
+    {
+      "lemma": "destacar", 
+      "text": "destacó"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "2006", 
+      "text": "2006"
+    }, 
+    {
+      "lemma": "haber", 
+      "text": "había"
+    }, 
+    {
+      "lemma": "acordar", 
+      "text": "acordado"
+    }, 
+    {
+      "lemma": "con", 
+      "text": "con"
+    }, 
+    {
+      "lemma": "moral", 
+      "text": "Morales"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "una"
+    }, 
+    {
+      "lemma": "agenda", 
+      "text": "agenda"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "13", 
+      "text": "13"
+    }, 
+    {
+      "lemma": "punto", 
+      "text": "puntos"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "haber", 
+      "text": "hemos"
+    }, 
+    {
+      "lemma": "hacer", 
+      "text": "hecho"
+    }, 
+    {
+      "lemma": "progreso", 
+      "text": "progresos"
+    }, 
+    {
+      "lemma": "importante", 
+      "text": "importantes"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "y", 
+      "text": "Y"
+    }, 
+    {
+      "lemma": "todo", 
+      "text": "todos"
+    }, 
+    {
+      "lemma": "esperar", 
+      "text": "esperamos"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "los"
+    }, 
+    {
+      "lemma": "año", 
+      "text": "años"
+    }, 
+    {
+      "lemma": "venidero", 
+      "text": "venideros"
+    }, 
+    {
+      "lemma": "nosotros", 
+      "text": "nuestros"
+    }, 
+    {
+      "lemma": "estado", 
+      "text": "Estados"
+    }, 
+    {
+      "lemma": "continuar", 
+      "text": "continúen"
+    }, 
+    {
+      "lemma": "profundizar él", 
+      "text": "profundizándola"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "agregar", 
+      "text": "agregó"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "aludir", 
+      "text": "Aludía"
+    }, 
+    {
+      "lemma": "así", 
+      "text": "así"
+    }, 
+    {
+      "lemma": "a", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "agenda", 
+      "text": "agenda"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "punto", 
+      "text": "punto"
+    }, 
+    {
+      "lemma": "sexto", 
+      "text": "sexto"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "contemplar", 
+      "text": "contempla"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "tema", 
+      "text": "tema"
+    }, 
+    {
+      "lemma": "marítimo", 
+      "text": "marítimo"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "pero", 
+      "text": "pero"
+    }, 
+    {
+      "lemma": "cuyo", 
+      "text": "cuyos"
+    }, 
+    {
+      "lemma": "detalle", 
+      "text": "detalles"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "poco", 
+      "text": "poco"
+    }, 
+    {
+      "lemma": "conocer", 
+      "text": "conocidos"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "por", 
+      "text": "Por"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "lo"
+    }, 
+    {
+      "lemma": "mismo", 
+      "text": "mismo"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "cuando", 
+      "text": "cuando"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "fue"
+    }, 
+    {
+      "lemma": "consultar", 
+      "text": "consultada"
+    }, 
+    {
+      "lemma": "sobre", 
+      "text": "sobre"
+    }, 
+    {
+      "lemma": "qué", 
+      "text": "qué"
+    }, 
+    {
+      "lemma": "esperar", 
+      "text": "esperaría"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "hacer", 
+      "text": "hiciera"
+    }, 
+    {
+      "lemma": "sobre", 
+      "text": "sobre"
+    }, 
+    {
+      "lemma": "este", 
+      "text": "este"
+    }, 
+    {
+      "lemma": "punto", 
+      "text": "punto"
+    }, 
+    {
+      "lemma": "específico", 
+      "text": "específico"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "sucesor", 
+      "text": "sucesor"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Sebastián", 
+      "text": "Sebastián"
+    }, 
+    {
+      "lemma": "Piñera", 
+      "text": "Piñera"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "él", 
+      "text": "ella"
+    }, 
+    {
+      "lemma": "reforzar", 
+      "text": "reforzó"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "mensaje", 
+      "text": "mensaje"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "el", 
+      "text": "Lo"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "tener", 
+      "text": "tiene"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "hacer", 
+      "text": "hacer"
+    }, 
+    {
+      "lemma": "cualquier", 
+      "text": "cualquier"
+    }, 
+    {
+      "lemma": "gobierno", 
+      "text": "gobierno"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "Chile", 
+      "text": "Chile"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "es"
+    }, 
+    {
+      "lemma": "seguir", 
+      "text": "seguir"
+    }, 
+    {
+      "lemma": "profundizar", 
+      "text": "profundizando"
+    }, 
+    {
+      "lemma": "todo", 
+      "text": "todos"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "los"
+    }, 
+    {
+      "lemma": "punto", 
+      "text": "puntos"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "trabajo", 
+      "text": "trabajo"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "una"
+    }, 
+    {
+      "lemma": "agenda", 
+      "text": "agenda"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "haber", 
+      "text": "ha"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "sido"
+    }, 
+    {
+      "lemma": "concordar", 
+      "text": "concordada"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "común", 
+      "text": "común"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "decir", 
+      "text": "dijo"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "Mandataria", 
+      "text": "Mandataria"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "el", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "postura", 
+      "text": "postura"
+    }, 
+    {
+      "lemma": "asumir", 
+      "text": "asumida"
+    }, 
+    {
+      "lemma": "ayer", 
+      "text": "ayer"
+    }, 
+    {
+      "lemma": "por", 
+      "text": "por"
+    }, 
+    {
+      "lemma": "Bachelet", 
+      "text": "Bachelet"
+    }, 
+    {
+      "lemma": "se", 
+      "text": "se"
+    }, 
+    {
+      "lemma": "producir", 
+      "text": "produjo"
+    }, 
+    {
+      "lemma": "sólo", 
+      "text": "sólo"
+    }, 
+    {
+      "lemma": "día", 
+      "text": "días"
+    }, 
+    {
+      "lemma": "después", 
+      "text": "después"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "Evo", 
+      "text": "Evo"
+    }, 
+    {
+      "lemma": "Morales", 
+      "text": "Morales"
+    }, 
+    {
+      "lemma": "dejar", 
+      "text": "dejara"
+    }, 
+    {
+      "lemma": "entrever", 
+      "text": "entrever"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "inquietud", 
+      "text": "inquietud"
+    }, 
+    {
+      "lemma": "por", 
+      "text": "por"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "actitud", 
+      "text": "actitud"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "tener", 
+      "text": "tendrá"
+    }, 
+    {
+      "lemma": "Piñera", 
+      "text": "Piñera"
+    }, 
+    {
+      "lemma": "ante", 
+      "text": "ante"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "aspiración", 
+      "text": "aspiración"
+    }, 
+    {
+      "lemma": "boliviano", 
+      "text": "boliviana"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "una"
+    }, 
+    {
+      "lemma": "salida", 
+      "text": "salida"
+    }, 
+    {
+      "lemma": "a el", 
+      "text": "al"
+    }, 
+    {
+      "lemma": "mar", 
+      "text": "mar"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "en", 
+      "text": "En"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "paz", 
+      "text": "Paz"
+    }, 
+    {
+      "lemma": "creer", 
+      "text": "creen"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "nuevo", 
+      "text": "nuevo"
+    }, 
+    {
+      "lemma": "gobernante", 
+      "text": "gobernante"
+    }, 
+    {
+      "lemma": "chileno", 
+      "text": "chileno"
+    }, 
+    {
+      "lemma": "restringir", 
+      "text": "restringirá"
+    }, 
+    {
+      "lemma": "a el", 
+      "text": "al"
+    }, 
+    {
+      "lemma": "grande", 
+      "text": "máximo"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "diálogo", 
+      "text": "diálogo"
+    }, 
+    {
+      "lemma": "sobre", 
+      "text": "sobre"
+    }, 
+    {
+      "lemma": "este", 
+      "text": "este"
+    }, 
+    {
+      "lemma": "punto", 
+      "text": "punto"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "dicho", 
+      "text": "Dicha"
+    }, 
+    {
+      "lemma": "inquietud", 
+      "text": "inquietud"
+    }, 
+    {
+      "lemma": "tener", 
+      "text": "tuvo"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "origen", 
+      "text": "origen"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "debate", 
+      "text": "debate"
+    }, 
+    {
+      "lemma": "presidencial", 
+      "text": "presidencial"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "hacer", 
+      "text": "hace"
+    }, 
+    {
+      "lemma": "dos", 
+      "text": "dos"
+    }, 
+    {
+      "lemma": "semana", 
+      "text": "semanas"
+    }, 
+    {
+      "lemma": "entre", 
+      "text": "entre"
+    }, 
+    {
+      "lemma": "Piñera", 
+      "text": "Piñera"
+    }, 
+    {
+      "lemma": "y", 
+      "text": "y"
+    }, 
+    {
+      "lemma": "Eduardo", 
+      "text": "Eduardo"
+    }, 
+    {
+      "lemma": "freír", 
+      "text": "Frei"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "cuando", 
+      "text": "cuando"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "actual", 
+      "text": "actual"
+    }, 
+    {
+      "lemma": "presidente", 
+      "text": "Presidente"
+    }, 
+    {
+      "lemma": "electo", 
+      "text": "electo"
+    }, 
+    {
+      "lemma": "decir", 
+      "text": "dijo"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "no", 
+      "text": "no"
+    }, 
+    {
+      "lemma": "conversar", 
+      "text": "conversaría"
+    }, 
+    {
+      "lemma": "sobre", 
+      "text": "sobre"
+    }, 
+    {
+      "lemma": "cesión", 
+      "text": "cesión"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "soberanía", 
+      "text": "soberanía"
+    }, 
+    {
+      "lemma": "y", 
+      "text": "y"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "sólo", 
+      "text": "sólo"
+    }, 
+    {
+      "lemma": "tener", 
+      "text": "tenía"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "carpeta", 
+      "text": "carpeta"
+    }, 
+    {
+      "lemma": "mejorar", 
+      "text": "mejorar"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "acceso", 
+      "text": "acceso"
+    }, 
+    {
+      "lemma": "boliviano", 
+      "text": "boliviano"
+    }, 
+    {
+      "lemma": "a el", 
+      "text": "al"
+    }, 
+    {
+      "lemma": "pacífico", 
+      "text": "Pacífico"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "frase", 
+      "text": "frase"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "es"
+    }, 
+    {
+      "lemma": "leer", 
+      "text": "leída"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "diplomacia", 
+      "text": "diplomacia"
+    }, 
+    {
+      "lemma": "boliviano", 
+      "text": "boliviana"
+    }, 
+    {
+      "lemma": "como", 
+      "text": "como"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "simple", 
+      "text": "simples"
+    }, 
+    {
+      "lemma": "facilidad", 
+      "text": "facilidades"
+    }, 
+    {
+      "lemma": "portuario", 
+      "text": "portuarias"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "Morales", 
+      "text": "Morales"
+    }, 
+    {
+      "lemma": "responder", 
+      "text": "respondió"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "el"
+    }, 
+    {
+      "lemma": "martes", 
+      "text": "martes"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "cualquier", 
+      "text": "cualquier"
+    }, 
+    {
+      "lemma": "compromiso", 
+      "text": "compromiso"
+    }, 
+    {
+      "lemma": "ser", 
+      "text": "es"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "estado", 
+      "text": "Estado"
+    }, 
+    {
+      "lemma": "a", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "estado", 
+      "text": "Estado"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "y", 
+      "text": "y"
+    }, 
+    {
+      "lemma": "él", 
+      "text": "su"
+    }, 
+    {
+      "lemma": "canciller", 
+      "text": "canciller"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "David", 
+      "text": "David"
+    }, 
+    {
+      "lemma": "Choquehuanca", 
+      "text": "Choquehuanca"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "pedir", 
+      "text": "pidió"
+    }, 
+    {
+      "lemma": "mantener", 
+      "text": "mantener"
+    }, 
+    {
+      "lemma": "el", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "agenda", 
+      "text": "agenda"
+    }, 
+    {
+      "lemma": "bilateral", 
+      "text": "bilateral"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "http", 
+      "text": "http"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "diario.elmercurio.com", 
+      "text": "diario.elmercurio.com"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "2010", 
+      "text": "2010"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "01", 
+      "text": "01"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "23", 
+      "text": "23"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "nacional", 
+      "text": "nacional"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "política", 
+      "text": "politica"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "noticia", 
+      "text": "noticias"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "47D6CA26", 
+      "text": "47D6CA26"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "B011", 
+      "text": "B011"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "40B5", 
+      "text": "40B5"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "AEAB", 
+      "text": "AEAB"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "D0E6A5F52E59", 
+      "text": "D0E6A5F52E59"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "htm", 
+      "text": "htm"
+    }, 
+    {
+      "lemma": "?", 
+      "text": "?"
+    }, 
+    {
+      "lemma": "ir", 
+      "text": "id"
+    }, 
+    {
+      "lemma": "=", 
+      "text": "="
+    }, 
+    {
+      "lemma": "{", 
+      "text": "{"
+    }, 
+    {
+      "lemma": "47D6CA26", 
+      "text": "47D6CA26"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "B011", 
+      "text": "B011"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "40B5", 
+      "text": "40B5"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "AEAB", 
+      "text": "AEAB"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "D0E6A5F52E59", 
+      "text": "D0E6A5F52E59"
+    }, 
+    {
+      "lemma": "}", 
+      "text": "}"
+    }, 
+    {
+      "lemma": "2010.01.23", 
+      "text": "2010.01.23"
+    }
+  ], 
+  "posTags": [
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "Entrega"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "mar"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "devuelve"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "mar"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "gritaron"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "algunos"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DETPL", 
+      "text": "los"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "ciudadanos"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "paceños"
+    }, 
+    {
+      "pos": "PAPPL", 
+      "text": "apostados"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Plaza"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Murillo"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "a"
+    }, 
+    {
+      "pos": "DETPL", 
+      "text": "las"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "afueras"
+    }, 
+    {
+      "pos": "PREPDET", 
+      "text": "del"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "palacio"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "gobierno"
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "y"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "sede"
+    }, 
+    {
+      "pos": "PREPDET", 
+      "text": "del"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Congreso"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Bolivia"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "mientras"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Presidenta"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Michelle"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Bachelet"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "salía"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "extensa"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "ceremonia"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Evo"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Morales"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "renovó"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "por"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "cinco"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "años"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "más"
+    }, 
+    {
+      "pos": "COMO", 
+      "text": "como"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Mandatario"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "ese"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "país"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Presidenta"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "ya"
+    }, 
+    {
+      "pos": "HAB", 
+      "text": "había"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "abordado"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "tema"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "marítimo"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "a"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "primera"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "hora"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "ayer"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "mientras"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "visitaba"
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "hospital"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "para"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "niños"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Ahí"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Bachelet"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "destacó"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "2006"
+    }, 
+    {
+      "pos": "HAB", 
+      "text": "había"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "acordado"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "con"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "Morales"
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "una"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "agenda"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "13"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "puntos"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "HAB", 
+      "text": "hemos"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "hecho"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "progresos"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "importantes"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "Y"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "todos"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "esperamos"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETPL", 
+      "text": "los"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "años"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "venideros"
+    }, 
+    {
+      "pos": "DETPL", 
+      "text": "nuestros"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "Estados"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "continúen"
+    }, 
+    {
+      "pos": "VERBPRPCL", 
+      "text": "profundizándola"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "agregó"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "Aludía"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "así"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "a"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "agenda"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "punto"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "sexto"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "contempla"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "tema"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "marítimo"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "pero"
+    }, 
+    {
+      "pos": "PRONREL", 
+      "text": "cuyos"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "detalles"
+    }, 
+    {
+      "pos": "AUX", 
+      "text": "son"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "poco"
+    }, 
+    {
+      "pos": "PAPPL", 
+      "text": "conocidos"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Por"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "lo"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "mismo"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONADV", 
+      "text": "cuando"
+    }, 
+    {
+      "pos": "AUX", 
+      "text": "fue"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "consultada"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sobre"
+    }, 
+    {
+      "pos": "PRONINT", 
+      "text": "qué"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "esperaría"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "hiciera"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sobre"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "este"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "punto"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "específico"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "sucesor"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Sebastián"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Piñera"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "ella"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "reforzó"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "mensaje"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "Lo"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "tiene"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "VERBINF", 
+      "text": "hacer"
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "cualquier"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "gobierno"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Chile"
+    }, 
+    {
+      "pos": "AUX", 
+      "text": "es"
+    }, 
+    {
+      "pos": "VERBINF", 
+      "text": "seguir"
+    }, 
+    {
+      "pos": "VERBPRP", 
+      "text": "profundizando"
+    }, 
+    {
+      "pos": "PREDETPL", 
+      "text": "todos"
+    }, 
+    {
+      "pos": "DETPL", 
+      "text": "los"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "puntos"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "trabajo"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "una"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "agenda"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "HAB", 
+      "text": "ha"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "sido"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "concordada"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "común"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "dijo"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Mandataria"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "postura"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "asumida"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "ayer"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "por"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Bachelet"
+    }, 
+    {
+      "pos": "SE", 
+      "text": "se"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "produjo"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "sólo"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "días"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "después"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Evo"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Morales"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "dejara"
+    }, 
+    {
+      "pos": "VERBINF", 
+      "text": "entrever"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "inquietud"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "por"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "actitud"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "tendrá"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Piñera"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "ante"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "aspiración"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "boliviana"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "una"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "salida"
+    }, 
+    {
+      "pos": "PREPDET", 
+      "text": "al"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "mar"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "En"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Paz"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "creen"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "nuevo"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "gobernante"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "chileno"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "restringirá"
+    }, 
+    {
+      "pos": "PREPDET", 
+      "text": "al"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "máximo"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "diálogo"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sobre"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "este"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "punto"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "Dicha"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "inquietud"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "tuvo"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "origen"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "debate"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "presidencial"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "hace"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "dos"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "semanas"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "entre"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Piñera"
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "y"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Eduardo"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "Frei"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONADV", 
+      "text": "cuando"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "actual"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Presidente"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "electo"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "dijo"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "ADVNEG", 
+      "text": "no"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "conversaría"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sobre"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "cesión"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "soberanía"
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "y"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "sólo"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "tenía"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "carpeta"
+    }, 
+    {
+      "pos": "VERBINF", 
+      "text": "mejorar"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "acceso"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "boliviano"
+    }, 
+    {
+      "pos": "PREPDET", 
+      "text": "al"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "Pacífico"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "frase"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "AUX", 
+      "text": "es"
+    }, 
+    {
+      "pos": "PAPSG", 
+      "text": "leída"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "diplomacia"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "boliviana"
+    }, 
+    {
+      "pos": "COMO", 
+      "text": "como"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "simples"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "facilidades"
+    }, 
+    {
+      "pos": "ADJPL", 
+      "text": "portuarias"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Morales"
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "respondió"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "el"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "martes"
+    }, 
+    {
+      "pos": "QUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DETQUANTSG", 
+      "text": "cualquier"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "compromiso"
+    }, 
+    {
+      "pos": "AUX", 
+      "text": "es"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Estado"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "a"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "Estado"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONJ", 
+      "text": "y"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "su"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "canciller"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "David"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "Choquehuanca"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERBFIN", 
+      "text": "pidió"
+    }, 
+    {
+      "pos": "VERBINF", 
+      "text": "mantener"
+    }, 
+    {
+      "pos": "DETSG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "agenda"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "bilateral"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "http"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "diario.elmercurio.com"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "2010"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "01"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "23"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "ADJSG", 
+      "text": "nacional"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NOUNSG", 
+      "text": "politica"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NOUNPL", 
+      "text": "noticias"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "47D6CA26"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "B011"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "40B5"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "AEAB"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "D0E6A5F52E59"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "htm"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "?"
+    }, 
+    {
+      "pos": "VERBIMP", 
+      "text": "id"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "="
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "{"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "47D6CA26"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "B011"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "40B5"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "AEAB"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PROP", 
+      "text": "D0E6A5F52E59"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "}"
+    }, 
+    {
+      "pos": "DIG", 
+      "text": "2010.01.23"
+    }
+  ], 
+  "requestId": "adcc0f54-1882-44af-ae25-2de733ee5ca0", 
+  "timers": {
+    "rblJe": 76, 
+    "rliJe": 3
+  }
+}

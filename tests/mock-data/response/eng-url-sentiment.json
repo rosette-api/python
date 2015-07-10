@@ -1,0 +1,20 @@
+{
+  "requestId": "8e277ba2-00e9-46ec-bd30-04d885b1882d", 
+  "sentiment": [
+    {
+      "confidence": 0.9156604769654398, 
+      "label": "pos"
+    }, 
+    {
+      "confidence": 0.08433952303456017, 
+      "label": "neg"
+    }
+  ], 
+  "timers": {
+    "rblJe": 3, 
+    "rliJe": 5, 
+    "sent": 133, 
+    "textExtractor": 14, 
+    "urlContentDownloader": 105
+  }
+}

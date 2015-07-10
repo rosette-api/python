@@ -1,0 +1,74 @@
+{
+  "entities": [
+    {
+      "confidence": 0.005682140588760376, 
+      "count": 2, 
+      "indocChainId": 2, 
+      "mention": "Afghanistan", 
+      "normalized": "Afghanistan", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.005184590816497803, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "Richard Holbrooke", 
+      "normalized": "Richard Holbrooke", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.006463110446929932, 
+      "count": 1, 
+      "indocChainId": 1, 
+      "mention": "Obama", 
+      "normalized": "Obama", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.007083892822265625, 
+      "count": 1, 
+      "indocChainId": 4, 
+      "mention": "Inde", 
+      "normalized": "Inde", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00651097297668457, 
+      "count": 1, 
+      "indocChainId": 5, 
+      "mention": "Russie", 
+      "normalized": "Russie", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.006072402000427246, 
+      "count": 1, 
+      "indocChainId": 6, 
+      "mention": "Turquie", 
+      "normalized": "Turquie", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.005214691162109375, 
+      "count": 1, 
+      "indocChainId": 7, 
+      "mention": "Arabie saoudite", 
+      "normalized": "Arabie saoudite", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00521475076675415, 
+      "count": 1, 
+      "indocChainId": 8, 
+      "mention": "Emirats arabes unis", 
+      "normalized": "Emirats arabes unis", 
+      "type": "LOCATION"
+    }
+  ], 
+  "requestId": "a153dfb0-d82c-40f3-82d8-f6da36b7901a", 
+  "timers": {
+    "rblJe": 1, 
+    "rexJe": 9, 
+    "rliJe": 4
+  }
+}

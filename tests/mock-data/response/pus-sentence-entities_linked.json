@@ -1,0 +1,17 @@
+{
+  "entities": [
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 1, 
+      "mention": "کوټې"
+    }
+  ], 
+  "requestId": "e512c2b4-eabe-46dd-bf4c-3d758542e32a", 
+  "timers": {
+    "rblJe": 1, 
+    "res": 27, 
+    "rexJe": 4, 
+    "rliJe": 2
+  }
+}

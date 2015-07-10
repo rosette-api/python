@@ -1,0 +1,298 @@
+{
+  "entities": [
+    {
+      "confidence": 0.005091860890388489, 
+      "count": 4, 
+      "indocChainId": 11, 
+      "mention": "イギリス", 
+      "normalized": "イギリス", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 3, 
+      "indocChainId": 29, 
+      "mention": "下院", 
+      "normalized": "下院", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 3, 
+      "indocChainId": 37, 
+      "mention": "上院", 
+      "normalized": "上院", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.007921993732452393, 
+      "count": 2, 
+      "indocChainId": 2, 
+      "mention": "アイルランド", 
+      "normalized": "アイルランド", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.029875636100769043, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "ジョセフ・P・ケネディ", 
+      "normalized": "ジョセフ・P・ケネディ", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.009616047143936157, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "ジョセフ", 
+      "normalized": "ジョセフ", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.005369991064071655, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "ケネディ", 
+      "normalized": "ケネディ", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.007853776216506958, 
+      "count": 2, 
+      "indocChainId": 5, 
+      "mention": "ボストン", 
+      "normalized": "ボストン", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.007853776216506958, 
+      "count": 2, 
+      "indocChainId": 6, 
+      "mention": "市長", 
+      "normalized": "市長", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 14, 
+      "mention": "ハーバード大学", 
+      "normalized": "ハーバード大学", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 32, 
+      "mention": "共和党", 
+      "normalized": "共和党", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.015272259712219238, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "マサチューセッツ州", 
+      "normalized": "マサチューセッツ州", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00015401840209960938, 
+      "count": 1, 
+      "indocChainId": 1, 
+      "mention": "ブルックライン", 
+      "normalized": "ブルックライン", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0026397705078125, 
+      "count": 1, 
+      "indocChainId": 4, 
+      "mention": "シニア", 
+      "normalized": "シニア", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.019479751586914062, 
+      "count": 1, 
+      "indocChainId": 7, 
+      "mention": "ジョン・F・フィッツジェラルド", 
+      "normalized": "ジョン・F・フィッツジェラルド", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.005173742771148682, 
+      "count": 1, 
+      "indocChainId": 8, 
+      "mention": "チョート・スクール", 
+      "normalized": "チョート・スクール", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.01989346742630005, 
+      "count": 1, 
+      "indocChainId": 9, 
+      "mention": "コネチカット州", 
+      "normalized": "コネチカット州", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.027547240257263184, 
+      "count": 1, 
+      "indocChainId": 10, 
+      "mention": "ウォリングフォード", 
+      "normalized": "ウォリングフォード", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0014181733131408691, 
+      "count": 1, 
+      "indocChainId": 12, 
+      "mention": "ロンドン", 
+      "normalized": "ロンドン", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0014181733131408691, 
+      "count": 1, 
+      "indocChainId": 13, 
+      "mention": "オブ・エコノミクス", 
+      "normalized": "オブ・エコノミクス", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 15, 
+      "mention": "プリンストン大学", 
+      "normalized": "プリンストン大学", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.012808084487915039, 
+      "count": 1, 
+      "indocChainId": 17, 
+      "mention": "ヨーロッパ", 
+      "normalized": "ヨーロッパ", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.012429237365722656, 
+      "count": 1, 
+      "indocChainId": 18, 
+      "mention": "大使", 
+      "normalized": "大使", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.010786056518554688, 
+      "count": 1, 
+      "indocChainId": 20, 
+      "mention": "ミュンヘン", 
+      "normalized": "ミュンヘン", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 23, 
+      "mention": "ハーバード", 
+      "normalized": "ハーバード", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0019164681434631348, 
+      "count": 1, 
+      "indocChainId": 25, 
+      "mention": "ジェームズ・M・カーレイ", 
+      "normalized": "ジェームズ・M・カーレイ", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 28, 
+      "mention": "民主党", 
+      "normalized": "民主党", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.04107320308685303, 
+      "count": 1, 
+      "indocChainId": 36, 
+      "mention": "ジョセフ・マッカーシー", 
+      "normalized": "ジョセフ・マッカーシー", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0024489164352416992, 
+      "count": 1, 
+      "indocChainId": 38, 
+      "mention": "赤狩り", 
+      "normalized": "赤狩り", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.01878488063812256, 
+      "count": 1, 
+      "indocChainId": 39, 
+      "mention": "エレノア・ルーズヴェルト", 
+      "normalized": "エレノア・ルーズヴェルト", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.010483860969543457, 
+      "count": 1, 
+      "indocChainId": 44, 
+      "mention": "ヘンリー・カボット・ロッジ", 
+      "normalized": "ヘンリー・カボット・ロッジ", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.03342700004577637, 
+      "count": 1, 
+      "indocChainId": 45, 
+      "mention": "都市", 
+      "normalized": "都市", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.021946430206298828, 
+      "count": 1, 
+      "indocChainId": 46, 
+      "mention": "フランス", 
+      "normalized": "フランス", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.009429752826690674, 
+      "count": 1, 
+      "indocChainId": 47, 
+      "mention": "ジャクリーン・リー・ブーヴィエ", 
+      "normalized": "ジャクリーン・リー・ブーヴィエ", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 49, 
+      "mention": "黒人", 
+      "normalized": "黒人", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 50, 
+      "mention": "http://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%BBF%E3%83%BB%E3%82%B1%E3%83%8D%E3%83%87%E3%82%A3", 
+      "normalized": "http://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%BBF%E3%83%BB%E3%82%B1%E3%83%8D%E3%83%87%E3%82%A3", 
+      "type": "IDENTIFIER:URL"
+    }
+  ], 
+  "requestId": "d32a9669-1a57-40ee-8f8d-893d2c9ac20f", 
+  "timers": {
+    "rblJe": 27, 
+    "rexJe": 67, 
+    "rliJe": 3
+  }
+}

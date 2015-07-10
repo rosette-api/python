@@ -1,0 +1,82 @@
+{
+  "entities": [
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 1, 
+      "mention": "衆議院", 
+      "normalized": "衆議院", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 2, 
+      "mention": "自民党", 
+      "normalized": "自民党", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.1920928955078125e-06, 
+      "count": 2, 
+      "indocChainId": 4, 
+      "mention": "鳩山家", 
+      "normalized": "鳩山家", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0009242594242095947, 
+      "count": 2, 
+      "indocChainId": 6, 
+      "mention": "鳩山", 
+      "normalized": "鳩山", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.002387821674346924, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "中川一郎", 
+      "normalized": "中川一郎", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.00404590368270874, 
+      "count": 1, 
+      "indocChainId": 3, 
+      "mention": "田中", 
+      "normalized": "田中", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0023449063301086426, 
+      "count": 1, 
+      "indocChainId": 5, 
+      "mention": "北海道", 
+      "normalized": "北海道", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.002293109893798828, 
+      "count": 1, 
+      "indocChainId": 7, 
+      "mention": "三枝三郎", 
+      "normalized": "三枝三郎", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0010268688201904297, 
+      "count": 1, 
+      "indocChainId": 10, 
+      "mention": "高橋辰夫", 
+      "normalized": "高橋辰夫", 
+      "type": "PERSON"
+    }
+  ], 
+  "requestId": "361f92b3-b229-4750-911e-6a30b9edff77", 
+  "timers": {
+    "rblJe": 8, 
+    "rexJe": 15, 
+    "rliJe": 5
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "entities": [
+    {
+      "confidence": 0.6891193173120407, 
+      "entityId": "Q889", 
+      "indocChainId": 0, 
+      "mention": "افغانستان"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 3, 
+      "mention": "حامد كرزي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 6, 
+      "mention": "زلمي رسول"
+    }, 
+    {
+      "confidence": 0.04106755494589285, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 14, 
+      "mention": "كريم خليلي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 15, 
+      "mention": "پارلمان"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 23, 
+      "mention": "زلمی رسول"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 26, 
+      "mention": "حبيب الله غالب غالب"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 27, 
+      "mention": "شرعياتو"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 28, 
+      "mention": "عبدرب رسول سياف"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 30, 
+      "mention": "محمد هاشم عصمت الهي"
+    }, 
+    {
+      "confidence": 0.19077566505957252, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 31, 
+      "mention": "اصف محسني"
+    }, 
+    {
+      "confidence": 0.546001935291275, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 34, 
+      "mention": "محمد يوسف نيازی"
+    }, 
+    {
+      "confidence": 0.2984344326272448, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 38, 
+      "mention": "محمد بشير لعلي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 41, 
+      "mention": "ثريا"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 42, 
+      "mention": "کينيا"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 44, 
+      "mention": "يونيسف"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 46, 
+      "mention": "عبدالهادي ارغنديوال"
+    }, 
+    {
+      "confidence": 0.6088921292450847, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 50, 
+      "mention": "محمد هادي حکيمي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 54, 
+      "mention": "جارالله"
+    }, 
+    {
+      "confidence": 0.35966351039847877, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 56, 
+      "mention": "امنه افضلي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 60, 
+      "mention": "عبدالرحيم اوراز"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 64, 
+      "mention": "بهرنيو چارو وزارت"
+    }, 
+    {
+      "confidence": 0.054531806939826635, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 66, 
+      "mention": "پلوشه حسن"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 72, 
+      "mention": "سرحدونو"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 74, 
+      "mention": "ارسلا جمال"
+    }, 
+    {
+      "confidence": 0.3728095979250402, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 77, 
+      "mention": "خوست"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 79, 
+      "mention": "ضرار احمد مقبل"
+    }, 
+    {
+      "confidence": 0.5933805019138657, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 82, 
+      "mention": "کرزي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 86, 
+      "mention": "سلطان حسين حصاري"
+    }
+  ], 
+  "requestId": "3b69c759-74c9-49eb-a7f3-cbff8f7b865c", 
+  "timers": {
+    "rblJe": 2, 
+    "res": 909, 
+    "rexJe": 27, 
+    "rliJe": 4
+  }
+}

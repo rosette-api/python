@@ -1,0 +1,1914 @@
+{
+  "compounds": [
+    {
+      "compoundComponents": [
+        "Heimat", 
+        "Land"
+      ], 
+      "text": "Heimatländern"
+    }, 
+    {
+      "compoundComponents": [
+        "Flüchtling", 
+        "Strom"
+      ], 
+      "text": "Flüchtlingsstrom"
+    }, 
+    {
+      "compoundComponents": [
+        "Gemeinschaft", 
+        "Problem"
+      ], 
+      "text": "Gemeinschaftsproblem"
+    }, 
+    {
+      "compoundComponents": [
+        "eignen", 
+        "Verantwortung"
+      ], 
+      "text": "Eigenverantwortung"
+    }, 
+    {
+      "compoundComponents": [
+        "Migration", 
+        "Forscher"
+      ], 
+      "text": "Migrationsforscher"
+    }, 
+    {
+      "compoundComponents": [
+        "textil", 
+        "Sammlung"
+      ], 
+      "text": "Textilsammlungen"
+    }, 
+    {
+      "compoundComponents": [
+        "textil", 
+        "Industrie"
+      ], 
+      "text": "Textilindustrie"
+    }, 
+    {
+      "compoundComponents": [
+        "Fisch", 
+        "Fabrik"
+      ], 
+      "text": "Fischfabriken"
+    }, 
+    {
+      "compoundComponents": [
+        "Küste", 
+        "Fischerei"
+      ], 
+      "text": "Küstenfischerei"
+    }, 
+    {
+      "compoundComponents": [
+        "Außen", 
+        "Grenze"
+      ], 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "compoundComponents": [
+        "Außen", 
+        "Grenze"
+      ], 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "compoundComponents": [
+        "Bürger", 
+        "nah"
+      ], 
+      "text": "bürgernäher"
+    }
+  ], 
+  "hanReadings": [], 
+  "lemmas": [
+    {
+      "lemma": "3.11.06", 
+      "text": "3.11.06"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "not", 
+      "text": "Not"
+    }, 
+    {
+      "lemma": "und", 
+      "text": "und"
+    }, 
+    {
+      "lemma": "Elend", 
+      "text": "Elend"
+    }, 
+    {
+      "lemma": "in", 
+      "text": "in"
+    }, 
+    {
+      "lemma": "ihr", 
+      "text": "ihren"
+    }, 
+    {
+      "lemma": "Heimatland", 
+      "text": "Heimatländern"
+    }, 
+    {
+      "lemma": "lassen", 
+      "text": "lassen"
+    }, 
+    {
+      "lemma": "immer", 
+      "text": "immer"
+    }, 
+    {
+      "lemma": "mehr", 
+      "text": "mehr"
+    }, 
+    {
+      "lemma": "Afrikaner", 
+      "text": "Afrikaner"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "Reise", 
+      "text": "Reise"
+    }, 
+    {
+      "lemma": "nach", 
+      "text": "nach"
+    }, 
+    {
+      "lemma": "Europa", 
+      "text": "Europa"
+    }, 
+    {
+      "lemma": "antreten", 
+      "text": "antreten"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "insbesondere", 
+      "text": "Insbesondere"
+    }, 
+    {
+      "lemma": "Spanien", 
+      "text": "Spanien"
+    }, 
+    {
+      "lemma": "sein", 
+      "text": "ist"
+    }, 
+    {
+      "lemma": "betreffen", 
+      "text": "betroffen"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "allein", 
+      "text": "allein"
+    }, 
+    {
+      "lemma": "24.000", 
+      "text": "24.000"
+    }, 
+    {
+      "lemma": "Flüchtling", 
+      "text": "Flüchtlinge"
+    }, 
+    {
+      "lemma": "sein", 
+      "text": "sind"
+    }, 
+    {
+      "lemma": "in", 
+      "text": "in"
+    }, 
+    {
+      "lemma": "dies", 
+      "text": "diesem"
+    }, 
+    {
+      "lemma": "Jahr", 
+      "text": "Jahr"
+    }, 
+    {
+      "lemma": "in", 
+      "text": "in"
+    }, 
+    {
+      "lemma": "Teneriffa", 
+      "text": "Teneriffa"
+    }, 
+    {
+      "lemma": "ankommen", 
+      "text": "angekommen"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "nun", 
+      "text": "Nun"
+    }, 
+    {
+      "lemma": "beraten", 
+      "text": "berät"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "europäisch", 
+      "text": "Europäische"
+    }, 
+    {
+      "lemma": "Union", 
+      "text": "Union"
+    }, 
+    {
+      "lemma": "über", 
+      "text": "über"
+    }, 
+    {
+      "lemma": "Maßnahme", 
+      "text": "Maßnahmen"
+    }, 
+    {
+      "lemma": "gegen", 
+      "text": "gegen"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "den"
+    }, 
+    {
+      "lemma": "Flüchtlingsstrom", 
+      "text": "Flüchtlingsstrom"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "nicht", 
+      "text": "Nicht"
+    }, 
+    {
+      "lemma": "alle", 
+      "text": "alle"
+    }, 
+    {
+      "lemma": "Länder", 
+      "text": "Länder"
+    }, 
+    {
+      "lemma": "sehen", 
+      "text": "sehen"
+    }, 
+    {
+      "lemma": "darin", 
+      "text": "darin"
+    }, 
+    {
+      "lemma": "ein", 
+      "text": "ein"
+    }, 
+    {
+      "lemma": "Gemeinschaftsproblem", 
+      "text": "Gemeinschaftsproblem"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "der"
+    }, 
+    {
+      "lemma": "deutsch", 
+      "text": "deutsche"
+    }, 
+    {
+      "lemma": "Innenminister", 
+      "text": "Innenminister"
+    }, 
+    {
+      "lemma": "Schäuble", 
+      "text": "Schäuble"
+    }, 
+    {
+      "lemma": "appellieren", 
+      "text": "appelliert"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "an"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "Eigenverantwortung", 
+      "text": "Eigenverantwortung"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "der"
+    }, 
+    {
+      "lemma": "Länder", 
+      "text": "Länder"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "die", 
+      "text": "Die"
+    }, 
+    {
+      "lemma": "Flüchtling", 
+      "text": "Flüchtlinge"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "auf", 
+      "text": "auf"
+    }, 
+    {
+      "lemma": "Teneriffa", 
+      "text": "Teneriffa"
+    }, 
+    {
+      "lemma": "in der", 
+      "text": "im"
+    }, 
+    {
+      "lemma": "Lager", 
+      "text": "Lager"
+    }, 
+    {
+      "lemma": "ausharren", 
+      "text": "ausharren"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "kommen", 
+      "text": "kommen"
+    }, 
+    {
+      "lemma": "aus", 
+      "text": "aus"
+    }, 
+    {
+      "lemma": "Land", 
+      "text": "Ländern"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "in", 
+      "text": "in"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "denen"
+    }, 
+    {
+      "lemma": "sie", 
+      "text": "sie"
+    }, 
+    {
+      "lemma": "kaum", 
+      "text": "kaum"
+    }, 
+    {
+      "lemma": "existieren", 
+      "text": "existieren"
+    }, 
+    {
+      "lemma": "können", 
+      "text": "können"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "auch", 
+      "text": "auch"
+    }, 
+    {
+      "lemma": "wegen", 
+      "text": "wegen"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "der"
+    }, 
+    {
+      "lemma": "Konkurrenz", 
+      "text": "Konkurrenz"
+    }, 
+    {
+      "lemma": "aus", 
+      "text": "aus"
+    }, 
+    {
+      "lemma": "Europa", 
+      "text": "Europa"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "wie", 
+      "text": "wie"
+    }, 
+    {
+      "lemma": "Professor", 
+      "text": "Professor"
+    }, 
+    {
+      "lemma": "Klaus", 
+      "text": "Klaus"
+    }, 
+    {
+      "lemma": "J.", 
+      "text": "J."
+    }, 
+    {
+      "lemma": "Bad", 
+      "text": "Bade"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Migrationsforscher", 
+      "text": "Migrationsforscher"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "an"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "der"
+    }, 
+    {
+      "lemma": "Universität", 
+      "text": "Universität"
+    }, 
+    {
+      "lemma": "Osnabrück", 
+      "text": "Osnabrück"
+    }, 
+    {
+      "lemma": "wissen", 
+      "text": "weiß"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "unser", 
+      "text": "Unsere"
+    }, 
+    {
+      "lemma": "Textilsammlung", 
+      "text": "Textilsammlungen"
+    }, 
+    {
+      "lemma": "landen", 
+      "text": "landen"
+    }, 
+    {
+      "lemma": "auf", 
+      "text": "auf"
+    }, 
+    {
+      "lemma": "kommerziell", 
+      "text": "kommerziellen"
+    }, 
+    {
+      "lemma": "Markt", 
+      "text": "Märkten"
+    }, 
+    {
+      "lemma": "und", 
+      "text": "und"
+    }, 
+    {
+      "lemma": "ruinieren", 
+      "text": "ruinieren"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "Textilindustrie", 
+      "text": "Textilindustrie"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "und", 
+      "text": "Und"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "schwimmen", 
+      "text": "schwimmenden"
+    }, 
+    {
+      "lemma": "Fischfabrik", 
+      "text": "Fischfabriken"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "Fisch", 
+      "text": "Fisch"
+    }, 
+    {
+      "lemma": "unten", 
+      "text": "unten"
+    }, 
+    {
+      "lemma": "rein", 
+      "text": "rein"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Dose", 
+      "text": "Dose"
+    }, 
+    {
+      "lemma": "oben", 
+      "text": "oben"
+    }, 
+    {
+      "lemma": "raus", 
+      "text": "raus"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "vor", 
+      "text": "vor"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "den"
+    }, 
+    {
+      "lemma": "afrikanisch", 
+      "text": "afrikanischen"
+    }, 
+    {
+      "lemma": "Küste", 
+      "text": "Küsten"
+    }, 
+    {
+      "lemma": "ruinieren", 
+      "text": "ruinieren"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "Küstenfischerei", 
+      "text": "Küstenfischerei"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "Ergebnis", 
+      "text": "Ergebnis"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "in", 
+      "text": "In"
+    }, 
+    {
+      "lemma": "Somalia", 
+      "text": "Somalia"
+    }, 
+    {
+      "lemma": "transportieren", 
+      "text": "transportieren"
+    }, 
+    {
+      "lemma": "inzwischen", 
+      "text": "inzwischen"
+    }, 
+    {
+      "lemma": "ruinieren", 
+      "text": "ruinierte"
+    }, 
+    {
+      "lemma": "Fischer", 
+      "text": "Fischer"
+    }, 
+    {
+      "lemma": "mit", 
+      "text": "mit"
+    }, 
+    {
+      "lemma": "ihr", 
+      "text": "ihren"
+    }, 
+    {
+      "lemma": "Boot", 
+      "text": "Booten"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "illegal", 
+      "text": "Illegalen"
+    }, 
+    {
+      "lemma": "in", 
+      "text": "in"
+    }, 
+    {
+      "lemma": "Richtung", 
+      "text": "Richtung"
+    }, 
+    {
+      "lemma": "Europa", 
+      "text": "Europa"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "doch", 
+      "text": "Doch"
+    }, 
+    {
+      "lemma": "sich", 
+      "text": "sich"
+    }, 
+    {
+      "lemma": "vor", 
+      "text": "vor"
+    }, 
+    {
+      "lemma": "illegal", 
+      "text": "Illegalen"
+    }, 
+    {
+      "lemma": "zu", 
+      "text": "zu"
+    }, 
+    {
+      "lemma": "schützen", 
+      "text": "schützen"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "damit", 
+      "text": "damit"
+    }, 
+    {
+      "lemma": "müssen", 
+      "text": "müsse"
+    }, 
+    {
+      "lemma": "jede", 
+      "text": "jedes"
+    }, 
+    {
+      "lemma": "Land", 
+      "text": "Land"
+    }, 
+    {
+      "lemma": "selbst", 
+      "text": "selbst"
+    }, 
+    {
+      "lemma": "fertig", 
+      "text": "fertig"
+    }, 
+    {
+      "lemma": "werden", 
+      "text": "werden"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "wie", 
+      "text": "wie"
+    }, 
+    {
+      "lemma": "Wolfgang", 
+      "text": "Wolfgang"
+    }, 
+    {
+      "lemma": "Schäuble", 
+      "text": "Schäuble"
+    }, 
+    {
+      "lemma": "(", 
+      "text": "("
+    }, 
+    {
+      "lemma": "CDU", 
+      "text": "CDU"
+    }, 
+    {
+      "lemma": ")", 
+      "text": ")"
+    }, 
+    {
+      "lemma": "betonen", 
+      "text": "betont"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "in", 
+      "text": "In"
+    }, 
+    {
+      "lemma": "Brüssel", 
+      "text": "Brüssel"
+    }, 
+    {
+      "lemma": "sein", 
+      "text": "ist"
+    }, 
+    {
+      "lemma": "der", 
+      "text": "der"
+    }, 
+    {
+      "lemma": "Ruf", 
+      "text": "Ruf"
+    }, 
+    {
+      "lemma": "immer", 
+      "text": "immer"
+    }, 
+    {
+      "lemma": "wohlfeil", 
+      "text": "wohlfeil"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "es", 
+      "text": "Es"
+    }, 
+    {
+      "lemma": "müssen", 
+      "text": "muss"
+    }, 
+    {
+      "lemma": "alles", 
+      "text": "alles"
+    }, 
+    {
+      "lemma": "europäisch", 
+      "text": "europäisch"
+    }, 
+    {
+      "lemma": "machen", 
+      "text": "gemacht"
+    }, 
+    {
+      "lemma": "werden", 
+      "text": "werden"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "jede", 
+      "text": "Jedes"
+    }, 
+    {
+      "lemma": "Land", 
+      "text": "Land"
+    }, 
+    {
+      "lemma": "mit", 
+      "text": "mit"
+    }, 
+    {
+      "lemma": "Außengrenze", 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "lemma": "müssen", 
+      "text": "muss"
+    }, 
+    {
+      "lemma": "sein", 
+      "text": "seine"
+    }, 
+    {
+      "lemma": "Außengrenze", 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "lemma": "schon", 
+      "text": "schon"
+    }, 
+    {
+      "lemma": "selber", 
+      "text": "selber"
+    }, 
+    {
+      "lemma": "kontrollieren", 
+      "text": "kontrollieren"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "wenn", 
+      "text": "Wenn"
+    }, 
+    {
+      "lemma": "wir", 
+      "text": "wir"
+    }, 
+    {
+      "lemma": "die", 
+      "text": "die"
+    }, 
+    {
+      "lemma": "Verantwortung", 
+      "text": "Verantwortung"
+    }, 
+    {
+      "lemma": "nach", 
+      "text": "nach"
+    }, 
+    {
+      "lemma": "Europa", 
+      "text": "Europa"
+    }, 
+    {
+      "lemma": "schieben", 
+      "text": "schieben"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "werden", 
+      "text": "wird"
+    }, 
+    {
+      "lemma": "es", 
+      "text": "es"
+    }, 
+    {
+      "lemma": "weder", 
+      "text": "weder"
+    }, 
+    {
+      "lemma": "Bürgernah", 
+      "text": "bürgernäher"
+    }, 
+    {
+      "lemma": "noch", 
+      "text": "noch"
+    }, 
+    {
+      "lemma": "effizient", 
+      "text": "effizienter"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "sondern", 
+      "text": "sondern"
+    }, 
+    {
+      "lemma": "ganz", 
+      "text": "ganz"
+    }, 
+    {
+      "lemma": "in der", 
+      "text": "im"
+    }, 
+    {
+      "lemma": "Gegenteil", 
+      "text": "Gegenteil"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }
+  ], 
+  "posTags": [
+    {
+      "pos": "CARD", 
+      "text": "3.11.06"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Not"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "und"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Elend"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "in"
+    }, 
+    {
+      "pos": "POSDET", 
+      "text": "ihren"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Heimatländern"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "lassen"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "immer"
+    }, 
+    {
+      "pos": "INDADJ", 
+      "text": "mehr"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Afrikaner"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Reise"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "nach"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Europa"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "antreten"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Insbesondere"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Spanien"
+    }, 
+    {
+      "pos": "VAFIN", 
+      "text": "ist"
+    }, 
+    {
+      "pos": "VVPP", 
+      "text": "betroffen"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "allein"
+    }, 
+    {
+      "pos": "CARD", 
+      "text": "24.000"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Flüchtlinge"
+    }, 
+    {
+      "pos": "VAFIN", 
+      "text": "sind"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "in"
+    }, 
+    {
+      "pos": "DEMDET", 
+      "text": "diesem"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Jahr"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "in"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Teneriffa"
+    }, 
+    {
+      "pos": "VVPP", 
+      "text": "angekommen"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Nun"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "berät"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "Europäische"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Union"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "über"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Maßnahmen"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "gegen"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "den"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Flüchtlingsstrom"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PTKNEG", 
+      "text": "Nicht"
+    }, 
+    {
+      "pos": "INDDET", 
+      "text": "alle"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Länder"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "sehen"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "darin"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "ein"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Gemeinschaftsproblem"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "der"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "deutsche"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Innenminister"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Schäuble"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "appelliert"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "an"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Eigenverantwortung"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "der"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Länder"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ART", 
+      "text": "Die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Flüchtlinge"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "die"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "auf"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Teneriffa"
+    }, 
+    {
+      "pos": "PREPART", 
+      "text": "im"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Lager"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "ausharren"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "kommen"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "aus"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Ländern"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "in"
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "denen"
+    }, 
+    {
+      "pos": "PERSPRO", 
+      "text": "sie"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "kaum"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "existieren"
+    }, 
+    {
+      "pos": "VMFIN", 
+      "text": "können"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "auch"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "wegen"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "der"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Konkurrenz"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "aus"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Europa"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "COWIE", 
+      "text": "wie"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Professor"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Klaus"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "J."
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Bade"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Migrationsforscher"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "an"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "der"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Universität"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Osnabrück"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "weiß"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "POSDET", 
+      "text": "Unsere"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Textilsammlungen"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "landen"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "auf"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "kommerziellen"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Märkten"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "und"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "ruinieren"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Textilindustrie"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "Und"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "schwimmenden"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Fischfabriken"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Fisch"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "unten"
+    }, 
+    {
+      "pos": "ADJD", 
+      "text": "rein"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Dose"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "oben"
+    }, 
+    {
+      "pos": "VPREF", 
+      "text": "raus"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "vor"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "den"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "afrikanischen"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Küsten"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "ruinieren"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Küstenfischerei"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Ergebnis"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "In"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Somalia"
+    }, 
+    {
+      "pos": "VVFIN", 
+      "text": "transportieren"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "inzwischen"
+    }, 
+    {
+      "pos": "ADJA", 
+      "text": "ruinierte"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Fischer"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "mit"
+    }, 
+    {
+      "pos": "POSDET", 
+      "text": "ihren"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Booten"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Illegalen"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "in"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Richtung"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Europa"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "COADV", 
+      "text": "Doch"
+    }, 
+    {
+      "pos": "REFLPRO", 
+      "text": "sich"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "vor"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Illegalen"
+    }, 
+    {
+      "pos": "PTKINF", 
+      "text": "zu"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "schützen"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "damit"
+    }, 
+    {
+      "pos": "VMFIN", 
+      "text": "müsse"
+    }, 
+    {
+      "pos": "INDDET", 
+      "text": "jedes"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Land"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "selbst"
+    }, 
+    {
+      "pos": "ADJD", 
+      "text": "fertig"
+    }, 
+    {
+      "pos": "VAINF", 
+      "text": "werden"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "COWIE", 
+      "text": "wie"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Wolfgang"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Schäuble"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "("
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "CDU"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ")"
+    }, 
+    {
+      "pos": "VVPP", 
+      "text": "betont"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "In"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Brüssel"
+    }, 
+    {
+      "pos": "VAFIN", 
+      "text": "ist"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "der"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Ruf"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "immer"
+    }, 
+    {
+      "pos": "ADJD", 
+      "text": "wohlfeil"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PERSPRO", 
+      "text": "Es"
+    }, 
+    {
+      "pos": "VMFIN", 
+      "text": "muss"
+    }, 
+    {
+      "pos": "INDPRO", 
+      "text": "alles"
+    }, 
+    {
+      "pos": "ADJD", 
+      "text": "europäisch"
+    }, 
+    {
+      "pos": "VVPP", 
+      "text": "gemacht"
+    }, 
+    {
+      "pos": "VAINF", 
+      "text": "werden"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "INDDET", 
+      "text": "Jedes"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Land"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "mit"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "pos": "VMFIN", 
+      "text": "muss"
+    }, 
+    {
+      "pos": "POSDET", 
+      "text": "seine"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Außengrenzen"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "schon"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "selber"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "kontrollieren"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "COSUB", 
+      "text": "Wenn"
+    }, 
+    {
+      "pos": "PERSPRO", 
+      "text": "wir"
+    }, 
+    {
+      "pos": "ART", 
+      "text": "die"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Verantwortung"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "nach"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Europa"
+    }, 
+    {
+      "pos": "VVINF", 
+      "text": "schieben"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VAFIN", 
+      "text": "wird"
+    }, 
+    {
+      "pos": "PERSPRO", 
+      "text": "es"
+    }, 
+    {
+      "pos": "COP1", 
+      "text": "weder"
+    }, 
+    {
+      "pos": "ADJD2", 
+      "text": "bürgernäher"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "noch"
+    }, 
+    {
+      "pos": "ADJD2", 
+      "text": "effizienter"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "sondern"
+    }, 
+    {
+      "pos": "ADJD", 
+      "text": "ganz"
+    }, 
+    {
+      "pos": "PREPART", 
+      "text": "im"
+    }, 
+    {
+      "pos": "NOUN", 
+      "text": "Gegenteil"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }
+  ], 
+  "requestId": "4e114334-6092-497f-9c00-93cacd700ebf", 
+  "timers": {
+    "rblJe": 133, 
+    "rliJe": 4
+  }
+}
