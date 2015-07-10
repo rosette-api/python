@@ -1,0 +1,356 @@
+{
+  "entities": [
+    {
+      "confidence": 1.0, 
+      "count": 18, 
+      "indocChainId": 4, 
+      "mention": "Nike", 
+      "normalized": "Nike", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.026053469628095627, 
+      "count": 16, 
+      "indocChainId": 6, 
+      "mention": "Obama", 
+      "normalized": "Obama", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0356166809797287, 
+      "count": 8, 
+      "indocChainId": 5, 
+      "mention": "President", 
+      "normalized": "President", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 4, 
+      "indocChainId": 23, 
+      "mention": "USA", 
+      "normalized": "USA", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 4, 
+      "indocChainId": 35, 
+      "mention": "American", 
+      "normalized": "American", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 3, 
+      "indocChainId": 9, 
+      "mention": "Facebook", 
+      "normalized": "Facebook", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 3, 
+      "indocChainId": 43, 
+      "mention": "Vietnam", 
+      "normalized": "Vietnam", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 1, 
+      "mention": "Twitter", 
+      "normalized": "Twitter", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 17, 
+      "mention": "http://usat.ly/1bDiUq2", 
+      "normalized": "http://usat.ly/1bDiUq2", 
+      "type": "IDENTIFIER:URL"
+    }, 
+    {
+      "confidence": 0.016632944345474243, 
+      "count": 2, 
+      "indocChainId": 31, 
+      "mention": "AP", 
+      "normalized": "AP", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.01539921760559082, 
+      "count": 2, 
+      "indocChainId": 34, 
+      "mention": "Pacific", 
+      "normalized": "Pacific", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 54, 
+      "mention": "U.S.", 
+      "normalized": "U.S.", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.020548731088638306, 
+      "count": 2, 
+      "indocChainId": 56, 
+      "mention": "Congress", 
+      "normalized": "Congress", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03334552049636841, 
+      "count": 2, 
+      "indocChainId": 73, 
+      "mention": "Democratic", 
+      "normalized": "Democratic", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.022478938102722168, 
+      "count": 2, 
+      "indocChainId": 74, 
+      "mention": "White House", 
+      "normalized": "White House", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0002225041389465332, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "City, State", 
+      "normalized": "City, State", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 2, 
+      "mention": "Google", 
+      "normalized": "Google", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 3, 
+      "mention": "LinkedIn", 
+      "normalized": "LinkedIn", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 16, 
+      "mention": "USATODAY.com", 
+      "normalized": "USATODAY.com", 
+      "type": "IDENTIFIER:URL"
+    }, 
+    {
+      "confidence": 0.01601588726043701, 
+      "count": 1, 
+      "indocChainId": 22, 
+      "mention": "Gregory Korte", 
+      "normalized": "Gregory Korte", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 27, 
+      "mention": "Ore.", 
+      "normalized": "Ore.", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.023429572582244873, 
+      "count": 1, 
+      "indocChainId": 29, 
+      "mention": "Democrats", 
+      "normalized": "Democrats", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.009600162506103516, 
+      "count": 1, 
+      "indocChainId": 30, 
+      "mention": "Pablo Martinez Monsivais", 
+      "normalized": "Pablo Martinez Monsivais", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 39, 
+      "mention": "Vermont", 
+      "normalized": "Vermont", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.01797032356262207, 
+      "count": 1, 
+      "indocChainId": 40, 
+      "mention": "Sen.", 
+      "normalized": "Sen.", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.029442191123962402, 
+      "count": 1, 
+      "indocChainId": 41, 
+      "mention": "Bernie Sanders", 
+      "normalized": "Bernie Sanders", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 49, 
+      "mention": "Portland", 
+      "normalized": "Portland", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0008523464202880859, 
+      "count": 1, 
+      "indocChainId": 51, 
+      "mention": "Senate", 
+      "normalized": "Senate", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 54, 
+      "mention": "United States", 
+      "normalized": "United States", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.02184152603149414, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "Parker", 
+      "normalized": "Parker", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.027263343334197998, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "Mark Parker", 
+      "normalized": "Mark Parker", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.07037776708602905, 
+      "count": 1, 
+      "indocChainId": 65, 
+      "mention": "Eric Hauser", 
+      "normalized": "Eric Hauser", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.017060577869415283, 
+      "count": 1, 
+      "indocChainId": 66, 
+      "mention": "AFL-CIO", 
+      "normalized": "AFL-CIO", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.021783530712127686, 
+      "count": 1, 
+      "indocChainId": 71, 
+      "mention": "Clinton", 
+      "normalized": "Clinton", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.01363682746887207, 
+      "count": 1, 
+      "indocChainId": 75, 
+      "mention": "Trans-Pacific", 
+      "normalized": "Trans-Pacific", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00797349214553833, 
+      "count": 1, 
+      "indocChainId": 84, 
+      "mention": "TPP", 
+      "normalized": "TPP", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.025950074195861816, 
+      "count": 1, 
+      "indocChainId": 85, 
+      "mention": "Murshed Zaheed", 
+      "normalized": "Murshed Zaheed", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0026077628135681152, 
+      "count": 1, 
+      "indocChainId": 86, 
+      "mention": "Credo Action", 
+      "normalized": "Credo Action", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03961271047592163, 
+      "count": 1, 
+      "indocChainId": 88, 
+      "mention": "Asia", 
+      "normalized": "Asia", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.022504746913909912, 
+      "count": 1, 
+      "indocChainId": 90, 
+      "mention": "Sentinel Hotel", 
+      "normalized": "Sentinel Hotel", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.019158661365509033, 
+      "count": 1, 
+      "indocChainId": 94, 
+      "mention": "Thomas Boyd", 
+      "normalized": "Thomas Boyd", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.012987256050109863, 
+      "count": 1, 
+      "indocChainId": 98, 
+      "mention": "Michael Wolff", 
+      "normalized": "Michael Wolff", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 99, 
+      "mention": "Britain", 
+      "normalized": "Britain", 
+      "type": "LOCATION"
+    }
+  ], 
+  "requestId": "20cc0667-b5d1-45ca-8649-388b42695ed6", 
+  "timers": {
+    "rblJe": 6, 
+    "rexJe": 194, 
+    "rliJe": 6, 
+    "textExtractor": 14, 
+    "urlContentDownloader": 117
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "requestId": "3ff324ef-b5b5-4777-b516-b4291770f038", 
+  "result": {
+    "confidence": 1.0, 
+    "sourceLanguageOfOrigin": "zho", 
+    "sourceLanguageOfUse": "zho", 
+    "sourceScript": "Hani", 
+    "targetLanguage": "eng", 
+    "targetScheme": "HYPY_TONED", 
+    "targetScript": "Latn", 
+    "translation": "mao zedong"
+  }, 
+  "timers": {
+    "rnt": 2
+  }
+}

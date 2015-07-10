@@ -1,0 +1,50 @@
+{
+  "entities": [
+    {
+      "confidence": 0.011167824268341064, 
+      "count": 2, 
+      "indocChainId": 1, 
+      "mention": "胡锦涛", 
+      "normalized": "胡锦涛", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.006879329681396484, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "莫斯科", 
+      "normalized": "莫斯科", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.017731547355651855, 
+      "count": 1, 
+      "indocChainId": 2, 
+      "mention": "俄罗斯", 
+      "normalized": "俄罗斯", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0106315016746521, 
+      "count": 1, 
+      "indocChainId": 3, 
+      "mention": "总统", 
+      "normalized": "总统", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0061133503913879395, 
+      "count": 1, 
+      "indocChainId": 4, 
+      "mention": "梅德韦", 
+      "normalized": "梅德韦", 
+      "type": "PERSON"
+    }
+  ], 
+  "requestId": "f3a26bb9-ac45-4a30-8d90-f13fb2f1a736", 
+  "timers": {
+    "rblJe": 5, 
+    "rexJe": 4, 
+    "rliJe": 11
+  }
+}

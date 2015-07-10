@@ -1,0 +1,14 @@
+{
+  "name1": {
+    "entityType": "PERSON", 
+    "language": "eng", 
+    "script": "Latn", 
+    "text": "John Doe"
+  }, 
+  "name2": {
+    "entityType": "PERSON", 
+    "language": "fra", 
+    "script": "Latn", 
+    "text": "Jane Doe"
+  }
+}

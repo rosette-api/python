@@ -1,0 +1,59 @@
+{
+  "entities": [
+    {
+      "confidence": 0.5999774000449077, 
+      "entityId": "Q155649", 
+      "indocChainId": 0, 
+      "mention": "Richard Holbrooke"
+    }, 
+    {
+      "confidence": 0.5542817281359562, 
+      "entityId": "Q76", 
+      "indocChainId": 1, 
+      "mention": "Obama"
+    }, 
+    {
+      "confidence": 0.344601070328921, 
+      "entityId": "Q889", 
+      "indocChainId": 2, 
+      "mention": "Afghanistan"
+    }, 
+    {
+      "confidence": 0.48661730641588585, 
+      "entityId": "Q153317", 
+      "indocChainId": 4, 
+      "mention": "Inde"
+    }, 
+    {
+      "confidence": 0.6275727091341415, 
+      "entityId": "Q159", 
+      "indocChainId": 5, 
+      "mention": "Russie"
+    }, 
+    {
+      "confidence": 0.6695511508771029, 
+      "entityId": "Q43", 
+      "indocChainId": 6, 
+      "mention": "Turquie"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 7, 
+      "mention": "Arabie saoudite"
+    }, 
+    {
+      "confidence": 0.5250845514345862, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 8, 
+      "mention": "Emirats arabes unis"
+    }
+  ], 
+  "requestId": "bfffb197-066d-4282-96e6-c6b5adb6b91d", 
+  "timers": {
+    "rblJe": 2, 
+    "res": 113, 
+    "rexJe": 5, 
+    "rliJe": 4
+  }
+}

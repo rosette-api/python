@@ -1,0 +1,275 @@
+{
+  "entities": [
+    {
+      "confidence": 0.8489604344623649, 
+      "entityId": "Q41117", 
+      "indocChainId": 0, 
+      "mention": "김일성"
+    }, 
+    {
+      "confidence": 0.7067528050136327, 
+      "entityId": "Q41117", 
+      "indocChainId": 1, 
+      "mention": "金日成"
+    }, 
+    {
+      "confidence": 0.6840614198452438, 
+      "entityId": "Q884", 
+      "indocChainId": 2, 
+      "mention": "한국"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 3, 
+      "mention": "만주 조선공산주의청년동맹"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 4, 
+      "mention": "조선혁명군"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 5, 
+      "mention": "조선인민혁명군"
+    }, 
+    {
+      "confidence": 0.5089752589326131, 
+      "entityId": "Q423", 
+      "indocChainId": 6, 
+      "mention": "조선민주주의인민공화국"
+    }, 
+    {
+      "confidence": 0.13860603828715395, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 8, 
+      "mention": "김성주"
+    }, 
+    {
+      "confidence": 0.8331319603922426, 
+      "entityId": "Q41117", 
+      "indocChainId": 9, 
+      "mention": "金成柱"
+    }, 
+    {
+      "confidence": 0.2485642196994468, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 10, 
+      "mention": "金聖柱"
+    }, 
+    {
+      "confidence": 0.8176772941578195, 
+      "entityId": "Q41117", 
+      "indocChainId": 11, 
+      "mention": "김일성"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 12, 
+      "mention": "조선로동당 중앙위원회"
+    }, 
+    {
+      "confidence": 0.47046726511234904, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 14, 
+      "mention": "당중앙위원회"
+    }, 
+    {
+      "confidence": 0.5327457921949627, 
+      "entityId": "Q884", 
+      "indocChainId": 16, 
+      "mention": "대한민국"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 17, 
+      "mention": "한국전쟁"
+    }, 
+    {
+      "confidence": 0.8177571139954269, 
+      "entityId": "Q41117", 
+      "indocChainId": 18, 
+      "mention": "김일성"
+    }, 
+    {
+      "confidence": 0.8177030933146751, 
+      "entityId": "Q41117", 
+      "indocChainId": 19, 
+      "mention": "김일성"
+    }, 
+    {
+      "confidence": 0.5512206112575233, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 20, 
+      "mention": "평안남도"
+    }, 
+    {
+      "confidence": 0.27147192435349504, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 21, 
+      "mention": "대동군"
+    }, 
+    {
+      "confidence": 0.47722873529626136, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 22, 
+      "mention": "고평면"
+    }, 
+    {
+      "confidence": 0.5777448106600542, 
+      "entityId": "Q18808", 
+      "indocChainId": 23, 
+      "mention": "평양"
+    }, 
+    {
+      "confidence": 0.4057503169230009, 
+      "entityId": "Q15244757", 
+      "indocChainId": 24, 
+      "mention": "만경대"
+    }, 
+    {
+      "confidence": 0.7876031545345472, 
+      "entityId": "Q489279", 
+      "indocChainId": 25, 
+      "mention": "김형직"
+    }, 
+    {
+      "confidence": 0.8343778214073765, 
+      "entityId": "Q489279", 
+      "indocChainId": 26, 
+      "mention": "金亨稷"
+    }, 
+    {
+      "confidence": 0.5366624538403322, 
+      "entityId": "Q42140", 
+      "indocChainId": 28, 
+      "mention": "전주"
+    }, 
+    {
+      "confidence": 0.03926331392845221, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 29, 
+      "mention": "김"
+    }, 
+    {
+      "confidence": 0.5105738037644278, 
+      "entityId": "Q41157", 
+      "indocChainId": 30, 
+      "mention": "전라북도"
+    }, 
+    {
+      "confidence": 0.5838088908707967, 
+      "entityId": "Q18808", 
+      "indocChainId": 31, 
+      "mention": "평양"
+    }, 
+    {
+      "confidence": 0.041272329702973974, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 32, 
+      "mention": "셔먼"
+    }, 
+    {
+      "confidence": 0.4542268299993202, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 33, 
+      "mention": "일본"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 37, 
+      "mention": "칠골교회"
+    }, 
+    {
+      "confidence": 0.45826704226055154, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 39, 
+      "mention": "강진석"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 40, 
+      "mention": "康晋錫"
+    }, 
+    {
+      "confidence": 0.24114628980747507, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 42, 
+      "mention": "성주"
+    }, 
+    {
+      "confidence": 0.6479660059521329, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 44, 
+      "mention": "지린성"
+    }, 
+    {
+      "confidence": 0.45290427147832335, 
+      "entityId": "Q45208", 
+      "indocChainId": 45, 
+      "mention": "吉林省"
+    }, 
+    {
+      "confidence": 0.07353817177994378, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 47, 
+      "mention": "만주"
+    }, 
+    {
+      "confidence": 0.6646454916440627, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 49, 
+      "mention": "용산면"
+    }, 
+    {
+      "confidence": 0.31371754515329237, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 50, 
+      "mention": "칠골"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 51, 
+      "mention": "창덕학교"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 54, 
+      "mention": "중국말"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 55, 
+      "mention": "창덕학교"
+    }, 
+    {
+      "confidence": 0.7540118355486469, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 56, 
+      "mention": "중국"
+    }, 
+    {
+      "confidence": 0.03286639397910264, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 57, 
+      "mention": "칠고"
+    }
+  ], 
+  "requestId": "0203e6c8-aee4-48ca-9279-cfecd0e65ded", 
+  "timers": {
+    "rblJe": 13, 
+    "res": 5414, 
+    "rexJe": 23, 
+    "rliJe": 2
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "entities": [
+    {
+      "confidence": 0.02106780807177226, 
+      "count": 6, 
+      "indocChainId": 0, 
+      "mention": "David Cameron", 
+      "normalized": "David Cameron", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.012439978122711182, 
+      "count": 5, 
+      "indocChainId": 14, 
+      "mention": "SNP", 
+      "normalized": "SNP", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.013739681243896485, 
+      "count": 5, 
+      "indocChainId": 18, 
+      "mention": "Ecosse", 
+      "normalized": "Ecosse", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.016117572784423828, 
+      "count": 3, 
+      "indocChainId": 12, 
+      "mention": "démocrates", 
+      "normalized": "démocrates", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.015858054161071777, 
+      "count": 3, 
+      "indocChainId": 16, 
+      "mention": "Ukip", 
+      "normalized": "Ukip", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.008270978927612305, 
+      "count": 3, 
+      "indocChainId": 17, 
+      "mention": "Labour", 
+      "normalized": "Labour", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.02269589900970459, 
+      "count": 2, 
+      "indocChainId": 5, 
+      "mention": "Royaume-Uni", 
+      "normalized": "Royaume-Uni", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.021167248487472534, 
+      "count": 2, 
+      "indocChainId": 6, 
+      "mention": "Union européenne", 
+      "normalized": "Union européenne", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.014843016862869263, 
+      "count": 2, 
+      "indocChainId": 37, 
+      "mention": "député", 
+      "normalized": "député", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.011724323034286499, 
+      "count": 2, 
+      "indocChainId": 48, 
+      "mention": "Bourse de Londres", 
+      "normalized": "Bourse de Londres", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0036743879318237305, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "David Cameron\nChallenges", 
+      "normalized": "David Cameron Challenges", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0036674141883850098, 
+      "count": 1, 
+      "indocChainId": 1, 
+      "mention": "Europe", 
+      "normalized": "Europe", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.004899203777313232, 
+      "count": 1, 
+      "indocChainId": 8, 
+      "mention": "Kirsty Wigglesworth", 
+      "normalized": "Kirsty Wigglesworth", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.002910017967224121, 
+      "count": 1, 
+      "indocChainId": 9, 
+      "mention": "AP", 
+      "normalized": "AP", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.009074151515960693, 
+      "count": 1, 
+      "indocChainId": 10, 
+      "mention": "Elizabeth II", 
+      "normalized": "Elizabeth II", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.00494539737701416, 
+      "count": 1, 
+      "indocChainId": 11, 
+      "mention": "Buckingham", 
+      "normalized": "Buckingham", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.006138741970062256, 
+      "count": 1, 
+      "indocChainId": 13, 
+      "mention": "députés", 
+      "normalized": "députés", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.014360666275024414, 
+      "count": 1, 
+      "indocChainId": 20, 
+      "mention": "Nigel Farage", 
+      "normalized": "Nigel Farage", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.014366745948791504, 
+      "count": 1, 
+      "indocChainId": 21, 
+      "mention": "chef", 
+      "normalized": "chef", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0030326247215270996, 
+      "count": 1, 
+      "indocChainId": 23, 
+      "mention": "South Thanet", 
+      "normalized": "South Thanet", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.01049792766571045, 
+      "count": 1, 
+      "indocChainId": 25, 
+      "mention": "démocrate", 
+      "normalized": "démocrate", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.021206259727478027, 
+      "count": 1, 
+      "indocChainId": 26, 
+      "mention": "Nick Clegg", 
+      "normalized": "Nick Clegg", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.004912674427032471, 
+      "count": 1, 
+      "indocChainId": 27, 
+      "mention": "Miliband", 
+      "normalized": "Miliband", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0247611403465271, 
+      "count": 1, 
+      "indocChainId": 27, 
+      "mention": "Ed Miliband", 
+      "normalized": "Ed Miliband", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.032201409339904785, 
+      "count": 1, 
+      "indocChainId": 32, 
+      "mention": "Chambre des Communes", 
+      "normalized": "Chambre des Communes", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03113532066345215, 
+      "count": 1, 
+      "indocChainId": 33, 
+      "mention": "Alex Salmond", 
+      "normalized": "Alex Salmond", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.009601056575775146, 
+      "count": 1, 
+      "indocChainId": 35, 
+      "mention": "Mhairi Black", 
+      "normalized": "Mhairi Black", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.008572161197662354, 
+      "count": 1, 
+      "indocChainId": 36, 
+      "mention": "Westminster", 
+      "normalized": "Westminster", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00962144136428833, 
+      "count": 1, 
+      "indocChainId": 38, 
+      "mention": "Labour Douglas Alexander", 
+      "normalized": "Labour Douglas Alexander", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.011308491230010986, 
+      "count": 1, 
+      "indocChainId": 39, 
+      "mention": "Ed Balls", 
+      "normalized": "Ed Balls", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0160825252532959, 
+      "count": 1, 
+      "indocChainId": 41, 
+      "mention": "Jim Murphy", 
+      "normalized": "Jim Murphy", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.002979457378387451, 
+      "count": 1, 
+      "indocChainId": 44, 
+      "mention": "Vince Cable", 
+      "normalized": "Vince Cable", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.008275032043457031, 
+      "count": 1, 
+      "indocChainId": 45, 
+      "mention": "ministre", 
+      "normalized": "ministre", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.011619985103607178, 
+      "count": 1, 
+      "indocChainId": 50, 
+      "mention": "UE", 
+      "normalized": "UE", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.022272944450378418, 
+      "count": 1, 
+      "indocChainId": 54, 
+      "mention": "Glasgow", 
+      "normalized": "Glasgow", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.003254711627960205, 
+      "count": 1, 
+      "indocChainId": 55, 
+      "mention": "Edimbourg", 
+      "normalized": "Edimbourg", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.019964516162872314, 
+      "count": 1, 
+      "indocChainId": 57, 
+      "mention": "Patrick Dunleavy", 
+      "normalized": "Patrick Dunleavy", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.01763540506362915, 
+      "count": 1, 
+      "indocChainId": 58, 
+      "mention": "London School of Economics", 
+      "normalized": "London School of Economics", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.008434712886810303, 
+      "count": 1, 
+      "indocChainId": 58, 
+      "mention": "LSE", 
+      "normalized": "LSE", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.025185048580169678, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "Premier ministre", 
+      "normalized": "Premier ministre", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0143471360206604, 
+      "count": 1, 
+      "indocChainId": 61, 
+      "mention": "maire", 
+      "normalized": "maire", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.009080350399017334, 
+      "count": 1, 
+      "indocChainId": 62, 
+      "mention": "Londres", 
+      "normalized": "Londres", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.015038907527923584, 
+      "count": 1, 
+      "indocChainId": 63, 
+      "mention": "Boris Johnson", 
+      "normalized": "Boris Johnson", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.009148657321929932, 
+      "count": 1, 
+      "indocChainId": 65, 
+      "mention": "Uxbridge", 
+      "normalized": "Uxbridge", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.1097421646118164, 
+      "count": 1, 
+      "indocChainId": 67, 
+      "mention": "AFP", 
+      "normalized": "AFP", 
+      "type": "ORGANIZATION"
+    }
+  ], 
+  "requestId": "aa75dc98-1189-4f37-a623-8a804d788ee7", 
+  "timers": {
+    "rblJe": 4, 
+    "rexJe": 231, 
+    "rliJe": 5, 
+    "textExtractor": 22, 
+    "urlContentDownloader": 74
+  }
+}

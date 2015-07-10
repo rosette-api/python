@@ -1,0 +1,229 @@
+{
+  "entities": [
+    {
+      "confidence": 0.487369937159575, 
+      "entityId": "Q192", 
+      "indocChainId": 0, 
+      "mention": "David Cameron Challenges"
+    }, 
+    {
+      "confidence": 0.5411345883548877, 
+      "entityId": "Q46", 
+      "indocChainId": 1, 
+      "mention": "Europe"
+    }, 
+    {
+      "confidence": 0.7207765469292666, 
+      "entityId": "Q145", 
+      "indocChainId": 5, 
+      "mention": "Royaume-Uni"
+    }, 
+    {
+      "confidence": 0.26558639130170675, 
+      "entityId": "Q458", 
+      "indocChainId": 6, 
+      "mention": "Union européenne"
+    }, 
+    {
+      "confidence": 0.8390447767541483, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 8, 
+      "mention": "Kirsty Wigglesworth"
+    }, 
+    {
+      "confidence": 0.21607979033495858, 
+      "entityId": "Q40469", 
+      "indocChainId": 9, 
+      "mention": "AP"
+    }, 
+    {
+      "confidence": 0.8751098420612002, 
+      "entityId": "Q9682", 
+      "indocChainId": 10, 
+      "mention": "Elizabeth II"
+    }, 
+    {
+      "confidence": 0.08751416407915574, 
+      "entityId": "Q23229", 
+      "indocChainId": 11, 
+      "mention": "Buckingham"
+    }, 
+    {
+      "confidence": 0.09432890294643219, 
+      "entityId": "Q1185830", 
+      "indocChainId": 12, 
+      "mention": "démocrates"
+    }, 
+    {
+      "confidence": 0.5410398782455267, 
+      "entityId": "Q10658", 
+      "indocChainId": 14, 
+      "mention": "SNP"
+    }, 
+    {
+      "confidence": 0.7840718470407755, 
+      "entityId": "Q10647", 
+      "indocChainId": 16, 
+      "mention": "Ukip"
+    }, 
+    {
+      "confidence": 0.35499804903332943, 
+      "entityId": "Q9630", 
+      "indocChainId": 17, 
+      "mention": "Labour"
+    }, 
+    {
+      "confidence": 0.6897989554049982, 
+      "entityId": "Q22", 
+      "indocChainId": 18, 
+      "mention": "Ecosse"
+    }, 
+    {
+      "confidence": 0.6382972614940312, 
+      "entityId": "Q318471", 
+      "indocChainId": 20, 
+      "mention": "Nigel Farage"
+    }, 
+    {
+      "confidence": 0.6252531222570918, 
+      "entityId": "Q988835", 
+      "indocChainId": 23, 
+      "mention": "South Thanet"
+    }, 
+    {
+      "confidence": 0.42886951782887706, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 25, 
+      "mention": "démocrate"
+    }, 
+    {
+      "confidence": 0.6586169984625931, 
+      "entityId": "Q189947", 
+      "indocChainId": 26, 
+      "mention": "Nick Clegg"
+    }, 
+    {
+      "confidence": 0.6859030458013254, 
+      "entityId": "Q216594", 
+      "indocChainId": 27, 
+      "mention": "Ed Miliband"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 32, 
+      "mention": "Chambre des Communes"
+    }, 
+    {
+      "confidence": 0.6711155231554004, 
+      "entityId": "Q10652", 
+      "indocChainId": 33, 
+      "mention": "Alex Salmond"
+    }, 
+    {
+      "confidence": 0.14035519084151224, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 35, 
+      "mention": "Mhairi Black"
+    }, 
+    {
+      "confidence": 0.06297074414148623, 
+      "entityId": "Q5933", 
+      "indocChainId": 36, 
+      "mention": "Westminster"
+    }, 
+    {
+      "confidence": 0.3147751315322906, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 38, 
+      "mention": "Labour Douglas Alexander"
+    }, 
+    {
+      "confidence": 0.7066427879428141, 
+      "entityId": "Q260464", 
+      "indocChainId": 39, 
+      "mention": "Ed Balls"
+    }, 
+    {
+      "confidence": 0.326144884684962, 
+      "entityId": "Q333702", 
+      "indocChainId": 41, 
+      "mention": "Jim Murphy"
+    }, 
+    {
+      "confidence": 0.6630758149696234, 
+      "entityId": "Q244312", 
+      "indocChainId": 44, 
+      "mention": "Vince Cable"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 48, 
+      "mention": "Bourse de Londres"
+    }, 
+    {
+      "confidence": 0.5026706356051871, 
+      "entityId": "Q458", 
+      "indocChainId": 50, 
+      "mention": "UE"
+    }, 
+    {
+      "confidence": 0.08400702472233276, 
+      "entityId": "Q4093", 
+      "indocChainId": 54, 
+      "mention": "Glasgow"
+    }, 
+    {
+      "confidence": 0.6032523276618472, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 55, 
+      "mention": "Edimbourg"
+    }, 
+    {
+      "confidence": 0.5800514092105746, 
+      "entityId": "Q7146420", 
+      "indocChainId": 57, 
+      "mention": "Patrick Dunleavy"
+    }, 
+    {
+      "confidence": 0.7817361386181069, 
+      "entityId": "Q174570", 
+      "indocChainId": 58, 
+      "mention": "London School of Economics"
+    }, 
+    {
+      "confidence": 0.8823916944348363, 
+      "entityId": "Q84", 
+      "indocChainId": 62, 
+      "mention": "Londres"
+    }, 
+    {
+      "confidence": 0.5246796846919077, 
+      "entityId": "Q180589", 
+      "indocChainId": 63, 
+      "mention": "Boris Johnson"
+    }, 
+    {
+      "confidence": 0.17523536683256627, 
+      "entityId": "Q3552816", 
+      "indocChainId": 65, 
+      "mention": "Uxbridge"
+    }, 
+    {
+      "confidence": 0.23969179335946114, 
+      "entityId": "Q40464", 
+      "indocChainId": 67, 
+      "mention": "AFP"
+    }
+  ], 
+  "requestId": "6954f9b9-f2c5-421b-b3ee-741cd09e8386", 
+  "timers": {
+    "rblJe": 4, 
+    "res": 1143, 
+    "rexJe": 35, 
+    "rliJe": 5, 
+    "textExtractor": 33, 
+    "urlContentDownloader": 83
+  }
+}

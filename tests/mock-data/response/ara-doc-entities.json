@@ -1,0 +1,210 @@
+{
+  "entities": [
+    {
+      "confidence": 0.020943284034729004, 
+      "count": 4, 
+      "indocChainId": 6, 
+      "mention": "أفغانستان", 
+      "normalized": "أفغانستان", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 3, 
+      "indocChainId": 15, 
+      "mention": "الأفغانية", 
+      "normalized": "الأفغانية", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 0.013337045907974243, 
+      "count": 2, 
+      "indocChainId": 2, 
+      "mention": "ناتو", 
+      "normalized": "ناتو", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.021363019943237305, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "لأفغانستان", 
+      "normalized": "لأفغانستان", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.03828367590904236, 
+      "count": 2, 
+      "indocChainId": 8, 
+      "mention": "السفير", 
+      "normalized": "السفير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 9, 
+      "mention": "البريطاني", 
+      "normalized": "البريطاني", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 0.03427225351333618, 
+      "count": 2, 
+      "indocChainId": 10, 
+      "mention": "كابل", 
+      "normalized": "كابل", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 14, 
+      "mention": "الولايات المتحدة", 
+      "normalized": "الولايات المتحدة", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.009779423475265503, 
+      "count": 2, 
+      "indocChainId": 22, 
+      "mention": "حلف الأطلسي", 
+      "normalized": "حلف الأطلسي", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.01446753740310669, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "مكة المكرمة", 
+      "normalized": "مكة المكرمة", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.01943296194076538, 
+      "count": 1, 
+      "indocChainId": 1, 
+      "mention": "غرينتش", 
+      "normalized": "غرينتش", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.012137770652770996, 
+      "count": 1, 
+      "indocChainId": 4, 
+      "mention": "حلف شمال الأطلسي", 
+      "normalized": "حلف شمال الأطلسي", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0020059943199157715, 
+      "count": 1, 
+      "indocChainId": 7, 
+      "mention": "وول ستريت", 
+      "normalized": "وول ستريت", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03418374061584473, 
+      "count": 1, 
+      "indocChainId": 12, 
+      "mention": "لندن", 
+      "normalized": "لندن", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00932997465133667, 
+      "count": 1, 
+      "indocChainId": 17, 
+      "mention": "الأمين العام", 
+      "normalized": "الأمين العام", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.01955312490463257, 
+      "count": 1, 
+      "indocChainId": 18, 
+      "mention": "للأمم المتحدة", 
+      "normalized": "لأمم المتحدة", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.008319079875946045, 
+      "count": 1, 
+      "indocChainId": 19, 
+      "mention": "بان كي مون", 
+      "normalized": "بان كي مون", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.02144944667816162, 
+      "count": 1, 
+      "indocChainId": 21, 
+      "mention": "إيساف", 
+      "normalized": "إيساف", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.006335079669952393, 
+      "count": 1, 
+      "indocChainId": 23, 
+      "mention": "الولايات", 
+      "normalized": "الولايات", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 25, 
+      "mention": "للأميركي", 
+      "normalized": "لأميركي", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 0.0270041823387146, 
+      "count": 1, 
+      "indocChainId": 26, 
+      "mention": "ستانلي ماكريستال", 
+      "normalized": "ستانلي ماكريستال", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.03057950735092163, 
+      "count": 1, 
+      "indocChainId": 27, 
+      "mention": "قائد", 
+      "normalized": "قائد", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 28, 
+      "mention": "الأميركية", 
+      "normalized": "الأميركية", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 0.015597224235534668, 
+      "count": 1, 
+      "indocChainId": 32, 
+      "mention": "لحركة طالبان", 
+      "normalized": "حركة طالبان", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.05023258924484253, 
+      "count": 1, 
+      "indocChainId": 35, 
+      "mention": "مارك سيدويل", 
+      "normalized": "مارك سيدويل", 
+      "type": "PERSON"
+    }
+  ], 
+  "requestId": "f1c7d4d6-a219-42b2-9b30-b636a80d3746", 
+  "timers": {
+    "rblJe": 84, 
+    "rexJe": 59, 
+    "rliJe": 3
+  }
+}
