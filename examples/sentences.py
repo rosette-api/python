@@ -5,7 +5,7 @@ Example code to call Rosette API to get sentences in a piece of text.
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API, DocumentParameters
 
@@ -21,18 +21,8 @@ else:
     api = API(user_key=args.key)
 
 params = DocumentParameters()
-params["content"] = u"""
-This land is your land This land is my land
-From California to the New York island;
-From the red wood forest to the Gulf Stream waters
-
-This land was made for you and Me.
-
-As I was walking that ribbon of highway,
-I saw above me that endless skyway:
-I saw below me that golden valley:
-This land was made for you and me."""
+params["content"] = u"This land is your land. This land is my land\nFrom California to the New York island;\nFrom the red wood forest to the Gulf Stream waters\n\nThis land was made for you and Me.\n\nAs I was walking that ribbon of highway,\nI saw above me that endless skyway:\nI saw below me that golden valley:\nThis land was made for you and me."
 
 result = api.sentences(params)
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

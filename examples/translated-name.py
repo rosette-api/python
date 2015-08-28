@@ -5,7 +5,7 @@ Example code to call Rosette API to translate a name from one language to anothe
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API, NameTranslationParameters
 
@@ -26,4 +26,4 @@ params["entityType"] = "PERSON"
 params["targetLanguage"] = "eng"
 result = api.translated_name(params)
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

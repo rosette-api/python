@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-# To run tests, run `py.test mocked_test_api.py`
+# To run tests, run `py.test test_rosette_api.py`
 
 import glob
 import httpretty
@@ -24,8 +24,15 @@ import json
 import os
 import pytest
 import re
+import sys
+try:
+    from StringIO import StringIO as streamIO
+except ImportError:
+    from io import BytesIO as streamIO
+import gzip
 from rosette.api import API, DocumentParameters, NameTranslationParameters, NameMatchingParameters, RosetteException
 
+_IsPy3 = sys.version_info[0] == 3
 
 request_file_dir = os.path.dirname(__file__) + "/mock-data/request/"
 response_file_dir = os.path.dirname(__file__) + "/mock-data/response/"
@@ -36,7 +43,17 @@ filename_pattern = re.compile("(\w+-\w+-([a-z_-]+))[.]json")
 
 def get_file_content(filename):
     with open(filename, "r") as f:
-        return f.read()
+        s = f.read()
+        if len(s) > 200:
+            out = streamIO()
+            f1 = gzip.GzipFile(fileobj=out, mode="w")
+            if _IsPy3:
+                f1.write(bytes(s, 'UTF-8'))
+            else:
+                f1.write(s)
+            f1.close()
+            s = out.getvalue()
+        return s
 
 
 # Run through all files in the mock-data directory, extract endpoint, and create a list of tuples of the form
@@ -110,6 +127,38 @@ def test_info():
     assert result["name"] == "Rosette API"
 
 
+# Test that retrying request retries the correct number of times
+@httpretty.activate
+def test_retryNum():
+    with open(response_file_dir + "info.json", "r") as info_file:
+        body = info_file.read()
+        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=500, content_type="application/json")
+    test = API(service_url='https://api.rosette.com/rest/v1', user_key=None, retries=5)
+    try:
+        result = test.info()
+        assert False
+    except RosetteException as e:
+        assert e.message == "A retryable network operation has not succeeded after 5 attempts"
+        assert e.status == "unknownError"
+
+
+# Test that retrying request throws the right error
+@httpretty.activate
+def test_retry500():
+    with open(response_file_dir + "info.json", "r") as info_file:
+        body = {'message': 'We had a problem with our server. Try again later.', 'code': 'Internal Server Error'}
+        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=json.dumps(body), status=500, content_type="application/json")
+    test = RosetteTest(None)
+    try:
+        result = test.api.info()
+        assert False
+    except RosetteException as e:
+        assert e.message == "We had a problem with our server. Try again later."
+        assert e.status == "Internal Server Error"
+
+
 @httpretty.activate
 def call_endpoint(input_filename, expected_status_filename, expected_output_filename, rest_endpoint):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1" + rest_endpoint,
@@ -167,3 +216,38 @@ def call_endpoint(input_filename, expected_status_filename, expected_output_file
 def test_all(input_filename, expected_status_filename, expected_output_filename, rest_endpoint):
     # @httpretty and @pytest cannot co-exist, so separate the function definition
     call_endpoint(input_filename, expected_status_filename, expected_output_filename, rest_endpoint)
+
+
+# Test that debug flag is working properly
+@httpretty.activate
+def test_debug():
+    # Doesn't really matter what it returns for this test, so just making sure it catches all of them
+    endpoints = ["categories", "entities", "entities/linked", "language", "matched-name", "morphology-complete",
+                 "sentiment", "translated-name"]
+    expected_status_filename = response_file_dir + "eng-sentence-entities.status"
+    expected_output_filename = response_file_dir + "eng-sentence-entities.json"
+    for rest_endpoint in endpoints:
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/" + rest_endpoint,
+                               status=get_file_content(expected_status_filename),
+                               body=get_file_content(expected_output_filename),
+                               content_type="application/json")
+
+    with open(expected_output_filename, "r") as expected_file:
+        expected_result = json.loads(expected_file.read())
+
+    # need to mock /info call too because the api will call it implicitly
+    with open(response_file_dir + "info.json", "r") as info_file:
+        body = info_file.read()
+        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+
+    api = API("0123456789", debug=True)
+
+    content = "He also acknowledged the ongoing U.S. conflicts in Iraq and Afghanistan, noting that he is the \"commander in chief of a country that is responsible for ending a war and working in another theater to confront a ruthless adversary that directly threatens the American people\" and U.S. allies."
+
+    params = DocumentParameters()
+    params.__setitem__("content", content)
+    api.entities(params)
+
+    # Check that the most recent querystring had debug=true
+    assert httpretty.last_request().querystring == {'debug': ['true']}

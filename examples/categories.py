@@ -5,14 +5,14 @@ Example code to call Rosette API to get the category of a document (at a given U
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API, DocumentParameters
 
 parser = argparse.ArgumentParser(description="Get the category of a piece of a document at a URL")
 parser.add_argument("--key", required=True, help="Rosette API key")
 parser.add_argument("--service_url", nargs="?", help="Optional user service URL")
-parser.add_argument("--url", nargs="?", default="http://www.basistech.com/about/", help="Optional URL for data")
+parser.add_argument("--url", nargs="?", default="https://en.wikipedia.org/wiki/Basis_Technology_Corp.", help="Optional URL for data")
 args = parser.parse_args()
 
 # Create an API instance
@@ -28,4 +28,4 @@ params["contentUri"] = args.url
 
 result = api.categories(params)
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

@@ -23,19 +23,22 @@ import gzip
 import json
 import logging
 import sys
+import pprint
 
 _ACCEPTABLE_SERVER_VERSION = "0.5"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
-N_RETRIES = 3
+N_RETRIES = 1
 
 
 _IsPy3 = sys.version_info[0] == 3
 
 
 try:
-    from urlparse import urlparse
+    import urlparse
+    import urllib
 except ImportError:
-    from urllib.parse import urlparse
+    import urllib.parse as urlparse
+    import urllib.parse as urllib
 try:
     import httplib
 except ImportError:
@@ -64,14 +67,16 @@ def _my_loads(obj):
 
 
 def _retrying_request(op, url, data, headers):
-    parsed = urlparse(url)
+    message = None
+    code = "unknownError"
+    parsed = urlparse.urlparse(url)
     loc = parsed.netloc
     if parsed.scheme == "https":
         conn = httplib.HTTPSConnection(loc)
     else:
         conn = httplib.HTTPConnection(loc)
     rdata = None
-    for i in range(N_RETRIES):
+    for i in range(N_RETRIES + 1):
         conn.request(op, url, data, headers)
         response = conn.getresponse()
         status = response.status
@@ -79,23 +84,21 @@ def _retrying_request(op, url, data, headers):
         if status < 500:
             conn.close()
             return rdata, status
+        if rdata is not None:
+            try:
+                the_json = _my_loads(rdata)
+                if "message" in the_json:
+                    message = the_json["message"]
+                if "code" in the_json:
+                    code = the_json["code"]
+            except:
+                pass
         conn.close()
         # Do not wait to retry -- the model is that a bunch of dynamically-routed
         # resources has failed -- Retry means some other set of servelets and their
         # underlings will be called up, and maybe they'll do better.
         # This will not help with a persistent or impassible delay situation,
         # but the former case is thought to be more likely.
-    message = None
-    code = "unknownError"
-    if rdata is not None:
-        try:
-            the_json = _my_loads(rdata)
-            if "message" in the_json:
-                message = the_json["message"]
-            if "code" in the_json:
-                code = the_json["code"]
-        except:
-            pass
 
     if message is None:
         message = "A retryable network operation has not succeeded after " + str(N_RETRIES) + " attempts"
@@ -121,6 +124,14 @@ def _post_http(url, data, headers):
         rdata = gzip.GzipFile(fileobj=buf).read()
 
     return _ReturnObject(_my_loads(rdata), status)
+
+
+def add_query(orig_url, key, value):
+    parts = urlparse.urlsplit(orig_url)
+    queries = urlparse.parse_qsl(parts[3])
+    queries.append((key, value))
+    qs = urllib.urlencode(queries)
+    return urlparse.urlunsplit((parts[0], parts[1], parts[2], qs, parts[4]))
 
 
 class RosetteException(Exception):
@@ -194,7 +205,7 @@ class MorphologyOutput(_PseudoEnum):
     COMPLETE = "complete"
 
 
-class _DocumentParamSetBase:
+class _DocumentParamSetBase(object):
     def __init__(self, repertoire):
         self.__params = {}
         for k in repertoire:
@@ -210,7 +221,11 @@ class _DocumentParamSetBase:
             raise RosetteException("badKey", "Unknown Rosette parameter key", repr(key))
         return self.__params[key]
 
-    def _for_serialize(self):
+    def validate(self):
+        pass
+
+    def serialize(self):
+        self.validate()
         v = {}
         for (key, val) in self.__params.items():
             if val is None:
@@ -253,9 +268,8 @@ class DocumentParameters(_DocumentParamSetBase):
         _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language"))
         self["unit"] = InputUnit.DOC  # default
 
-    def serializable(self):
+    def validate(self):
         """Internal. Do not use."""
-
         if self["content"] is None:
             if self["contentUri"] is None:
                 raise RosetteException("badArgument", "Must supply one of Content or ContentUri", "bad arguments")
@@ -263,7 +277,10 @@ class DocumentParameters(_DocumentParamSetBase):
             if self["contentUri"] is not None:
                 raise RosetteException("badArgument", "Cannot supply both Content and ContentUri", "bad arguments")
 
-        slz = self._for_serialize()
+    def serialize(self):
+        """Internal. Do not use."""
+        self.validate()
+        slz = super(DocumentParameters, self).serialize()
         if self["contentType"] is None and self["contentUri"] is None:
             slz["contentType"] = DataFormat.SIMPLE
         elif self["contentType"] in (DataFormat.HTML, DataFormat.XHTML, DataFormat.UNSPECIFIED):
@@ -339,13 +356,11 @@ class NameTranslationParameters(_DocumentParamSetBase):
         _DocumentParamSetBase.__init__(self, ("name", "targetLanguage", "entityType", "sourceLanguageOfOrigin",
                                               "sourceLanguageOfUse", "sourceScript", "targetScript", "targetScheme"))
 
-    def serializable(self):
-
+    def validate(self):
         """Internal. Do not use."""
         for n in ("name", "targetLanguage"):  # required
             if self[n] is None:
                 raise RosetteException("missingParameter", "Required Name Translation parameter not supplied", repr(n))
-        return self._for_serialize()
 
 
 class NameMatchingParameters(_DocumentParamSetBase):
@@ -370,13 +385,11 @@ class NameMatchingParameters(_DocumentParamSetBase):
     def __init__(self):
         _DocumentParamSetBase.__init__(self, ("name1", "name2"))
 
-    def serializable(self):
-
+    def validate(self):
         """Internal. Do not use."""
         for n in ("name1", "name2"):  # required
             if self[n] is None:
                 raise RosetteException("missingParameter", "Required Name Matching parameter not supplied", repr(n))
-        return self._for_serialize()
 
 
 class EndpointCaller:
@@ -406,6 +419,7 @@ class EndpointCaller:
         self.useMultipart = api.useMultipart
         self.checker = lambda: api.check_version()
         self.suburl = suburl
+        self.debug = api.debug
 
     def __finish_result(self, r, ename):
         code = r.status_code
@@ -443,6 +457,8 @@ class EndpointCaller:
             url = self.service_url + '/' + self.suburl + "/info"
         else:
             url = self.service_url + "/info"
+        if self.debug:
+            url = add_query(url, "debug", "true")
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
@@ -457,6 +473,8 @@ class EndpointCaller:
         signalled."""
 
         url = self.service_url + '/ping'
+        if self.debug:
+            url = add_query(url, "debug", "true")
         self.logger.info('Ping: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
@@ -489,8 +507,10 @@ class EndpointCaller:
             raise RosetteException("incompatible", "Multipart requires contentType SIMPLE",
                                    repr(parameters['contentType']))
         url = self.service_url + '/' + self.suburl
+        if self.debug:
+            url = add_query(url, "debug", "true")
         self.logger.info('operate: ' + url)
-        params_to_serialize = parameters.serializable()
+        params_to_serialize = parameters.serialize()
         headers = {'Accept': "application/json", 'Accept-Encoding': "gzip"}
         if self.user_key is not None:
             headers["user_key"] = self.user_key
@@ -505,7 +525,7 @@ class API:
     Call instance methods upon this object to obtain L{EndpointCaller} objects
     which can communicate with particular Rosette server endpoints.
     """
-    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1'):
+    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1', retries=1, debug=False):
         """ Create an L{API} object.
         @param user_key: (Optional; required for servers requiring authentication.) An authentication string to be sent
          as user_key with all requests.  The default Rosette server requires authentication.
@@ -517,9 +537,13 @@ class API:
         self.service_url = service_url
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
-        self.debug = False
+        self.debug = debug
         self.useMultipart = False
         self.version_checked = False
+        global N_RETRIES
+        if (retries < 1):
+            retries = 1
+        N_RETRIES = retries
 
     def check_version(self):
         if self.version_checked:
@@ -528,7 +552,7 @@ class API:
         result = op.info()
         version = ".".join(result["version"].split(".")[0:2])
         if version != _ACCEPTABLE_SERVER_VERSION:
-            raise RosetteException("badServerVersion", "The server version is not " + _ACCEPTABLE_SERVER_VERSION,
+            raise RosetteException("incompatibleVersion", "The server version is not " + _ACCEPTABLE_SERVER_VERSION,
                                    version)
         self.version_checked = True
         return True
