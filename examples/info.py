@@ -5,7 +5,7 @@ Example code to call Rosette API to get information such as version and build
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API
 
@@ -22,4 +22,4 @@ else:
 
 result = api.info()
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

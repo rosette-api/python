@@ -5,7 +5,7 @@ Example code to call Rosette API to get the complete morphological analysis of a
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API, DocumentParameters
 
@@ -24,4 +24,4 @@ params = DocumentParameters()
 params["content"] = u"The quick brown fox jumped over the lazy dog. Yes he did."
 result = api.morphology(params)
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

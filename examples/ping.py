@@ -5,7 +5,7 @@ Example code to send Rosette API a ping to check its reachability.
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API
 
@@ -22,4 +22,4 @@ else:
 
 result = api.ping()
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))

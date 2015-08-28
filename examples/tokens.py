@@ -5,7 +5,7 @@ Example code to call Rosette API to get the tokens (words) in a piece of text.
 """
 
 import argparse
-import pprint
+import json
 
 from rosette.api import API, DocumentParameters
 
@@ -24,4 +24,4 @@ params = DocumentParameters()
 params["content"] = u"北京大学生物系主任办公室内部会议"
 result = api.tokens(params)
 
-pprint.pprint(result)
+print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
