@@ -21,7 +21,7 @@ else:
     api = API(user_key=args.key)
 
 params = NameTranslationParameters()
-params["name"] = u"معمر محمد أبو منيار القذافي‎"
+params["name"] = u"معمر محمد أبو منيار القذاف"
 params["entityType"] = "PERSON"
 params["targetLanguage"] = "eng"
 result = api.translated_name(params)
