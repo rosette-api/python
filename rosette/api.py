@@ -2,11 +2,14 @@
 
 """
 Python client for the Rosette API.
+
 Copyright (c) 2014-2015 Basis Technology Corporation.
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
+
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,6 +24,8 @@ import json
 import logging
 import sys
 import pprint
+import time
+from socket import gethostbyname, gaierror
 from datetime import datetime
 
 _ACCEPTABLE_SERVER_VERSION = "0.5"
@@ -31,7 +36,7 @@ REUSE_CONNECTION = True
 CONNECTION_TYPE = ""
 CONNECTION_START = datetime.now()
 CONNECTION_REFRESH_DURATION = 86400
-
+N_RETRIES = 3
 
 _IsPy3 = sys.version_info[0] == 3
 
@@ -96,30 +101,55 @@ def _retrying_request(op, url, data, headers):
     code = "unknownError"
     rdata = None
     for i in range(N_RETRIES + 1):
-        HTTP_CONNECTION.request(op, url, data, headers)
-        response = HTTP_CONNECTION.getresponse()
-        status = response.status
-        rdata = response.read()
-        if status < 500:
-            if not REUSE_CONNECTION:
-                HTTP_CONNECTION.close()
-            return rdata, status
-        if rdata is not None:
-            try:
-                the_json = _my_loads(rdata)
-                if "message" in the_json:
-                    message = the_json["message"]
-                if "code" in the_json:
-                    code = the_json["code"]
-            except:
-                pass
+        # Try to connect with the Rosette API server
+        # 500 errors will store a message and code
+        try:
+            HTTP_CONNECTION.request(op, url, data, headers)
+            response = HTTP_CONNECTION.getresponse()
+            status = response.status
+            rdata = response.read()
+            if status < 500:
+                if not REUSE_CONNECTION:
+                    HTTP_CONNECTION.close()
+                return rdata, status
+            if rdata is not None:
+                try:
+                    the_json = _my_loads(rdata)
+                    if "message" in the_json:
+                        message = the_json["message"]
+                    if "code" in the_json:
+                        code = the_json["code"]
+                except:
+                    pass
+        # If there are issues connecting to the API server,
+        # try to regenerate the connection as long as there are
+        # still retries left.
+        # A short sleep delay occurs (similar to google reconnect)
+        # if the problem was a temporal one.
+        except (httplib.BadStatusLine, gaierror) as e:
+            totalTime = CONNECTION_REFRESH_DURATION
+            if i == N_RETRIES - 1:
+                raise RosetteException("ConnectionError", "Unable to establish connection to the Rosette API server", url)
+            else:
+                if not REUSE_CONNECTION or HTTP_CONNECTION is None or totalTime >= CONNECTION_REFRESH_DURATION:
+                    time.sleep(min(5 * (i + 1) * (i + 1), 300))
+                    parsed = urlparse.urlparse(url)
+                    loc = parsed.netloc
+                    CONNECTION_TYPE = parsed.scheme
+                    CONNECTION_START = datetime.now()
+                    if parsed.scheme == "https":
+                        HTTP_CONNECTION = httplib.HTTPSConnection(loc)
+                    else:
+                        HTTP_CONNECTION = httplib.HTTPConnection(loc)
+
         # Do not wait to retry -- the model is that a bunch of dynamically-routed
         # resources has failed -- Retry means some other set of servelets and their
         # underlings will be called up, and maybe they'll do better.
         # This will not help with a persistent or impassible delay situation,
         # but the former case is thought to be more likely.
+
     if not REUSE_CONNECTION:
-        HTTP_CONECTION.close()
+        HTTP_CONNECTION.close()
 
     if message is None:
         message = "A retryable network operation has not succeeded after " + str(N_RETRIES) + " attempts"
@@ -157,6 +187,7 @@ def add_query(orig_url, key, value):
 
 class RosetteException(Exception):
     """Exception thrown by all Rosette API operations for errors local and remote.
+
     TBD. Right now, the only valid operation is conversion to __str__.
     """
 
@@ -273,7 +304,9 @@ class DocumentParameters(_DocumentParamSetBase):
     convenience instance methods L{DocumentParameters.load_document_file}
     and L{DocumentParameters.load_document_string}. The unit size and
     data format are defaulted to L{InputUnit.DOC} and L{DataFormat.SIMPLE}.
+
     Using subscripts instead of instance variables facilitates diagnosis.
+
     If the field C{contentUri} is set to the URL of a web page (only
     protocols C{http, https, ftp, ftps} are accepted), the server will
     fetch the content from that web page.  In this case, neither C{content}
@@ -352,13 +385,21 @@ class NameTranslationParameters(_DocumentParamSetBase):
     All are optional except C{name} and C{targetLanguage}.  Scripts are in
     ISO15924 codes, and languages in ISO639 (two- or three-letter) codes.  See the Name Translation documentation for
     more description of these terms, as well as the content of the return result.
+
     C{name} The name to be translated.
+
     C{targetLangauge} The language into which the name is to be translated.
+
     C{entityType} The entity type (TBD) of the name.
+
     C{sourceLanguageOfOrigin} The language of origin of the name.
+
     C{sourceLanguageOfUse} The language of use of the name.
+
     C{sourceScript} The script in which the name is supplied.
+
     C{targetScript} The script into which the name should be translated.
+
     C{targetScheme} The transliteration scheme by which the translated name should be rendered.
     """
 
@@ -376,12 +417,19 @@ class NameTranslationParameters(_DocumentParamSetBase):
 class NameMatchingParameters(_DocumentParamSetBase):
     """Parameter object for C{matched_name} endpoint.
     All are required.
+
     C{name1} The name to be matched, a C{name} object.
+
     C{name2} The name to be matched, a C{name} object.
+
     The C{name} object contains these fields:
+
     C{text} Text of the name, required.
+
     C{language} Language of the name in ISO639 three-letter code, optional.
+
     C{script} The ISO15924 code of the name, optional.
+
     C{entityType} The entity type, can be "PERSON", "LOCATION" or "ORGANIZATION", optional.
     """
 
@@ -402,9 +450,11 @@ class EndpointCaller:
     of the Rosette server, specified at its creation.  Use the specific
     instance methods of the L{API} object to create L{EndpointCaller} objects bound to
     corresponding endpoints.
+
     Use L{EndpointCaller.ping} to ping, and L{EndpointCaller.info} to retrieve server info.
     For all other types of requests, use L{EndpointCaller.call}, which accepts
     an argument specifying the data to be processed and certain metadata.
+
     The results of all operations are returned as python dictionaries, whose
     keys and values correspond exactly to those of the corresponding
     JSON return value described in the Rosette web service documentation.
@@ -490,9 +540,11 @@ class EndpointCaller:
         endpoints except C{translated_name} and C{matched_name}, it must be a L{DocumentParameters}
         object; for C{translated_name}, it must be an L{NameTranslationParameters} object;
         for C{matched_name}, it must be an L{NameMatchingParameters} object.
+
         In all cases, the result is returned as a python dictionary
         conforming to the JSON object described in the endpoint's entry
         in the Rosette web service documentation.
+
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the endpoint.  See the
         details for those object types.
@@ -515,6 +567,9 @@ class EndpointCaller:
             headers["user_key"] = self.user_key
         headers['Content-Type'] = "application/json"
         r = _post_http(url, params_to_serialize, headers)
+        # pprint.pprint(headers)
+        # pprint.pprint(url)
+        # pprint.pprint(params_to_serialize)
         return self.__finish_result(r, "operate")
 
 
@@ -546,7 +601,7 @@ class API:
 
         if (retries < 1):
             retries = 1
-        if refresh_duration < 60:
+        if (refresh_duration < 60):
             refresh_duration = 60
         N_RETRIES = retries
         REUSE_CONNECTION = reuse_connection
