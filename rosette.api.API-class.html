@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>rosette.api.API</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="rosette-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="rosette-module.html">Package&nbsp;rosette</a> ::
+        <a href="rosette.api-module.html">Module&nbsp;api</a> ::
+        Class&nbsp;API
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class API</h1><p class="nomargin-top"><span class="codelink"><a href="rosette.api-pysrc.html#API">source&nbsp;code</a></span></p>
+<p>Rosette Python Client Binding API; representation of a Rosette server.
+  Call instance methods upon this object to obtain <a 
+  href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> objects which can communicate with 
+  particular Rosette server endpoints.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Instance Methods</span></td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user_key</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">service_url</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">https://api.rosette.com/rest/v1</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">retries</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">reuse_connection</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">refresh_duration</span>=<span class="summary-sig-default">86400</span>,
+        <span class="summary-sig-arg">debug</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Create an <a href="rosette.api.API-class.html" class="link">API</a> 
+      object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="check_version"></a><span class="summary-sig-name">check_version</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.check_version">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#ping" class="summary-sig-name">ping</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Create a ping <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> for the server and ping it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.ping">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#info" class="summary-sig-name">info</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Create a ping <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> for the server and ping it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.info">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#language" class="summary-sig-name">language</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> for language identification and call 
+      it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.language">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#sentences" class="summary-sig-name">sentences</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to break a text into sentences and 
+      call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.sentences">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#tokens" class="summary-sig-name">tokens</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to break a text into tokens and call 
+      it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.tokens">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#morphology" class="summary-sig-name">morphology</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>,
+        <span class="summary-sig-arg">facet</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">complete</code><code class="variable-quote">'</code></span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to returns a specific facet of the 
+      morphological analyses of texts to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.morphology">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#entities" class="summary-sig-name">entities</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>,
+        <span class="summary-sig-arg">linked</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a>  to identify named entities found in 
+      the texts to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.entities">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#categories" class="summary-sig-name">categories</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to identify the category of the text 
+      to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.categories">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#sentiment" class="summary-sig-name">sentiment</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to identify the sentiment of the text
+      to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.sentiment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#translated_name" class="summary-sig-name">translated_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to perform name analysis and 
+      translation upon the name to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.translated_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#matched_name" class="summary-sig-name">matched_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      Create an <a href="rosette.api.EndpointCaller-class.html" 
+      class="link">EndpointCaller</a> to perform name matching and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.matched_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td align="left" colspan="2" class="table-header">
+    <span class="table-header">Method Details</span></td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">user_key</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">service_url</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">https://api.rosette.com/rest/v1</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">retries</span>=<span class="sig-default">3</span>,
+        <span class="sig-arg">reuse_connection</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">refresh_duration</span>=<span class="sig-default">86400</span>,
+        <span class="sig-arg">debug</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.API-class.html" class="link">API</a> 
+  object.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>user_key</code></strong> - (Optional; required for servers requiring authentication.) An 
+          authentication string to be sent as user_key with all requests.  
+          The default Rosette server requires authentication. to the 
+          server.</li>
+        <li><strong class="pname"><code>service_url</code></strong> - (Optional) The root URL (string) of the Rosette service to which 
+          this <a href="rosette.api.API-class.html" class="link">API</a> 
+          object will be bound.  The default is that of Basis Technology's 
+          public Rosette server.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ping"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ping</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.ping">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a ping <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> for the server and ping it.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A python dictionary including the ping message of the <a 
+          href="rosette.api.API-class.html" class="link">API</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="info"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">info</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.info">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a ping <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> for the server and ping it.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>A python dictionary including the ping message of the <a 
+          href="rosette.api.API-class.html" class="link">API</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="language"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">language</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.language">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> for language identification and call 
+  it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the language identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of language 
+          identification.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="sentences"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sentences</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.sentences">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to break a text into sentences and call 
+  it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the sentence identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of sentence 
+          identification.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="tokens"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">tokens</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.tokens">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to break a text into tokens and call 
+  it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the tokens identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of tokenization.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="morphology"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">morphology</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>,
+        <span class="sig-arg">facet</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">complete</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.morphology">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to returns a specific facet of the 
+  morphological analyses of texts to which it is applied and call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the morphology analyzer.</li>
+        <li><strong class="pname"><code>facet</code></strong> (An element of <a href="rosette.api.MorphologyOutput-class.html" 
+          class="link">MorphologyOutput</a>.) - The facet desired, to be returned by the created <a 
+          href="rosette.api.EndpointCaller-class.html" 
+          class="link">EndpointCaller</a>.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of morphological 
+          analysis.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="entities"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">entities</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>,
+        <span class="sig-arg">linked</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.entities">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a>  to identify named entities found in the 
+  texts to which it is applied and call it. Linked entity information is 
+  optional, and its need must be specified at the time the operator is 
+  created.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>linked</code></strong> (Boolean) - Specifies whether or not linked entity information will be 
+          wanted.</li>
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the entity identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of entity extraction.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="categories"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">categories</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.categories">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to identify the category of the text to 
+  which it is applied and call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the category identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of categorization.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="sentiment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sentiment</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.sentiment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to identify the sentiment of the text to 
+  which it is applied and call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
+          class="link">DocumentParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the sentiment identifier.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of sentiment 
+          identification.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="translated_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">translated_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.translated_name">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to perform name analysis and translation 
+  upon the name to which it is applied and call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameTranslationParameters-class.html" 
+          class="link">NameTranslationParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the name translator.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of name translation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="matched_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">matched_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.matched_name">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to perform name matching and call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameMatchingParameters-class.html" 
+          class="link">NameMatchingParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the name matcher.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of name matching.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="rosette-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep 14 09:35:24 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
