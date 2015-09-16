@@ -1,0 +1,124 @@
+{
+  "entities": [
+    {
+      "confidence": 0.011255035797754923, 
+      "count": 6, 
+      "indocChainId": 1, 
+      "mention": "Colombia", 
+      "normalized": "Colombia", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.026651740074157715, 
+      "count": 4, 
+      "indocChainId": 8, 
+      "mention": "México", 
+      "normalized": "México", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.017740070819854736, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "presidente", 
+      "normalized": "presidente", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.012101918458938599, 
+      "count": 2, 
+      "indocChainId": 6, 
+      "mention": "Enrique Peña Nieto", 
+      "normalized": "Enrique Peña Nieto", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.01789921522140503, 
+      "count": 2, 
+      "indocChainId": 11, 
+      "mention": "Juan Manuel Santos", 
+      "normalized": "Juan Manuel Santos", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0028449296951293945, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "SECCIONES\nSociedad\nMéxico", 
+      "normalized": "SECCIONES Sociedad México", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.007503092288970947, 
+      "count": 1, 
+      "indocChainId": 2, 
+      "mention": "EPN", 
+      "normalized": "EPN", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.00871974229812622, 
+      "count": 1, 
+      "indocChainId": 11, 
+      "mention": "Manuel Santos", 
+      "normalized": "Manuel Santos", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.027437686920166016, 
+      "count": 1, 
+      "indocChainId": 18, 
+      "mention": "Alianza Pacífico", 
+      "normalized": "Alianza Pacífico", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.056813716888427734, 
+      "count": 1, 
+      "indocChainId": 20, 
+      "mention": "Perú", 
+      "normalized": "Perú", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.062174439430236816, 
+      "count": 1, 
+      "indocChainId": 21, 
+      "mention": "Chile", 
+      "normalized": "Chile", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.04952973127365112, 
+      "count": 1, 
+      "indocChainId": 22, 
+      "mention": "América Latina", 
+      "normalized": "América Latina", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.014632940292358398, 
+      "count": 1, 
+      "indocChainId": 23, 
+      "mention": "Pacífico", 
+      "normalized": "Pacífico", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.02009981870651245, 
+      "count": 1, 
+      "indocChainId": 24, 
+      "mention": "Peña Nieto Ver", 
+      "normalized": "Peña Nieto Ver", 
+      "type": "PERSON"
+    }
+  ], 
+  "requestId": "f0cfd156-e9cd-4c97-bb0e-0337fad05458", 
+  "timers": {
+    "rblJe": 1, 
+    "rexJe": 60, 
+    "rliJe": 4, 
+    "textExtractor": 18, 
+    "urlContentDownloader": 243
+  }
+}

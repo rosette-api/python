@@ -1,0 +1,26 @@
+{
+  "entities": [
+    {
+      "confidence": 0.002526581287384033, 
+      "count": 2, 
+      "indocChainId": 1, 
+      "mention": "کوټې", 
+      "normalized": "کوټې", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.0011008381843566895, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "علامه", 
+      "normalized": "علامه", 
+      "type": "TITLE"
+    }
+  ], 
+  "requestId": "d5f167c6-4fe3-44b5-b753-b047989f58c7", 
+  "timers": {
+    "rblJe": 0, 
+    "rexJe": 9, 
+    "rliJe": 2
+  }
+}

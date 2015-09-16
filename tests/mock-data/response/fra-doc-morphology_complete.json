@@ -1,0 +1,9661 @@
+{
+  "compounds": [], 
+  "hanReadings": [], 
+  "lemmas": [
+    {
+      "lemma": "le", 
+      "text": "Les"
+    }, 
+    {
+      "lemma": "état", 
+      "text": "Etats"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "unir", 
+      "text": "Unis"
+    }, 
+    {
+      "lemma": "face", 
+      "text": "face"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "défi", 
+      "text": "défi"
+    }, 
+    {
+      "lemma": "persistant", 
+      "text": "persistant"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "Un"
+    }, 
+    {
+      "lemma": "chômeur", 
+      "text": "chômeur"
+    }, 
+    {
+      "lemma": "américain", 
+      "text": "américain"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "deux", 
+      "text": "deux"
+    }, 
+    {
+      "lemma": "dire", 
+      "text": "dit"
+    }, 
+    {
+      "lemma": "souffrir", 
+      "text": "souffrir"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "anxiété", 
+      "text": "anxiété"
+    }, 
+    {
+      "lemma": "ou", 
+      "text": "ou"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "dépression", 
+      "text": "dépression"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "devoir", 
+      "text": "dû"
+    }, 
+    {
+      "lemma": "emprunter", 
+      "text": "emprunter"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "argent", 
+      "text": "argent"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "ami", 
+      "text": "amis"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "selon", 
+      "text": "Selon"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "enquête", 
+      "text": "enquête"
+    }, 
+    {
+      "lemma": "publier", 
+      "text": "publiée"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "lundi", 
+      "text": "lundi"
+    }, 
+    {
+      "lemma": "18", 
+      "text": "18"
+    }, 
+    {
+      "lemma": "janvier", 
+      "text": "janvier"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "par", 
+      "text": "par"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "Census", 
+      "text": "Census"
+    }, 
+    {
+      "lemma": "bureau", 
+      "text": "Bureau"
+    }, 
+    {
+      "lemma": "(", 
+      "text": "("
+    }, 
+    {
+      "lemma": "équivalent", 
+      "text": "équivalent"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "Insee", 
+      "text": "Insee"
+    }, 
+    {
+      "lemma": ")", 
+      "text": ")"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "deux", 
+      "text": "deux"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "ans"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "nombre", 
+      "text": "nombre"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "couple", 
+      "text": "couples"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "avec", 
+      "text": "avec"
+    }, 
+    {
+      "lemma": "enfant", 
+      "text": "enfants"
+    }, 
+    {
+      "lemma": "mineur", 
+      "text": "mineurs"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "doubler", 
+      "text": "doublé"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "près", 
+      "text": "Près"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "40", 
+      "text": "40"
+    }, 
+    {
+      "lemma": "%", 
+      "text": "%"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "ces"
+    }, 
+    {
+      "lemma": "parent", 
+      "text": "parents"
+    }, 
+    {
+      "lemma": "noter", 
+      "text": "notent"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "modification", 
+      "text": "modifications"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "comportement", 
+      "text": "comportement"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "chez", 
+      "text": "chez"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leurs"
+    }, 
+    {
+      "lemma": "enfant", 
+      "text": "enfants"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "qu'"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "ils"
+    }, 
+    {
+      "lemma": "attribuer", 
+      "text": "attribuent"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leur"
+    }, 
+    {
+      "lemma": "perte", 
+      "text": "perte"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "travail", 
+      "text": "travail"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "le", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "moitié", 
+      "text": "moitié"
+    }, 
+    {
+      "lemma": "évoquer", 
+      "text": "évoquent"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "transformation", 
+      "text": "transformation"
+    }, 
+    {
+      "lemma": "fondamental", 
+      "text": "fondamentale"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leur"
+    }, 
+    {
+      "lemma": "existence", 
+      "text": "existence"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "premier", 
+      "text": "premier"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "changement", 
+      "text": "changements"
+    }, 
+    {
+      "lemma": "consister", 
+      "text": "consistant"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "perte", 
+      "text": "perte"
+    }, 
+    {
+      "lemma": "presque", 
+      "text": "presque"
+    }, 
+    {
+      "lemma": "instantané", 
+      "text": "instantanée"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "toute"
+    }, 
+    {
+      "lemma": "couverture", 
+      "text": "couverture"
+    }, 
+    {
+      "lemma": "social", 
+      "text": "sociale"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "durant", 
+      "text": "Durant"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "tout"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "mois", 
+      "text": "mois"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "décembre", 
+      "text": "décembre"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "approche", 
+      "text": "approche"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "anniversaire", 
+      "text": "anniversaire"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "prise", 
+      "text": "prise"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "fonction", 
+      "text": "fonctions"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "président", 
+      "text": "président"
+    }, 
+    {
+      "lemma": "Barack", 
+      "text": "Barack"
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "20", 
+      "text": "20"
+    }, 
+    {
+      "lemma": "janvier", 
+      "text": "janvier"
+    }, 
+    {
+      "lemma": "2009", 
+      "text": "2009"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "reportage", 
+      "text": "reportages"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "enquête", 
+      "text": "enquêtes"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "conséquence", 
+      "text": "conséquences"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "ces"
+    }, 
+    {
+      "lemma": "destruction", 
+      "text": "destructions"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "sont"
+    }, 
+    {
+      "lemma": "devenir", 
+      "text": "devenus"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "préoccupation", 
+      "text": "préoccupation"
+    }, 
+    {
+      "lemma": "obsédant", 
+      "text": "obsédante"
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "médias", 
+      "text": "médias"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "je", 
+      "text": "Je"
+    }, 
+    {
+      "lemma": "me", 
+      "text": "me"
+    }, 
+    {
+      "lemma": "sentir", 
+      "text": "sens"
+    }, 
+    {
+      "lemma": "comme", 
+      "text": "comme"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "lie", 
+      "text": "lie"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "terre", 
+      "text": "terre"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "dire", 
+      "text": "disait"
+    }, 
+    {
+      "lemma": "récemment", 
+      "text": "récemment"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "chômeur", 
+      "text": "chômeur"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "heure", 
+      "text": "heure"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "grand", 
+      "text": "grande"
+    }, 
+    {
+      "lemma": "écoute", 
+      "text": "écoute"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "alors", 
+      "text": "Alors"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "Amérique", 
+      "text": "Amérique"
+    }, 
+    {
+      "lemma": "découvrir", 
+      "text": "découvre"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "écran", 
+      "text": "écrans"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "tous"
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "ces"
+    }, 
+    {
+      "lemma": "visage", 
+      "text": "visages"
+    }, 
+    {
+      "lemma": "ravager", 
+      "text": "ravagés"
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "évoquer", 
+      "text": "évoquent"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leur"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "honte", 
+      "text": "honte"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "se", 
+      "text": "s'"
+    }, 
+    {
+      "lemma": "interroger", 
+      "text": "interroge"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "10", 
+      "text": "10"
+    }, 
+    {
+      "lemma": "%", 
+      "text": "%"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "comment", 
+      "text": "comment"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "est", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "on", 
+      "text": "on"
+    }, 
+    {
+      "lemma": "arriver", 
+      "text": "arrivé"
+    }, 
+    {
+      "lemma": "là", 
+      "text": "là"
+    }, 
+    {
+      "lemma": "?", 
+      "text": "?"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "Pour"
+    }, 
+    {
+      "lemma": "beaucoup", 
+      "text": "beaucoup"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "analyste", 
+      "text": "analystes"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "c'"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "avoir"
+    }, 
+    {
+      "lemma": "négliger", 
+      "text": "négligé"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "impact", 
+      "text": "impact"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "alors", 
+      "text": "alors"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "se", 
+      "text": "se"
+    }, 
+    {
+      "lemma": "profiler", 
+      "text": "profilaient"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "signe", 
+      "text": "signes"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "reprise", 
+      "text": "reprise"
+    }, 
+    {
+      "lemma": "économique", 
+      "text": "économique"
+    }, 
+    {
+      "lemma": "(", 
+      "text": "("
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "surtout", 
+      "text": "surtout"
+    }, 
+    {
+      "lemma": "financier", 
+      "text": "financière"
+    }, 
+    {
+      "lemma": ")", 
+      "text": ")"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "maison", 
+      "text": "Maison"
+    }, 
+    {
+      "lemma": "blanc", 
+      "text": "Blanche"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "parti", 
+      "text": "Parti"
+    }, 
+    {
+      "lemma": "démocrate", 
+      "text": "démocrate"
+    }, 
+    {
+      "lemma": "se", 
+      "text": "se"
+    }, 
+    {
+      "lemma": "trouver", 
+      "text": "trouvent"
+    }, 
+    {
+      "lemma": "confronter", 
+      "text": "confrontés"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "fort", 
+      "text": "forte"
+    }, 
+    {
+      "lemma": "désaffection", 
+      "text": "désaffection"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "opinion", 
+      "text": "opinion"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "dix", 
+      "text": "dix"
+    }, 
+    {
+      "lemma": "mois", 
+      "text": "mois"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "élection", 
+      "text": "élections"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "mi", 
+      "text": "mi"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "mandat", 
+      "text": "mandat"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "novembre", 
+      "text": "novembre"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "alors", 
+      "text": "Alors"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "thème", 
+      "text": "thème"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": "envahir", 
+      "text": "envahissait"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "champ", 
+      "text": "champ"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "préoccupation", 
+      "text": "préoccupations"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "continuer", 
+      "text": "continué"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "donner", 
+      "text": "donner"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "priorité", 
+      "text": "priorité"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "réforme", 
+      "text": "réforme"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "santé", 
+      "text": "santé"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "lutte", 
+      "text": "lutte"
+    }, 
+    {
+      "lemma": "contre", 
+      "text": "contre"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "réchauffement", 
+      "text": "réchauffement"
+    }, 
+    {
+      "lemma": "climatique", 
+      "text": "climatique"
+    }, 
+    {
+      "lemma": "ou", 
+      "text": "ou"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "régulation", 
+      "text": "régulation"
+    }, 
+    {
+      "lemma": "financier", 
+      "text": "financière"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "Tous"
+    }, 
+    {
+      "lemma": "sujet", 
+      "text": "sujets"
+    }, 
+    {
+      "lemma": "essentiel", 
+      "text": "essentiels"
+    }, 
+    {
+      "lemma": "mais", 
+      "text": "mais"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "bien", 
+      "text": "bien"
+    }, 
+    {
+      "lemma": "moins", 
+      "text": "moins"
+    }, 
+    {
+      "lemma": "palpable", 
+      "text": "palpables"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "période", 
+      "text": "période"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "crise", 
+      "text": "crise"
+    }, 
+    {
+      "lemma": "aigu", 
+      "text": "aiguë"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "araser", 
+      "text": "arase"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "tout"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "note", 
+      "text": "note"
+    }, 
+    {
+      "lemma": "Dean", 
+      "text": "Dean"
+    }, 
+    {
+      "lemma": "Baker", 
+      "text": "Baker"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "codirecteur", 
+      "text": "codirecteur"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "centre", 
+      "text": "Centre"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "recherche", 
+      "text": "recherches"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "politique", 
+      "text": "politiques"
+    }, 
+    {
+      "lemma": "économique", 
+      "text": "économiques"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "groupe", 
+      "text": "groupe"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "réflexion", 
+      "text": "réflexion"
+    }, 
+    {
+      "lemma": "démocrate", 
+      "text": "démocrate"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "Washington", 
+      "text": "Washington"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "un", 
+      "text": "Une"
+    }, 
+    {
+      "lemma": "étude", 
+      "text": "étude"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "département", 
+      "text": "département"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "travail", 
+      "text": "travail"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "publier", 
+      "text": "publiée"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "8", 
+      "text": "8"
+    }, 
+    {
+      "lemma": "janvier", 
+      "text": "janvier"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "montrer", 
+      "text": "montre"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "différence", 
+      "text": "différence"
+    }, 
+    {
+      "lemma": "essentiel", 
+      "text": "essentielle"
+    }, 
+    {
+      "lemma": "entre", 
+      "text": "entre"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "impact", 
+      "text": "impact"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "crise", 
+      "text": "crise"
+    }, 
+    {
+      "lemma": "actuel", 
+      "text": "actuelle"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "précédent", 
+      "text": "précédentes"
+    }, 
+    {
+      "lemma": "récession", 
+      "text": "récessions"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "lors", 
+      "text": "Lors"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "celui", 
+      "text": "celles"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "1974", 
+      "text": "1974"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "1976", 
+      "text": "1976"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "1990", 
+      "text": "1990"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "1993", 
+      "text": "1993"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "était"
+    }, 
+    {
+      "lemma": "moins", 
+      "text": "moins"
+    }, 
+    {
+      "lemma": "important", 
+      "text": "important"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "tant", 
+      "text": "tant"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "chiffre", 
+      "text": "chiffres"
+    }, 
+    {
+      "lemma": "absolu", 
+      "text": "absolus"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "qu'"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "durée", 
+      "text": "durée"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "Cette"
+    }, 
+    {
+      "lemma": "comparaison", 
+      "text": "comparaison"
+    }, 
+    {
+      "lemma": "reste", 
+      "text": "reste"
+    }, 
+    {
+      "lemma": "valide", 
+      "text": "valide"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "récession", 
+      "text": "récession"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "1981", 
+      "text": "1981"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "1983", 
+      "text": "1983"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "vivre", 
+      "text": "vit"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "président", 
+      "text": "président"
+    }, 
+    {
+      "lemma": "républicain", 
+      "text": "républicain"
+    }, 
+    {
+      "lemma": "Ronald", 
+      "text": "Ronald"
+    }, 
+    {
+      "lemma": "Reagan", 
+      "text": "Reagan"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "an"
+    }, 
+    {
+      "lemma": "après", 
+      "text": "après"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "élection", 
+      "text": "élection"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "enregistrer", 
+      "text": "enregistrer"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "plus", 
+      "text": "plus"
+    }, 
+    {
+      "lemma": "bas", 
+      "text": "bas"
+    }, 
+    {
+      "lemma": "soutien", 
+      "text": "soutien"
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "opinion", 
+      "text": "opinion"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "Pour"
+    }, 
+    {
+      "lemma": "résumer", 
+      "text": "résumer"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "désastre", 
+      "text": "désastre"
+    }, 
+    {
+      "lemma": "actuel", 
+      "text": "actuel"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "état", 
+      "text": "Etats"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "uni", 
+      "text": "Unis"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "ont"
+    }, 
+    {
+      "lemma": "perdre", 
+      "text": "perdu"
+    }, 
+    {
+      "lemma": "depuis", 
+      "text": "depuis"
+    }, 
+    {
+      "lemma": "deux", 
+      "text": "deux"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "ans"
+    }, 
+    {
+      "lemma": "5,24", 
+      "text": "5,24"
+    }, 
+    {
+      "lemma": "%", 
+      "text": "%"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leur"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "alors", 
+      "text": "alors"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "chute", 
+      "text": "chute"
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "n'"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "avait"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "été"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "1,4", 
+      "text": "1,4"
+    }, 
+    {
+      "lemma": "%", 
+      "text": "%"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "3", 
+      "text": "3"
+    }, 
+    {
+      "lemma": "%", 
+      "text": "%"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "pire", 
+      "text": "pire"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "lors", 
+      "text": "lors"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "récession", 
+      "text": "récessions"
+    }, 
+    {
+      "lemma": "précédent", 
+      "text": "précédentes"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "entre", 
+      "text": "Entre"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "total", 
+      "text": "total"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "partiel", 
+      "text": "partiel"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "crise", 
+      "text": "crise"
+    }, 
+    {
+      "lemma": "toucher", 
+      "text": "touche"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "travail", 
+      "text": "travail"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "près", 
+      "text": "près"
+    }, 
+    {
+      "lemma": "d", 
+      "text": "d"
+    }, 
+    {
+      "lemma": "'", 
+      "text": "'"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "américain", 
+      "text": "Américain"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "cinq", 
+      "text": "cinq"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "N'"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "ayant"
+    }, 
+    {
+      "lemma": "cesser", 
+      "text": "cessé"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "répéter", 
+      "text": "répéter"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "pays", 
+      "text": "pays"
+    }, 
+    {
+      "lemma": "affronter", 
+      "text": "affrontait"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "pire", 
+      "text": "pire"
+    }, 
+    {
+      "lemma": "crise", 
+      "text": "crise"
+    }, 
+    {
+      "lemma": "depuis", 
+      "text": "depuis"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "grand", 
+      "text": "Grande"
+    }, 
+    {
+      "lemma": "dépression", 
+      "text": "Dépression"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "année", 
+      "text": "années"
+    }, 
+    {
+      "lemma": "1930", 
+      "text": "1930"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Barack", 
+      "text": "Barack"
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "avait"
+    }, 
+    {
+      "lemma": "donner", 
+      "text": "donné"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "sentiment", 
+      "text": "sentiment"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "être"
+    }, 
+    {
+      "lemma": "très", 
+      "text": "très"
+    }, 
+    {
+      "lemma": "conscient", 
+      "text": "conscient"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "problème", 
+      "text": "problème"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "or", 
+      "text": "Or"
+    }, 
+    {
+      "lemma": "là", 
+      "text": "là"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "paradoxe", 
+      "text": "paradoxe"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "fois", 
+      "text": "fois"
+    }, 
+    {
+      "lemma": "élu", 
+      "text": "élu"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "président", 
+      "text": "président"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "apparaître", 
+      "text": "apparu"
+    }, 
+    {
+      "lemma": "comme", 
+      "text": "comme"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "dirigeant", 
+      "text": "dirigeant"
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "faire", 
+      "text": "fait"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "diagnostic", 
+      "text": "diagnostic"
+    }, 
+    {
+      "lemma": "correct", 
+      "text": "correct"
+    }, 
+    {
+      "lemma": "mais", 
+      "text": "mais"
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "n'"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "tirer", 
+      "text": "tiré"
+    }, 
+    {
+      "lemma": "aucun", 
+      "text": "aucune"
+    }, 
+    {
+      "lemma": "conclusion", 
+      "text": "conclusion"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "le", 
+      "text": "L'"
+    }, 
+    {
+      "lemma": "Amérique", 
+      "text": "Amérique"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "avait"
+    }, 
+    {
+      "lemma": "perdre", 
+      "text": "perdu"
+    }, 
+    {
+      "lemma": "3078000", 
+      "text": "3 078 000"
+    }, 
+    {
+      "lemma": "chômeur", 
+      "text": "chômeurs"
+    }, 
+    {
+      "lemma": "lors", 
+      "text": "lors"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "dernier", 
+      "text": "dernière"
+    }, 
+    {
+      "lemma": "année", 
+      "text": "année"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "mandat", 
+      "text": "mandat"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "George", 
+      "text": "George"
+    }, 
+    {
+      "lemma": "Bush", 
+      "text": "Bush"
+    }, 
+    {
+      "lemma": ";", 
+      "text": ";"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "elle"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "perdre", 
+      "text": "perdu"
+    }, 
+    {
+      "lemma": "4228000", 
+      "text": "4 228 000"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "an", 
+      "text": "an"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "présidence", 
+      "text": "présidence"
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "!", 
+      "text": "!"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "Le"
+    }, 
+    {
+      "lemma": "10", 
+      "text": "10"
+    }, 
+    {
+      "lemma": "janvier", 
+      "text": "janvier"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "invoquer", 
+      "text": "invoquant"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "urgence", 
+      "text": "urgence"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "Christina", 
+      "text": "Christina"
+    }, 
+    {
+      "lemma": "Romer", 
+      "text": "Romer"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "président", 
+      "text": "présidente"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "conseil", 
+      "text": "conseil"
+    }, 
+    {
+      "lemma": "économique", 
+      "text": "économique"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "appeler", 
+      "text": "appelé"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "vite", 
+      "text": "vite"
+    }, 
+    {
+      "lemma": "injecter", 
+      "text": "injecter"
+    }, 
+    {
+      "lemma": "75", 
+      "text": "75"
+    }, 
+    {
+      "lemma": "milliard", 
+      "text": "milliards"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "dollar", 
+      "text": "dollars"
+    }, 
+    {
+      "lemma": "supplémentaire", 
+      "text": "supplémentaires"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "régénérer", 
+      "text": "régénérer"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "nul", 
+      "text": "Nul"
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "ne"
+    }, 
+    {
+      "lemma": "douter", 
+      "text": "doute"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "privilégier", 
+      "text": "privilégiera"
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "cette"
+    }, 
+    {
+      "lemma": "nécessité", 
+      "text": "nécessité"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "2010", 
+      "text": "2010"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "comment", 
+      "text": "Comment"
+    }, 
+    {
+      "lemma": "remédier", 
+      "text": "remédier"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "problème", 
+      "text": "problème"
+    }, 
+    {
+      "lemma": "?", 
+      "text": "?"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "plupart", 
+      "text": "plupart"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "analyste", 
+      "text": "analystes"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "constater", 
+      "text": "constatant"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "découplage", 
+      "text": "découplage"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "entre", 
+      "text": "entre"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "reprise", 
+      "text": "reprise"
+    }, 
+    {
+      "lemma": "économique", 
+      "text": "économique"
+    }, 
+    {
+      "lemma": "et", 
+      "text": "et"
+    }, 
+    {
+      "lemma": "celui", 
+      "text": "celle"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "être", 
+      "text": "sont"
+    }, 
+    {
+      "lemma": "circonspect", 
+      "text": "circonspects"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "chef", 
+      "text": "Chef"
+    }, 
+    {
+      "lemma": "économiste", 
+      "text": "économiste"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "Goldman", 
+      "text": "Goldman"
+    }, 
+    {
+      "lemma": "Sachs", 
+      "text": "Sachs"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "jan", 
+      "text": "Jan"
+    }, 
+    {
+      "lemma": "Hatzius", 
+      "text": "Hatzius"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "texte", 
+      "text": "texte"
+    }, 
+    {
+      "lemma": "intituler", 
+      "text": "intitulé"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "10", 
+      "text": "10"
+    }, 
+    {
+      "lemma": "question", 
+      "text": "questions"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "2010", 
+      "text": "2010"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "se", 
+      "text": "s'"
+    }, 
+    {
+      "lemma": "attendre", 
+      "text": "attend"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "solde", 
+      "text": "solde"
+    }, 
+    {
+      "lemma": "positif", 
+      "text": "positif"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "100000", 
+      "text": "100 000"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emplois"
+    }, 
+    {
+      "lemma": "par", 
+      "text": "par"
+    }, 
+    {
+      "lemma": "mois", 
+      "text": "mois"
+    }, 
+    {
+      "lemma": "dès", 
+      "text": "dès"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "second", 
+      "text": "second"
+    }, 
+    {
+      "lemma": "trimestre", 
+      "text": "trimestre"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "insuffisant", 
+      "text": "insuffisant"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "modifier", 
+      "text": "modifier"
+    }, 
+    {
+      "lemma": "significativement", 
+      "text": "significativement"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "taux", 
+      "text": "taux"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chômage"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "compte", 
+      "text": "Compte"
+    }, 
+    {
+      "lemma": "tenu", 
+      "text": "tenu"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leur"
+    }, 
+    {
+      "lemma": "évolution", 
+      "text": "évolution"
+    }, 
+    {
+      "lemma": "démographique", 
+      "text": "démographique"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "état", 
+      "text": "Etats"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "uni", 
+      "text": "Unis"
+    }, 
+    {
+      "lemma": "devoir", 
+      "text": "doivent"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "effet", 
+      "text": "effet"
+    }, 
+    {
+      "lemma": "créer", 
+      "text": "créer"
+    }, 
+    {
+      "lemma": "100000", 
+      "text": "100 000"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emplois"
+    }, 
+    {
+      "lemma": "mensuel", 
+      "text": "mensuels"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "juste", 
+      "text": "juste"
+    }, 
+    {
+      "lemma": "stabiliser", 
+      "text": "stabiliser"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "Dean", 
+      "text": "Dean"
+    }, 
+    {
+      "lemma": "Baker", 
+      "text": "Baker"
+    }, 
+    {
+      "lemma": "expliquer", 
+      "text": "explique"
+    }, 
+    {
+      "lemma": "encore", 
+      "text": "encore"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "marge", 
+      "text": "marge"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "manoeuvre", 
+      "text": "manoeuvre"
+    }, 
+    {
+      "lemma": "présidentiel", 
+      "text": "présidentielle"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "restreindre", 
+      "text": "restreinte"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "rater", 
+      "text": "raté"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "coche", 
+      "text": "coche"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "limiter", 
+      "text": "limitant"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "plan", 
+      "text": "plan"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "relance", 
+      "text": "relance"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "maintenant", 
+      "text": "Maintenant"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "il", 
+      "text": "il"
+    }, 
+    {
+      "lemma": "lui", 
+      "text": "lui"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "politiquement", 
+      "text": "politiquement"
+    }, 
+    {
+      "lemma": "impossible", 
+      "text": "impossible"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "retourner", 
+      "text": "retourner"
+    }, 
+    {
+      "lemma": "devant", 
+      "text": "devant"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "congrès", 
+      "text": "Congrès"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "augmenter", 
+      "text": "augmenter"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "le", 
+      "text": "Les"
+    }, 
+    {
+      "lemma": "conséquence", 
+      "text": "conséquences"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "sont"
+    }, 
+    {
+      "lemma": "désastreux", 
+      "text": "désastreuses"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "même", 
+      "text": "Même"
+    }, 
+    {
+      "lemma": "si", 
+      "text": "s'"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "il"
+    }, 
+    {
+      "lemma": "lui", 
+      "text": "lui"
+    }, 
+    {
+      "lemma": "rester", 
+      "text": "reste"
+    }, 
+    {
+      "lemma": "200", 
+      "text": "200"
+    }, 
+    {
+      "lemma": "milliard", 
+      "text": "milliards"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "dollar", 
+      "text": "dollars"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "dépenser", 
+      "text": "dépenser"
+    }, 
+    {
+      "lemma": "(", 
+      "text": "("
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "787", 
+      "text": "787"
+    }, 
+    {
+      "lemma": "milliard", 
+      "text": "milliards"
+    }, 
+    {
+      "lemma": ")", 
+      "text": ")"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "essentiel", 
+      "text": "essentiel"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "impact", 
+      "text": "impact"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "plan", 
+      "text": "plan"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "passer", 
+      "text": "passé"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "le", 
+      "text": "Le"
+    }, 
+    {
+      "lemma": "pire", 
+      "text": "pire"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "selon", 
+      "text": "selon"
+    }, 
+    {
+      "lemma": "lui", 
+      "text": "lui"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "président", 
+      "text": "président"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "faire", 
+      "text": "fait"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "choix", 
+      "text": "choix"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "toute"
+    }, 
+    {
+      "lemma": "connaissance", 
+      "text": "connaissance"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "cause", 
+      "text": "cause"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "privilégier", 
+      "text": "privilégier"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "politique", 
+      "text": "politique"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "C'"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "dire", 
+      "text": "dire"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "compromis", 
+      "text": "compromis"
+    }, 
+    {
+      "lemma": "avec", 
+      "text": "avec"
+    }, 
+    {
+      "lemma": "certain", 
+      "text": "certains"
+    }, 
+    {
+      "lemma": "républicain", 
+      "text": "républicains"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "qu'"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "il"
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "n'"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "jamais", 
+      "text": "jamais"
+    }, 
+    {
+      "lemma": "obtenir", 
+      "text": "obtenu"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "Pour"
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Baker", 
+      "text": "Baker"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "cette"
+    }, 
+    {
+      "lemma": "quête", 
+      "text": "quête"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "consensus", 
+      "text": "consensus"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "entraîner", 
+      "text": "entraîné"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "parti", 
+      "text": "parti"
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "état", 
+      "text": "état"
+    }, 
+    {
+      "lemma": "où", 
+      "text": "où"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "il"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "et", 
+      "text": "Et"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "conclure", 
+      "text": "conclure"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "le", 
+      "text": "Les"
+    }, 
+    {
+      "lemma": "républicain", 
+      "text": "républicains"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "ont"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "stratégie", 
+      "text": "stratégie"
+    }, 
+    {
+      "lemma": "efficace", 
+      "text": "efficace"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "ils"
+    }, 
+    {
+      "lemma": "bloquer", 
+      "text": "bloquent"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "tout"
+    }, 
+    {
+      "lemma": "changement", 
+      "text": "changement"
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "pour"
+    }, 
+    {
+      "lemma": "dénoncer", 
+      "text": "dénoncer"
+    }, 
+    {
+      "lemma": "ensuite", 
+      "text": "ensuite"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "président", 
+      "text": "président"
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "ne", 
+      "text": "n'"
+    }, 
+    {
+      "lemma": "agir", 
+      "text": "agit"
+    }, 
+    {
+      "lemma": "pas", 
+      "text": "pas"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "il", 
+      "text": "Il"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "temps", 
+      "text": "temps"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "celui", 
+      "text": "celui"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "ci", 
+      "text": "ci"
+    }, 
+    {
+      "lemma": "dénoncer", 
+      "text": "dénonce"
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "ce"
+    }, 
+    {
+      "lemma": "comportement", 
+      "text": "comportement"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "sabotage", 
+      "text": "sabotage"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "économie", 
+      "text": "économie"
+    }, 
+    {
+      "lemma": "national", 
+      "text": "nationale"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "mercredi", 
+      "text": "Mercredi"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "dire", 
+      "text": "dit"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "regretter", 
+      "text": "regretter"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "avoir"
+    }, 
+    {
+      "lemma": "perdre", 
+      "text": "perdu"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "sens", 
+      "text": "sens"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "contact", 
+      "text": "contact"
+    }, 
+    {
+      "lemma": "direct", 
+      "text": "direct"
+    }, 
+    {
+      "lemma": "avec", 
+      "text": "avec"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "américain", 
+      "text": "Américains"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "leur", 
+      "text": "leurs"
+    }, 
+    {
+      "lemma": "valeur", 
+      "text": "valeurs"
+    }, 
+    {
+      "lemma": "essentiel", 
+      "text": "essentielles"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "son", 
+      "text": "Son"
+    }, 
+    {
+      "lemma": "principal", 
+      "text": "principal"
+    }, 
+    {
+      "lemma": "conseiller", 
+      "text": "conseiller"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "David", 
+      "text": "David"
+    }, 
+    {
+      "lemma": "Axelrod", 
+      "text": "Axelrod"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "évoquer", 
+      "text": "évoqué"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "salaire", 
+      "text": "salaires"
+    }, 
+    {
+      "lemma": "bloquer", 
+      "text": "bloqués"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emplois"
+    }, 
+    {
+      "lemma": "perdu", 
+      "text": "perdus"
+    }, 
+    {
+      "lemma": "\"", 
+      "text": "\""
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "pour", 
+      "text": "Pour"
+    }, 
+    {
+      "lemma": "autant", 
+      "text": "autant"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "changer", 
+      "text": "changera"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "t", 
+      "text": "t"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "il", 
+      "text": "il"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "attitude", 
+      "text": "attitude"
+    }, 
+    {
+      "lemma": "vis", 
+      "text": "vis"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "vis", 
+      "text": "vis"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "congrès", 
+      "text": "Congrès"
+    }, 
+    {
+      "lemma": "?", 
+      "text": "?"
+    }, 
+    {
+      "lemma": "peu", 
+      "text": "Peu"
+    }, 
+    {
+      "lemma": "y", 
+      "text": "y"
+    }, 
+    {
+      "lemma": "croire", 
+      "text": "croient"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "le", 
+      "text": "La"
+    }, 
+    {
+      "lemma": "chambre", 
+      "text": "Chambre"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "voter", 
+      "text": "voté"
+    }, 
+    {
+      "lemma": "en", 
+      "text": "en"
+    }, 
+    {
+      "lemma": "décembre", 
+      "text": "décembre"
+    }, 
+    {
+      "lemma": "2009", 
+      "text": "2009"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "loi", 
+      "text": "loi"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "création", 
+      "text": "création"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emplois"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "174", 
+      "text": "174"
+    }, 
+    {
+      "lemma": "milliard", 
+      "text": "milliards"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "dollar", 
+      "text": "dollars"
+    }, 
+    {
+      "lemma": "non", 
+      "text": "non"
+    }, 
+    {
+      "lemma": "encore", 
+      "text": "encore"
+    }, 
+    {
+      "lemma": "adopter", 
+      "text": "adoptée"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "sénat", 
+      "text": "Sénat"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "le", 
+      "text": "Les"
+    }, 
+    {
+      "lemma": "républicain", 
+      "text": "républicains"
+    }, 
+    {
+      "lemma": "assimiler", 
+      "text": "assimilent"
+    }, 
+    {
+      "lemma": "désormais", 
+      "text": "désormais"
+    }, 
+    {
+      "lemma": "tout", 
+      "text": "toute"
+    }, 
+    {
+      "lemma": "dépense", 
+      "text": "dépense"
+    }, 
+    {
+      "lemma": "public", 
+      "text": "publique"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "gabegie", 
+      "text": "gabegie"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "Harry", 
+      "text": "Harry"
+    }, 
+    {
+      "lemma": "Reid", 
+      "text": "Reid"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "leader", 
+      "text": "leader"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "des"
+    }, 
+    {
+      "lemma": "démocrate", 
+      "text": "démocrates"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "sénat", 
+      "text": "Sénat"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "négocier", 
+      "text": "négocierait"
+    }, 
+    {
+      "lemma": "déjà", 
+      "text": "déjà"
+    }, 
+    {
+      "lemma": "avec", 
+      "text": "avec"
+    }, 
+    {
+      "lemma": "lui", 
+      "text": "eux"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "certains", 
+      "text": "Certains"
+    }, 
+    {
+      "lemma": "imaginer", 
+      "text": "imaginent"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "abandon", 
+      "text": "abandon"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "pourtant", 
+      "text": "pourtant"
+    }, 
+    {
+      "lemma": "peu", 
+      "text": "peu"
+    }, 
+    {
+      "lemma": "probable", 
+      "text": "probable"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "plan", 
+      "text": "plan"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "assurance", 
+      "text": "assurance"
+    }, 
+    {
+      "lemma": "santé", 
+      "text": "santé"
+    }, 
+    {
+      "lemma": "afin", 
+      "text": "afin"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "parvenir", 
+      "text": "parvenir"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "un"
+    }, 
+    {
+      "lemma": "soutien", 
+      "text": "soutien"
+    }, 
+    {
+      "lemma": "républicain", 
+      "text": "républicain"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "aux"
+    }, 
+    {
+      "lemma": "embauche", 
+      "text": "embauches"
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "PME", 
+      "text": "PME"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "de", 
+      "text": "D'"
+    }, 
+    {
+      "lemma": "autre", 
+      "text": "autres"
+    }, 
+    {
+      "lemma": "envisager", 
+      "text": "envisagent"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "affecter", 
+      "text": "affecter"
+    }, 
+    {
+      "lemma": "à", 
+      "text": "à"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "l'"
+    }, 
+    {
+      "lemma": "emploi", 
+      "text": "emploi"
+    }, 
+    {
+      "lemma": "75", 
+      "text": "75"
+    }, 
+    {
+      "lemma": "milliard", 
+      "text": "milliards"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "dollar", 
+      "text": "dollars"
+    }, 
+    {
+      "lemma": "pris", 
+      "text": "pris"
+    }, 
+    {
+      "lemma": "sur", 
+      "text": "sur"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "le"
+    }, 
+    {
+      "lemma": "plan", 
+      "text": "plan"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "sauvetage", 
+      "text": "sauvetage"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "finance", 
+      "text": "finance"
+    }, 
+    {
+      "lemma": "américain", 
+      "text": "américaine"
+    }, 
+    {
+      "lemma": "(", 
+      "text": "("
+    }, 
+    {
+      "lemma": "dit", 
+      "text": "dit"
+    }, 
+    {
+      "lemma": "TARP", 
+      "text": "TARP"
+    }, 
+    {
+      "lemma": ")", 
+      "text": ")"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "plus", 
+      "text": "Plus"
+    }, 
+    {
+      "lemma": "encore", 
+      "text": "encore"
+    }, 
+    {
+      "lemma": "que", 
+      "text": "que"
+    }, 
+    {
+      "lemma": "M.", 
+      "text": "M."
+    }, 
+    {
+      "lemma": "Obama", 
+      "text": "Obama"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "ce", 
+      "text": "c'"
+    }, 
+    {
+      "lemma": "être", 
+      "text": "est"
+    }, 
+    {
+      "lemma": "son", 
+      "text": "son"
+    }, 
+    {
+      "lemma": "parti", 
+      "text": "parti"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "tétaniser", 
+      "text": "tétanisé"
+    }, 
+    {
+      "lemma": "par", 
+      "text": "par"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "la"
+    }, 
+    {
+      "lemma": "perspective", 
+      "text": "perspective"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "d'"
+    }, 
+    {
+      "lemma": "un", 
+      "text": "une"
+    }, 
+    {
+      "lemma": "défaite", 
+      "text": "défaite"
+    }, 
+    {
+      "lemma": "électoral", 
+      "text": "électorale"
+    }, 
+    {
+      "lemma": "dans", 
+      "text": "dans"
+    }, 
+    {
+      "lemma": "dix", 
+      "text": "dix"
+    }, 
+    {
+      "lemma": "mois", 
+      "text": "mois"
+    }, 
+    {
+      "lemma": ",", 
+      "text": ","
+    }, 
+    {
+      "lemma": "qui", 
+      "text": "qui"
+    }, 
+    {
+      "lemma": "avoir", 
+      "text": "a"
+    }, 
+    {
+      "lemma": "besoin", 
+      "text": "besoin"
+    }, 
+    {
+      "lemma": "de", 
+      "text": "de"
+    }, 
+    {
+      "lemma": "mesure", 
+      "text": "mesures"
+    }, 
+    {
+      "lemma": "rapide", 
+      "text": "rapides"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "http", 
+      "text": "http"
+    }, 
+    {
+      "lemma": ":", 
+      "text": ":"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "www.lemonde.fr", 
+      "text": "www.lemonde.fr"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "amerique", 
+      "text": "ameriques"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "article", 
+      "text": "article"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "2010", 
+      "text": "2010"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "01", 
+      "text": "01"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "21", 
+      "text": "21"
+    }, 
+    {
+      "lemma": "/", 
+      "text": "/"
+    }, 
+    {
+      "lemma": "le", 
+      "text": "les"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "état", 
+      "text": "etats"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "uni", 
+      "text": "unis"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "face", 
+      "text": "face"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "à le", 
+      "text": "au"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "défi", 
+      "text": "defi"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "persistant", 
+      "text": "persistant"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "de le", 
+      "text": "du"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "chômage", 
+      "text": "chomage"
+    }, 
+    {
+      "lemma": "_", 
+      "text": "_"
+    }, 
+    {
+      "lemma": "1294839", 
+      "text": "1294839"
+    }, 
+    {
+      "lemma": "_", 
+      "text": "_"
+    }, 
+    {
+      "lemma": "3222", 
+      "text": "3222"
+    }, 
+    {
+      "lemma": ".", 
+      "text": "."
+    }, 
+    {
+      "lemma": "html", 
+      "text": "html"
+    }, 
+    {
+      "lemma": "#", 
+      "text": "#"
+    }, 
+    {
+      "lemma": "xtor", 
+      "text": "xtor"
+    }, 
+    {
+      "lemma": "=", 
+      "text": "="
+    }, 
+    {
+      "lemma": "RSS", 
+      "text": "RSS"
+    }, 
+    {
+      "lemma": "-", 
+      "text": "-"
+    }, 
+    {
+      "lemma": "3210", 
+      "text": "3210"
+    }, 
+    {
+      "lemma": "2010.01.21", 
+      "text": "2010.01.21"
+    }
+  ], 
+  "posTags": [
+    {
+      "pos": "DET_PL", 
+      "text": "Les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Etats"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "Unis"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "face"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "défi"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "persistant"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômeur"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "américain"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "deux"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "dit"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "souffrir"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "anxiété"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "ou"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "dépression"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "dû"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "emprunter"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "argent"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "amis"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Selon"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "enquête"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "publiée"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "lundi"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "18"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "janvier"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "par"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Census"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Bureau"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "("
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "équivalent"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Insee"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ")"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "deux"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "ans"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "nombre"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "couples"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "avec"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "enfants"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "mineurs"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "doublé"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Près"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "40"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "%"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "ces"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "parents"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "notent"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "modifications"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "comportement"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "chez"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "leurs"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "enfants"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "qu'"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "ils"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "attribuent"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "leur"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "perte"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "travail"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "moitié"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "évoquent"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "transformation"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "fondamentale"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "leur"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "existence"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "premier"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "changements"
+    }, 
+    {
+      "pos": "VERB_PRP", 
+      "text": "consistant"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "perte"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "presque"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "instantanée"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "toute"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "couverture"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "sociale"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Durant"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "tout"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "mois"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "décembre"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "approche"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "anniversaire"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "prise"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "fonctions"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "président"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Barack"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "20"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "janvier"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2009"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "reportages"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "enquêtes"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "conséquences"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "ces"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "destructions"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "VAUX_P3PL", 
+      "text": "sont"
+    }, 
+    {
+      "pos": "PAP_PL", 
+      "text": "devenus"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "préoccupation"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "obsédante"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "médias"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PRON_P1P2", 
+      "text": "Je"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "me"
+    }, 
+    {
+      "pos": "VERB_P1P2", 
+      "text": "sens"
+    }, 
+    {
+      "pos": "COMME", 
+      "text": "comme"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "lie"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "terre"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "disait"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "récemment"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômeur"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "heure"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "ADJ2_SG", 
+      "text": "grande"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "écoute"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Alors"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Amérique"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "découvre"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "écrans"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "tous"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "ces"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "visages"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "ravagés"
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "évoquent"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "leur"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "honte"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "s'"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "interroge"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "10"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "%"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONN", 
+      "text": "comment"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "on"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "arrivé"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "là"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "?"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Pour"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "beaucoup"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "analystes"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "c'"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "VAUX_INF", 
+      "text": "avoir"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "négligé"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "impact"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "alors"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "se"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "profilaient"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "signes"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "reprise"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "économique"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "("
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "surtout"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "financière"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ")"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Maison"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "Blanche"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Parti"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "démocrate"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "se"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "trouvent"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "confrontés"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "forte"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "désaffection"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "opinion"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "dix"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "mois"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "élections"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "mi"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "mandat"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "novembre"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Alors"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "thème"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "envahissait"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "champ"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "préoccupations"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "continué"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "donner"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "priorité"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "réforme"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "santé"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "lutte"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "contre"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "réchauffement"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "climatique"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "ou"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "régulation"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "financière"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "Tous"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "sujets"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "essentiels"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "mais"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "bien"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "moins"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "palpables"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "période"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "crise"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "aiguë"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "arase"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "tout"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "note"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Dean"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Baker"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "codirecteur"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Centre"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "recherches"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "politiques"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "économiques"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "groupe"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "réflexion"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "démocrate"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Washington"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "étude"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "département"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "travail"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "publiée"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "8"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "janvier"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "montre"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "différence"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "essentielle"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "entre"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "impact"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "crise"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "actuelle"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "précédentes"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "récessions"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Lors"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "celles"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1974"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1976"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1990"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1993"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "était"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "moins"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "important"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "tant"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "chiffres"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "absolus"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "qu'"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "durée"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Cette"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "comparaison"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "reste"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "valide"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "récession"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1981"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1983"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "vit"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "président"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "républicain"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Ronald"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Reagan"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "an"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "après"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "élection"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "enregistrer"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "plus"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "bas"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "soutien"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "opinion"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Pour"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "résumer"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "désastre"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "actuel"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Etats"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Unis"
+    }, 
+    {
+      "pos": "VAUX_P3PL", 
+      "text": "ont"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "perdu"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "depuis"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "deux"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "ans"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "5,24"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "%"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "leur"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "alors"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chute"
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "n'"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "avait"
+    }, 
+    {
+      "pos": "VAUX_PAP", 
+      "text": "été"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1,4"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "%"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "3"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "%"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "pire"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "lors"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "récessions"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "précédentes"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Entre"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "total"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "partiel"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "crise"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "touche"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "travail"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "près"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "d"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "'"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Américain"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "cinq"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "N'"
+    }, 
+    {
+      "pos": "VAUX_PRP", 
+      "text": "ayant"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "cessé"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "répéter"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "pays"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "affrontait"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "pire"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "crise"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "depuis"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "ADJ2_SG", 
+      "text": "Grande"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Dépression"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "années"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1930"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Barack"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "avait"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "donné"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "sentiment"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "VAUX_INF", 
+      "text": "être"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "très"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "conscient"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "problème"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "Or"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "là"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "paradoxe"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "fois"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "élu"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "président"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "apparu"
+    }, 
+    {
+      "pos": "COMME", 
+      "text": "comme"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "dirigeant"
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "fait"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "diagnostic"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "correct"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "mais"
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "n'"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "en"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "tiré"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "aucune"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "conclusion"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "L'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Amérique"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "avait"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "perdu"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "3 078 000"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "chômeurs"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "lors"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "ADJ2_SG", 
+      "text": "dernière"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "année"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "mandat"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "George"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Bush"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ";"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "elle"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "en"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "perdu"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "4 228 000"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "an"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "présidence"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "!"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Le"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "10"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "janvier"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_PRP", 
+      "text": "invoquant"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "urgence"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Christina"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Romer"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "présidente"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "conseil"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "économique"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "appelé"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "vite"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "injecter"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "75"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "milliards"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "dollars"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "supplémentaires"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "régénérer"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "Nul"
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "ne"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "doute"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "privilégiera"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "cette"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "nécessité"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2010"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "CONN", 
+      "text": "Comment"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "remédier"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "problème"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "?"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "plupart"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "analystes"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_PRP", 
+      "text": "constatant"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "découplage"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "entre"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "reprise"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "économique"
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "et"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "celle"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VAUX_P3PL", 
+      "text": "sont"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "circonspects"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Chef"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "économiste"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Goldman"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Sachs"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Jan"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Hatzius"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "texte"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "intitulé"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "10"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "questions"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2010"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PC", 
+      "text": "s'"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "attend"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "solde"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "positif"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "100 000"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "emplois"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "par"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "mois"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dès"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "ADJ2_SG", 
+      "text": "second"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "trimestre"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "insuffisant"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "modifier"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "significativement"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "taux"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chômage"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Compte"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "tenu"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "leur"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "évolution"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "démographique"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Etats"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Unis"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "doivent"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "effet"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "créer"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "100 000"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "emplois"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "mensuels"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "juste"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "stabiliser"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Dean"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Baker"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "explique"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "encore"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "marge"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "manoeuvre"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "présidentielle"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "restreinte"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "raté"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "coche"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "VERB_PRP", 
+      "text": "limitant"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "plan"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "relance"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Maintenant"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "il"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "lui"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "politiquement"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "impossible"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "retourner"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "devant"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Congrès"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "augmenter"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "Les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "conséquences"
+    }, 
+    {
+      "pos": "VAUX_P3PL", 
+      "text": "sont"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "désastreuses"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Même"
+    }, 
+    {
+      "pos": "CONN", 
+      "text": "s'"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "il"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "lui"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "reste"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "200"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "milliards"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "dollars"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "dépenser"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "("
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "787"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "milliards"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ")"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "essentiel"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "impact"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "plan"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "passé"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "pire"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "selon"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "lui"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "président"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "fait"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "choix"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "toute"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "connaissance"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "cause"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "privilégier"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "politique"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "C'"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "dire"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "compromis"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "avec"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "certains"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "républicains"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "qu'"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "il"
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "n'"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "jamais"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "obtenu"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Pour"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Baker"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "cette"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "quête"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "consensus"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "entraîné"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "parti"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "état"
+    }, 
+    {
+      "pos": "CONN", 
+      "text": "où"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "il"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "COORD", 
+      "text": "Et"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "conclure"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "Les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "républicains"
+    }, 
+    {
+      "pos": "VAUX_P3PL", 
+      "text": "ont"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "stratégie"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "efficace"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "ils"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "bloquent"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "tout"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "changement"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "pour"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "dénoncer"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "ensuite"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "président"
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "NEG", 
+      "text": "n'"
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "agit"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "pas"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "Il"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "temps"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "celui"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "ci"
+    }, 
+    {
+      "pos": "VERB_P1P2", 
+      "text": "dénonce"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "ce"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "comportement"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "sabotage"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "économie"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "nationale"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Mercredi"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "dit"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "regretter"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "VAUX_INF", 
+      "text": "avoir"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "perdu"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "sens"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "contact"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "direct"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "avec"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "Américains"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "leurs"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "valeurs"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "essentielles"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "Son"
+    }, 
+    {
+      "pos": "ADJ2_SG", 
+      "text": "principal"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "conseiller"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "David"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Axelrod"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "évoqué"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "salaires"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "bloqués"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "emplois"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "perdus"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "\""
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "Pour"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "autant"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "changera"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "t"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "il"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "attitude"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "vis"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "vis"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Congrès"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "?"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "Peu"
+    }, 
+    {
+      "pos": "PC", 
+      "text": "y"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "croient"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "La"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Chambre"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "voté"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "en"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "décembre"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2009"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "loi"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "création"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "emplois"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "174"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "milliards"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "dollars"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "non"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "encore"
+    }, 
+    {
+      "pos": "PAP_SG", 
+      "text": "adoptée"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Sénat"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "Les"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "républicains"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "assimilent"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "désormais"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "toute"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "dépense"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "publique"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "gabegie"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Harry"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Reid"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "leader"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "des"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "démocrates"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "Sénat"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "VERB_P3SG", 
+      "text": "négocierait"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "déjà"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "avec"
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "eux"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "Certains"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "imaginent"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "abandon"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "pourtant"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "peu"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "probable"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "plan"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "assurance"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "santé"
+    }, 
+    {
+      "pos": "MISC", 
+      "text": "afin"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "parvenir"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "un"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "soutien"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "républicain"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "aux"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "embauches"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "PME"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "D'"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "autres"
+    }, 
+    {
+      "pos": "VERB_P3PL", 
+      "text": "envisagent"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "VERB_INF", 
+      "text": "affecter"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "à"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "l'"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "emploi"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "75"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "milliards"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "dollars"
+    }, 
+    {
+      "pos": "ADJ_INV", 
+      "text": "pris"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "sur"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "le"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "plan"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "sauvetage"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "finance"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "américaine"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "("
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "dit"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "TARP"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ")"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "Plus"
+    }, 
+    {
+      "pos": "ADV", 
+      "text": "encore"
+    }, 
+    {
+      "pos": "CONJQUE", 
+      "text": "que"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "M."
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "Obama"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "PRON", 
+      "text": "c'"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "est"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "son"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "parti"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "tétanisé"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "par"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "la"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "perspective"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "d'"
+    }, 
+    {
+      "pos": "DET_SG", 
+      "text": "une"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "défaite"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "électorale"
+    }, 
+    {
+      "pos": "PREP", 
+      "text": "dans"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "dix"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "mois"
+    }, 
+    {
+      "pos": "CM", 
+      "text": ","
+    }, 
+    {
+      "pos": "RELPRO", 
+      "text": "qui"
+    }, 
+    {
+      "pos": "VAUX_P3SG", 
+      "text": "a"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "besoin"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "de"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "mesures"
+    }, 
+    {
+      "pos": "ADJ_PL", 
+      "text": "rapides"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "http"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": ":"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "www.lemonde.fr"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "ameriques"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "article"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2010"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "01"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "21"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "/"
+    }, 
+    {
+      "pos": "DET_PL", 
+      "text": "les"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "etats"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_PL", 
+      "text": "unis"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "face"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PREP_A", 
+      "text": "au"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "defi"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "ADJ_SG", 
+      "text": "persistant"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "PREP_DE", 
+      "text": "du"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "chomage"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "_"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "1294839"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "_"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "3222"
+    }, 
+    {
+      "pos": "SENT", 
+      "text": "."
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "html"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "#"
+    }, 
+    {
+      "pos": "NOUN_SG", 
+      "text": "xtor"
+    }, 
+    {
+      "pos": "SYM", 
+      "text": "="
+    }, 
+    {
+      "pos": "NOUN_INV", 
+      "text": "RSS"
+    }, 
+    {
+      "pos": "PUNCT", 
+      "text": "-"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "3210"
+    }, 
+    {
+      "pos": "NUM", 
+      "text": "2010.01.21"
+    }
+  ], 
+  "requestId": "c4bdf301-9d26-41cf-b9ef-26f83ded0fb9", 
+  "timers": {
+    "rblJe": 535, 
+    "rliJe": 4
+  }
+}

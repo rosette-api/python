@@ -1,0 +1,30 @@
+{
+  "languageDetections": [
+    {
+      "confidence": 0.03778571148423149, 
+      "language": "eng"
+    }, 
+    {
+      "confidence": 0.004662049438325155, 
+      "language": "ita"
+    }, 
+    {
+      "confidence": 0.004196223037494229, 
+      "language": "fra"
+    }, 
+    {
+      "confidence": 0.004017692353779911, 
+      "language": "ron"
+    }, 
+    {
+      "confidence": 0.0036722928060302085, 
+      "language": "nor"
+    }
+  ], 
+  "requestId": "7174fbf8-a58e-4ec4-9ac4-92fee2bd5b40", 
+  "timers": {
+    "rliJe": 5, 
+    "textExtractor": 20, 
+    "urlContentDownloader": 159
+  }
+}

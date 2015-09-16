@@ -1,0 +1,28 @@
+{
+  "languageDetections": [
+    {
+      "confidence": 0.04065858941640477, 
+      "language": "zho"
+    }, 
+    {
+      "confidence": 0.01644532195896431, 
+      "language": "zho"
+    }, 
+    {
+      "confidence": 0.004008360564392355, 
+      "language": "jpn"
+    }, 
+    {
+      "confidence": 0.00025639584075720645, 
+      "language": "eng"
+    }, 
+    {
+      "confidence": 0.00011789117134142213, 
+      "language": "ita"
+    }
+  ], 
+  "requestId": "936affd3-4f51-47f1-a2ff-4b7b9b89847d", 
+  "timers": {
+    "rliJe": 10
+  }
+}

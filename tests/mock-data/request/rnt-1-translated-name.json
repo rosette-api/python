@@ -1,0 +1,10 @@
+{
+  "entityType": "PERSON", 
+  "name": "毛泽东", 
+  "sourceLanguageOfOrigin": "zho", 
+  "sourceLanguageOfUse": "zho", 
+  "sourceScript": "Hani", 
+  "targetLanguage": "eng", 
+  "targetScheme": "HYPY_TONED", 
+  "targetScript": "Latn"
+}

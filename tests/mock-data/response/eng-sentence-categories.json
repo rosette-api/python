@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "confidence": 0.07808597563331034, 
+      "label": "LAW_GOVERNMENT_AND_POLITICS"
+    }
+  ], 
+  "requestId": "6ad3ca89-792f-486b-a837-13565bb9d9f8", 
+  "timers": {
+    "cat": 4, 
+    "rblJe": 3, 
+    "rliJe": 17
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "entities": [
+    {
+      "confidence": 0.4180757450854853, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 0, 
+      "mention": "مكة المكرمة"
+    }, 
+    {
+      "confidence": 0.5178530081219924, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 2, 
+      "mention": "صعدة"
+    }, 
+    {
+      "confidence": 0.1557383262524555, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 3, 
+      "mention": "شبوه"
+    }, 
+    {
+      "confidence": 0.5016791841319038, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 4, 
+      "mention": "عدن"
+    }, 
+    {
+      "confidence": 0.39822414545725726, 
+      "entityId": "Q466216", 
+      "indocChainId": 5, 
+      "mention": "تعز"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 6, 
+      "mention": "قيادة التحالف"
+    }, 
+    {
+      "confidence": 0.6117159114135108, 
+      "entityId": "Q805", 
+      "indocChainId": 8, 
+      "mention": "اليمن"
+    }, 
+    {
+      "confidence": 0.5203183336875661, 
+      "entityId": "Q13477", 
+      "indocChainId": 9, 
+      "mention": "الجزيرة"
+    }, 
+    {
+      "confidence": 0.7308444368302152, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 10, 
+      "mention": "مركز وبرج الاتصالات"
+    }, 
+    {
+      "confidence": 0.623258178252376, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 12, 
+      "mention": "قوات التحالف"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 13, 
+      "mention": "جماعة الحوثي"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 16, 
+      "mention": "ضحيان"
+    }, 
+    {
+      "confidence": 0.09139991340373968, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 17, 
+      "mention": "مذاب الصفراء"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 19, 
+      "mention": "طيران التحالف"
+    }, 
+    {
+      "confidence": 0.3224708373992394, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 20, 
+      "mention": "رازح"
+    }, 
+    {
+      "confidence": 0.5380180683126542, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 22, 
+      "mention": "السعودية"
+    }, 
+    {
+      "confidence": 0.03212408218368355, 
+      "entityId": "Q4695759", 
+      "indocChainId": 29, 
+      "mention": "أحمد عسيري"
+    }, 
+    {
+      "confidence": 1.0, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 33, 
+      "mention": "عتق"
+    }, 
+    {
+      "confidence": 0.5045473626996668, 
+      "entityId": "Q131694", 
+      "indocChainId": 34, 
+      "mention": "عدن"
+    }, 
+    {
+      "confidence": 0.14623359675528494, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 35, 
+      "mention": "أمس"
+    }, 
+    {
+      "confidence": 0.3954942431664408, 
+      "entityId": "NEW-CLUSTER", 
+      "indocChainId": 44, 
+      "mention": "نجران"
+    }
+  ], 
+  "requestId": "04d771f1-7664-4c39-9dd6-59b38a9bec01", 
+  "timers": {
+    "rblJe": 50, 
+    "res": 546, 
+    "rexJe": 22, 
+    "rliJe": 5, 
+    "textExtractor": 51, 
+    "urlContentDownloader": 99
+  }
+}
