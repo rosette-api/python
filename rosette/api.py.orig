@@ -23,9 +23,13 @@ import gzip
 import json
 import logging
 import sys
+<<<<<<< HEAD
+import pprint
 import time
 from socket import gethostbyname, gaierror
 from datetime import datetime
+=======
+>>>>>>> rcb-100-python-test-call
 
 _ACCEPTABLE_SERVER_VERSION = "0.5"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
@@ -575,9 +579,12 @@ class EndpointCaller:
             headers["user_key"] = self.user_key
         headers['Content-Type'] = "application/json"
         r = _post_http(url, params_to_serialize, headers)
+<<<<<<< HEAD
         # pprint.pprint(headers)
         # pprint.pprint(url)
         # pprint.pprint(params_to_serialize)
+=======
+>>>>>>> rcb-100-python-test-call
         return self.__finish_result(r, "operate")
 
 
