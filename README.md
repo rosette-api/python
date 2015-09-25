@@ -56,7 +56,7 @@ The samples use the following procedure:
 "`name`" and "`targetLanguage`" for `NameTranslationParameters`; "`name1.text`" and "`name2.text`" for
  `NameMatchingParameters`; Other parameters are optional.
 
-6. Create an `API` method for the endpoint you are calling. The methods are
+6. Invoke the `API` method for the endpoint you are calling. The methods are
     * `entities(linked)` where `linked` is `False` for entity extraction and `True` for entity linking.
     * `categories()`
     * `sentiment()`
