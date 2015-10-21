@@ -16,8 +16,8 @@ rosette.api._retrying_request	rosette.api-module.html#_retrying_request
 rosette.api.REUSE_CONNECTION	rosette.api-module.html#REUSE_CONNECTION
 rosette.api._IsPy3	rosette.api-module.html#_IsPy3
 rosette.api._post_http	rosette.api-module.html#_post_http
+rosette.api._BINDING_VERSION	rosette.api-module.html#_BINDING_VERSION
 rosette.api.CONNECTION_START	rosette.api-module.html#CONNECTION_START
-rosette.api._ACCEPTABLE_SERVER_VERSION	rosette.api-module.html#_ACCEPTABLE_SERVER_VERSION
 rosette.api.API	rosette.api.API-class.html
 rosette.api.API.info	rosette.api.API-class.html#info
 rosette.api.API.check_version	rosette.api.API-class.html#check_version
@@ -47,11 +47,12 @@ rosette.api.DocumentParameters.validate	rosette.api.DocumentParameters-class.htm
 rosette.api.DocumentParameters.__init__	rosette.api.DocumentParameters-class.html#__init__
 rosette.api.EndpointCaller	rosette.api.EndpointCaller-class.html
 rosette.api.EndpointCaller.info	rosette.api.EndpointCaller-class.html#info
+rosette.api.EndpointCaller.checkVersion	rosette.api.EndpointCaller-class.html#checkVersion
 rosette.api.EndpointCaller.ping	rosette.api.EndpointCaller-class.html#ping
 rosette.api.EndpointCaller.call	rosette.api.EndpointCaller-class.html#call
-rosette.api.EndpointCaller.__finish_result	rosette.api.EndpointCaller-class.html#__finish_result
-rosette.api.EndpointCaller._set_use_multipart	rosette.api.EndpointCaller-class.html#_set_use_multipart
 rosette.api.EndpointCaller.__init__	rosette.api.EndpointCaller-class.html#__init__
+rosette.api.EndpointCaller._set_use_multipart	rosette.api.EndpointCaller-class.html#_set_use_multipart
+rosette.api.EndpointCaller.__finish_result	rosette.api.EndpointCaller-class.html#__finish_result
 rosette.api.InputUnit	rosette.api.InputUnit-class.html
 rosette.api.InputUnit.DOC	rosette.api.InputUnit-class.html#DOC
 rosette.api.InputUnit.SENTENCE	rosette.api.InputUnit-class.html#SENTENCE
