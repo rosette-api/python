@@ -125,6 +125,7 @@ def test_info():
     result = test.api.info()
     assert result["buildNumber"] == "6bafb29d"
     assert result["name"] == "Rosette API"
+    assert result["versionChecked"] is True
 
 
 # Test that retrying request retries the correct number of times
@@ -169,6 +170,8 @@ def call_endpoint(input_filename, expected_status_filename, expected_output_file
     with open(response_file_dir + "info.json", "r") as info_file:
         body = info_file.read()
         httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                                body=body, status=200, content_type="application/json")
 
     error_expected = False
@@ -240,6 +243,8 @@ def test_debug():
         body = info_file.read()
         httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
                                body=body, status=200, content_type="application/json")
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
 
     api = API("0123456789", debug=True)
 
@@ -275,6 +280,8 @@ def test_just_text():
     with open(response_file_dir + "info.json", "r") as info_file:
         body = info_file.read()
         httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                                body=body, status=200, content_type="application/json")
 
     api = API("0123456789")

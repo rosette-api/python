@@ -27,7 +27,7 @@ import time
 from socket import gethostbyname, gaierror
 from datetime import datetime
 
-_ACCEPTABLE_SERVER_VERSION = "0.5"
+_BINDING_VERSION = "0.7"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 N_RETRIES = 3
 HTTP_CONNECTION = None
@@ -516,6 +516,23 @@ class EndpointCaller:
         r = _get_http(url, headers=headers)
         return self.__finish_result(r, "info")
 
+    def checkVersion(self):
+        """Issues a special "info" request to the L{EndpointCaller}'s specific endpoint.
+        @return: A dictionary containing server version as well as version check"""
+        if self.suburl is not None:
+            self.checker()
+            url = self.service_url + '/' + self.suburl + "/info?clientVersion=" + _BINDING_VERSION
+        else:
+            url = self.service_url + "/info?clientVersion=" + _BINDING_VERSION
+        if self.debug:
+            url = add_query(url, "debug", "true")
+        self.logger.info('info: ' + url)
+        headers = {'Accept': 'application/json'}
+        if self.user_key is not None:
+            headers["user_key"] = self.user_key
+        r = _post_http(url, None, headers=headers)
+        return self.__finish_result(r, "info")
+
     def ping(self):
         """Issues a "ping" request to the L{EndpointCaller}'s (server-wide) endpoint.
         @return: A dictionary if OK.  If the server cannot be reached,
@@ -619,10 +636,10 @@ class API:
         if self.version_checked:
             return True
         op = EndpointCaller(self, None)
-        result = op.info()
+        result = op.checkVersion()
         version = ".".join(result["version"].split(".")[0:2])
-        if version != _ACCEPTABLE_SERVER_VERSION:
-            raise RosetteException("incompatibleVersion", "The server version is not " + _ACCEPTABLE_SERVER_VERSION,
+        if result['versionChecked'] is False:
+            raise RosetteException("incompatibleVersion", "The server version is not compatible with binding version " + _BINDING_VERSION,
                                    version)
         self.version_checked = True
         return True
