@@ -4,22 +4,16 @@
 Example code to call Rosette API to get information such as version and build
 """
 
-import argparse
 import json
 
-from rosette.api import API
+from rosette.api import API, DocumentParameters
 
-parser = argparse.ArgumentParser(description="Get information about Rosette API")
-parser.add_argument("--key", required=True, help="Rosette API key")
-parser.add_argument("--service_url", nargs="?", help="Optional user service URL")
-args = parser.parse_args()
 
-# Create an API instance
-if args.service_url:
-    api = API(service_url=args.service_url, user_key=args.key)
-else:
-    api = API(user_key=args.key)
+def run(key):
+    # Create an API instance
+    api = API(user_key=key)
 
-result = api.info()
+    result = api.info()
 
-print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
+    print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
+    return json.dumps(result, indent=2, ensure_ascii=False).encode("utf8")
