@@ -4,26 +4,20 @@
 Example code to call Rosette API to translate a name from one language to another.
 """
 
-import argparse
 import json
 
 from rosette.api import API, NameTranslationParameters
 
-parser = argparse.ArgumentParser(description="Translate a name from one language to another")
-parser.add_argument("--key", required=True, help="Rosette API key")
-parser.add_argument("--service_url", nargs="?", help="Optional user service URL")
-args = parser.parse_args()
 
-# Create an API instance
-if args.service_url:
-    api = API(service_url=args.service_url, user_key=args.key)
-else:
-    api = API(user_key=args.key)
+def run(key):
+    # Create an API instance
+    api = API(user_key=key)
 
-params = NameTranslationParameters()
-params["name"] = u"معمر محمد أبو منيار القذاف"
-params["entityType"] = "PERSON"
-params["targetLanguage"] = "eng"
-result = api.translated_name(params)
+    params = NameTranslationParameters()
+    params["name"] = u"معمر محمد أبو منيار القذاف"
+    params["entityType"] = "PERSON"
+    params["targetLanguage"] = "eng"
+    result = api.translated_name(params)
 
-print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
+    print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
+    return json.dumps(result, indent=2, ensure_ascii=False).encode("utf8")

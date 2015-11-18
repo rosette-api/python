@@ -31,6 +31,7 @@ Each example, when run, prints its output to the console.
 | morphology_lemmas.py                 | Gets the lemmas of words from a piece of text         | 
 | morphology_parts-of-speech.py        | Gets the part-of-speech tags for words in a piece of text | 
 | ping.py                          | Pings the Rosette API to check for reachability       | 
+| relationships.py                      | Gets the relationships between entities from a piece of text                | 
 | sentences.py                     | Gets the sentences from a piece of text               |
 | sentiment.py                     | Gets the sentiment of a local file                    | 
 | tokens.py                        | Gets the tokens (words) from a piece of text          | 

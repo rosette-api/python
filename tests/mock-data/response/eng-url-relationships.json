@@ -1,0 +1,943 @@
+{
+  "requestId": "8143276a-b6c5-4b5c-957b-f2c12b4378a8",
+  "relationships": [
+    {
+      "predicate": "makes",
+      "arg1": "progressive case for trade\nPresident Obama",
+      "arg2": "took his campaign for a free trade deal to the world headquarters of Nike Friday"
+    },
+    {
+      "predicate": "makes",
+      "arg1": "Log out Sign In FAQ\nGet the news\nFacebookEmail Twitter Google",
+      "arg2": "progressive case for trade\nPresident Obama took his campaign for a free trade deal to the world headquarters of Nike Friday"
+    },
+    {
+      "predicate": "took",
+      "arg1": "progressive case for trade\nPresident Obama",
+      "arg2": "his campaign",
+      "adjuncts": [
+        "for a free trade deal to the world headquarters of Nike",
+        "where he's extracted a pledge from the world's largest athletic shoe company that it will add 10,000 U.S. jobs"
+      ]
+    },
+    {
+      "predicate": "took",
+      "arg1": "progressive case for trade President Obama",
+      "arg2": "his campaign",
+      "adjuncts": [
+        "for a free trade deal to the world headquarters of Nike",
+        "where he's extracted a pledge from the world's largest athletic shoe company that it will add 10,000 U.S. jobs"
+      ]
+    },
+    {
+      "predicate": "makes",
+      "arg1": "progressive case for trade President Obama",
+      "arg2": "took his campaign for a free trade deal to the world headquarters of Nike Friday"
+    },
+    {
+      "predicate": "makes",
+      "arg1": "Post to Facebook Obama",
+      "arg2": "progressive case for trade President Obama took his campaign for a free trade deal to the world headquarters of Nike Friday"
+    },
+    {
+      "predicate": "has",
+      "arg1": "CancelSend\nA link",
+      "arg2": "been sent to your friend's email address"
+    },
+    {
+      "predicate": "has been sent",
+      "arg1": "CancelSend\nA link",
+      "adjuncts": [
+        "to your friend's email address"
+      ]
+    },
+    {
+      "predicate": "has",
+      "arg1": "A link",
+      "arg2": "been posted to your Facebook feed"
+    },
+    {
+      "predicate": "has been posted",
+      "arg1": "A link",
+      "adjuncts": [
+        "to your Facebook feed"
+      ]
+    },
+    {
+      "predicate": "makes",
+      "arg1": "179\nTo find out more about Facebook commenting please read the Conversation Guidelines",
+      "arg2": "progressive case for trade\nGregory Korte"
+    },
+    {
+      "predicate": "commenting please read",
+      "arg1": "more about Facebook",
+      "arg2": "the Conversation Guidelines"
+    },
+    {
+      "predicate": "is",
+      "arg1": "May 8",
+      "arg2": "2015\nPresident Obama"
+    },
+    {
+      "predicate": "takes",
+      "arg1": "trade\nGregory Korte",
+      "arg2": "USA TODAY",
+      "arg3": "the stage"
+    },
+    {
+      "predicate": "takes",
+      "arg1": "trade\nGregory Korte",
+      "arg2": "May 8",
+      "arg3": "the stage"
+    },
+    {
+      "predicate": "visited",
+      "arg1": "Obama",
+      "arg2": "the giant athletic apparel company",
+      "arg3": "to make his trade policy pitch as he struggles to win over Democrats"
+    },
+    {
+      "predicate": "dressed",
+      "arg1": "58 LINKEDIN 179 COMMENTEMAILMORE\nPresident Obama",
+      "arg2": "his campaign for free trade in the clothing of"
+    },
+    {
+      "predicate": "would help",
+      "arg1": "a Pacific trade deal",
+      "arg2": "American workers"
+    },
+    {
+      "predicate": "cast",
+      "arg1": "Obama",
+      "arg2": "free trade",
+      "adjuncts": [
+        "adopt clean energy",
+        "in the same terms",
+        "as his efforts to pass universal health care"
+      ]
+    },
+    {
+      "predicate": "cast",
+      "arg1": "Obama",
+      "arg2": "free trade",
+      "adjuncts": [
+        "raise the minimum wage",
+        "in the same terms",
+        "as his efforts to pass universal health care"
+      ]
+    },
+    {
+      "predicate": "visited",
+      "arg1": "President Barack Obama",
+      "arg2": "Nike headquarters",
+      "adjuncts": [
+        "to promote his trade agenda"
+      ]
+    },
+    {
+      "predicate": "says",
+      "arg1": "a Trans-Pacific trade deal",
+      "arg2": "would allow it to benefit from lower tariffs on shoes"
+    },
+    {
+      "predicate": "is",
+      "arg1": "notably Vermont Sen. Bernie Sanders",
+      "arg2": "a presidential candidate"
+    },
+    {
+      "predicate": "says",
+      "arg1": "Nike",
+      "arg2": "a Trans-Pacific trade deal would allow it to benefit from lower tariffs on shoes"
+    },
+    {
+      "predicate": "see",
+      "arg1": "many liberals",
+      "adjuncts": [
+        "as a symbol of failed trade policies"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "the minimum wage",
+      "arg2": "56 cents an hour"
+    },
+    {
+      "predicate": "make",
+      "arg1": "330,000 workers",
+      "arg2": "Nike shoes"
+    },
+    {
+      "predicate": "said",
+      "arg1": "Obama",
+      "arg2": "would have to increase the minimum wage"
+    },
+    {
+      "predicate": "seemed",
+      "arg1": "Nike",
+      "adjuncts": [
+        "like an unlikely venue for a speech"
+      ]
+    },
+    {
+      "predicate": "approves",
+      "arg1": "USA TODAY\nSenate panel",
+      "arg2": "trade bill",
+      "adjuncts": [
+        "At first"
+      ]
+    },
+    {
+      "predicate": "announced",
+      "arg1": "Nike",
+      "arg2": "it would hire 10,000 workers in the United States over the next decade"
+    },
+    {
+      "predicate": "passes",
+      "arg1": "a Pacific trade agreement",
+      "arg2": "Congress"
+    },
+    {
+      "predicate": "was made",
+      "arg1": "Nike's fast-growth success story",
+      "arg2": "possible",
+      "adjuncts": [
+        "because of the power of trade"
+      ]
+    },
+    {
+      "predicate": "said",
+      "arg1": "Nike President Mark Parker",
+      "arg2": "was made possible because of the power of trade"
+    },
+    {
+      "predicate": "said",
+      "arg1": "Introducing Obama",
+      "arg2": "was made possible because of the power of trade"
+    },
+    {
+      "predicate": "should see",
+      "arg1": "companies",
+      "arg2": "that kind of success"
+    },
+    {
+      "predicate": "wants",
+      "arg1": "Nike",
+      "arg2": "to hire American workers"
+    },
+    {
+      "predicate": "said",
+      "arg1": "Labor groups",
+      "arg2": "if Nike wants to hire American workers, it shouldn't be contingent on a trade deal"
+    },
+    {
+      "predicate": "is",
+      "arg1": "this time",
+      "arg2": "different"
+    },
+    {
+      "predicate": "has met",
+      "arg1": "Obama's free trade push",
+      "arg2": "resistance from within his own Democratic party"
+    },
+    {
+      "predicate": "hit",
+      "arg1": "USA TODAY\nFree trade critics",
+      "arg2": "Obama",
+      "adjuncts": [
+        "over Nike visit\nLike President Clinton",
+        "before him"
+      ]
+    },
+    {
+      "predicate": "will have",
+      "arg1": "the Trans-Pacific Partnership",
+      "arg2": "more labor"
+    },
+    {
+      "predicate": "has argued",
+      "arg1": "The White House",
+      "arg2": "that the Trans-Pacific Partnership will have more labor"
+    },
+    {
+      "predicate": "to insist",
+      "arg1": "Congress",
+      "adjuncts": [
+        "on stronger provisions before an up-or-down vote on passage"
+      ]
+    },
+    {
+      "predicate": "acknowledged",
+      "arg1": "Obama",
+      "arg2": "that intra-party debate Friday"
+    },
+    {
+      "predicate": "announced",
+      "arg1": "the White House",
+      "arg2": "have questioned the appearances"
+    },
+    {
+      "predicate": "have questioned",
+      "arg1": "the Nike visit",
+      "arg2": "the appearances of using a company"
+    },
+    {
+      "predicate": "was built",
+      "arg1": "the Nike brand",
+      "adjuncts": [
+        "by outsourcing manufacturing to sweatshops in Asia"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "The symbolism of his speech",
+      "arg2": "staggering"
+    },
+    {
+      "predicate": "gather",
+      "arg1": "Demonstrators",
+      "locatives": [
+        "near the Sentinel Hotel"
+      ]
+    },
+    {
+      "predicate": "spoke",
+      "arg1": "President Obama",
+      "adjuncts": [
+        "at a Democratic fundraiser"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "Thomas Boyd",
+      "arg2": "VIDEO"
+    },
+    {
+      "predicate": "based",
+      "arg1": "valuable states in America",
+      "adjuncts": [
+        "on value of land per acre"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "Aziz Hamzaogullari",
+      "arg2": "portfolio manager for the Loomis Sayles Growth Fund"
+    },
+    {
+      "predicate": "are wired",
+      "arg1": "THE DAY IN MONEYAmazon",
+      "arg2": "to keep growing market share"
+    },
+    {
+      "predicate": "is",
+      "arg1": "00:59\nUnity Stoakes",
+      "arg2": "co-founder of StartUp Health"
+    },
+    {
+      "predicate": "|",
+      "arg1": "THE DAY IN MONEYHealth care technology booms",
+      "arg2": "00:59\nUnity Stoakes"
+    },
+    {
+      "predicate": "added",
+      "arg1": "Hamzaogullari",
+      "arg2": "that the anti-trust suit against Newslook\n2 of 42\nVIDEO"
+    },
+    {
+      "predicate": "is",
+      "arg1": "Trisha Thadani",
+      "arg2": "Collin Brennan\n3 of 42\nVIDEO"
+    },
+    {
+      "predicate": "share",
+      "arg1": "Buzz60's Leigh Scheps",
+      "arg2": "some tops"
+    },
+    {
+      "predicate": "is",
+      "arg1": "Buzz60's Leigh Scheps",
+      "arg2": "@LeighTVReporters"
+    },
+    {
+      "predicate": "introduced",
+      "arg1": "THE DAY IN MONEYAmazon launches",
+      "arg2": "free shipping for small"
+    },
+    {
+      "predicate": "|",
+      "arg1": "free shipping on small items",
+      "arg2": "00:40\nAmazon",
+      "adjuncts": [
+        "on Tuesday"
+      ]
+    },
+    {
+      "predicate": "has stabilized",
+      "arg1": "04:40\nThe high yield bond market",
+      "arg2": "since worries about falling energy prices dragged it down last winter"
+    },
+    {
+      "predicate": "says",
+      "arg1": "Morgan Stanley",
+      "arg2": "| 04:40\nThe high yield bond market has stabilized since worries about falling energy prices dragged it down last winter"
+    },
+    {
+      "predicate": "|",
+      "arg1": "Morgan Stanley",
+      "arg2": "04:40\nThe high yield bond market has stabilized since worries about falling energy prices dragged it down last winter"
+    },
+    {
+      "predicate": "says",
+      "arg1": "Richard Lindquist",
+      "arg2": "the good times will continue"
+    },
+    {
+      "predicate": "says",
+      "arg1": "the good times",
+      "arg2": "will continue"
+    },
+    {
+      "predicate": "is",
+      "arg1": "Richard Lindquist",
+      "arg2": "head of high yield at Morgan Stanley Investment Management"
+    },
+    {
+      "predicate": "ended",
+      "arg1": "00:55\nShares of PVH Corp.",
+      "arg2": "making it TheStreet's Move of the Day",
+      "adjuncts": [
+        "up 7 percent"
+      ]
+    },
+    {
+      "predicate": "came",
+      "arg1": "Earnings per share",
+      "adjuncts": [
+        "in at $0.71",
+        "were looking for"
+      ]
+    },
+    {
+      "predicate": "polled",
+      "arg1": "the $0.59 analysts",
+      "adjuncts": [
+        "by Thomson Reuters"
+      ]
+    },
+    {
+      "predicate": "is keeping",
+      "arg1": "FireEye | 01:00\nTheStreet's Jim Cramer",
+      "arg2": "an eye on shares of FireEye"
+    },
+    {
+      "predicate": "says",
+      "arg1": "one of his favorite themes for 2015",
+      "arg2": "is cyber security"
+    },
+    {
+      "predicate": "says",
+      "arg1": "Cramer",
+      "arg2": "is cyber security"
+    },
+    {
+      "predicate": "is",
+      "arg1": "one of his favorite themes for 2015",
+      "arg2": "cyber security"
+    },
+    {
+      "predicate": "quashes",
+      "arg1": "THE DAY IN MONEYNintendo",
+      "arg2": "rumors of future deal with android | 02:00\nRumors of a Nintendo Android deal"
+    },
+    {
+      "predicate": "were dismissed",
+      "arg1": "THE DAY IN MONEYNintendo quashes rumors of future deal with android | 02:00\nRumors of a Nintendo Android deal",
+      "adjuncts": [
+        "by the big N",
+        "on Tuesday"
+      ]
+    },
+    {
+      "predicate": "provided",
+      "arg1": "Video",
+      "adjuncts": [
+        "by Newsy Newslook\n11 of 42\nVIDEO"
+      ]
+    },
+    {
+      "predicate": "are under pressure",
+      "arg1": "U.S.-bred poultry suppliers",
+      "adjuncts": [
+        "with the U.S. Department of Agriculture"
+      ]
+    },
+    {
+      "predicate": "explains",
+      "arg1": "RealMoney Pro contributor",
+      "arg2": "how to cut your exposure to stocks"
+    },
+    {
+      "predicate": "|",
+      "arg1": "Avoid companies with egg dependencies",
+      "arg2": "01:45"
+    },
+    {
+      "predicate": "|",
+      "arg1": "earnings estimates",
+      "arg2": "stocks are"
+    },
+    {
+      "predicate": "reported",
+      "arg1": "the company",
+      "arg2": "earnings on Tuesday"
+    },
+    {
+      "predicate": "beats",
+      "arg1": "THE DAY IN MONEYCracker Barrel",
+      "arg2": "earnings estimates | 00:49\nCracker Barrel"
+    },
+    {
+      "predicate": "beats",
+      "arg1": "earnings estimates",
+      "arg2": "| 00:49\nCracker Barrel"
+    },
+    {
+      "predicate": "buys",
+      "arg1": "THE DAY IN MONEYBoot Barn",
+      "arg2": "western lifestyle retailer Sheplers",
+      "adjuncts": [
+        "for $147M | 01:29\nBoot Barn Holdings Inc. said June 1 it has agreed to buy fellow western lifestyle retailer Sheplers Inc. for $147 million in cash"
+      ]
+    },
+    {
+      "predicate": "said",
+      "arg1": "Boot Barn Holdings Inc.",
+      "arg2": "it has agreed to buy fellow western lifestyle retailer Sheplers Inc. for $147 million in cash"
+    },
+    {
+      "predicate": "is",
+      "arg1": "The seller",
+      "arg2": "San Francisco-based private equity firm Gryphon Investors"
+    },
+    {
+      "predicate": "slip",
+      "arg1": "factory orders",
+      "arg2": "shares"
+    },
+    {
+      "predicate": "told",
+      "arg1": "A source",
+      "arg2": "The Deal's Richard Collings tha Newslook\n15 of 42\nVIDEO",
+      "adjuncts": [
+        "THE DAY IN MONEYGM"
+      ]
+    },
+    {
+      "predicate": "reported",
+      "arg1": "the automaker",
+      "arg2": "a 3 percent increase in domestic sales in May"
+    },
+    {
+      "predicate": "beat",
+      "arg1": "Ford",
+      "arg2": "monthly sales forecasts"
+    },
+    {
+      "predicate": "also beat",
+      "arg1": "Ford",
+      "arg2": "estimates",
+      "adjuncts": [
+        "falling at a slower-than-expected pace in May"
+      ]
+    },
+    {
+      "predicate": "announced",
+      "arg1": "the company",
+      "arg2": "a new camera"
+    },
+    {
+      "predicate": "jumped",
+      "arg1": "Touchscreen",
+      "arg2": "as much as 7%",
+      "adjuncts": [
+        "on Monday",
+        "after the company announced a new camera"
+      ]
+    },
+    {
+      "predicate": "announced",
+      "arg1": "THE DAY IN MONEYGoPro",
+      "arg2": "a new camera with Touchscreen, Stock skyrockets | 01:01\nGoPro (GPRO) shares jumped as much as 7% on Monday"
+    },
+    {
+      "predicate": "according to",
+      "arg1": "that features a built-in screen",
+      "arg2": "CNET"
+    },
+    {
+      "predicate": "is",
+      "arg1": "The GoPro Hero",
+      "arg2": "a touchscreen camera that's only its second offering"
+    },
+    {
+      "predicate": "|",
+      "arg1": "| America's Markets",
+      "arg2": "01:37\nUSA"
+    },
+    {
+      "predicate": "might outsmart",
+      "arg1": "investors",
+      "arg2": "the usual June gloom",
+      "adjuncts": [
+        "in this edition of America's Markets"
+      ]
+    },
+    {
+      "predicate": "has",
+      "arg1": "Krystin Goodwin",
+      "arg2": "five things airlines don't want you to know"
+    },
+    {
+      "predicate": "is",
+      "arg1": "Krystin Goodwin",
+      "arg2": "@Krystingoodwin"
+    },
+    {
+      "predicate": "has",
+      "arg1": "five things airlines",
+      "arg2": "don't want you to know"
+    },
+    {
+      "predicate": "drops",
+      "arg1": "THE DAY IN MONEYMacau's casino revenue",
+      "arg2": "37%",
+      "adjuncts": [
+        "in twelve month"
+      ]
+    },
+    {
+      "predicate": "has dropped",
+      "arg1": "casino revenue for the Chinese peninsula",
+      "arg2": "37.1 percent",
+      "adjuncts": [
+        "in May",
+        "from last year's numbers"
+      ]
+    },
+    {
+      "predicate": "opens",
+      "arg1": "THE DAY IN MONEYDenver",
+      "arg2": "its first marijuana-friendly hotel | 01:03\nThe Nativ is Colorado's first openly pot-friendly hotel"
+    },
+    {
+      "predicate": "is",
+      "arg1": "The Nativ",
+      "arg2": "Colorado's first openly pot-friendly hotel"
+    },
+    {
+      "predicate": "has",
+      "arg1": "TC Newman",
+      "arg2": "the details"
+    },
+    {
+      "predicate": "Find out",
+      "arg1": "01:24",
+      "adjuncts": [
+        "from a Halstead Property executive"
+      ]
+    },
+    {
+      "predicate": "sits down",
+      "arg1": "Brian Lewis",
+      "arg2": "to discuss this exclusive market",
+      "adjuncts": [
+        "with Fortune's Leigh Gallagher"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "Brian Lewis",
+      "arg2": "Executive VP of Halstead Property"
+    },
+    {
+      "predicate": "may endorse",
+      "arg1": "the AFL CIO",
+      "adjuncts": [
+        "in 2016"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "| 04:42\nMichael Lin",
+      "arg2": "president of the Taiwan Stock Exchange"
+    },
+    {
+      "predicate": "talks",
+      "arg1": "more links",
+      "arg2": "| 04:42\nMichael Lin",
+      "adjuncts": [
+        "about the planned trading link with Singapore"
+      ]
+    },
+    {
+      "predicate": "seeks",
+      "arg1": "THE DAY IN MONEYTaiwan Exchange Chief",
+      "arg2": "more links with Singapore | 04:42\nMichael Lin, president of the Taiwan Stock Exchange, talks about the planned trading link with Singapore"
+    },
+    {
+      "predicate": "are using",
+      "arg1": "THE DAY IN MONEYThe central bankers",
+      "arg2": "tomatoes",
+      "arg3": "to fight inflation"
+    },
+    {
+      "predicate": "is struggling",
+      "arg1": "02:19\nIndonesia",
+      "arg2": "to fight its highest rate of inflation"
+    },
+    {
+      "predicate": "makes",
+      "arg1": "Netflix",
+      "arg2": "a good graduation gift | 01:59\nTheStreet's Jim Cramer answers your Twitter questions about Blackstone (BX"
+    },
+    {
+      "predicate": "says",
+      "arg1": "Netflix",
+      "arg2": "makes a good graduation gift"
+    },
+    {
+      "predicate": "says",
+      "arg1": "THE DAY IN MONEYJim Cramer",
+      "arg2": "Netflix makes a good graduation gift"
+    },
+    {
+      "predicate": "answers",
+      "arg1": "your Twitter",
+      "arg2": "questions about Blackstone"
+    },
+    {
+      "predicate": "answers",
+      "arg1": "a good graduation gift",
+      "arg2": "| 01:59\nTheStreet's Jim Cramer",
+      "arg3": "your Twitter questions about Blackstone"
+    },
+    {
+      "predicate": "said",
+      "arg1": "the Commerce Department",
+      "adjuncts": [
+        "on Friday"
+      ]
+    },
+    {
+      "predicate": "fell",
+      "arg1": "First-quarter gross domestic product",
+      "arg2": "0.7 percent"
+    },
+    {
+      "predicate": "have",
+      "arg1": "Nebraska",
+      "arg2": "the lowest unemployment rates"
+    },
+    {
+      "predicate": "have",
+      "arg1": "Utah",
+      "arg2": "the lowest unemployment rates"
+    },
+    {
+      "predicate": "have",
+      "arg1": "North Dakota",
+      "arg2": "the lowest unemployment rates"
+    },
+    {
+      "predicate": "has",
+      "arg1": "Douglas McIntyre of 24/7 Wall Street",
+      "arg2": "the details"
+    },
+    {
+      "predicate": "are demanding",
+      "arg1": "action | 01:29\nWorried that their reputations will be tarnished by their links to FIFA",
+      "adjuncts": [
+        "even warning it is prepared to jump ship",
+        "with Visa"
+      ]
+    },
+    {
+      "predicate": "will be tarnished",
+      "arg1": "their reputations",
+      "adjuncts": [
+        "by their links to FIFA"
+      ]
+    },
+    {
+      "predicate": "just sped",
+      "arg1": "shuttle people between Los Angeles",
+      "arg2": "a bit closer to reality"
+    },
+    {
+      "predicate": "is Getting",
+      "arg1": "THE DAY IN MONEYHyperloop",
+      "arg2": "a Test Track in California | 00:52\nThe"
+    },
+    {
+      "predicate": "is returning",
+      "arg1": "THE DAY IN MONEYSkyMall",
+      "arg2": "online"
+    },
+    {
+      "predicate": "found",
+      "arg1": "the quirky items",
+      "adjuncts": [
+        "in the catalog returning to an airplane seat pocket near you"
+      ]
+    },
+    {
+      "predicate": "shows",
+      "arg1": "TC Newman",
+      "arg2": "you some of the quirky items"
+    },
+    {
+      "predicate": "was the next development",
+      "arg1": "The buzz at Google I/O",
+      "adjuncts": [
+        "Google's partnership with GoPro"
+      ]
+    },
+    {
+      "predicate": "is coming",
+      "arg1": "THE DAY IN MONEYVirtual reality",
+      "adjuncts": [
+        "to YouTube | 00:44"
+      ]
+    },
+    {
+      "predicate": "was the next development",
+      "arg1": "The buzz at Google I/O",
+      "adjuncts": [
+        "of its Cardboard VR viewing device"
+      ]
+    },
+    {
+      "predicate": "was",
+      "arg1": "The buzz at Google I/O",
+      "arg2": "the next development of its Cardboard VR viewing device"
+    },
+    {
+      "predicate": "will record",
+      "arg1": "GoPro",
+      "arg2": "whose camera sets",
+      "arg3": "VR-ready videos"
+    },
+    {
+      "predicate": "is offering",
+      "arg1": "| 00:50\nAmazon",
+      "arg2": "free same-day shipping for its Prime subscribers",
+      "adjuncts": [
+        "in some of its key markets"
+      ]
+    },
+    {
+      "predicate": "plans",
+      "arg1": "no one",
+      "arg2": "to slow oil production"
+    },
+    {
+      "predicate": "shows",
+      "arg1": "OPEC",
+      "arg2": "thinks no one plans to slow oil production"
+    },
+    {
+      "predicate": "announced",
+      "arg1": "Google's upgrades to Android",
+      "adjuncts": [
+        "at Google I/O"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "05:25\nJuan Benitez",
+      "arg2": "chief technology officer at Braintree"
+    },
+    {
+      "predicate": "will end",
+      "arg1": "oil glut",
+      "adjuncts": [
+        "until at least 2017 | 01:50\nThe 12-nation conglomerate's long-term strategy report"
+      ]
+    },
+    {
+      "predicate": "thinks",
+      "arg1": "OPEC",
+      "arg2": "no one plans to slow oil production"
+    },
+    {
+      "predicate": "is",
+      "arg1": "Bloomberg's Cory Johnson",
+      "arg2": "chief technology officer at Braintree"
+    },
+    {
+      "predicate": "thinks",
+      "arg1": "no one",
+      "arg2": "plans to slow oil production"
+    },
+    {
+      "predicate": "ended",
+      "arg1": "| 00:49\nShares of data storage company Western Digital",
+      "adjuncts": [
+        "following Goldman Sachs upgrade"
+      ]
+    },
+    {
+      "predicate": "upgraded",
+      "arg1": "Goldman Sachs",
+      "arg2": "the stock",
+      "adjuncts": [
+        "to BUY from NEUTRAL"
+      ]
+    },
+    {
+      "predicate": "says",
+      "arg1": "North America's bandwidth",
+      "arg2": "| 01:21\nA new study",
+      "arg3": "Netflix accounts for about 37 percent of North American Internet traffic during peak hours"
+    },
+    {
+      "predicate": "is apparently hogging",
+      "arg1": "THE DAY IN MONEYNetflix",
+      "arg2": "North America's bandwidth"
+    },
+    {
+      "predicate": "is",
+      "arg1": "| 04:34\nSuccess",
+      "arg2": "life on your own terms"
+    },
+    {
+      "predicate": "is",
+      "arg1": "The Dealmaker’s Ten Commandments",
+      "arg2": "a methodology for figuring out what the terms are for yourself"
+    },
+    {
+      "predicate": "provided",
+      "arg1": "Video",
+      "adjuncts": [
+        "by Newsy Newslook\n41 of 42\nVIDEO"
+      ]
+    },
+    {
+      "predicate": "says",
+      "arg1": "The Dealmaker’s Ten Commandments",
+      "arg2": "is a methodology for figuring out what the terms are for yourself"
+    },
+    {
+      "predicate": "is life",
+      "arg1": "| 04:34\nSuccess",
+      "adjuncts": [
+        "on your own terms"
+      ]
+    },
+    {
+      "predicate": "says",
+      "arg1": "THE DAY IN MONEYThe Hollywood Dealmaker’s Guide",
+      "arg2": "his book The Dealmaker’s Ten Commandments is a methodology for figuring out what the terms are for yourself"
+    }
+  ]
+}

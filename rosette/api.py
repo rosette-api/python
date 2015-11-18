@@ -377,6 +377,17 @@ class DocumentParameters(_DocumentParamSetBase):
         self["unit"] = InputUnit.DOC
 
 
+class RelationshipsParameters(DocumentParameters):
+
+    """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
+    to specify the relationships-unique options parameter."""
+    def __init__(self):
+        """Create a L{RelationshipsParameters} object.  Default data format
+    is L{DataFormat.SIMPLE}, unit is L{InputUnit.DOC}."""
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language", "options"))
+        self["unit"] = InputUnit.DOC  # default
+
+
 class NameTranslationParameters(_DocumentParamSetBase):
     """Parameter object for C{translated_name} endpoint.
     The following values may be set by the indexing (i.e.,C{ parms["name"]}) operator.  The values are all
@@ -555,7 +566,8 @@ class EndpointCaller:
         endpoint to which this L{EndpointCaller} object is bound.  For all
         endpoints except C{translated_name} and C{matched_name}, it must be a L{DocumentParameters}
         object or a string; for C{translated_name}, it must be an L{NameTranslationParameters} object;
-        for C{matched_name}, it must be an L{NameMatchingParameters} object.
+        for C{matched_name}, it must be an L{NameMatchingParameters} object. For relationships,
+        it may be an L(DocumentParameters) or an L(RelationshipsParameters).
 
         In all cases, the result is returned as a python dictionary
         conforming to the JSON object described in the endpoint's entry
@@ -741,6 +753,16 @@ class API:
         @return: An L{EndpointCaller} object which can return sentiments
         of texts to which it is applied."""
         return EndpointCaller(self, "sentiment").call(parameters)
+
+    def relationships(self, parameters):
+        """
+        Create an L{EndpointCaller} to identify the relationships between entities in the text to
+        which it is applied and call it.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the relationships identifier.
+        @type parameters: L{DocumentParameters}, L(RelationshipsParameters), or L{str}
+        @return: A python dictionary containing the results of relationship extraction."""
+        return EndpointCaller(self, "relationships").call(parameters)
 
     def translated_name(self, parameters):
         """

@@ -1,0 +1,185 @@
+{
+  "requestId": "f2bd0e5d-f9c8-4525-93fd-816025b291de",
+  "relationships": [
+    {
+      "predicate": "seems",
+      "arg1": "The war between Samsung Electronics",
+      "arg2": "to be never ending"
+    },
+    {
+      "predicate": "Can Sell",
+      "arg1": "Samsung",
+      "arg2": "Its Tablet"
+    },
+    {
+      "predicate": "decided",
+      "arg1": "a judge",
+      "arg2": "that Samsung can sell its tablet in the U.S. market"
+    },
+    {
+      "predicate": "comes",
+      "arg1": "Apple conflict",
+      "locatives": [
+        "from U.S."
+      ]
+    },
+    {
+      "predicate": "can sell",
+      "arg1": "Samsung",
+      "arg2": "its tablet",
+      "adjuncts": [
+        "in the U.S. market"
+      ]
+    },
+    {
+      "predicate": "claiming",
+      "arg1": "Apple",
+      "arg2": "copy the iPhone"
+    },
+    {
+      "predicate": "copy",
+      "arg1": "tablets",
+      "arg2": "the iPhone"
+    },
+    {
+      "predicate": "copy",
+      "arg1": "tablets",
+      "arg2": "the iPad"
+    },
+    {
+      "predicate": "copy",
+      "arg1": "the South Korean smartphones",
+      "arg2": "the iPhone"
+    },
+    {
+      "predicate": "initiated",
+      "arg1": "Apple",
+      "arg2": "a legal action against Samsung",
+      "locatives": [
+        "In United States"
+      ],
+      "adjuncts": [
+        "claiming that the South Korean smartphones",
+        "in April"
+      ]
+    },
+    {
+      "predicate": "copy",
+      "arg1": "the South Korean smartphones",
+      "arg2": "the iPad"
+    },
+    {
+      "predicate": "will be prohibited",
+      "arg1": "Samsung",
+      "adjuncts": [
+        "from selling the gadgets in the U.S. market"
+      ]
+    },
+    {
+      "predicate": "requested",
+      "arg1": "Apple",
+      "arg2": "that Samsung will be prohibited",
+      "adjuncts": [
+        "As a result"
+      ]
+    },
+    {
+      "predicate": "came late",
+      "arg1": "The much expected ruling",
+      "adjuncts": [
+        "on Friday",
+        "as U.S. District Judge Lucy Koh denied Apple’s request for a preliminary injuction against Samsung"
+      ]
+    },
+    {
+      "predicate": "denied",
+      "arg1": "U.S. District Judge Lucy Koh",
+      "arg2": "Apple’s request for a preliminary injuction against Samsung"
+    },
+    {
+      "predicate": "said",
+      "arg1": "U.S. District Judge Lucy Koh",
+      "arg2": "It is not clear than an injuction on Samsung’s accused devices would prevent Apple from being irreparably harmed"
+    },
+    {
+      "predicate": "rejected",
+      "arg1": "Koh",
+      "arg2": "Apple’s request",
+      "adjuncts": [
+        "As a result"
+      ]
+    },
+    {
+      "predicate": "had",
+      "arg1": "Samsung",
+      "arg2": "23.8 percent of the global smartphone market",
+      "adjuncts": [
+        "In the third quarter"
+      ]
+    },
+    {
+      "predicate": "wrote",
+      "arg1": "The U.S. judge",
+      "arg2": "Apple has established a likelihood of success on the merits at trial"
+    },
+    {
+      "predicate": "has established",
+      "arg1": "Apple",
+      "arg2": "a likelihood of success on the merits at trial"
+    },
+    {
+      "predicate": "infringed",
+      "arg1": "Samsung",
+      "arg2": "one of its tablet patents"
+    },
+    {
+      "predicate": "still has",
+      "arg1": "Apple",
+      "arg2": "high changes of winning the overall lawsuit"
+    },
+    {
+      "predicate": "makes",
+      "arg1": "Koh’s decision",
+      "arg2": "it possible for the South Korean company to start Christmas sales"
+    },
+    {
+      "predicate": "are expected",
+      "arg1": "global tablet sales",
+      "arg2": "to boost to more than 50 million this year",
+      "adjuncts": [
+        "with Apple still the leader of the market"
+      ]
+    },
+    {
+      "predicate": "sold",
+      "arg1": "Apple",
+      "arg2": "more than 30 million iPads worldwide"
+    },
+    {
+      "predicate": "by extending",
+      "arg1": "a judge in Australia",
+      "arg2": "a ban on Samsung’s iPad sales within the country"
+    },
+    {
+      "predicate": "ruled",
+      "arg1": "a judge in Australia",
+      "adjuncts": [
+        "Last week",
+        "in favor of Apple",
+        "by extending a ban on Samsung’s iPad sales within the country"
+      ]
+    },
+    {
+      "predicate": "is",
+      "arg1": "Australia",
+      "arg2": "a key market for Samsung Galaxy Tablet"
+    },
+    {
+      "predicate": "is a key market",
+      "arg1": "Australia",
+      "adjuncts": [
+        "for Samsung Galaxy Tablet"
+      ]
+    }
+  ]
+}
