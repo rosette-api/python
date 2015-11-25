@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=master)](https://travis-ci.org/rosette-api/python)
+
 # This is the Python client binding for Rosette API.
 
 The Python binding requires Python 2.6 or greater and is available through pip:
