@@ -1,2 +1,2 @@
-include README.txt CHANGES.txt LICENSE.txt
+include README.md CHANGES.txt LICENSE.txt
 exclude MANIFEST.in

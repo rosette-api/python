@@ -78,7 +78,7 @@ class RosetteTest:
         self.url = "https://api.rosette.com/rest/v1"
         # Set user key as filename as a workaround - tests don"t require user key
         # Filename is necessary to get the correct response in the mocked test
-        self.api = API(service_url=self.url, user_key=filename)
+        self.api = API(user_key=filename)
         # Default to DocumentParameters as self.params
         self.params = DocumentParameters()
         if filename is not None:
@@ -138,7 +138,7 @@ def test_retryNum():
         body = info_file.read()
         httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
                                body=body, status=500, content_type="application/json")
-    test = API(service_url='https://api.rosette.com/rest/v1', user_key=None, retries=5)
+    test = API(user_key=None, retries=5)
     try:
         result = test.info()
         assert False

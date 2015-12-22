@@ -4,18 +4,27 @@
 Example code to call Rosette API to get entities's relationships from a piece of text.
 """
 
+import argparse
 import json
+import os
 
 from rosette.api import API, RelationshipsParameters
 
 
-def run(key):
+def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
-    api = API(user_key=key)
+    api = API(user_key=key, service_url=altUrl)
     params = RelationshipsParameters()
-    params["content"] = u"Yesterday in Guatemala, the Supreme Court approved the attorney general's request to impeach President Otto Pérez Molina."
+    params["content"] = u"Bill Murray is in the new Ghostbusters film!"
     params["options"] = {"accuracyMode": "PRECISION"}
-    result = api.relationships(params)
+    return api.relationships(params)
 
-    print(json.dumps(result, indent=2, ensure_ascii=False).encode("utf8"))
-    return json.dumps(result, indent=2, ensure_ascii=False).encode("utf8")
+
+parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
+parser.add_argument('-k', '--key', help='Rosette API Key', required=True)
+parser.add_argument('-u', '--url', help="Alternative API URL", default='https://api.rosette.com/rest/v1/')
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    result = run(args.key, args.url)
+    print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True).encode("utf8"))
