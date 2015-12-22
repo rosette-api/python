@@ -24,6 +24,7 @@ import json
 import logging
 import sys
 import time
+import os
 from socket import gethostbyname, gaierror
 from datetime import datetime
 
@@ -80,8 +81,10 @@ def _retrying_request(op, url, data, headers):
     global CONNECTION_START
     global CONNECTION_REFRESH_DURATION
 
+    headers['User-Agent'] = "RosetteAPIPython/" + _BINDING_VERSION
     timeDelta = datetime.now() - CONNECTION_START
     totalTime = timeDelta.days * 86400 + timeDelta.seconds
+
     parsed = urlparse.urlparse(url)
     if parsed.scheme != CONNECTION_TYPE:
         totalTime = CONNECTION_REFRESH_DURATION
@@ -513,11 +516,7 @@ class EndpointCaller:
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary telling server version and other
         identifying data."""
-        if self.suburl is not None:
-            self.checker()
-            url = self.service_url + '/' + self.suburl + "/info"
-        else:
-            url = self.service_url + "/info"
+        url = self.service_url + "info"
         if self.debug:
             url = add_query(url, "debug", "true")
         self.logger.info('info: ' + url)
@@ -530,11 +529,7 @@ class EndpointCaller:
     def checkVersion(self):
         """Issues a special "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary containing server version as well as version check"""
-        if self.suburl is not None:
-            self.checker()
-            url = self.service_url + '/' + self.suburl + "/info?clientVersion=" + _BINDING_VERSION
-        else:
-            url = self.service_url + "/info?clientVersion=" + _BINDING_VERSION
+        url = self.service_url + "info?clientVersion=" + _BINDING_VERSION
         if self.debug:
             url = add_query(url, "debug", "true")
         self.logger.info('info: ' + url)
@@ -550,7 +545,7 @@ class EndpointCaller:
         or is not the right server or some other error occurs, it will be
         signalled."""
 
-        url = self.service_url + '/ping'
+        url = self.service_url + 'ping'
         if self.debug:
             url = add_query(url, "debug", "true")
         self.logger.info('Ping: ' + url)
@@ -594,7 +589,7 @@ class EndpointCaller:
         if self.useMultipart and (parameters['contentType'] != DataFormat.SIMPLE):
             raise RosetteException("incompatible", "Multipart requires contentType SIMPLE",
                                    repr(parameters['contentType']))
-        url = self.service_url + '/' + self.suburl
+        url = self.service_url + self.suburl
         if self.debug:
             url = add_query(url, "debug", "true")
         self.logger.info('operate: ' + url)
@@ -616,16 +611,15 @@ class API:
     Call instance methods upon this object to obtain L{EndpointCaller} objects
     which can communicate with particular Rosette server endpoints.
     """
-    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1', retries=3, reuse_connection=True, refresh_duration=86400, debug=False):
+    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1/', retries=3, reuse_connection=True, refresh_duration=86400, debug=False):
         """ Create an L{API} object.
         @param user_key: (Optional; required for servers requiring authentication.) An authentication string to be sent
          as user_key with all requests.  The default Rosette server requires authentication.
          to the server.
-        @param service_url: (Optional) The root URL (string) of the Rosette service to which this L{API} object will be
-         bound.  The default is that of Basis Technology's public Rosette server.
         """
+        # logging.basicConfig(filename="binding.log", filemode="w", level=logging.DEBUG)
         self.user_key = user_key
-        self.service_url = service_url
+        self.service_url = service_url if service_url.endswith('/') else service_url + '/'
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
