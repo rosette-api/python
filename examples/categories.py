@@ -12,7 +12,8 @@ from rosette.api import API, DocumentParameters
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
-    url = "Sony Pictures is planning to shoot a good portion of the new "Ghostbusters" in Boston as well."
+    categories_url_data = "http://www.onlocationvacations.com/2015/03/05/the-new-ghostbusters-movie-begins-filming-in-boston-in-june/"
+    url = categories_url_data
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
     params = DocumentParameters()

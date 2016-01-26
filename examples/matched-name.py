@@ -15,9 +15,11 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    matched_name_data1 = "Michael Jackson"
+    matched_name_data2 = "迈克尔·杰克逊"
     params = NameMatchingParameters()
-    params["name1"] = {"text": "Michael Jackson", "language": "eng", "entityType": "PERSON"}
-    params["name2"] = {"text": "迈克尔·杰克逊", "entityType": "PERSON"}
+    params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
+    params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
     return api.matched_name(params)
 
 

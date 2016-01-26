@@ -14,8 +14,9 @@ from rosette.api import API, RelationshipsParameters
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
+    relationships_text_data = "Bill Murray is in the new Ghostbusters film!"
     params = RelationshipsParameters()
-    params["content"] = u"Bill Murray is in the new Ghostbusters film!"
+    params["content"] = relationships_text_data
     params["options"] = {"accuracyMode": "PRECISION"}
     return api.relationships(params)
 

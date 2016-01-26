@@ -15,8 +15,9 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    morphology_lemmas_data = "The fact is that the geese just went back to get a rest and I'm not banking on their return soon"
     params = DocumentParameters()
-    params["content"] = u"The fact is that the geese just went back to get a rest and I'm not banking on their return soon"
+    params["content"] = morphology_lemmas_data
     return api.morphology(params, MorphologyOutput.LEMMAS)
 
 

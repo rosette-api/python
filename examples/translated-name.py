@@ -15,8 +15,9 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    translated_name_data = "معمر محمد أبو منيار القذاف"
     params = NameTranslationParameters()
-    params["name"] = u"معمر محمد أبو منيار القذاف"
+    params["name"] = translated_name_data
     params["entityType"] = "PERSON"
     params["targetLanguage"] = "eng"
     return api.translated_name(params)

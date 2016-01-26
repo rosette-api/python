@@ -9,16 +9,16 @@ import json
 import os
 import base64
 
-from rosette.api import API, DocumentParameters
+from rosette.api import API, DocumentParameters, DataFormat
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
     params = DocumentParameters()
-    text = base64.b64encode(u"Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS ")
-    params["content"] = text
-    params["contentType"] = "text/html"
+    entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS"
+    params["content"] = entities_text_data
+    params["contentType"] = DataFormat.UNSPECIFIED
     return api.entities(params)  # entity linking is turned off
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
