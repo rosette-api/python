@@ -15,8 +15,9 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    morphology_compound_components_data = "Rechtsschutzversicherungsgesellschaften"
     params = DocumentParameters()
-    params["content"] = u"Rechtsschutzversicherungsgesellschaften"
+    params["content"] = morphology_compound_components_data
     return api.morphology(params, MorphologyOutput.COMPOUND_COMPONENTS)
 
 

@@ -15,9 +15,10 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    language_data = "Por favor Señorita, says the man."
     params = DocumentParameters()
 
-    params["content"] = u"Por favor Señorita, says the man."
+    params["content"] = language_data
     return api.language(params)
 
 

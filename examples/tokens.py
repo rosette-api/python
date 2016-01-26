@@ -15,8 +15,9 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
+    tokens_data = "北京大学生物系主任办公室内部会议"
     params = DocumentParameters()
-    params["content"] = u"北京大学生物系主任办公室内部会议"
+    params["content"] = tokens_data
     return api.tokens(params)
 
 
