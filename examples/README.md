@@ -5,6 +5,9 @@ These examples are scripts that can be run independently to demonstrate the Rose
 
 Prerequisite: Either run `pip install rosette_api` or run `python setup.py install` in the python top level folder.
 
+Alternatively, you can run all the examples with the command line:
+`find -maxdepth 1 -name "*.py" -exec tox -- {} --key api-key --url alternate_url \;`
+
 You can now run your desired _endpoint_.py file to see it in action.
 For example, run `python/examples/categories.py` if you want to see the categories
 functionality demonstrated.
