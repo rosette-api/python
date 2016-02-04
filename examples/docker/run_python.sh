@@ -2,7 +2,7 @@
 
 #Gets called when the user doesn't provide any args
 function HELP {
-	echo "usage: source_file.py --key API_KEY [--url ALT_URL]"
+	echo -e "\nusage: source_file.py --key API_KEY [--url ALT_URL]"
     echo "  API_KEY      - Rosette API key (required)"
     echo "  FILENAME     - Python source file (optional)"
     echo "  ALT_URL      - Alternate service URL (optional)"
