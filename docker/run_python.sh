@@ -77,19 +77,20 @@ tox
 
 #Generate gh-pages and push them to git account (if git username is provided)
 if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
-    #clone git repo
+    #configure git
+    git config --global user.email "${GIT_USERNAME}"
+    git config --global user.name "${GIT_USERNAME}"
+    #clone python git repo
     cd /
-    git clone https://github.com/${GIT_USERNAME}/python.git
+    git clone https://${GIT_USERNAME}@github.com/${GIT_USERNAME}/python.git
     cd python
     git checkout origin/gh-pages -b gh-pages
     git branch -d develop
-     #generate gh-pages and set ouput dir to git repo (gh-pages branch)
+    #generate gh-pages and set ouput dir to git repo (gh-pages branch)
     cd /python-dev
     .tox/py27/bin/epydoc -v --no-private --no-frames --css epydoc.css -o /python rosette/*.py
     cd /python
     git add .
-    git config --global user.email "${GIT_USERNAME}"
-    git config --global user.name "${GIT_USERNAME}"
     git commit -a -m "publish python apidocs ${VERSION}"
     git push
 fi
