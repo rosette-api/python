@@ -9,4 +9,4 @@ Build the docker image, e.g. `docker build -t basistech/python:1.1 .`
 
 Run an example as `docker run -e API_KEY=api-key -v "path-to-local-python-dir:/source" basistech/python:1.1`
 
-To test against a specific source file, add `-e FILENAME=filename` before the `-v`, to test against an alternate url, add `-e ALT_URL=alternate_url`, and optionally if you would like to regenerate gh-pages from the changes made to the development source you can add `-e GIT=git-username -e VERSION=version` before the `-v`.
+To test against a specific source file, add `-e FILENAME=filename` before the `-v`, to test against an alternate url, add `-e ALT_URL=alternate_url`, and optionally if you would like to regenerate gh-pages from the changes made to the development source you can add `-e GIT_USERNAME=git-username -e VERSION=version` before the `-v`.
