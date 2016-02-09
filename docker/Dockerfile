@@ -9,6 +9,6 @@ COPY tox.ini /python-dev/tox.ini
 WORKDIR /python-dev
 
 # allow interactive bash inside docker container
-CMD ./run_python.sh $API_KEY $FILENAME $ALT_URL $GIT_USR $GIT_PASS $VERSION
+CMD ./run_python.sh $API_KEY $FILENAME $ALT_URL $GIT_USRERNAME $VERSION
 
 VOLUME ["/source"]
