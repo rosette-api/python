@@ -34,8 +34,8 @@ from rosette.api import API, DocumentParameters, NameTranslationParameters, Name
 
 _IsPy3 = sys.version_info[0] == 3
 
-request_file_dir = os.path.join( os.path.dirname( __file__ ), '..' ) +  "/mock-data/request/"
-response_file_dir = os.path.join( os.path.dirname( __file__ ), '..' ) + "/mock-data/response/"
+request_file_dir = os.path.join(os.path.dirname(__file__), '..') + "/mock-data/request/"
+response_file_dir = os.path.join(os.path.dirname(__file__), '..') + "/mock-data/response/"
 
 # Define the regex pattern of file names. Example: eng-doc-categories.json
 filename_pattern = re.compile("(\w+-\w+-([a-z_-]+))[.]json")
