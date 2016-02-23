@@ -58,10 +58,10 @@ if [ ! -z ${API_KEY} ]; then
     cd /python-dev/examples
     if [ ! -z ${FILENAME} ]; then
         if [ ! -z ${ALT_URL} ]; then
-	       python ${FILENAME} --key ${API_KEY} --url ${ALT_URL} 
+            python ${FILENAME} --key ${API_KEY} --url ${ALT_URL}
         else
-	       python ${FILENAME} --key ${API_KEY} 
-   	    fi
+            python ${FILENAME} --key ${API_KEY}
+        fi
     elif [ ! -z ${ALT_URL} ]; then
         find -maxdepth 1  -name '*.py' -print -exec python {} --key ${API_KEY} --url ${ALT_URL} \;
     else
