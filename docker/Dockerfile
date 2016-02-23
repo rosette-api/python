@@ -11,16 +11,16 @@ RUN chmod +x /tini
 ENTRYPOINT ["/tini", "--"]
 
 RUN apt-get update && \
-    apt-get -y install \
+    	apt-get -y install \
         wget \
         libssl-dev \
         libffi-dev \
         python-pip \
         python-software-properties \
         software-properties-common && \
-    add-apt-repository -y ppa:fkrull/deadsnakes && \
-    apt-get update && \
-    apt-get -y install \
+    	add-apt-repository -y ppa:fkrull/deadsnakes && \
+    	apt-get update && \
+    	apt-get -y install \
         python2.6 \
         python2.7 \
         python3.3 \
@@ -28,8 +28,8 @@ RUN apt-get update && \
         python3.5 \
         git\
         pypy && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    	apt-get clean && \
+    	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /install && \
     wget -O /install/pypy3-2.4-linux_x86_64-portable.tar.bz2 \
