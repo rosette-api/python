@@ -17,12 +17,12 @@ while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
             API_KEY=${OPTARG}
             usage
             ;;
-        ALT_URL)
-            ALT_URL=${OPTARG}
-            usage
-            ;;
         FILENAME)
             FILENAME=${OPTARG}
+            usage
+            ;;
+        ALT_URL)
+            ALT_URL=${OPTARG}
             usage
             ;;
     esac
@@ -37,22 +37,22 @@ function checkAPI {
     fi  
 }
 
-#Copy the mounted content in /source to current WORKDIR
-cp /source/*.* .
+#Copy the examples from the mounted content in /source to current WORKDIR
+cp  /source/examples/*.* .
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
     checkAPI
     if [ ! -z ${FILENAME} ]; then
         if [ ! -z ${ALT_URL} ]; then
-	    tox -- ${FILENAME} --key ${API_KEY} --url ${ALT_URL} 
+	    python ${FILENAME} --key ${API_KEY} --url ${ALT_URL} 
 	else
-	    tox -- ${FILENAME} --key ${API_KEY} 
+	    python ${FILENAME} --key ${API_KEY} 
    	fi
     elif [ ! -z ${ALT_URL} ]; then
-    	find -maxdepth 1  -name '*.py' -print -exec tox -- {} --key ${API_KEY} --url ${ALT_URL} \;
+    	find -maxdepth 1  -name '*.py' -print -exec python {} --key ${API_KEY} --url ${ALT_URL} \;
     else
-	find -maxdepth 1  -name '*.py' -print -exec tox -- {} --key ${API_KEY} \;
+	find -maxdepth 1  -name '*.py' -print -exec python {} --key ${API_KEY} \;
     fi
 else 
     HELP
