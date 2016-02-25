@@ -28,7 +28,7 @@ import os
 from socket import gethostbyname, gaierror
 from datetime import datetime
 
-_BINDING_VERSION = "0.7"
+_BINDING_VERSION = "0.8"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 N_RETRIES = 3
 HTTP_CONNECTION = None

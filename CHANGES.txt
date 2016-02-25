@@ -1,3 +1,4 @@
 0.5.1: first published version.
 0.5.2: refactored code and tests.
 0.5.3: change github repo for beta
+0.8.0: migration to github, added docker images for testing
