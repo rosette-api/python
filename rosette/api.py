@@ -67,11 +67,15 @@ class _ReturnObject:
         return self._json
 
 
-def _my_loads(obj):
+def _my_loads(obj, response_headers):
     if _IsPy3:
-        return json.loads(obj.decode("utf-8"))  # if py3, need chars.
+        d1 = json.loads(obj.decode("utf-8")).copy()
+        d1.update(response_headers)
+        return d1  # if py3, need chars.
     else:
-        return json.loads(obj)
+        d2 = json.loads(obj).copy()
+        d2.update(response_headers)
+        return d2
 
 
 def _retrying_request(op, url, data, headers):
@@ -102,6 +106,7 @@ def _retrying_request(op, url, data, headers):
     message = None
     code = "unknownError"
     rdata = None
+    response_headers = {}
     for i in range(N_RETRIES + 1):
         # Try to connect with the Rosette API server
         # 500 errors will store a message and code
@@ -110,13 +115,16 @@ def _retrying_request(op, url, data, headers):
             response = HTTP_CONNECTION.getresponse()
             status = response.status
             rdata = response.read()
+            request_id = response.getheader("x-rosetteapi-request-id")
+            processed_language = response.getheader("x-rosetteapi-processed-language")
+            response_headers["responseHeaders"] = (dict(response.getheaders()))
             if status < 500:
                 if not REUSE_CONNECTION:
                     HTTP_CONNECTION.close()
-                return rdata, status
+                return rdata, status, response_headers
             if rdata is not None:
                 try:
-                    the_json = _my_loads(rdata)
+                    the_json = _my_loads(rdata, response_headers)
                     if "message" in the_json:
                         message = the_json["message"]
                     if "code" in the_json:
@@ -160,8 +168,8 @@ def _retrying_request(op, url, data, headers):
 
 
 def _get_http(url, headers):
-    (rdata, status) = _retrying_request("GET", url, None, headers)
-    return _ReturnObject(_my_loads(rdata), status)
+    (rdata, status, response_headers) = _retrying_request("GET", url, None, headers)
+    return _ReturnObject(_my_loads(rdata, response_headers), status)
 
 
 def _post_http(url, data, headers):
@@ -170,13 +178,13 @@ def _post_http(url, data, headers):
     else:
         json_data = json.dumps(data)
 
-    (rdata, status) = _retrying_request("POST", url, json_data, headers)
+    (rdata, status, response_headers) = _retrying_request("POST", url, json_data, headers)
 
     if len(rdata) > 3 and rdata[0:3] == _GZIP_SIGNATURE:
         buf = BytesIO(rdata)
         rdata = gzip.GzipFile(fileobj=buf).read()
 
-    return _ReturnObject(_my_loads(rdata), status)
+    return _ReturnObject(_my_loads(rdata, response_headers), status)
 
 
 def add_query(orig_url, key, value):

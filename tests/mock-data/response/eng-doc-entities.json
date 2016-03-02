@@ -1,0 +1,154 @@
+{
+  "entities": [
+    {
+      "confidence": 1.0, 
+      "count": 17, 
+      "indocChainId": 0, 
+      "mention": "Samsung", 
+      "normalized": "Samsung", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.04526931473187038, 
+      "count": 14, 
+      "indocChainId": 3, 
+      "mention": "Apple", 
+      "normalized": "Apple", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 7, 
+      "indocChainId": 10, 
+      "mention": "U.S.", 
+      "normalized": "U.S.", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.026389598846435547, 
+      "count": 3, 
+      "indocChainId": 7, 
+      "mention": "judge", 
+      "normalized": "judge", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 13, 
+      "mention": "South Korean", 
+      "normalized": "South Korean", 
+      "type": "NATIONALITY"
+    }, 
+    {
+      "confidence": 0.03619256615638733, 
+      "count": 2, 
+      "indocChainId": 15, 
+      "mention": "iPad", 
+      "normalized": "iPad", 
+      "type": "PRODUCT"
+    }, 
+    {
+      "confidence": 0.026187777519226074, 
+      "count": 2, 
+      "indocChainId": 20, 
+      "mention": "District Judge", 
+      "normalized": "District Judge", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.028430074453353882, 
+      "count": 2, 
+      "indocChainId": 21, 
+      "mention": "Lucy Koh", 
+      "normalized": "Lucy Koh", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.011759281158447266, 
+      "count": 2, 
+      "indocChainId": 21, 
+      "mention": "Koh", 
+      "normalized": "Koh", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 2, 
+      "indocChainId": 52, 
+      "mention": "Australia", 
+      "normalized": "Australia", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 2, 
+      "mention": "Samsung Electronics", 
+      "normalized": "Samsung Electronics", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 10, 
+      "mention": "United States", 
+      "normalized": "United States", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.02483654022216797, 
+      "count": 1, 
+      "indocChainId": 14, 
+      "mention": "iPhone", 
+      "normalized": "iPhone", 
+      "type": "PRODUCT"
+    }, 
+    {
+      "confidence": 0.018296480178833008, 
+      "count": 1, 
+      "indocChainId": 33, 
+      "mention": "Tab 10.1", 
+      "normalized": "Tab 10.1", 
+      "type": "PRODUCT"
+    }, 
+    {
+      "confidence": 0.04169809818267822, 
+      "count": 1, 
+      "indocChainId": 48, 
+      "mention": "Silicon Valley", 
+      "normalized": "Silicon Valley", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.026794254779815674, 
+      "count": 1, 
+      "indocChainId": 50, 
+      "mention": "iPads", 
+      "normalized": "iPads", 
+      "type": "PRODUCT"
+    }, 
+    {
+      "confidence": 0.009662508964538574, 
+      "count": 1, 
+      "indocChainId": 58, 
+      "mention": "Galaxy Tablet", 
+      "normalized": "Galaxy Tablet", 
+      "type": "PRODUCT"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "http://newsinabox.net/2202/samsung-can-sell-its-tablet-in-the-u-s-market.html", 
+      "normalized": "http://newsinabox.net/2202/samsung-can-sell-its-tablet-in-the-u-s-market.html", 
+      "type": "IDENTIFIER:URL"
+    }
+  ], 
+  "requestId": "2be64f9f-6246-4366-aab3-16f635ed87a5", 
+  "timers": {
+    "rblJe": 29, 
+    "rexJe": 656, 
+    "rliJe": 35
+  }
+}
