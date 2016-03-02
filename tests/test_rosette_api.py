@@ -316,4 +316,3 @@ def test_just_text():
         assert False
     except RosetteException as e:
         assert e.status == "incompatible"
-
