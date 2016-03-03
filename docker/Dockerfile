@@ -13,6 +13,7 @@ ENTRYPOINT ["/tini", "--"]
 RUN apt-get update && \
     	apt-get -y install \
         wget \
+        curl \
         libssl-dev \
         libffi-dev \
         python-pip \

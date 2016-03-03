@@ -1,0 +1,506 @@
+{
+  "entities": [
+    {
+      "confidence": 0.03916314670017788, 
+      "count": 7, 
+      "indocChainId": 35, 
+      "mention": "ښاغلی", 
+      "normalized": "ښاغلی", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.007801820834477742, 
+      "count": 6, 
+      "indocChainId": 29, 
+      "mention": "نوماند وزير", 
+      "normalized": "نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.03787636756896973, 
+      "count": 5, 
+      "indocChainId": 0, 
+      "mention": "افغانستان", 
+      "normalized": "افغانستان", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.029533326625823975, 
+      "count": 3, 
+      "indocChainId": 15, 
+      "mention": "پارلمان", 
+      "normalized": "پارلمان", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03755847613016764, 
+      "count": 3, 
+      "indocChainId": 63, 
+      "mention": "انجنير", 
+      "normalized": "انجنير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.05754426121711731, 
+      "count": 2, 
+      "indocChainId": 2, 
+      "mention": "ولسمشر", 
+      "normalized": "ولسمشر", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.033583104610443115, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "حامد كرزي", 
+      "normalized": "حامد كرزي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.031616926193237305, 
+      "count": 2, 
+      "indocChainId": 4, 
+      "mention": "بهرنيو چارو د وزير", 
+      "normalized": "بهرنيو چارو د وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.00478130578994751, 
+      "count": 2, 
+      "indocChainId": 5, 
+      "mention": "سلاكار", 
+      "normalized": "سلاكار", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.022341817617416382, 
+      "count": 2, 
+      "indocChainId": 6, 
+      "mention": "زلمي رسول", 
+      "normalized": "زلمي رسول", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.04105132818222046, 
+      "count": 2, 
+      "indocChainId": 14, 
+      "mention": "كريم خليلي", 
+      "normalized": "كريم خليلي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.00576329231262207, 
+      "count": 2, 
+      "indocChainId": 17, 
+      "mention": "وزيرانو", 
+      "normalized": "وزيرانو", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.030164211988449097, 
+      "count": 2, 
+      "indocChainId": 33, 
+      "mention": "ډاکټر", 
+      "normalized": "ډاکټر", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.02519279718399048, 
+      "count": 2, 
+      "indocChainId": 57, 
+      "mention": "اغلې", 
+      "normalized": "اغلې", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.019838571548461914, 
+      "count": 1, 
+      "indocChainId": 13, 
+      "mention": "ولسمشر مرستيال", 
+      "normalized": "ولسمشر مرستيال", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.030272245407104492, 
+      "count": 1, 
+      "indocChainId": 22, 
+      "mention": "بهرنيو چارو نوماند وزير", 
+      "normalized": "بهرنيو چارو نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.04382455348968506, 
+      "count": 1, 
+      "indocChainId": 23, 
+      "mention": "زلمی رسول", 
+      "normalized": "زلمی رسول", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0041877031326293945, 
+      "count": 1, 
+      "indocChainId": 24, 
+      "mention": "ولسمشر امنيتي سلاکار", 
+      "normalized": "ولسمشر امنيتي سلاکار", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.028324902057647705, 
+      "count": 1, 
+      "indocChainId": 25, 
+      "mention": "عدليې نوماند وزير", 
+      "normalized": "عدليې نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.004933297634124756, 
+      "count": 1, 
+      "indocChainId": 26, 
+      "mention": "حبيب الله غالب غالب", 
+      "normalized": "حبيب الله غالب غالب", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.005223214626312256, 
+      "count": 1, 
+      "indocChainId": 27, 
+      "mention": "شرعياتو", 
+      "normalized": "شرعياتو", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.02999025583267212, 
+      "count": 1, 
+      "indocChainId": 28, 
+      "mention": "عبدرب رسول سياف", 
+      "normalized": "عبدرب رسول سياف", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.012441575527191162, 
+      "count": 1, 
+      "indocChainId": 30, 
+      "mention": "محمد هاشم عصمت الهي", 
+      "normalized": "محمد هاشم عصمت الهي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.02618861198425293, 
+      "count": 1, 
+      "indocChainId": 31, 
+      "mention": "اصف محسني", 
+      "normalized": "اصف محسني", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.009061336517333984, 
+      "count": 1, 
+      "indocChainId": 34, 
+      "mention": "نيازی", 
+      "normalized": "نيازی", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.00313723087310791, 
+      "count": 1, 
+      "indocChainId": 34, 
+      "mention": "محمد يوسف نيازی", 
+      "normalized": "محمد يوسف نيازی", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0046912431716918945, 
+      "count": 1, 
+      "indocChainId": 37, 
+      "mention": "عامې نوماند وزير", 
+      "normalized": "عامې نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 2.962350845336914e-05, 
+      "count": 1, 
+      "indocChainId": 38, 
+      "mention": "محمد بشير لعلي", 
+      "normalized": "محمد بشير لعلي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0180090069770813, 
+      "count": 1, 
+      "indocChainId": 39, 
+      "mention": "عامې روغتيا نوماند وزير", 
+      "normalized": "عامې روغتيا نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.01904827356338501, 
+      "count": 1, 
+      "indocChainId": 41, 
+      "mention": "ثريا", 
+      "normalized": "ثريا", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.002719104290008545, 
+      "count": 1, 
+      "indocChainId": 42, 
+      "mention": "کينيا", 
+      "normalized": "کينيا", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.004633128643035889, 
+      "count": 1, 
+      "indocChainId": 44, 
+      "mention": "يونيسف", 
+      "normalized": "يونيسف", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.018250882625579834, 
+      "count": 1, 
+      "indocChainId": 45, 
+      "mention": "اقتصاد نوماند وزير", 
+      "normalized": "اقتصاد نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.03505206108093262, 
+      "count": 1, 
+      "indocChainId": 46, 
+      "mention": "عبدالهادي ارغنديوال", 
+      "normalized": "عبدالهادي ارغنديوال", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.05095309019088745, 
+      "count": 1, 
+      "indocChainId": 46, 
+      "mention": "ارغنديوال", 
+      "normalized": "ارغنديوال", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.00369340181350708, 
+      "count": 1, 
+      "indocChainId": 49, 
+      "mention": "سوداګرۍ او صنايعو نوماند وزير", 
+      "normalized": "سوداګرۍ او صنايعو نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.013631701469421387, 
+      "count": 1, 
+      "indocChainId": 50, 
+      "mention": "محمد هادي حکيمي", 
+      "normalized": "محمد هادي حکيمي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.029611587524414062, 
+      "count": 1, 
+      "indocChainId": 50, 
+      "mention": "حکيمي", 
+      "normalized": "حکيمي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0037049055099487305, 
+      "count": 1, 
+      "indocChainId": 54, 
+      "mention": "جارالله", 
+      "normalized": "جارالله", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.004224538803100586, 
+      "count": 1, 
+      "indocChainId": 55, 
+      "mention": "معلولينو نوماند وزير", 
+      "normalized": "معلولينو نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.01109844446182251, 
+      "count": 1, 
+      "indocChainId": 56, 
+      "mention": "امنه افضلي", 
+      "normalized": "امنه افضلي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.034655988216400146, 
+      "count": 1, 
+      "indocChainId": 56, 
+      "mention": "افضلي", 
+      "normalized": "افضلي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.010983049869537354, 
+      "count": 1, 
+      "indocChainId": 59, 
+      "mention": "چلند وزير", 
+      "normalized": "چلند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.004098773002624512, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "عبدالرحيم اوراز", 
+      "normalized": "عبدالرحيم اوراز", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.08212143182754517, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "عبدالرحيم", 
+      "normalized": "عبدالرحيم", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.004256248474121094, 
+      "count": 1, 
+      "indocChainId": 60, 
+      "mention": "اوراز", 
+      "normalized": "اوراز", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.03391331434249878, 
+      "count": 1, 
+      "indocChainId": 64, 
+      "mention": "بهرنيو چارو وزارت", 
+      "normalized": "بهرنيو چارو وزارت", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.021835267543792725, 
+      "count": 1, 
+      "indocChainId": 65, 
+      "mention": "ښځو چارو نومانده وزيره", 
+      "normalized": "ښځو چارو نومانده وزيره", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.004233062267303467, 
+      "count": 1, 
+      "indocChainId": 66, 
+      "mention": "پلوشه حسن", 
+      "normalized": "پلوشه حسن", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.03508961200714111, 
+      "count": 1, 
+      "indocChainId": 66, 
+      "mention": "حسن", 
+      "normalized": "حسن", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.027159810066223145, 
+      "count": 1, 
+      "indocChainId": 69, 
+      "mention": "کډوالو او راستنېدونکو چارو نوماند وزير", 
+      "normalized": "کډوالو او راستنېدونکو چارو نوماند وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0005469918251037598, 
+      "count": 1, 
+      "indocChainId": 72, 
+      "mention": "سرحدونو", 
+      "normalized": "سرحدونو", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.029864192008972168, 
+      "count": 1, 
+      "indocChainId": 74, 
+      "mention": "جمال", 
+      "normalized": "جمال", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.029639482498168945, 
+      "count": 1, 
+      "indocChainId": 74, 
+      "mention": "ارسلا جمال", 
+      "normalized": "ارسلا جمال", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.04481011629104614, 
+      "count": 1, 
+      "indocChainId": 77, 
+      "mention": "خوست", 
+      "normalized": "خوست", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.022002756595611572, 
+      "count": 1, 
+      "indocChainId": 79, 
+      "mention": "مقبل", 
+      "normalized": "مقبل", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.019781112670898438, 
+      "count": 1, 
+      "indocChainId": 79, 
+      "mention": "ضرار احمد مقبل", 
+      "normalized": "ضرار احمد مقبل", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0150221586227417, 
+      "count": 1, 
+      "indocChainId": 82, 
+      "mention": "کرزي", 
+      "normalized": "کرزي", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.036535441875457764, 
+      "count": 1, 
+      "indocChainId": 83, 
+      "mention": "کورنيو چار وزير", 
+      "normalized": "کورنيو چار وزير", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0030456185340881348, 
+      "count": 1, 
+      "indocChainId": 86, 
+      "mention": "سلطان حسين حصاري", 
+      "normalized": "سلطان حسين حصاري", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.009828627109527588, 
+      "count": 1, 
+      "indocChainId": 86, 
+      "mention": "حصاري", 
+      "normalized": "حصاري", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 89, 
+      "mention": "http://www.trtpashto.com/trtinternational/pa/newsDetail.aspx?HaberKodu=efb3ec08-e5d5-4007-addc-0cc81652bc62", 
+      "normalized": "http://www.trtpashto.com/trtinternational/pa/newsDetail.aspx?HaberKodu=efb3ec08-e5d5-4007-addc-0cc81652bc62", 
+      "type": "IDENTIFIER:URL"
+    }
+  ], 
+  "requestId": "517da744-d53c-46a0-bf0a-c0f179966dbe", 
+  "timers": {
+    "rblJe": 2, 
+    "rexJe": 42, 
+    "rliJe": 5
+  }
+}

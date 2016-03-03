@@ -67,11 +67,15 @@ class _ReturnObject:
         return self._json
 
 
-def _my_loads(obj):
+def _my_loads(obj, response_headers):
     if _IsPy3:
-        return json.loads(obj.decode("utf-8"))  # if py3, need chars.
+        d1 = json.loads(obj.decode("utf-8")).copy()
+        d1.update(response_headers)
+        return d1  # if py3, need chars.
     else:
-        return json.loads(obj)
+        d2 = json.loads(obj).copy()
+        d2.update(response_headers)
+        return d2
 
 
 def _retrying_request(op, url, data, headers):
@@ -102,6 +106,7 @@ def _retrying_request(op, url, data, headers):
     message = None
     code = "unknownError"
     rdata = None
+    response_headers = {}
     for i in range(N_RETRIES + 1):
         # Try to connect with the Rosette API server
         # 500 errors will store a message and code
@@ -110,13 +115,16 @@ def _retrying_request(op, url, data, headers):
             response = HTTP_CONNECTION.getresponse()
             status = response.status
             rdata = response.read()
+            request_id = response.getheader("x-rosetteapi-request-id")
+            processed_language = response.getheader("x-rosetteapi-processed-language")
+            response_headers["responseHeaders"] = (dict(response.getheaders()))
             if status < 500:
                 if not REUSE_CONNECTION:
                     HTTP_CONNECTION.close()
-                return rdata, status
+                return rdata, status, response_headers
             if rdata is not None:
                 try:
-                    the_json = _my_loads(rdata)
+                    the_json = _my_loads(rdata, response_headers)
                     if "message" in the_json:
                         message = the_json["message"]
                     if "code" in the_json:
@@ -160,8 +168,8 @@ def _retrying_request(op, url, data, headers):
 
 
 def _get_http(url, headers):
-    (rdata, status) = _retrying_request("GET", url, None, headers)
-    return _ReturnObject(_my_loads(rdata), status)
+    (rdata, status, response_headers) = _retrying_request("GET", url, None, headers)
+    return _ReturnObject(_my_loads(rdata, response_headers), status)
 
 
 def _post_http(url, data, headers):
@@ -170,13 +178,13 @@ def _post_http(url, data, headers):
     else:
         json_data = json.dumps(data)
 
-    (rdata, status) = _retrying_request("POST", url, json_data, headers)
+    (rdata, status, response_headers) = _retrying_request("POST", url, json_data, headers)
 
     if len(rdata) > 3 and rdata[0:3] == _GZIP_SIGNATURE:
         buf = BytesIO(rdata)
         rdata = gzip.GzipFile(fileobj=buf).read()
 
-    return _ReturnObject(_my_loads(rdata), status)
+    return _ReturnObject(_my_loads(rdata, response_headers), status)
 
 
 def add_query(orig_url, key, value):
@@ -392,7 +400,7 @@ class RelationshipsParameters(DocumentParameters):
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
-    """Parameter object for C{translated_name} endpoint.
+    """Parameter object for C{name-translation} endpoint.
     The following values may be set by the indexing (i.e.,C{ parms["name"]}) operator.  The values are all
     strings (when not C{None}).
     All are optional except C{name} and C{targetLanguage}.  Scripts are in
@@ -428,7 +436,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
 
 class NameMatchingParameters(_DocumentParamSetBase):
-    """Parameter object for C{matched_name} endpoint.
+    """Parameter object for C{name-similarity} endpoint.
     All are required.
 
     C{name1} The name to be matched, a C{name} object.
@@ -559,9 +567,9 @@ class EndpointCaller:
         """Invokes the endpoint to which this L{EndpointCaller} is bound.
         Passes data and metadata specified by C{parameters} to the server
         endpoint to which this L{EndpointCaller} object is bound.  For all
-        endpoints except C{translated_name} and C{matched_name}, it must be a L{DocumentParameters}
-        object or a string; for C{translated_name}, it must be an L{NameTranslationParameters} object;
-        for C{matched_name}, it must be an L{NameMatchingParameters} object. For relationships,
+        endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
+        object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
+        for C{name-similarity}, it must be an L{NameMatchingParameters} object. For relationships,
         it may be an L(DocumentParameters) or an L(RelationshipsParameters).
 
         In all cases, the result is returned as a python dictionary
@@ -571,12 +579,12 @@ class EndpointCaller:
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the endpoint.  See the
         details for those object types.
-        @type parameters: For C{translated_name}, L{NameTranslationParameters}, otherwise L{DocumentParameters} or L{str}
+        @type parameters: For C{name-translation}, L{NameTranslationParameters}, otherwise L{DocumentParameters} or L{str}
         @return: A python dictionary expressing the result of the invocation.
         """
 
         if not isinstance(parameters, _DocumentParamSetBase):
-            if self.suburl != "matched-name" and self.suburl != "translated-name":
+            if self.suburl != "name-similarity" and self.suburl != "name-translation":
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
@@ -758,7 +766,7 @@ class API:
         @return: A python dictionary containing the results of relationship extraction."""
         return EndpointCaller(self, "relationships").call(parameters)
 
-    def translated_name(self, parameters):
+    def name_translation(self, parameters):
         """
         Create an L{EndpointCaller} to perform name analysis and translation
         upon the name to which it is applied and call it.
@@ -766,13 +774,32 @@ class API:
         and possible metadata, to be processed by the name translator.
         @type parameters: L{NameTranslationParameters}
         @return: A python dictionary containing the results of name translation."""
-        return EndpointCaller(self, "translated-name").call(parameters)
+        return EndpointCaller(self, "name-translation").call(parameters)
 
-    def matched_name(self, parameters):
+    def translated_name(self, parameters):
+        """ deprecated
+        Call name_translation to perform name analysis and translation
+        upon the name to which it is applied.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the name translator.
+        @type parameters: L{NameTranslationParameters}
+        @return: A python dictionary containing the results of name translation."""
+        return self.name_translation(parameters)
+
+    def name_similarity(self, parameters):
         """
         Create an L{EndpointCaller} to perform name matching and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the name matcher.
         @type parameters: L{NameMatchingParameters}
         @return: A python dictionary containing the results of name matching."""
-        return EndpointCaller(self, "matched-name").call(parameters)
+        return EndpointCaller(self, "name-similarity").call(parameters)
+
+    def matched_name(self, parameters):
+        """ deprecated
+        Call name_similarity to perform name matching.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the name matcher.
+        @type parameters: L{NameMatchingParameters}
+        @return: A python dictionary containing the results of name matching."""
+        return self.name_similarity(parameters)

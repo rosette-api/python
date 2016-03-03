@@ -1,0 +1,154 @@
+{
+  "entities": [
+    {
+      "confidence": 0.022009849548339844, 
+      "count": 2, 
+      "indocChainId": 3, 
+      "mention": "Presidenta", 
+      "normalized": "Presidenta", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.027858316898345947, 
+      "count": 2, 
+      "indocChainId": 4, 
+      "mention": "Bachelet", 
+      "normalized": "Bachelet", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.022280961275100708, 
+      "count": 2, 
+      "indocChainId": 5, 
+      "mention": "Morales", 
+      "normalized": "Morales", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.014749795198440552, 
+      "count": 2, 
+      "indocChainId": 5, 
+      "mention": "Evo Morales", 
+      "normalized": "Evo Morales", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.015497177839279175, 
+      "count": 2, 
+      "indocChainId": 9, 
+      "mention": "Piñera", 
+      "normalized": "Piñera", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.0006507039070129395, 
+      "count": 1, 
+      "indocChainId": 0, 
+      "mention": "Plaza Murillo", 
+      "normalized": "Plaza Murillo", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.014606237411499023, 
+      "count": 1, 
+      "indocChainId": 1, 
+      "mention": "Congreso", 
+      "normalized": "Congreso", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.0029370784759521484, 
+      "count": 1, 
+      "indocChainId": 2, 
+      "mention": "Bolivia", 
+      "normalized": "Bolivia", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.00901263952255249, 
+      "count": 1, 
+      "indocChainId": 4, 
+      "mention": "Michelle Bachelet", 
+      "normalized": "Michelle Bachelet", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.028369784355163574, 
+      "count": 1, 
+      "indocChainId": 9, 
+      "mention": "Sebastián Piñera", 
+      "normalized": "Sebastián Piñera", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.03386145830154419, 
+      "count": 1, 
+      "indocChainId": 10, 
+      "mention": "Chile", 
+      "normalized": "Chile", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.002088606357574463, 
+      "count": 1, 
+      "indocChainId": 11, 
+      "mention": "Mandataria", 
+      "normalized": "Mandataria", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.03489595651626587, 
+      "count": 1, 
+      "indocChainId": 15, 
+      "mention": "La Paz", 
+      "normalized": "La Paz", 
+      "type": "LOCATION"
+    }, 
+    {
+      "confidence": 0.013820111751556396, 
+      "count": 1, 
+      "indocChainId": 17, 
+      "mention": "Eduardo Frei", 
+      "normalized": "Eduardo Frei", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 0.015299737453460693, 
+      "count": 1, 
+      "indocChainId": 18, 
+      "mention": "Presidente", 
+      "normalized": "Presidente", 
+      "type": "TITLE"
+    }, 
+    {
+      "confidence": 0.0008376836776733398, 
+      "count": 1, 
+      "indocChainId": 19, 
+      "mention": "Pacífico", 
+      "normalized": "Pacífico", 
+      "type": "ORGANIZATION"
+    }, 
+    {
+      "confidence": 0.02315753698348999, 
+      "count": 1, 
+      "indocChainId": 21, 
+      "mention": "David Choquehuanca", 
+      "normalized": "David Choquehuanca", 
+      "type": "PERSON"
+    }, 
+    {
+      "confidence": 1.0, 
+      "count": 1, 
+      "indocChainId": 22, 
+      "mention": "http://diario.elmercurio.com/2010/01/23/nacional/politica/noticias/47D6CA26-B011-40B5-AEAB-D0E6A5F52E59.htm?id={47D6CA26-B011-40B5-AEAB-D0E6A5F52E59}", 
+      "normalized": "http://diario.elmercurio.com/2010/01/23/nacional/politica/noticias/47D6CA26-B011-40B5-AEAB-D0E6A5F52E59.htm?id={47D6CA26-B011-40B5-AEAB-D0E6A5F52E59}", 
+      "type": "IDENTIFIER:URL"
+    }
+  ], 
+  "requestId": "c3de7a33-2be8-41ea-9b4b-bd683be93442", 
+  "timers": {
+    "rblJe": 8, 
+    "rexJe": 31, 
+    "rliJe": 4
+  }
+}

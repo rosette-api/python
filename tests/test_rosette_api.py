@@ -34,8 +34,8 @@ from rosette.api import API, DocumentParameters, NameTranslationParameters, Name
 
 _IsPy3 = sys.version_info[0] == 3
 
-request_file_dir = os.path.join(os.path.dirname(__file__), '..') + "/mock-data/request/"
-response_file_dir = os.path.join(os.path.dirname(__file__), '..') + "/mock-data/response/"
+request_file_dir = os.path.dirname(__file__) + "/mock-data/request/"
+response_file_dir = os.path.dirname(__file__) + "/mock-data/response/"
 
 # Define the regex pattern of file names. Example: eng-doc-categories.json
 filename_pattern = re.compile("(\w+-\w+-([a-z_-]+))[.]json")
@@ -163,6 +163,25 @@ def test_retry500():
         assert e.status == "Internal Server Error"
 
 
+# Test that getting the info about the API is being called correctly
+@httpretty.activate
+def test_responseHeaders():
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+                           status=200,
+                           body=get_file_content(response_file_dir + "eng-doc-entities.json"),
+                           content_type="application/json")
+    # need to mock /info call too because the api will call it implicitly
+    with open(response_file_dir + "info.json", "r") as info_file:
+        body = info_file.read()
+        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+    test = RosetteTest("eng-doc-entities")
+    result = test.api.entities(test.params)
+    assert "responseHeaders" in result
+
+
 @httpretty.activate
 def call_endpoint(input_filename, expected_status_filename, expected_output_filename, rest_endpoint):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1" + rest_endpoint,
@@ -187,15 +206,7 @@ def call_endpoint(input_filename, expected_status_filename, expected_output_file
     if "code" in expected_result:
         if expected_result["code"] == "unsupportedLanguage":
             error_expected = True
-    functions = {"/categories": test.api.categories,
-                 "/entities": test.api.entities,
-                 "/entities/linked": test.api.entities,  # (test.params, True)
-                 "/language": test.api.language,
-                 "/matched-name": test.api.matched_name,
-                 "/morphology/complete": test.api.morphology,
-                 "/relationships": test.api.relationships,
-                 "/sentiment": test.api.sentiment,
-                 "/translated-name": test.api.translated_name}
+    functions = {"/entities": test.api.entities}
 
     # If the request is expected to throw an exception, try complete the operation and pass the test only if it fails
     if error_expected:
@@ -212,7 +223,7 @@ def call_endpoint(input_filename, expected_status_filename, expected_output_file
         result = functions[rest_endpoint](test.params)
     else:
         result = functions[rest_endpoint](test.params, True)
-    assert result == expected_result
+    assert result["entities"] == expected_result["entities"]
 
 
 # Test all other endpoints
@@ -294,7 +305,7 @@ def test_just_text():
 
     result = api.entities(content)
     # Check that it work for entities
-    assert result == expected_result
+    assert result["entities"] == expected_result["entities"]
 
     # Check that it throws the correct error for matched-name
     try:
