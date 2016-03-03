@@ -166,16 +166,20 @@ def test_retry500():
 # Test that getting the info about the API is being called correctly
 @httpretty.activate
 def test_responseHeaders():
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+                           status=200,
+                           body=get_file_content(response_file_dir + "eng-doc-entities.json"),
+                           content_type="application/json")
+    # need to mock /info call too because the api will call it implicitly
     with open(response_file_dir + "info.json", "r") as info_file:
         body = info_file.read()
         httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
                                body=body, status=200, content_type="application/json")
-
-    test = RosetteTest(None)
-    result = test.api.info()
-    assert result["buildNumber"] == "6bafb29d"
-    assert result["name"] == "Rosette API"
-    assert result["versionChecked"] is True
+        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                               body=body, status=200, content_type="application/json")
+    test = RosetteTest("eng-doc-entities")
+    result = test.api.entities(test.params)
+    assert ("responseHeaders" in result) == True
 
 
 @httpretty.activate

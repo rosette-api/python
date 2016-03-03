@@ -150,5 +150,13 @@
     "rblJe": 29, 
     "rexJe": 656, 
     "rliJe": 35
+  },
+  "responseHeaders": {
+    "connection": "keep-alive",
+    "content-length": "637",
+    "content-type": "application/json",
+    "date": "Wed, 02 Mar 2016 23:09:51 GMT",
+    "server": "openresty/1.7.4.1",
+    "x-rosetteapi-request-id": "2be64f9f-6246-4366-aab3-16f635ed87a5"
   }
 }
