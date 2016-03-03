@@ -115,8 +115,6 @@ def _retrying_request(op, url, data, headers):
             response = HTTP_CONNECTION.getresponse()
             status = response.status
             rdata = response.read()
-            request_id = response.getheader("x-rosetteapi-request-id")
-            processed_language = response.getheader("x-rosetteapi-processed-language")
             response_headers["responseHeaders"] = (dict(response.getheaders()))
             if status < 500:
                 if not REUSE_CONNECTION:
