@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 
 """
-Example code to call Rosette API to translate a name from one language to another.
+Example code to call Rosette API to get match score (similarity) of two names.
 """
 
 import argparse
 import json
 import os
 
-from rosette.api import API, NameTranslationParameters
+from rosette.api import API, NameMatchingParameters
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
-    translated_name_data = "معمر محمد أبو منيار القذاف"
-    params = NameTranslationParameters()
-    params["name"] = translated_name_data
-    params["entityType"] = "PERSON"
-    params["targetLanguage"] = "eng"
-    return api.translated_name(params)
+    matched_name_data1 = "Michael Jackson"
+    matched_name_data2 = "迈克尔·杰克逊"
+    params = NameMatchingParameters()
+    params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
+    params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
+    return api.name_similarity(params)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
