@@ -1,0 +1,3 @@
+[submodule "mock-data"]
+	path = mock-data
+	url = git@github.com:rosette-api/mock-data.git
