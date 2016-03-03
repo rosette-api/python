@@ -179,7 +179,7 @@ def test_responseHeaders():
                                body=body, status=200, content_type="application/json")
     test = RosetteTest("eng-doc-entities")
     result = test.api.entities(test.params)
-    assert ("responseHeaders" in result) == True
+    assert "responseHeaders" in result
 
 
 @httpretty.activate
