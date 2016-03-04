@@ -66,7 +66,10 @@ The samples use the following procedure:
     * `morphology(tag)` where tag is a member of `MorphologyOutput`: `LEMMAS`, `PARTS_OF_SPEECH`, `COMPOUND_COMPONENTS`, `HAN_READINGS`, or `COMPLETE`. An empty tag is equivalent to `COMPLETE`.
     * `sentences()`
     * `tokens()`
-    * `matched_name()`
-    * `translated_name()`
+    * `relationships()`
+    * `name_translation()`
+    * `name_similarity()`
+    * `matched_name()` *deprecated
+    * `translated_name()` *deprecated
 
 7. The API will return a dictionary with the results.
