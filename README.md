@@ -43,7 +43,7 @@ The samples use the following procedure:
 2. Import the `rosette.api` packages that your application needs. The `rosette.api` packages include
     * `API`
     * `DocumentParameters`
-    * `NameMatchingParameters`
+    * `NameSimilarityParameters`
     * `NameTranslationParameters`
     * `MorphologyOutput`
     * `DataFormat`
@@ -55,14 +55,14 @@ The samples use the following procedure:
 
    | Parameter | Endpoint |
    | ----|----|
-   | `NameMatchingParameters` | for `/matched-name` |
+   | `NameSimilarityParameters` | for `/name-similarity` |
    | `NameTranslationParameters` | for `/translated-name` |
    | `DocumentParameters` | for all other endpoints |
 
 
 5. Set the parameters required for your operation: "`content`" or "`contentUri`" for `DocumentParameters`;
 "`name`" and "`targetLanguage`" for `NameTranslationParameters`; "`name1.text`" and "`name2.text`" for
- `NameMatchingParameters`; Other parameters are optional.
+ `NameSimilarityParameters`; Other parameters are optional.
 
 6. Invoke the `API` method for the endpoint you are calling. The methods are
     * `entities(linked)` where `linked` is `False` for entity extraction and `True` for entity linking.
