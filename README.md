@@ -2,9 +2,15 @@
 
 # This is the Python client binding for Rosette API.
 
+Installation
+------------
+
 The Python binding requires Python 2.6 or greater and is available through pip:
 
 `pip install rosette_api`
+
+Basic Usage
+-----------
 
 ```python
 # 1. Set utf-8 encoding.
@@ -73,3 +79,15 @@ The samples use the following procedure:
     * `translated_name()` *deprecated
 
 7. The API will return a dictionary with the results.
+
+See [examples](examples) for more request samples.
+
+API Documentation
+-----------------
+
+See [documentation](http://rosette-api.github.io/python)
+
+Additional Information
+----------------------
+
+Visit [Rosette API site](https://developer.rosette.com)
