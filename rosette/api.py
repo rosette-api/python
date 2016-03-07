@@ -435,7 +435,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
                 raise RosetteException("missingParameter", "Required Name Translation parameter not supplied", repr(n))
 
 
-class NameMatchingParameters(_DocumentParamSetBase):
+class NameSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{name-similarity} endpoint.
     All are required.
 
@@ -461,7 +461,7 @@ class NameMatchingParameters(_DocumentParamSetBase):
         """Internal. Do not use."""
         for n in ("name1", "name2"):  # required
             if self[n] is None:
-                raise RosetteException("missingParameter", "Required Name Matching parameter not supplied", repr(n))
+                raise RosetteException("missingParameter", "Required Name Similarity parameter not supplied", repr(n))
 
 
 class EndpointCaller:
@@ -569,7 +569,7 @@ class EndpointCaller:
         endpoint to which this L{EndpointCaller} object is bound.  For all
         endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
         object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
-        for C{name-similarity}, it must be an L{NameMatchingParameters} object. For relationships,
+        for C{name-similarity}, it must be an L{NameSimilarityParameters} object. For relationships,
         it may be an L(DocumentParameters) or an L(RelationshipsParameters).
 
         In all cases, the result is returned as a python dictionary
@@ -788,10 +788,10 @@ class API:
 
     def name_similarity(self, parameters):
         """
-        Create an L{EndpointCaller} to perform name matching and call it.
+        Create an L{EndpointCaller} to perform name similarity scoring and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the name matcher.
-        @type parameters: L{NameMatchingParameters}
+        @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return EndpointCaller(self, "name-similarity").call(parameters)
 
@@ -800,6 +800,6 @@ class API:
         Call name_similarity to perform name matching.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the name matcher.
-        @type parameters: L{NameMatchingParameters}
+        @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
