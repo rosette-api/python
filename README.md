@@ -47,7 +47,6 @@ The samples use the following procedure:
     * `NameTranslationParameters`
     * `MorphologyOutput`
     * `DataFormat`
-    * `InputUnit`
 
 3. Create an `API` object with the `user_key` parameter.
 
