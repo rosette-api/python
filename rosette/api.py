@@ -249,15 +249,6 @@ class DataFormat(_PseudoEnum):
     or may not.  It will be sent as is and identified and analyzed by the server."""
 
 
-class InputUnit(_PseudoEnum):
-    """Elements are used in the L{DocumentParameters} class to specify whether textual data
-    is to be treated as one sentence or possibly many."""
-    DOC = "doc"
-    """The data is a whole document; it may or may not contain multiple sentences."""
-    SENTENCE = "sentence"
-    """The data is a single sentence."""
-
-
 class MorphologyOutput(_PseudoEnum):
     LEMMAS = "lemmas"
     PARTS_OF_SPEECH = "parts-of-speech"
@@ -309,11 +300,10 @@ def _byteify(s):  # py 3 only
 class DocumentParameters(_DocumentParamSetBase):
     """Parameter object for all operations requiring input other than
     translated_name.
-    Four fields, C{content}, C{contentType}, C{unit}, and C{inputUri}, are set via
+    Three fields, C{content}, C{contentType}, and C{inputUri}, are set via
     the subscript operator, e.g., C{params["content"]}, or the
     convenience instance methods L{DocumentParameters.load_document_file}
-    and L{DocumentParameters.load_document_string}. The unit size and
-    data format are defaulted to L{InputUnit.DOC} and L{DataFormat.SIMPLE}.
+    and L{DocumentParameters.load_document_string}.
 
     Using subscripts instead of instance variables facilitates diagnosis.
 
@@ -324,10 +314,8 @@ class DocumentParameters(_DocumentParamSetBase):
     """
 
     def __init__(self):
-        """Create a L{DocumentParameters} object.  Default data format
-    is L{DataFormat.SIMPLE}, unit is L{InputUnit.DOC}."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language"))
-        self["unit"] = InputUnit.DOC  # default
+        """Create a L{DocumentParameters} object."""
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "language"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -358,8 +346,7 @@ class DocumentParameters(_DocumentParamSetBase):
     def load_document_file(self, path, data_type=DataFormat.UNSPECIFIED):
         """Loads a file into the object.
         The file will be read as bytes; the appropriate conversion will
-        be determined by the server.  The document unit size remains
-        by default L{InputUnit.DOC}.
+        be determined by the server.
         @parameter path: Pathname of a file acceptable to the C{open} function.
         @parameter data_type: One of L{DataFormat.HTML}, L{DataFormat.XHTML}, or L{DataFormat.UNSPECIFIED}.
         No other types are acceptable at this time, although HTML is broad enough to include text strings
@@ -377,7 +364,6 @@ class DocumentParameters(_DocumentParamSetBase):
         its native python type and the data type asked for; if the
         type is HTML or XHTML, bytes, not python Unicode, are expected,
         the encoding to be determined by the server.
-        The document unit size remains (by default) L{InputUnit.DOC}.
         @parameter s: A string, possibly a unicode-string, to be loaded
         for subsequent analysis, as per the C{data_type}.
         @parameter data_type: The data type of the string, as per L{DataFormat}.
@@ -385,7 +371,6 @@ class DocumentParameters(_DocumentParamSetBase):
         """
         self["content"] = s
         self["contentType"] = data_type
-        self["unit"] = InputUnit.DOC
 
 
 class RelationshipsParameters(DocumentParameters):
@@ -393,10 +378,8 @@ class RelationshipsParameters(DocumentParameters):
     """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
     to specify the relationships-unique options parameter."""
     def __init__(self):
-        """Create a L{RelationshipsParameters} object.  Default data format
-    is L{DataFormat.SIMPLE}, unit is L{InputUnit.DOC}."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language", "options"))
-        self["unit"] = InputUnit.DOC  # default
+        """Create a L{RelationshipsParameters} object."""
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "language", "options"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
