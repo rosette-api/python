@@ -40,7 +40,7 @@ if [ ! -z "${ALT_URL}" ]; then
 fi
 
 #Checks for valid url
-match=$(curl "${ping_url}/ping" -H "user_key: ${API_KEY}" |  grep -o "Rosette API")
+match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "Rosette API")
 if [ "${match}" = "" ]; then
     echo -e "\n${ping_url} server not responding\n"
     exit 1
@@ -48,7 +48,7 @@ fi
 
 #Checks if Rosette API key is valid
 function checkAPI {
-    match=$(curl "${ping_url}/ping" -H "user_key: ${API_KEY}" |  grep -o "forbidden")
+    match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "forbidden")
     if [ ! -z $match ]; then
         echo -e "\nInvalid Rosette API Key"
         exit 1

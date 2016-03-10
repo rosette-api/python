@@ -115,8 +115,6 @@ def _retrying_request(op, url, data, headers):
             response = HTTP_CONNECTION.getresponse()
             status = response.status
             rdata = response.read()
-            request_id = response.getheader("x-rosetteapi-request-id")
-            processed_language = response.getheader("x-rosetteapi-processed-language")
             response_headers["responseHeaders"] = (dict(response.getheaders()))
             if status < 500:
                 if not REUSE_CONNECTION:
@@ -513,7 +511,7 @@ class EndpointCaller:
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _get_http(url, headers=headers)
         return self.__finish_result(r, "info")
 
@@ -526,7 +524,7 @@ class EndpointCaller:
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _post_http(url, None, headers=headers)
         return self.__finish_result(r, "info")
 
@@ -542,7 +540,7 @@ class EndpointCaller:
         self.logger.info('Ping: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _get_http(url, headers=headers)
         return self.__finish_result(r, "ping")
 
@@ -587,7 +585,7 @@ class EndpointCaller:
         params_to_serialize = parameters.serialize()
         headers = {'Accept': "application/json", 'Accept-Encoding': "gzip"}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         headers['Content-Type'] = "application/json"
         r = _post_http(url, params_to_serialize, headers)
         # pprint.pprint(headers)
