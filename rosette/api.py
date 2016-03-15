@@ -334,8 +334,7 @@ class DocumentParameters(_DocumentParamSetBase):
             content = slz["content"]
             if _IsPy3 and isinstance(content, str):
                 content = _byteify(content)
-
-            encoded = base64.b64encode(content)
+            encoded = content
             if _IsPy3:
                 encoded = encoded.decode("utf-8")  # if py3, need chars.
             slz["content"] = encoded
