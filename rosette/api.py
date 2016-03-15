@@ -28,7 +28,6 @@ import os
 from socket import gethostbyname, gaierror
 from datetime import datetime
 import requests
-from pprint import pprint
 
 _BINDING_VERSION = "0.10"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
@@ -546,11 +545,10 @@ class EndpointCaller:
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         if self.useMultipart:
-            headers = {'Content-Disposition': 'attachment'}
             params = dict((key,value) for key, value in params_to_serialize.iteritems() if key == 'language')
-            files =  {'content': (parameters.file_name, params_to_serialize["content"], 'text/plain'),
+            files =  {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
                       'request': ('request_options', json.dumps(params), 'application/json')}
-            request = requests.Request('POST', url, files=files, headers=headers, params=[])
+            request = requests.Request('POST', url, files=files)
             prepared_request = request.prepare()
             session = requests.Session()
             resp = session.send(prepared_request)

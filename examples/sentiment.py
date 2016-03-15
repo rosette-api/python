@@ -24,6 +24,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     api = API(user_key=key, service_url=altUrl)
 
     params = DocumentParameters()
+    params["language"] = "eng"
 
     # Use an HTML file to load data instead of a string
     params.load_document_file(f.name)
