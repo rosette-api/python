@@ -547,7 +547,7 @@ class EndpointCaller:
         if self.useMultipart:
             params = dict((key, value) for key, value in params_to_serialize.iteritems() if key == 'language')
             files = {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
-                    'request': ('request_options', json.dumps(params), 'application/json')}
+                                'request': ('request_options', json.dumps(params), 'application/json')}
             request = requests.Request('POST', url, files=files, headers=headers)
             prepared_request = request.prepare()
             session = requests.Session()
