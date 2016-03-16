@@ -44,4 +44,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     result = run(args.key, args.url)
     print(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True).encode("utf8"))
-
