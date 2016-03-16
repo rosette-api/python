@@ -545,16 +545,16 @@ class EndpointCaller:
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         if self.useMultipart:
-            params = dict((key,value) for key, value in params_to_serialize.iteritems() if key == 'language')
-            files =  {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
+            params = dict((key, value) for key, value in params_to_serialize.iteritems() if key == 'language')
+            files = {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
                       'request': ('request_options', json.dumps(params), 'application/json')}
             request = requests.Request('POST', url, files=files, headers=headers)
             prepared_request = request.prepare()
             session = requests.Session()
             resp = session.send(prepared_request)
-            rdata = resp.content 
+            rdata = resp.content
             response_headers = {"responseHeaders": dict(resp.headers)}
-            status = resp.status_code 
+            status = resp.status_code
             r = _ReturnObject(_my_loads(rdata, response_headers), status)
         else:
             if self.debug:
