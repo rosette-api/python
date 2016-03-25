@@ -6,7 +6,7 @@ ping_url="https://api.rosette.com/rest/v1"
 #------------------ Functions ----------------------------------------------------
 #Gets called when the user doesn't provide any args
 function HELP {
-    echo -e "\nusage: source_file.py --key API_KEY [--url ALT_URL]"
+    echo -e "\nusage: --key API_KEY [--FILENAME filename] [--url ALT_URL]"
     echo "  API_KEY       - Rosette API key (required)"
     echo "  FILENAME      - Python source file (optional)"
     echo "  ALT_URL       - Alternate service URL (optional)"
@@ -59,6 +59,10 @@ function runExample() {
         echo "Exception found"
         retcode=1
     elif [[ "$result" == *"processingFailure"* ]]; then
+        retcode=1
+    elif [[ "$result" == *"AttributeError"* ]]; then
+        retcode=1
+    elif [[ "$result" == *"ImportError"* ]]; then
         retcode=1
     fi
 }
