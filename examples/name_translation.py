@@ -21,7 +21,6 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params["entityType"] = "PERSON"
     params["targetLanguage"] = "eng"
     params["targetScript"] = "Latn"
-    params["targetScheme"] = "IC"
     return api.name_translation(params)
 
 
