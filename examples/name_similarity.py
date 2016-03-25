@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, NameMatchingParameters
+from rosette.api import API, NameSimilarityParameters
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -17,7 +17,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
 
     matched_name_data1 = "Michael Jackson"
     matched_name_data2 = "迈克尔·杰克逊"
-    params = NameMatchingParameters()
+    params = NameSimilarityParameters()
     params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
     return api.name_similarity(params)

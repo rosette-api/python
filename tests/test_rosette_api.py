@@ -30,7 +30,7 @@ try:
 except ImportError:
     from io import BytesIO as streamIO
 import gzip
-from rosette.api import API, DocumentParameters, NameTranslationParameters, NameMatchingParameters, RelationshipsParameters, RosetteException
+from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, RelationshipsParameters, RosetteException
 
 _IsPy3 = sys.version_info[0] == 3
 
@@ -82,9 +82,9 @@ class RosetteTest:
         # Default to DocumentParameters as self.params
         self.params = DocumentParameters()
         if filename is not None:
-            # Name matching endpoint requires NameMatchingParameters
+            # Name matching endpoint requires NameSimilarityParameters
             if "matched-name" in filename:
-                self.params = NameMatchingParameters()
+                self.params = NameSimilarityParameters()
             # Name translation requires NameTranslationParameters
             elif "translated-name" in filename:
                 self.params = NameTranslationParameters()

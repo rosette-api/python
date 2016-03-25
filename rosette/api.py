@@ -27,8 +27,9 @@ import time
 import os
 from socket import gethostbyname, gaierror
 from datetime import datetime
+import requests
 
-_BINDING_VERSION = "1.0"
+_BINDING_VERSION = "0.10"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 N_RETRIES = 3
 HTTP_CONNECTION = None
@@ -229,33 +230,6 @@ class _PseudoEnum:
                                    " is not one of " + ", ".join(values) + ".", repr(value))
 
 
-class DataFormat(_PseudoEnum):
-    """Data Format, as much as it is known."""
-    SIMPLE = "text/plain"
-    """The data is unstructured text, supplied as a possibly-unicode string."""
-    JSON = "application/json"
-    """To be supplied.  The API uses JSON internally, but that is not what this refers to."""
-    HTML = "text/html"
-    """The data is a 'loose' HTML page; that is, it may not be HTML-compliant, or may even not
-    really be HTML. The data must be a narrow (single-byte) string, not a python Unicode string,
-    perhaps read from a file. (Of course, it can be UTF-8 encoded)."""
-    XHTML = "application/xhtml+xml"
-    """The data is a compliant XHTML page. The data must be a narrow (single-byte) string, not a
-    python Unicode string, perhaps read from a file. (Of course, it can be UTF-8 encoded)."""
-    UNSPECIFIED = "application/octet-stream"
-    """The data is of unknown format, it may be a binary data type (the contents of a binary file),
-    or may not.  It will be sent as is and identified and analyzed by the server."""
-
-
-class InputUnit(_PseudoEnum):
-    """Elements are used in the L{DocumentParameters} class to specify whether textual data
-    is to be treated as one sentence or possibly many."""
-    DOC = "doc"
-    """The data is a whole document; it may or may not contain multiple sentences."""
-    SENTENCE = "sentence"
-    """The data is a single sentence."""
-
-
 class MorphologyOutput(_PseudoEnum):
     LEMMAS = "lemmas"
     PARTS_OF_SPEECH = "parts-of-speech"
@@ -307,25 +281,23 @@ def _byteify(s):  # py 3 only
 class DocumentParameters(_DocumentParamSetBase):
     """Parameter object for all operations requiring input other than
     translated_name.
-    Four fields, C{content}, C{contentType}, C{unit}, and C{inputUri}, are set via
+    Two fields, C{content} and C{inputUri}, are set via
     the subscript operator, e.g., C{params["content"]}, or the
     convenience instance methods L{DocumentParameters.load_document_file}
-    and L{DocumentParameters.load_document_string}. The unit size and
-    data format are defaulted to L{InputUnit.DOC} and L{DataFormat.SIMPLE}.
+    and L{DocumentParameters.load_document_string}.
 
     Using subscripts instead of instance variables facilitates diagnosis.
 
     If the field C{contentUri} is set to the URL of a web page (only
     protocols C{http, https, ftp, ftps} are accepted), the server will
-    fetch the content from that web page.  In this case, neither C{content}
-    nor C{contentType} may be set.
+    fetch the content from that web page.  In this case, C{content} may not be set.
     """
 
     def __init__(self):
-        """Create a L{DocumentParameters} object.  Default data format
-    is L{DataFormat.SIMPLE}, unit is L{InputUnit.DOC}."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language"))
-        self["unit"] = InputUnit.DOC  # default
+        """Create a L{DocumentParameters} object."""
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language"))
+        self.file_name = ""
+        self.useMultipart = False
 
     def validate(self):
         """Internal. Do not use."""
@@ -340,50 +312,26 @@ class DocumentParameters(_DocumentParamSetBase):
         """Internal. Do not use."""
         self.validate()
         slz = super(DocumentParameters, self).serialize()
-        if self["contentType"] is None and self["contentUri"] is None:
-            slz["contentType"] = DataFormat.SIMPLE
-        elif self["contentType"] in (DataFormat.HTML, DataFormat.XHTML, DataFormat.UNSPECIFIED):
-            content = slz["content"]
-            if _IsPy3 and isinstance(content, str):
-                content = _byteify(content)
-
-            encoded = base64.b64encode(content)
-            if _IsPy3:
-                encoded = encoded.decode("utf-8")  # if py3, need chars.
-            slz["content"] = encoded
         return slz
 
-    def load_document_file(self, path, data_type=DataFormat.UNSPECIFIED):
+    def load_document_file(self, path):
         """Loads a file into the object.
         The file will be read as bytes; the appropriate conversion will
-        be determined by the server.  The document unit size remains
-        by default L{InputUnit.DOC}.
+        be determined by the server.
         @parameter path: Pathname of a file acceptable to the C{open} function.
-        @parameter data_type: One of L{DataFormat.HTML}, L{DataFormat.XHTML}, or L{DataFormat.UNSPECIFIED}.
-        No other types are acceptable at this time, although HTML is broad enough to include text strings
-        without markup.
-        If the data type is unknown, or describes a binary file, use the default (L{DataFormat.UNSPECIFIED}).
-        @type data_type: L{DataFormat}
         """
-        if data_type not in (DataFormat.HTML, DataFormat.XHTML, DataFormat.UNSPECIFIED):
-            raise RosetteException("badArgument", "Must supply one of HTML, XHTML, or UNSPECIFIED", data_type)
-        self.load_document_string(open(path, "rb").read(), data_type)
+        self.useMultipart = True
+        self.file_name = path
+        self.load_document_string(open(path, "rb").read())
 
-    def load_document_string(self, s, data_type):
+    def load_document_string(self, s):
         """Loads a string into the object.
         The string will be taken as bytes or as Unicode dependent upon
-        its native python type and the data type asked for; if the
-        type is HTML or XHTML, bytes, not python Unicode, are expected,
-        the encoding to be determined by the server.
-        The document unit size remains (by default) L{InputUnit.DOC}.
+        its native python type.
         @parameter s: A string, possibly a unicode-string, to be loaded
-        for subsequent analysis, as per the C{data_type}.
-        @parameter data_type: The data type of the string, as per L{DataFormat}.
-        @type data_type: L{DataFormat}
+        for subsequent analysis.
         """
         self["content"] = s
-        self["contentType"] = data_type
-        self["unit"] = InputUnit.DOC
 
 
 class RelationshipsParameters(DocumentParameters):
@@ -391,10 +339,9 @@ class RelationshipsParameters(DocumentParameters):
     """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
     to specify the relationships-unique options parameter."""
     def __init__(self):
-        """Create a L{RelationshipsParameters} object.  Default data format
-    is L{DataFormat.SIMPLE}, unit is L{InputUnit.DOC}."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "contentType", "unit", "language", "options"))
-        self["unit"] = InputUnit.DOC  # default
+        """Create a L{RelationshipsParameters} object."""
+        self.useMultipart = False
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "options"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
@@ -423,6 +370,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
     """
 
     def __init__(self):
+        self.useMultipart = False
         _DocumentParamSetBase.__init__(self, ("name", "targetLanguage", "entityType", "sourceLanguageOfOrigin",
                                               "sourceLanguageOfUse", "sourceScript", "targetScript", "targetScheme"))
 
@@ -433,7 +381,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
                 raise RosetteException("missingParameter", "Required Name Translation parameter not supplied", repr(n))
 
 
-class NameMatchingParameters(_DocumentParamSetBase):
+class NameSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{name-similarity} endpoint.
     All are required.
 
@@ -453,13 +401,14 @@ class NameMatchingParameters(_DocumentParamSetBase):
     """
 
     def __init__(self):
+        self.useMultipart = False
         _DocumentParamSetBase.__init__(self, ("name1", "name2"))
 
     def validate(self):
         """Internal. Do not use."""
         for n in ("name1", "name2"):  # required
             if self[n] is None:
-                raise RosetteException("missingParameter", "Required Name Matching parameter not supplied", repr(n))
+                raise RosetteException("missingParameter", "Required Name Similarity parameter not supplied", repr(n))
 
 
 class EndpointCaller:
@@ -486,7 +435,7 @@ class EndpointCaller:
         self.service_url = api.service_url
         self.user_key = api.user_key
         self.logger = api.logger
-        self.useMultipart = api.useMultipart
+        self.useMultipart = False
         self.checker = lambda: api.check_version()
         self.suburl = suburl
         self.debug = api.debug
@@ -515,9 +464,6 @@ class EndpointCaller:
                                    complaint_url + " : failed to communicate with Rosette",
                                    msg)
 
-    def _set_use_multipart(self, value):
-        self.useMultipart = value
-
     def info(self):
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary telling server version and other
@@ -528,7 +474,7 @@ class EndpointCaller:
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _get_http(url, headers=headers)
         return self.__finish_result(r, "info")
 
@@ -541,7 +487,7 @@ class EndpointCaller:
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _post_http(url, None, headers=headers)
         return self.__finish_result(r, "info")
 
@@ -557,7 +503,7 @@ class EndpointCaller:
         self.logger.info('Ping: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
+            headers["X-RosetteAPI-Key"] = self.user_key
         r = _get_http(url, headers=headers)
         return self.__finish_result(r, "ping")
 
@@ -567,7 +513,7 @@ class EndpointCaller:
         endpoint to which this L{EndpointCaller} object is bound.  For all
         endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
         object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
-        for C{name-similarity}, it must be an L{NameMatchingParameters} object. For relationships,
+        for C{name-similarity}, it must be an L{NameSimilarityParameters} object. For relationships,
         it may be an L(DocumentParameters) or an L(RelationshipsParameters).
 
         In all cases, the result is returned as a python dictionary
@@ -592,22 +538,32 @@ class EndpointCaller:
 
         self.checker()
 
-        if self.useMultipart and (parameters['contentType'] != DataFormat.SIMPLE):
-            raise RosetteException("incompatible", "Multipart requires contentType SIMPLE",
-                                   repr(parameters['contentType']))
+        self.useMultipart = parameters.useMultipart
         url = self.service_url + self.suburl
-        if self.debug:
-            url = add_query(url, "debug", "true")
-        self.logger.info('operate: ' + url)
         params_to_serialize = parameters.serialize()
-        headers = {'Accept': "application/json", 'Accept-Encoding': "gzip"}
+        headers = {}
         if self.user_key is not None:
-            headers["user_key"] = self.user_key
-        headers['Content-Type'] = "application/json"
-        r = _post_http(url, params_to_serialize, headers)
-        # pprint.pprint(headers)
-        # pprint.pprint(url)
-        # pprint.pprint(params_to_serialize)
+            headers["X-RosetteAPI-Key"] = self.user_key
+        if self.useMultipart:
+            params = dict((key, value) for key, value in params_to_serialize.iteritems() if key == 'language')
+            files = {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
+                     'request': ('request_options', json.dumps(params), 'application/json')}
+            request = requests.Request('POST', url, files=files, headers=headers)
+            prepared_request = request.prepare()
+            session = requests.Session()
+            resp = session.send(prepared_request)
+            rdata = resp.content
+            response_headers = {"responseHeaders": dict(resp.headers)}
+            status = resp.status_code
+            r = _ReturnObject(_my_loads(rdata, response_headers), status)
+        else:
+            if self.debug:
+                url = add_query(url, "debug", "true")
+            self.logger.info('operate: ' + url)
+            headers['Accept'] = "application/json"
+            headers['Accept-Encoding'] = "gzip"
+            headers['Content-Type'] = "application/json"
+            r = _post_http(url, params_to_serialize, headers)
         return self.__finish_result(r, "operate")
 
 
@@ -629,7 +585,6 @@ class API:
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
-        self.useMultipart = False
         self.version_checked = False
 
         global N_RETRIES
@@ -655,9 +610,6 @@ class API:
                                    version)
         self.version_checked = True
         return True
-
-    def _set_use_multipart(self, value):
-        self.useMultipart = value
 
     def ping(self):
         """
@@ -786,10 +738,10 @@ class API:
 
     def name_similarity(self, parameters):
         """
-        Create an L{EndpointCaller} to perform name matching and call it.
+        Create an L{EndpointCaller} to perform name similarity scoring and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the name matcher.
-        @type parameters: L{NameMatchingParameters}
+        @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return EndpointCaller(self, "name-similarity").call(parameters)
 
@@ -798,6 +750,6 @@ class API:
         Call name_similarity to perform name matching.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the name matcher.
-        @type parameters: L{NameMatchingParameters}
+        @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
