@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>rosette.api.NameTranslationParameters</title>
+  <title>rosette.api.NameSimilarityParameters</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -39,7 +39,7 @@
       <span class="breadcrumbs">
         <a href="rosette-module.html">Package&nbsp;rosette</a> ::
         <a href="rosette.api-module.html">Module&nbsp;api</a> ::
-        Class&nbsp;NameTranslationParameters
+        Class&nbsp;NameSimilarityParameters
       </span>
     </td>
     <td>
@@ -50,37 +50,29 @@
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class NameTranslationParameters</h1><p class="nomargin-top"><span class="codelink"><a href="rosette.api-pysrc.html#NameTranslationParameters">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Class NameSimilarityParameters</h1><p class="nomargin-top"><span class="codelink"><a href="rosette.api-pysrc.html#NameSimilarityParameters">source&nbsp;code</a></span></p>
 <pre class="base-tree">
            object --+    
                     |    
 _DocumentParamSetBase --+
                         |
-                       <strong class="uidshort">NameTranslationParameters</strong>
+                       <strong class="uidshort">NameSimilarityParameters</strong>
 </pre>
 
 <hr />
-<p>Parameter object for <code>name-translation</code> endpoint. The 
-  following values may be set by the indexing (i.e.,<code> 
-  parms[&quot;name&quot;]</code>) operator.  The values are all strings 
-  (when not <code>None</code>). All are optional except <code>name</code> 
-  and <code>targetLanguage</code>.  Scripts are in ISO15924 codes, and 
-  languages in ISO639 (two- or three-letter) codes.  See the Name 
-  Translation documentation for more description of these terms, as well as
-  the content of the return result.</p>
-  <p><code>name</code> The name to be translated.</p>
-  <p><code>targetLangauge</code> The language into which the name is to be 
-  translated.</p>
-  <p><code>entityType</code> The entity type (TBD) of the name.</p>
-  <p><code>sourceLanguageOfOrigin</code> The language of origin of the 
-  name.</p>
-  <p><code>sourceLanguageOfUse</code> The language of use of the name.</p>
-  <p><code>sourceScript</code> The script in which the name is 
-  supplied.</p>
-  <p><code>targetScript</code> The script into which the name should be 
-  translated.</p>
-  <p><code>targetScheme</code> The transliteration scheme by which the 
-  translated name should be rendered.</p>
+<p>Parameter object for <code>name-similarity</code> endpoint. All are 
+  required.</p>
+  <p><code>name1</code> The name to be matched, a <code>name</code> 
+  object.</p>
+  <p><code>name2</code> The name to be matched, a <code>name</code> 
+  object.</p>
+  <p>The <code>name</code> object contains these fields:</p>
+  <p><code>text</code> Text of the name, required.</p>
+  <p><code>language</code> Language of the name in ISO639 three-letter 
+  code, optional.</p>
+  <p><code>script</code> The ISO15924 code of the name, optional.</p>
+  <p><code>entityType</code> The entity type, can be &quot;PERSON&quot;, 
+  &quot;LOCATION&quot; or &quot;ORGANIZATION&quot;, optional.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -96,10 +88,10 @@ _DocumentParamSetBase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="rosette.api.NameTranslationParameters-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="rosette.api.NameSimilarityParameters-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
       x.__init__(...) initializes x; see help(type(x)) for signature</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="rosette.api-pysrc.html#NameTranslationParameters.__init__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="rosette.api-pysrc.html#NameSimilarityParameters.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -113,10 +105,10 @@ _DocumentParamSetBase --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="rosette.api.NameTranslationParameters-class.html#validate" class="summary-sig-name">validate</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="rosette.api.NameSimilarityParameters-class.html#validate" class="summary-sig-name">validate</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Internal.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="rosette.api-pysrc.html#NameTranslationParameters.validate">source&nbsp;code</a></span>
+            <span class="codelink"><a href="rosette.api-pysrc.html#NameSimilarityParameters.validate">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -184,7 +176,7 @@ _DocumentParamSetBase --+
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="rosette.api-pysrc.html#NameTranslationParameters.__init__">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="rosette.api-pysrc.html#NameSimilarityParameters.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -207,7 +199,7 @@ _DocumentParamSetBase --+
   <h3 class="epydoc"><span class="sig"><span class="sig-name">validate</span>(<span class="sig-arg">self</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="rosette.api-pysrc.html#NameTranslationParameters.validate">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="rosette.api-pysrc.html#NameSimilarityParameters.validate">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
