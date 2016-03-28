@@ -29,7 +29,7 @@ from socket import gethostbyname, gaierror
 from datetime import datetime
 import requests
 
-_BINDING_VERSION = "0.10"
+_BINDING_VERSION = "1.0"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 N_RETRIES = 3
 HTTP_CONNECTION = None
