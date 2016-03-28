@@ -309,11 +309,30 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="rosette.api.API-class.html#translated_name" class="summary-sig-name">translated_name</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#name_translation" class="summary-sig-name">name_translation</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">parameters</span>)</span><br />
       Create an <a href="rosette.api.EndpointCaller-class.html" 
       class="link">EndpointCaller</a> to perform name analysis and 
       translation upon the name to which it is applied and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.name_translation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#translated_name" class="summary-sig-name">translated_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      deprecated Call name_translation to perform name analysis and 
+      translation upon the name to which it is applied.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="rosette.api-pysrc.html#API.translated_name">source&nbsp;code</a></span>
             
@@ -329,10 +348,29 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="rosette.api.API-class.html#matched_name" class="summary-sig-name">matched_name</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#name_similarity" class="summary-sig-name">name_similarity</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">parameters</span>)</span><br />
       Create an <a href="rosette.api.EndpointCaller-class.html" 
-      class="link">EndpointCaller</a> to perform name matching and call it.</td>
+      class="link">EndpointCaller</a> to perform name similarity scoring 
+      and call it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.name_similarity">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#matched_name" class="summary-sig-name">matched_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parameters</span>)</span><br />
+      deprecated Call name_similarity to perform name matching.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="rosette.api-pysrc.html#API.matched_name">source&nbsp;code</a></span>
             
@@ -695,18 +733,18 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="translated_name"></a>
+<a name="name_translation"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">translated_name</span>(<span class="sig-arg">self</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">name_translation</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">parameters</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="rosette.api-pysrc.html#API.translated_name">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.name_translation">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -725,6 +763,65 @@
   </dl>
 </td></tr></table>
 </div>
+<a name="translated_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">translated_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.translated_name">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>deprecated Call name_translation to perform name analysis and 
+  translation upon the name to which it is applied.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameTranslationParameters-class.html" 
+          class="link">NameTranslationParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the name translator.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of name translation.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="name_similarity"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">name_similarity</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.name_similarity">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
+  class="link">EndpointCaller</a> to perform name similarity scoring and 
+  call it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameSimilarityParameters-class.html" 
+          class="link">NameSimilarityParameters</a>) - An object specifying the data, and possible metadata, to be 
+          processed by the name matcher.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A python dictionary containing the results of name matching.</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="matched_name"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -740,13 +837,12 @@
     </td>
   </tr></table>
   
-  <p>Create an <a href="rosette.api.EndpointCaller-class.html" 
-  class="link">EndpointCaller</a> to perform name matching and call it.</p>
+  <p>deprecated Call name_similarity to perform name matching.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameMatchingParameters-class.html" 
-          class="link">NameMatchingParameters</a>) - An object specifying the data, and possible metadata, to be 
+        <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.NameSimilarityParameters-class.html" 
+          class="link">NameSimilarityParameters</a>) - An object specifying the data, and possible metadata, to be 
           processed by the name matcher.</li>
     </ul></dd>
     <dt>Returns:</dt>
@@ -781,7 +877,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Feb 10 20:57:36 2016
+    Generated by Epydoc 3.0.1 on Mon Mar 28 14:26:13 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
