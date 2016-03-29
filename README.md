@@ -26,14 +26,95 @@ api = API("[your_api-key]")
 params = DocumentParameters()
 
 # 5. Set parameters.
-params["content"] = u"Was ist so böse an der Europäischen Zentralbank?"
+params["content"] = u""The quick brown fox jumped over the lazy dog. Yes he did.""
 
 # 6. Make a call.
 result = api.morphology(params)
 
 # result is a Python dictionary that contains
 
-{u'lemmas': [{u'text': u'Was', u'lemma': u'was'}, {u'text': u'ist', u'lemma': u'sein'}, {u'text': u'so', u'lemma': u'so'}, {u'text': u'böse', u'lemma': u'böse'}, {u'text': u'an', u'lemma': u'an'}, {u'text': u'der', u'lemma': u'der'}, {u'text': u'Europäischen', u'lemma': u'europäisch'}, {u'text': u'Zentralbank', u'lemma': u'Zentralbank'}, {u'text': u'?', u'lemma': u'?'}]}
+{
+    "tokens": [
+        "The",
+        "quick",
+        "brown",
+        "fox",
+        "jumped",
+        "over",
+        "the",
+        "lazy",
+        "dog",
+        ".",
+        "Yes",
+        "he",
+        "did",
+        "."
+    ],
+    "posTags": [
+        "DET",
+        "ADJ",
+        "ADJ",
+        "NOUN",
+        "VERB",
+        "ADP",
+        "DET",
+        "ADJ",
+        "NOUN",
+        "PUNCT",
+        "VERB",
+        "PRON",
+        "VERB",
+        "PUNCT"
+    ],
+    "lemmas": [
+        "the",
+        "quick",
+        "brown",
+        "fox",
+        "jump",
+        "over",
+        "the",
+        "lazy",
+        "dog",
+        ".",
+        "yes",
+        "he",
+        "do",
+        "."
+    ],
+    "compoundComponents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    ],
+    "hanReadings": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+    ]
+}
 ```
 
 The samples use the following procedure:
