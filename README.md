@@ -26,14 +26,14 @@ api = API("[your_api-key]")
 params = DocumentParameters()
 
 # 5. Set parameters.
-params["content"] = u"Was ist so böse an der Europäischen Zentralbank?"
+params["content"] = "The quick brown fox jumped over the lazy dog. Yes he did."
 
 # 6. Make a call.
 result = api.morphology(params)
 
 # result is a Python dictionary that contains
 
-{u'lemmas': [{u'text': u'Was', u'lemma': u'was'}, {u'text': u'ist', u'lemma': u'sein'}, {u'text': u'so', u'lemma': u'so'}, {u'text': u'böse', u'lemma': u'böse'}, {u'text': u'an', u'lemma': u'an'}, {u'text': u'der', u'lemma': u'der'}, {u'text': u'Europäischen', u'lemma': u'europäisch'}, {u'text': u'Zentralbank', u'lemma': u'Zentralbank'}, {u'text': u'?', u'lemma': u'?'}]}
+{u'tokens': [u'The', u'quick', u'brown', u'fox', u'jumped', u'over', u'the', u'lazy', u'dog', u'.', u'Yes', u'he', u'did', u'.'], u'posTags': [u'DET', u'ADJ', u'ADJ', u'NOUN', u'VERB', u'ADP', u'DET', u'ADJ', u'NOUN', u'PUNCT', u'VERB', u'PRON', u'VERB', u'PUNCT'], u'compoundComponents': [None, None, None, None, None, None, None, None, None, None, None, None, None, None], u'lemmas': [u'the', u'quick', u'brown', u'fox', u'jump', u'over', u'the', u'lazy', u'dog', u'.', u'yes', u'he', u'do', u'.'], u'hanReadings': [None, None, None, None, None, None, None, None, None, None, None, None, None, None]}
 ```
 
 The samples use the following procedure:
