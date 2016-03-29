@@ -26,95 +26,14 @@ api = API("[your_api-key]")
 params = DocumentParameters()
 
 # 5. Set parameters.
-params["content"] = u""The quick brown fox jumped over the lazy dog. Yes he did.""
+params["content"] = "The quick brown fox jumped over the lazy dog. Yes he did."
 
 # 6. Make a call.
 result = api.morphology(params)
 
 # result is a Python dictionary that contains
 
-{
-    "tokens": [
-        "The",
-        "quick",
-        "brown",
-        "fox",
-        "jumped",
-        "over",
-        "the",
-        "lazy",
-        "dog",
-        ".",
-        "Yes",
-        "he",
-        "did",
-        "."
-    ],
-    "posTags": [
-        "DET",
-        "ADJ",
-        "ADJ",
-        "NOUN",
-        "VERB",
-        "ADP",
-        "DET",
-        "ADJ",
-        "NOUN",
-        "PUNCT",
-        "VERB",
-        "PRON",
-        "VERB",
-        "PUNCT"
-    ],
-    "lemmas": [
-        "the",
-        "quick",
-        "brown",
-        "fox",
-        "jump",
-        "over",
-        "the",
-        "lazy",
-        "dog",
-        ".",
-        "yes",
-        "he",
-        "do",
-        "."
-    ],
-    "compoundComponents": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ],
-    "hanReadings": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    ]
-}
+{u'tokens': [u'The', u'quick', u'brown', u'fox', u'jumped', u'over', u'the', u'lazy', u'dog', u'.', u'Yes', u'he', u'did', u'.'], u'posTags': [u'DET', u'ADJ', u'ADJ', u'NOUN', u'VERB', u'ADP', u'DET', u'ADJ', u'NOUN', u'PUNCT', u'VERB', u'PRON', u'VERB', u'PUNCT'], u'compoundComponents': [None, None, None, None, None, None, None, None, None, None, None, None, None, None], u'lemmas': [u'the', u'quick', u'brown', u'fox', u'jump', u'over', u'the', u'lazy', u'dog', u'.', u'yes', u'he', u'do', u'.'], u'hanReadings': [None, None, None, None, None, None, None, None, None, None, None, None, None, None]}
 ```
 
 The samples use the following procedure:
