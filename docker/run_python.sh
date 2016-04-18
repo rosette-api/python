@@ -110,7 +110,7 @@ if [ ! -z ${API_KEY} ]; then
     cd /python-dev/examples
     if [ ! -z ${FILENAME} ]; then
         runExample ${FILENAME}
-    elif [ ! -z ${ALT_URL} ]; then
+    else
         for file in *.py; do
             runExample ${file}
         done

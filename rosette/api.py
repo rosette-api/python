@@ -31,23 +31,14 @@ import requests
 
 _BINDING_VERSION = "1.0"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
-N_RETRIES = 3
-HTTP_CONNECTION = None
-REUSE_CONNECTION = True
-CONNECTION_TYPE = ""
-CONNECTION_START = datetime.now()
-CONNECTION_REFRESH_DURATION = 86400
-N_RETRIES = 3
 
 _IsPy3 = sys.version_info[0] == 3
 
 
 try:
     import urlparse
-    import urllib
 except ImportError:
     import urllib.parse as urlparse
-    import urllib.parse as urllib
 try:
     import httplib
 except ImportError:
@@ -77,122 +68,6 @@ def _my_loads(obj, response_headers):
         d2 = json.loads(obj).copy()
         d2.update(response_headers)
         return d2
-
-
-def _retrying_request(op, url, data, headers):
-    global HTTP_CONNECTION
-    global REUSE_CONNECTION
-    global CONNECTION_TYPE
-    global CONNECTION_START
-    global CONNECTION_REFRESH_DURATION
-
-    headers['User-Agent'] = "RosetteAPIPython/" + _BINDING_VERSION
-    timeDelta = datetime.now() - CONNECTION_START
-    totalTime = timeDelta.days * 86400 + timeDelta.seconds
-
-    parsed = urlparse.urlparse(url)
-    if parsed.scheme != CONNECTION_TYPE:
-        totalTime = CONNECTION_REFRESH_DURATION
-
-    if not REUSE_CONNECTION or HTTP_CONNECTION is None or totalTime >= CONNECTION_REFRESH_DURATION:
-        parsed = urlparse.urlparse(url)
-        loc = parsed.netloc
-        CONNECTION_TYPE = parsed.scheme
-        CONNECTION_START = datetime.now()
-        if parsed.scheme == "https":
-            HTTP_CONNECTION = httplib.HTTPSConnection(loc)
-        else:
-            HTTP_CONNECTION = httplib.HTTPConnection(loc)
-
-    message = None
-    code = "unknownError"
-    rdata = None
-    response_headers = {}
-    for i in range(N_RETRIES + 1):
-        # Try to connect with the Rosette API server
-        # 500 errors will store a message and code
-        try:
-            HTTP_CONNECTION.request(op, url, data, headers)
-            response = HTTP_CONNECTION.getresponse()
-            status = response.status
-            rdata = response.read()
-            response_headers["responseHeaders"] = (dict(response.getheaders()))
-            if status < 500:
-                if not REUSE_CONNECTION:
-                    HTTP_CONNECTION.close()
-                return rdata, status, response_headers
-            if rdata is not None:
-                try:
-                    the_json = _my_loads(rdata, response_headers)
-                    if "message" in the_json:
-                        message = the_json["message"]
-                    if "code" in the_json:
-                        code = the_json["code"]
-                except:
-                    pass
-        # If there are issues connecting to the API server,
-        # try to regenerate the connection as long as there are
-        # still retries left.
-        # A short sleep delay occurs (similar to google reconnect)
-        # if the problem was a temporal one.
-        except (httplib.BadStatusLine, gaierror) as e:
-            totalTime = CONNECTION_REFRESH_DURATION
-            if i == N_RETRIES - 1:
-                raise RosetteException("ConnectionError", "Unable to establish connection to the Rosette API server", url)
-            else:
-                if not REUSE_CONNECTION or HTTP_CONNECTION is None or totalTime >= CONNECTION_REFRESH_DURATION:
-                    time.sleep(min(5 * (i + 1) * (i + 1), 300))
-                    parsed = urlparse.urlparse(url)
-                    loc = parsed.netloc
-                    CONNECTION_TYPE = parsed.scheme
-                    CONNECTION_START = datetime.now()
-                    if parsed.scheme == "https":
-                        HTTP_CONNECTION = httplib.HTTPSConnection(loc)
-                    else:
-                        HTTP_CONNECTION = httplib.HTTPConnection(loc)
-
-        # Do not wait to retry -- the model is that a bunch of dynamically-routed
-        # resources has failed -- Retry means some other set of servelets and their
-        # underlings will be called up, and maybe they'll do better.
-        # This will not help with a persistent or impassible delay situation,
-        # but the former case is thought to be more likely.
-
-    if not REUSE_CONNECTION:
-        HTTP_CONNECTION.close()
-
-    if message is None:
-        message = "A retryable network operation has not succeeded after " + str(N_RETRIES) + " attempts"
-
-    raise RosetteException(code, message, url)
-
-
-def _get_http(url, headers):
-    (rdata, status, response_headers) = _retrying_request("GET", url, None, headers)
-    return _ReturnObject(_my_loads(rdata, response_headers), status)
-
-
-def _post_http(url, data, headers):
-    if data is None:
-        json_data = ""
-    else:
-        json_data = json.dumps(data)
-
-    (rdata, status, response_headers) = _retrying_request("POST", url, json_data, headers)
-
-    if len(rdata) > 3 and rdata[0:3] == _GZIP_SIGNATURE:
-        buf = BytesIO(rdata)
-        rdata = gzip.GzipFile(fileobj=buf).read()
-
-    return _ReturnObject(_my_loads(rdata, response_headers), status)
-
-
-def add_query(orig_url, key, value):
-    parts = urlparse.urlsplit(orig_url)
-    queries = urlparse.parse_qsl(parts[3])
-    queries.append((key, value))
-    qs = urllib.urlencode(queries)
-    return urlparse.urlunsplit((parts[0], parts[1], parts[2], qs, parts[4]))
-
 
 class RosetteException(Exception):
     """Exception thrown by all Rosette API operations for errors local and remote.
@@ -439,6 +314,7 @@ class EndpointCaller:
         self.checker = lambda: api.check_version()
         self.suburl = suburl
         self.debug = api.debug
+        self.api = api
 
     def __finish_result(self, r, ename):
         code = r.status_code
@@ -455,14 +331,10 @@ class EndpointCaller:
             else:
                 complaint_url = ename + " " + self.suburl
 
-            if "code" in the_json:
-                server_code = the_json["code"]
-            else:
-                server_code = "unknownError"
-
-            raise RosetteException(server_code,
+            raise RosetteException(code,
                                    complaint_url + " : failed to communicate with Rosette",
                                    msg)
+
 
     def info(self):
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
@@ -470,12 +342,12 @@ class EndpointCaller:
         identifying data."""
         url = self.service_url + "info"
         if self.debug:
-            url = add_query(url, "debug", "true")
+            headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
-        r = _get_http(url, headers=headers)
+        r = self.api._get_http(url, headers=headers)
         return self.__finish_result(r, "info")
 
     def checkVersion(self):
@@ -483,12 +355,12 @@ class EndpointCaller:
         @return: A dictionary containing server version as well as version check"""
         url = self.service_url + "info?clientVersion=" + _BINDING_VERSION
         if self.debug:
-            url = add_query(url, "debug", "true")
+            headers["X-RosetteAPI-Devel"] = 'true'
         self.logger.info('info: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
-        r = _post_http(url, None, headers=headers)
+        r = self.api._post_http(url, None, headers)
         return self.__finish_result(r, "info")
 
     def ping(self):
@@ -499,12 +371,12 @@ class EndpointCaller:
 
         url = self.service_url + 'ping'
         if self.debug:
-            url = add_query(url, "debug", "true")
+            headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
         headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
-        r = _get_http(url, headers=headers)
+        r = self.api._get_http(url, headers=headers)
         return self.__finish_result(r, "ping")
 
     def call(self, parameters):
@@ -558,12 +430,12 @@ class EndpointCaller:
             r = _ReturnObject(_my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                url = add_query(url, "debug", "true")
+                headers['X-RosetteAPI-Devel'] = True
             self.logger.info('operate: ' + url)
             headers['Accept'] = "application/json"
             headers['Accept-Encoding'] = "gzip"
             headers['Content-Type'] = "application/json"
-            r = _post_http(url, params_to_serialize, headers)
+            r = self.api._post_http(url, params_to_serialize, headers)
         return self.__finish_result(r, "operate")
 
 
@@ -573,7 +445,8 @@ class API:
     Call instance methods upon this object to obtain L{EndpointCaller} objects
     which can communicate with particular Rosette server endpoints.
     """
-    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1/', retries=3, reuse_connection=True, refresh_duration=86400, debug=False):
+
+    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1/', retries=5, reuse_connection=True, refresh_duration=0.5, debug=False):
         """ Create an L{API} object.
         @param user_key: (Optional; required for servers requiring authentication.) An authentication string to be sent
          as user_key with all requests.  The default Rosette server requires authentication.
@@ -587,27 +460,126 @@ class API:
         self.debug = debug
         self.version_checked = False
 
-        global N_RETRIES
-        global REUSE_CONNECTION
-        global CONNECTION_REFRESH_DURATION
-
         if (retries < 1):
             retries = 1
-        if (refresh_duration < 60):
-            refresh_duration = 60
-        N_RETRIES = retries
-        REUSE_CONNECTION = reuse_connection
-        CONNECTION_REFRESH_DURATION = refresh_duration
+        if (refresh_duration < 0):
+            refresh_duration = 0
+
+        self.num_retries = retries
+        self.reuse_connection = reuse_connection
+        self.connection_refresh_duration = refresh_duration
+        self.http_connection = None
+
+    def _connect(self, parsedUrl):
+        """ Simple connection method
+        @param parsedUrl: The URL on which to process
+        """
+        if not self.reuse_connection or self.http_connection is None:
+            loc = parsedUrl.netloc
+            if parsedUrl.scheme == "https":
+                self.http_connection = httplib.HTTPSConnection(loc)
+            else:
+                self.http_connection = httplib.HTTPConnection(loc)
+
+
+    def _make_request(self, op, url, data, headers):
+        """
+        Handles the actual request, retrying if a 429 is encountered
+
+        @param op: POST or GET
+        @param url: endpoing URL
+        @param data: request data
+        @param headers: request headers
+        """
+        headers['User-Agent'] = "RosetteAPIPython/" + _BINDING_VERSION
+        parsedUrl = urlparse.urlparse(url)
+
+        self._connect(parsedUrl)
+
+        message = None
+        code = "unknownError"
+        rdata = None
+        response_headers = {}
+        for i in range(self.num_retries + 1):
+            try:
+                self.http_connection.request(op, url, data, headers)
+                response = self.http_connection.getresponse()
+                status = response.status
+                rdata = response.read()
+                response_headers["responseHeaders"] = (dict(response.getheaders()))
+                if status == 200:
+                    if not self.reuse_connection:
+                        self.http_connection.close()
+                    return rdata, status, response_headers
+                if status == 429:
+                    code = status
+                    message = "{0} ({1})".format(rdata, i)
+                    time.sleep(self.connection_refresh_duration)
+                    self.http_connection.close()
+                    self._connect(parsedUrl)
+                    continue;
+                if rdata is not None:
+                    try:
+                        the_json = _my_loads(rdata, response_headers)
+                        if 'message' in the_json:
+                            message = the_json['message']
+                        if "code" in the_json:
+                            code = the_json['code']
+                        else:
+                            code = status
+                        raise RosetteException(code, message, url)
+                    except:
+                        raise
+            except (httplib.BadStatusLine, gaierror) as e:
+                raise RosetteException("ConnectionError", "Unable to establish connection to the Rosette API server", url)
+
+        if not self.reuse_connection:
+            self.http_connection.close()
+
+        raise RosetteException(code, message, url)
+
+    def _get_http(self, url, headers):
+        """
+        Simple wrapper for the GET request
+
+        @param url: endpoint URL
+        @param headers: request headers
+        """
+        (rdata, status, response_headers) = self._make_request("GET", url, None, headers)
+        return _ReturnObject(_my_loads(rdata, response_headers), status)
+
+
+    def _post_http(self, url, data, headers):
+        """
+        Simple wrapper for the POST request
+
+        @param url: endpoint URL
+        @param data: request data
+        @param headers: request headers
+        """
+        if data is None:
+            json_data = ""
+        else:
+            json_data = json.dumps(data)
+
+        (rdata, status, response_headers) = self._make_request("POST", url, json_data, headers)
+
+        if len(rdata) > 3 and rdata[0:3] == _GZIP_SIGNATURE:
+            buf = BytesIO(rdata)
+            rdata = gzip.GzipFile(fileobj=buf).read()
+
+        return _ReturnObject(_my_loads(rdata, response_headers), status)
 
     def check_version(self):
+        """
+        Info call to check binding version against the current Rosette API
+        """
         if self.version_checked:
             return True
         op = EndpointCaller(self, None)
         result = op.checkVersion()
-        version = ".".join(result["version"].split(".")[0:2])
-        if result['versionChecked'] is False:
-            raise RosetteException("incompatibleVersion", "The server version is not compatible with binding version " + _BINDING_VERSION,
-                                   version)
+        if 'versionChecked' not in result or result['versionChecked'] is False:
+            raise RosetteException("incompatibleVersion", "The server version is not compatible with binding version " + _BINDING_VERSION, '')
         self.version_checked = True
         return True
 
