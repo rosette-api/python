@@ -18,6 +18,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     entities_linked_text_data = "Last month director Paul Feig announced the movie will have an all-star female cast including Kristen Wiig, Melissa McCarthy, Leslie Jones and Kate McKinnon."
     params = DocumentParameters()
     params["content"] = entities_linked_text_data
+    params["genre"] = "social-media"
     return api.entities(params, True)  # entity linking is turned on
 
 

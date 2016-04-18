@@ -170,7 +170,7 @@ class DocumentParameters(_DocumentParamSetBase):
 
     def __init__(self):
         """Create a L{DocumentParameters} object."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language"))
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "genre"))
         self.file_name = ""
         self.useMultipart = False
 
@@ -216,7 +216,7 @@ class RelationshipsParameters(DocumentParameters):
     def __init__(self):
         """Create a L{RelationshipsParameters} object."""
         self.useMultipart = False
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "options"))
+        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "options", "genre"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
@@ -247,7 +247,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
     def __init__(self):
         self.useMultipart = False
         _DocumentParamSetBase.__init__(self, ("name", "targetLanguage", "entityType", "sourceLanguageOfOrigin",
-                                              "sourceLanguageOfUse", "sourceScript", "targetScript", "targetScheme"))
+                                              "sourceLanguageOfUse", "sourceScript", "targetScript", "targetScheme", "genre"))
 
     def validate(self):
         """Internal. Do not use."""
