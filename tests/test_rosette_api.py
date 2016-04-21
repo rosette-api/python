@@ -34,20 +34,24 @@ from rosette.api import API, DocumentParameters, NameTranslationParameters, Name
 
 _IsPy3 = sys.version_info[0] == 3
 
+
 @pytest.fixture
 def json_response(scope="module"):
     body = json.dumps({'name': 'Rosette API', 'versionChecked': True})
     return body
+
 
 @pytest.fixture
 def api():
     api = API('bogus_key')
     return api
 
+
 @pytest.fixture
 def json_429(scope="module"):
     body = json.dumps({'message': 'too many requests', 'versionChecked': True})
     return body
+
 
 @pytest.fixture
 def doc_params(scope="module"):
@@ -62,10 +66,12 @@ def doc_params(scope="module"):
 
 # Test that pinging the API is working properly
 # @httpretty.activate
+
+
 def test_ping(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/ping",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.ping()
     assert result["name"] == "Rosette API"
@@ -73,10 +79,12 @@ def test_ping(api, json_response):
     httpretty.reset()
 
 # Test that getting the info about the API is being called correctly
+
+
 def test_info(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.info()
     assert result["name"] == "Rosette API"
@@ -85,11 +93,13 @@ def test_info(api, json_response):
     httpretty.reset()
 
 # Test check version - fail
+
+
 def test_check_version_fails(api, doc_params):
     httpretty.enable()
     body = json.dumps({'name': 'Rosette API'})
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=body, status=200, content_type="application/json")
+                           body=body, status=200, content_type="application/json")
     with pytest.raises(RosetteException) as e_rosette:
         result = api.categories(doc_params)
 
@@ -98,12 +108,14 @@ def test_check_version_fails(api, doc_params):
     httpretty.reset()
 
 # Test check version - pass
+
+
 def test_check_version_pass(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-             body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
-             body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.categories(doc_params)
 
@@ -112,10 +124,12 @@ def test_check_version_pass(api, json_response, doc_params):
     httpretty.reset()
 
 # Test for 429
+
+
 def test_for_429(api, json_429):
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-            body=json_429, status=429, content_type="application/json")
+                           body=json_429, status=429, content_type="application/json")
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.info()
@@ -125,12 +139,14 @@ def test_for_429(api, json_429):
     httpretty.reset()
 
 # Test the language endpoint
+
+
 def test_the_language_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-             body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
-             body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.language(doc_params)
     assert result["name"] == "Rosette API"
@@ -138,12 +154,14 @@ def test_the_language_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the sentences endpoint
+
+
 def test_the_sentences_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.sentences(doc_params)
     assert result["name"] == "Rosette API"
@@ -151,12 +169,14 @@ def test_the_sentences_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the tokens endpoint
+
+
 def test_the_tokens_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/tokens",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.tokens(doc_params)
     assert result["name"] == "Rosette API"
@@ -164,12 +184,14 @@ def test_the_tokens_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the morphology complete endpoint
+
+
 def test_the_morphology_complete_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/complete",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params)
     assert result["name"] == "Rosette API"
@@ -177,12 +199,14 @@ def test_the_morphology_complete_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the morphology lemmas endpoint
+
+
 def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/lemmas",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'lemmas')
     assert result["name"] == "Rosette API"
@@ -190,12 +214,15 @@ def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the morphology parts-of-speech endpoint
-def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params):
+
+
+def test_the_morphology_parts_of_speech_endpoint(
+        api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/parts-of-speech",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'parts-of-speech')
     assert result["name"] == "Rosette API"
@@ -203,12 +230,15 @@ def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params)
     httpretty.reset()
 
 # Test the morphology compound-components endpoint
-def test_the_morphology_compound_components_endpoint(api, json_response, doc_params):
+
+
+def test_the_morphology_compound_components_endpoint(
+        api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/compound-components",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'compound-components')
     assert result["name"] == "Rosette API"
@@ -216,12 +246,14 @@ def test_the_morphology_compound_components_endpoint(api, json_response, doc_par
     httpretty.reset()
 
 # Test the morphology han-readings endpoint
+
+
 def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/han-readings",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'han-readings')
     assert result["name"] == "Rosette API"
@@ -229,12 +261,14 @@ def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the entities endpoint
+
+
 def test_the_entities_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.entities(doc_params)
     assert result["name"] == "Rosette API"
@@ -242,12 +276,14 @@ def test_the_entities_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the entities/linked endpoint
+
+
 def test_the_entities_linked_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities/linked",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.entities(doc_params, True)
     assert result["name"] == "Rosette API"
@@ -255,12 +291,14 @@ def test_the_entities_linked_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the categories endpoint
+
+
 def test_the_categories_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.categories(doc_params)
     assert result["name"] == "Rosette API"
@@ -268,12 +306,14 @@ def test_the_categories_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the sentiment endpoint
+
+
 def test_the_sentiment_endpoint(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     result = api.sentiment(doc_params)
     assert result["name"] == "Rosette API"
@@ -281,12 +321,14 @@ def test_the_sentiment_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 # Test the multipart operation
+
+
 def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     p = tmpdir.mkdir("sub").join("testfile.txt")
     p.write(json_response)
@@ -297,12 +339,14 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     httpretty.reset()
 
 # Test the name translation endpoint
+
+
 def test_the_name_translation_endpoint(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     params = NameTranslationParameters()
     params["name"] = "some data to translate"
@@ -315,17 +359,22 @@ def test_the_name_translation_endpoint(api, json_response):
     httpretty.reset()
 
 # Test the name similarity endpoint
+
+
 def test_the_name_similarity_endpoint(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "Michael Jackson"
     matched_name_data2 = "迈克尔·杰克逊"
     params = NameSimilarityParameters()
-    params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
+    params["name1"] = {
+        "text": matched_name_data1,
+        "language": "eng",
+        "entityType": "PERSON"}
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
     result = api.name_similarity(params)
@@ -334,12 +383,14 @@ def test_the_name_similarity_endpoint(api, json_response):
     httpretty.reset()
 
 # Test the relationships endpoint
+
+
 def test_the_relationships_endpoint(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/relationships",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     params = RelationshipsParameters()
     params["content"] = "some text data"
@@ -350,13 +401,15 @@ def test_the_relationships_endpoint(api, json_response):
     httpretty.reset()
 
 # Test for non 200
+
+
 def test_for_404(api, json_response):
     httpretty.enable()
     body = json.dumps({'message': 'not found'})
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-            body=body, status=404, content_type="application/json")
+                           body=body, status=404, content_type="application/json")
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.info()
@@ -367,12 +420,14 @@ def test_for_404(api, json_response):
     httpretty.reset()
 
 # Test for content and contentUri
+
+
 def test_for_content_and_contentUri(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     doc_params['contentUri'] = 'http://google.com'
     with pytest.raises(RosetteException) as e_rosette:
@@ -384,12 +439,14 @@ def test_for_content_and_contentUri(api, json_response, doc_params):
     httpretty.reset()
 
 # Test for content and contentUri
+
+
 def test_for_no_content_or_contentUri(api, json_response, doc_params):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     doc_params['content'] = None
     with pytest.raises(RosetteException) as e_rosette:
@@ -401,12 +458,14 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
     httpretty.reset()
 
 # Test for required Name Similarity parameters
+
+
 def test_for_name_similarity_required_parameters(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "Michael Jackson"
     matched_name_data2 = "迈克尔·杰克逊"
@@ -418,7 +477,10 @@ def test_for_name_similarity_required_parameters(api, json_response):
     assert e_rosette.value.status == 'missingParameter'
     assert e_rosette.value.message == 'Required Name Similarity parameter not supplied'
 
-    params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
+    params["name1"] = {
+        "text": matched_name_data1,
+        "language": "eng",
+        "entityType": "PERSON"}
     with pytest.raises(RosetteException) as e_rosette:
         result = api.name_similarity(params)
 
@@ -433,12 +495,14 @@ def test_for_name_similarity_required_parameters(api, json_response):
     httpretty.reset()
 
 # Test for required Name Translation parameters
+
+
 def test_for_name_translation_required_parameters(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-            body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
-        body=json_response, status=200, content_type="application/json")
+                           body=json_response, status=200, content_type="application/json")
 
     params = NameTranslationParameters()
     params["entityType"] = "PERSON"
@@ -465,4 +529,3 @@ def test_for_name_translation_required_parameters(api, json_response):
 
     httpretty.disable()
     httpretty.reset()
-
