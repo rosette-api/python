@@ -51,6 +51,7 @@ else:
 
 
 class _ReturnObject:
+
     def __init__(self, js, code):
         self._json = js
         self.status_code = code
@@ -68,6 +69,7 @@ def _my_loads(obj, response_headers):
         d2 = json.loads(obj).copy()
         d2.update(response_headers)
         return d2
+
 
 class RosetteException(Exception):
     """Exception thrown by all Rosette API operations for errors local and remote.
@@ -88,6 +90,7 @@ class RosetteException(Exception):
 
 
 class _PseudoEnum:
+
     def __init__(self):
         pass
 
@@ -99,10 +102,17 @@ class _PseudoEnum:
                 values += [v]
 
         # this is still needed to make sure that the parameter NAMES are known.
-        # If python didn't allow setting unknown values, this would be a language error.
+        # If python didn't allow setting unknown values, this would be a
+        # language error.
         if value not in values:
-            raise RosetteException("unknownVariable", "The value supplied for " + name +
-                                   " is not one of " + ", ".join(values) + ".", repr(value))
+            raise RosetteException(
+                "unknownVariable",
+                "The value supplied for " +
+                name +
+                " is not one of " +
+                ", ".join(values) +
+                ".",
+                repr(value))
 
 
 class MorphologyOutput(_PseudoEnum):
@@ -114,6 +124,7 @@ class MorphologyOutput(_PseudoEnum):
 
 
 class _DocumentParamSetBase(object):
+
     def __init__(self, repertoire):
         self.__params = {}
         for k in repertoire:
@@ -121,12 +132,14 @@ class _DocumentParamSetBase(object):
 
     def __setitem__(self, key, val):
         if key not in self.__params:
-            raise RosetteException("badKey", "Unknown Rosette parameter key", repr(key))
+            raise RosetteException(
+                "badKey", "Unknown Rosette parameter key", repr(key))
         self.__params[key] = val
 
     def __getitem__(self, key):
         if key not in self.__params:
-            raise RosetteException("badKey", "Unknown Rosette parameter key", repr(key))
+            raise RosetteException(
+                "badKey", "Unknown Rosette parameter key", repr(key))
         return self.__params[key]
 
     def validate(self):
@@ -170,7 +183,8 @@ class DocumentParameters(_DocumentParamSetBase):
 
     def __init__(self):
         """Create a L{DocumentParameters} object."""
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "genre"))
+        _DocumentParamSetBase.__init__(
+            self, ("content", "contentUri", "language", "genre"))
         self.file_name = ""
         self.useMultipart = False
 
@@ -178,10 +192,16 @@ class DocumentParameters(_DocumentParamSetBase):
         """Internal. Do not use."""
         if self["content"] is None:
             if self["contentUri"] is None:
-                raise RosetteException("badArgument", "Must supply one of Content or ContentUri", "bad arguments")
+                raise RosetteException(
+                    "badArgument",
+                    "Must supply one of Content or ContentUri",
+                    "bad arguments")
         else:  # self["content"] not None
             if self["contentUri"] is not None:
-                raise RosetteException("badArgument", "Cannot supply both Content and ContentUri", "bad arguments")
+                raise RosetteException(
+                    "badArgument",
+                    "Cannot supply both Content and ContentUri",
+                    "bad arguments")
 
     def serialize(self):
         """Internal. Do not use."""
@@ -213,10 +233,12 @@ class RelationshipsParameters(DocumentParameters):
 
     """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
     to specify the relationships-unique options parameter."""
+
     def __init__(self):
         """Create a L{RelationshipsParameters} object."""
         self.useMultipart = False
-        _DocumentParamSetBase.__init__(self, ("content", "contentUri", "language", "options", "genre"))
+        _DocumentParamSetBase.__init__(
+            self, ("content", "contentUri", "language", "options", "genre"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
@@ -246,14 +268,26 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.useMultipart = False
-        _DocumentParamSetBase.__init__(self, ("name", "targetLanguage", "entityType", "sourceLanguageOfOrigin",
-                                              "sourceLanguageOfUse", "sourceScript", "targetScript", "targetScheme", "genre"))
+        _DocumentParamSetBase.__init__(
+            self,
+            ("name",
+             "targetLanguage",
+             "entityType",
+             "sourceLanguageOfOrigin",
+             "sourceLanguageOfUse",
+             "sourceScript",
+             "targetScript",
+             "targetScheme",
+             "genre"))
 
     def validate(self):
         """Internal. Do not use."""
         for n in ("name", "targetLanguage"):  # required
             if self[n] is None:
-                raise RosetteException("missingParameter", "Required Name Translation parameter not supplied", repr(n))
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Name Translation parameter not supplied",
+                    repr(n))
 
 
 class NameSimilarityParameters(_DocumentParamSetBase):
@@ -283,7 +317,10 @@ class NameSimilarityParameters(_DocumentParamSetBase):
         """Internal. Do not use."""
         for n in ("name1", "name2"):  # required
             if self[n] is None:
-                raise RosetteException("missingParameter", "Required Name Similarity parameter not supplied", repr(n))
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Name Similarity parameter not supplied",
+                    repr(n))
 
 
 class EndpointCaller:
@@ -331,10 +368,8 @@ class EndpointCaller:
             else:
                 complaint_url = ename + " " + self.suburl
 
-            raise RosetteException(code,
-                                   complaint_url + " : failed to communicate with Rosette",
-                                   msg)
-
+            raise RosetteException(code, complaint_url +
+                                   " : failed to communicate with Rosette", msg)
 
     def info(self):
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
@@ -405,8 +440,10 @@ class EndpointCaller:
                 parameters = DocumentParameters()
                 parameters['content'] = text
             else:
-                raise RosetteException("incompatible", "Text-only input only works for DocumentParameter endpoints",
-                                       self.suburl)
+                raise RosetteException(
+                    "incompatible",
+                    "Text-only input only works for DocumentParameter endpoints",
+                    self.suburl)
 
         self.checker()
 
@@ -417,10 +454,22 @@ class EndpointCaller:
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         if self.useMultipart:
-            params = dict((key, value) for key, value in params_to_serialize.iteritems() if key == 'language')
-            files = {'content': (os.path.basename(parameters.file_name), params_to_serialize["content"], 'text/plain'),
-                     'request': ('request_options', json.dumps(params), 'application/json')}
-            request = requests.Request('POST', url, files=files, headers=headers)
+            params = dict(
+                (key,
+                 value) for key,
+                value in params_to_serialize.iteritems() if key == 'language')
+            files = {
+                'content': (
+                    os.path.basename(
+                        parameters.file_name),
+                    params_to_serialize["content"],
+                    'text/plain'),
+                'request': (
+                    'request_options',
+                    json.dumps(params),
+                    'application/json')}
+            request = requests.Request(
+                'POST', url, files=files, headers=headers)
             prepared_request = request.prepare()
             session = requests.Session()
             resp = session.send(prepared_request)
@@ -446,7 +495,14 @@ class API:
     which can communicate with particular Rosette server endpoints.
     """
 
-    def __init__(self, user_key=None, service_url='https://api.rosette.com/rest/v1/', retries=5, reuse_connection=True, refresh_duration=0.5, debug=False):
+    def __init__(
+            self,
+            user_key=None,
+            service_url='https://api.rosette.com/rest/v1/',
+            retries=5,
+            reuse_connection=True,
+            refresh_duration=0.5,
+            debug=False):
         """ Create an L{API} object.
         @param user_key: (Optional; required for servers requiring authentication.) An authentication string to be sent
          as user_key with all requests.  The default Rosette server requires authentication.
@@ -454,7 +510,8 @@ class API:
         """
         # logging.basicConfig(filename="binding.log", filemode="w", level=logging.DEBUG)
         self.user_key = user_key
-        self.service_url = service_url if service_url.endswith('/') else service_url + '/'
+        self.service_url = service_url if service_url.endswith(
+            '/') else service_url + '/'
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
@@ -481,7 +538,6 @@ class API:
             else:
                 self.http_connection = httplib.HTTPConnection(loc)
 
-
     def _make_request(self, op, url, data, headers):
         """
         Handles the actual request, retrying if a 429 is encountered
@@ -506,7 +562,8 @@ class API:
                 response = self.http_connection.getresponse()
                 status = response.status
                 rdata = response.read()
-                response_headers["responseHeaders"] = (dict(response.getheaders()))
+                response_headers["responseHeaders"] = (
+                    dict(response.getheaders()))
                 if status == 200:
                     if not self.reuse_connection:
                         self.http_connection.close()
@@ -517,7 +574,7 @@ class API:
                     time.sleep(self.connection_refresh_duration)
                     self.http_connection.close()
                     self._connect(parsedUrl)
-                    continue;
+                    continue
                 if rdata is not None:
                     try:
                         the_json = _my_loads(rdata, response_headers)
@@ -531,7 +588,10 @@ class API:
                     except:
                         raise
             except (httplib.BadStatusLine, gaierror) as e:
-                raise RosetteException("ConnectionError", "Unable to establish connection to the Rosette API server", url)
+                raise RosetteException(
+                    "ConnectionError",
+                    "Unable to establish connection to the Rosette API server",
+                    url)
 
         if not self.reuse_connection:
             self.http_connection.close()
@@ -545,9 +605,9 @@ class API:
         @param url: endpoint URL
         @param headers: request headers
         """
-        (rdata, status, response_headers) = self._make_request("GET", url, None, headers)
+        (rdata, status, response_headers) = self._make_request(
+            "GET", url, None, headers)
         return _ReturnObject(_my_loads(rdata, response_headers), status)
-
 
     def _post_http(self, url, data, headers):
         """
@@ -562,7 +622,8 @@ class API:
         else:
             json_data = json.dumps(data)
 
-        (rdata, status, response_headers) = self._make_request("POST", url, json_data, headers)
+        (rdata, status, response_headers) = self._make_request(
+            "POST", url, json_data, headers)
 
         if len(rdata) > 3 and rdata[0:3] == _GZIP_SIGNATURE:
             buf = BytesIO(rdata)
@@ -579,7 +640,11 @@ class API:
         op = EndpointCaller(self, None)
         result = op.checkVersion()
         if 'versionChecked' not in result or result['versionChecked'] is False:
-            raise RosetteException("incompatibleVersion", "The server version is not compatible with binding version " + _BINDING_VERSION, '')
+            raise RosetteException(
+                "incompatibleVersion",
+                "The server version is not compatible with binding version " +
+                _BINDING_VERSION,
+                '')
         self.version_checked = True
         return True
 
