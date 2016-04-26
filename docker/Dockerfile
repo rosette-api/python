@@ -40,6 +40,7 @@ RUN mkdir /install && \
     ln -s /install/pypy3-*/bin/pypy3 /usr/local/bin/pypy3
 
 RUN pip install -U pip && pip install tox 
+RUN pip install --upgrade autopep8
 
 # copy over the necessary files
 COPY run_python.sh /python-dev/run_python.sh

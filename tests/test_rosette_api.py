@@ -34,289 +34,498 @@ from rosette.api import API, DocumentParameters, NameTranslationParameters, Name
 
 _IsPy3 = sys.version_info[0] == 3
 
-request_file_dir = os.path.dirname(__file__) + "/mock-data/request/"
-response_file_dir = os.path.dirname(__file__) + "/mock-data/response/"
 
-# Define the regex pattern of file names. Example: eng-doc-categories.json
-filename_pattern = re.compile("(\w+-\w+-([a-z_-]+))[.]json")
-
-
-def get_file_content(filename):
-    with open(filename, "r") as f:
-        s = f.read()
-        if len(s) > 200:
-            out = streamIO()
-            f1 = gzip.GzipFile(fileobj=out, mode="w")
-            if _IsPy3:
-                f1.write(bytes(s, 'UTF-8'))
-            else:
-                f1.write(s)
-            f1.close()
-            s = out.getvalue()
-        return s
+@pytest.fixture
+def json_response(scope="module"):
+    body = json.dumps({'name': 'Rosette API', 'versionChecked': True})
+    return body
 
 
-# Run through all files in the mock-data directory, extract endpoint, and create a list of tuples of the form
-# (input filename, output status filename, output data filename, endpoint) as the elements
-def categorize_reqs():
-    files = []
-    # Loop through all file names in the mock-data/request directory
-    for full_filename in glob.glob(request_file_dir + "*.json"):
-        filename = os.path.basename(full_filename)
-        # Extract the endpoint (the part after the first two "-" but before .json)
-        endpoint = "/" + filename_pattern.match(filename).group(2).replace("_", "/")
-        # Add (input, output status, output json, endpoint) to list of files
-        files.append((filename_pattern.match(filename).group(1),
-                      response_file_dir + filename.replace("json", "status"),
-                      response_file_dir + filename,
-                      endpoint))
-    return files
+@pytest.fixture
+def api():
+    api = API('bogus_key')
+    return api
 
 
-class RosetteTest:
-    def __init__(self, filename=None):
-        self.url = "https://api.rosette.com/rest/v1"
-        # Set user key as filename as a workaround - tests don"t require user key
-        # Filename is necessary to get the correct response in the mocked test
-        self.api = API(user_key=filename)
-        # Default to DocumentParameters as self.params
-        self.params = DocumentParameters()
-        if filename is not None:
-            # Name matching endpoint requires NameSimilarityParameters
-            if "matched-name" in filename:
-                self.params = NameSimilarityParameters()
-            # Name translation requires NameTranslationParameters
-            elif "translated-name" in filename:
-                self.params = NameTranslationParameters()
-            # Relationships requires RelationshipParameters if user wants to specify options
-            elif "relationships" in filename:
-                self.params = RelationshipsParameters()
-            # Find and load contents of request file into parameters
-            with open(request_file_dir + filename + ".json", "r") as inp_file:
-                params_dict = json.loads(inp_file.read())
-            for key in params_dict:
-                self.params[key] = params_dict[key]
+@pytest.fixture
+def json_429(scope="module"):
+    body = json.dumps({'message': 'too many requests', 'versionChecked': True})
+    return body
 
 
-# Setup for tests - register urls with HTTPretty and compile a list of all necessary information about each file
-# in mock-data/request so that tests can be run
-docs_list = categorize_reqs()
+@pytest.fixture
+def doc_params(scope="module"):
+    params = DocumentParameters()
+    params['content'] = 'Sample test string'
+    return params
 
+# Of Note: httpretty provides a short hand decorator, @httpretty.activate, that wraps the decorated
+# function with httpretty.enable() and ends it with httpretty.disable().  However, when combined with
+# pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.  Use the old
+# enable/disable to avoid this.
 
 # Test that pinging the API is working properly
-@httpretty.activate
-def test_ping():
-    with open(response_file_dir + "ping.json", "r") as ping_file:
-        body = ping_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/ping",
-                               body=body, status=200, content_type="application/json")
+# @httpretty.activate
 
-    test = RosetteTest(None)
-    result = test.api.ping()
-    assert result["message"] == "Rosette API at your service"
 
+def test_ping(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/ping",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.ping()
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
 
 # Test that getting the info about the API is being called correctly
-@httpretty.activate
-def test_info():
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
 
-    test = RosetteTest(None)
-    result = test.api.info()
-    assert result["buildNumber"] == "6bafb29d"
+
+def test_info(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.info()
     assert result["name"] == "Rosette API"
     assert result["versionChecked"] is True
+    httpretty.disable()
+    httpretty.reset()
+
+# Test check version - fail
 
 
-# Test that retrying request retries the correct number of times
-@httpretty.activate
-def test_retryNum():
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=500, content_type="application/json")
-    test = API(user_key=None, retries=5)
-    try:
-        result = test.info()
-        assert False
-    except RosetteException as e:
-        assert e.message == "A retryable network operation has not succeeded after 5 attempts"
-        assert e.status == "unknownError"
+def test_check_version_fails(api, doc_params):
+    httpretty.enable()
+    body = json.dumps({'name': 'Rosette API'})
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=body, status=200, content_type="application/json")
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.categories(doc_params)
+
+    assert e_rosette.value.status == "incompatibleVersion"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test check version - pass
 
 
-# Test that retrying request throws the right error
-@httpretty.activate
-def test_retry500():
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = {'message': 'We had a problem with our server. Try again later.', 'code': 'Internal Server Error'}
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=json.dumps(body), status=500, content_type="application/json")
-    test = RosetteTest(None)
-    try:
-        result = test.api.info()
-        assert False
-    except RosetteException as e:
-        assert e.message == "We had a problem with our server. Try again later."
-        assert e.status == "Internal Server Error"
+def test_check_version_pass(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.categories(doc_params)
+
+    assert result["versionChecked"] is True
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for 429
 
 
-# Test that getting the info about the API is being called correctly
-@httpretty.activate
-def test_responseHeaders():
+def test_for_429(api, json_429):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                           body=json_429, status=429, content_type="application/json")
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.info()
+
+    assert e_rosette.value.status == 429
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the language endpoint
+
+
+def test_the_language_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.language(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the sentences endpoint
+
+
+def test_the_sentences_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.sentences(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the tokens endpoint
+
+
+def test_the_tokens_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/tokens",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.tokens(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the morphology complete endpoint
+
+
+def test_the_morphology_complete_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/complete",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.morphology(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the morphology lemmas endpoint
+
+
+def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/lemmas",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.morphology(doc_params, 'lemmas')
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the morphology parts-of-speech endpoint
+
+
+def test_the_morphology_parts_of_speech_endpoint(
+        api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/parts-of-speech",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.morphology(doc_params, 'parts-of-speech')
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the morphology compound-components endpoint
+
+
+def test_the_morphology_compound_components_endpoint(
+        api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/compound-components",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.morphology(doc_params, 'compound-components')
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the morphology han-readings endpoint
+
+
+def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/han-readings",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.morphology(doc_params, 'han-readings')
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the entities endpoint
+
+
+def test_the_entities_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
-                           status=200,
-                           body=get_file_content(response_file_dir + "eng-doc-entities.json"),
-                           content_type="application/json")
-    # need to mock /info call too because the api will call it implicitly
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-    test = RosetteTest("eng-doc-entities")
-    result = test.api.entities(test.params)
-    assert "responseHeaders" in result
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.entities(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the entities/linked endpoint
 
 
-@httpretty.activate
-def call_endpoint(input_filename, expected_status_filename, expected_output_filename, rest_endpoint):
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1" + rest_endpoint,
-                           status=get_file_content(expected_status_filename),
-                           body=get_file_content(expected_output_filename),
-                           content_type="application/json")
-    # need to mock /info call too because the api will call it implicitly
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
+def test_the_entities_linked_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities/linked",
+                           body=json_response, status=200, content_type="application/json")
 
-    error_expected = False
-    # Create an instance of the app, feeding the filename to be stored as the user key so the response will be correct
-    test = RosetteTest(input_filename)
-    # Open the expected response file and store the data
-    with open(expected_output_filename, "r") as expected_file:
-        expected_result = json.loads(expected_file.read())
-    # Check to see if this particular request should throw an exception for an unsupported language
-    if "code" in expected_result:
-        if expected_result["code"] == "unsupportedLanguage":
-            error_expected = True
-    functions = {"/entities": test.api.entities}
+    result = api.entities(doc_params, True)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
 
-    # If the request is expected to throw an exception, try complete the operation and pass the test only if it fails
-    if error_expected:
-        try:
-            functions[rest_endpoint](test.params)
-            assert False
-        except RosetteException as e:
-            assert True
-            return
-
-    # Otherwise, actually complete the operation and check that it got the correct result
-    # entities/linked must be handled separately because they require two arguments
-    if "entities/linked" not in rest_endpoint:
-        result = functions[rest_endpoint](test.params)
-    else:
-        result = functions[rest_endpoint](test.params, True)
-    assert result["entities"] == expected_result["entities"]
+# Test the categories endpoint
 
 
-# Test all other endpoints
-# docs_list is the list of information from documents in the mock-data/request directory above
-# @pytest.mark.parametrize means that it will call the below test for each tuple
-# in the docs_list feeding the elements of the tuple as arguments to the test
-@pytest.mark.parametrize("input_filename, expected_status_filename, expected_output_filename, rest_endpoint", docs_list)
-def test_all(input_filename, expected_status_filename, expected_output_filename, rest_endpoint):
-    # @httpretty and @pytest cannot co-exist, so separate the function definition
-    call_endpoint(input_filename, expected_status_filename, expected_output_filename, rest_endpoint)
+def test_the_categories_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.categories(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the sentiment endpoint
 
 
-# Test that debug flag is working properly
-@httpretty.activate
-def test_debug():
-    # Doesn't really matter what it returns for this test, so just making sure it catches all of them
-    endpoints = ["categories", "entities", "entities/linked", "language", "matched-name", "morphology-complete",
-                 "sentiment", "translated-name", "relationships"]
-    expected_status_filename = response_file_dir + "eng-sentence-entities.status"
-    expected_output_filename = response_file_dir + "eng-sentence-entities.json"
-    for rest_endpoint in endpoints:
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/" + rest_endpoint,
-                               status=get_file_content(expected_status_filename),
-                               body=get_file_content(expected_output_filename),
-                               content_type="application/json")
+def test_the_sentiment_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
+                           body=json_response, status=200, content_type="application/json")
 
-    with open(expected_output_filename, "r") as expected_file:
-        expected_result = json.loads(expected_file.read())
+    result = api.sentiment(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
 
-    # need to mock /info call too because the api will call it implicitly
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-
-    api = API("0123456789", debug=True)
-
-    content = "He also acknowledged the ongoing U.S. conflicts in Iraq and Afghanistan, noting that he is the \"commander in chief of a country that is responsible for ending a war and working in another theater to confront a ruthless adversary that directly threatens the American people\" and U.S. allies."
-
-    params = DocumentParameters()
-    params.__setitem__("content", content)
-    api.entities(params)
-
-    # Check that the most recent querystring had debug=true
-    assert httpretty.last_request().querystring == {'debug': ['true']}
+# Test the multipart operation
 
 
-# Test using text only input
-# To call entities: should work
-# To call matched-name and translated-name: should throw errors
-@httpretty.activate
-def test_just_text():
-    endpoints = ["categories", "entities", "entities/linked", "language", "matched-name", "morphology-complete",
-                 "sentiment", "translated-name", "relationships"]
-    expected_status_filename = response_file_dir + "eng-sentence-entities.status"
-    expected_output_filename = response_file_dir + "eng-sentence-entities.json"
-    for rest_endpoint in endpoints:
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/" + rest_endpoint,
-                               status=get_file_content(expected_status_filename),
-                               body=get_file_content(expected_output_filename),
-                               content_type="application/json")
+def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
+                           body=json_response, status=200, content_type="application/json")
 
-    with open(expected_output_filename, "r") as expected_file:
-        expected_result = json.loads(expected_file.read())
+    p = tmpdir.mkdir("sub").join("testfile.txt")
+    p.write(json_response)
+    doc_params.load_document_file = p
+    result = api.sentiment(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
 
-    # need to mock /info call too because the api will call it implicitly
-    with open(response_file_dir + "info.json", "r") as info_file:
-        body = info_file.read()
-        httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
-        httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                               body=body, status=200, content_type="application/json")
+# Test the name translation endpoint
 
-    api = API("0123456789")
 
-    content = "He also acknowledged the ongoing U.S. conflicts in Iraq and Afghanistan, noting that he is the \"commander in chief of a country that is responsible for ending a war and working in another theater to confront a ruthless adversary that directly threatens the American people\" and U.S. allies."
+def test_the_name_translation_endpoint(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+                           body=json_response, status=200, content_type="application/json")
 
-    result = api.entities(content)
-    # Check that it work for entities
-    assert result["entities"] == expected_result["entities"]
+    params = NameTranslationParameters()
+    params["name"] = "some data to translate"
+    params["entityType"] = "PERSON"
+    params["targetLanguage"] = "eng"
+    params["targetScript"] = "Latn"
+    result = api.name_translation(params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
 
-    # Check that it throws the correct error for matched-name
-    try:
-        api.matched_name(content)
-        assert False
-    except RosetteException as e:
-        assert e.status == "incompatible"
+# Test the name similarity endpoint
 
-    # Check that it throws the correct error for translated-name
-    try:
-        api.translated_name(content)
-        assert False
-    except RosetteException as e:
-        assert e.status == "incompatible"
+
+def test_the_name_similarity_endpoint(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    matched_name_data1 = "Michael Jackson"
+    matched_name_data2 = "迈克尔·杰克逊"
+    params = NameSimilarityParameters()
+    params["name1"] = {
+        "text": matched_name_data1,
+        "language": "eng",
+        "entityType": "PERSON"}
+    params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
+
+    result = api.name_similarity(params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the relationships endpoint
+
+
+def test_the_relationships_endpoint(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/relationships",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = RelationshipsParameters()
+    params["content"] = "some text data"
+    params["options"] = {"accuracyMode": "PRECISION"}
+    result = api.relationships(params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for non 200
+
+
+def test_for_404(api, json_response):
+    httpretty.enable()
+    body = json.dumps({'message': 'not found'})
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                           body=body, status=404, content_type="application/json")
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.info()
+
+    assert e_rosette.value.status == 404
+    assert e_rosette.value.message == 'not found'
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for content and contentUri
+
+
+def test_for_content_and_contentUri(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+                           body=json_response, status=200, content_type="application/json")
+
+    doc_params['contentUri'] = 'http://google.com'
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.entities(doc_params)
+
+    assert e_rosette.value.status == 'badArgument'
+    assert e_rosette.value.message == 'Cannot supply both Content and ContentUri'
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for content and contentUri
+
+
+def test_for_no_content_or_contentUri(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+                           body=json_response, status=200, content_type="application/json")
+
+    doc_params['content'] = None
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.entities(doc_params)
+
+    assert e_rosette.value.status == 'badArgument'
+    assert e_rosette.value.message == 'Must supply one of Content or ContentUri'
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for required Name Similarity parameters
+
+
+def test_for_name_similarity_required_parameters(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    matched_name_data1 = "Michael Jackson"
+    matched_name_data2 = "迈克尔·杰克逊"
+    params = NameSimilarityParameters()
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name Similarity parameter not supplied'
+
+    params["name1"] = {
+        "text": matched_name_data1,
+        "language": "eng",
+        "entityType": "PERSON"}
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name Similarity parameter not supplied'
+
+    params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
+
+    result = api.name_similarity(params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for required Name Translation parameters
+
+
+def test_for_name_translation_required_parameters(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = NameTranslationParameters()
+    params["entityType"] = "PERSON"
+    params["targetScript"] = "Latn"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_translation(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name Translation parameter not supplied'
+
+    params["name"] = "some data to translate"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_translation(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name Translation parameter not supplied'
+
+    params["targetLanguage"] = "eng"
+
+    result = api.name_translation(params)
+    assert result["name"] == "Rosette API"
+
+    httpretty.disable()
+    httpretty.reset()
