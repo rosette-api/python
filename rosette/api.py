@@ -18,15 +18,13 @@ limitations under the License.
 """
 
 from io import BytesIO
-import base64
 import gzip
 import json
 import logging
 import sys
 import time
 import os
-from socket import gethostbyname, gaierror
-from datetime import datetime
+from socket import gaierror
 import requests
 
 _BINDING_VERSION = "1.1"
@@ -376,10 +374,10 @@ class EndpointCaller:
         @return: A dictionary telling server version and other
         identifying data."""
         url = self.service_url + "info"
+        headers = {'Accept': 'application/json'}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
-        headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._get_http(url, headers=headers)
@@ -389,10 +387,10 @@ class EndpointCaller:
         """Issues a special "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary containing server version as well as version check"""
         url = self.service_url + "info?clientVersion=" + _BINDING_VERSION
+        headers = {'Accept': 'application/json'}
         if self.debug:
             headers["X-RosetteAPI-Devel"] = 'true'
         self.logger.info('info: ' + url)
-        headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._post_http(url, None, headers)
@@ -405,10 +403,10 @@ class EndpointCaller:
         signalled."""
 
         url = self.service_url + 'ping'
+        headers = {'Accept': 'application/json'}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
-        headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._get_http(url, headers=headers)
@@ -587,7 +585,7 @@ class API:
                         raise RosetteException(code, message, url)
                     except:
                         raise
-            except (httplib.BadStatusLine, gaierror) as e:
+            except (httplib.BadStatusLine, gaierror):
                 raise RosetteException(
                     "ConnectionError",
                     "Unable to establish connection to the Rosette API server",
