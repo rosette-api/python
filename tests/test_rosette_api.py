@@ -88,38 +88,6 @@ def test_info(api, json_response):
 
     result = api.info()
     assert result["name"] == "Rosette API"
-    assert result["versionChecked"] is True
-    httpretty.disable()
-    httpretty.reset()
-
-# Test check version - fail
-
-
-def test_check_version_fails(api, doc_params):
-    httpretty.enable()
-    body = json.dumps({'name': 'Rosette API'})
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=body, status=200, content_type="application/json")
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.categories(doc_params)
-
-    assert e_rosette.value.status == "incompatibleVersion"
-    httpretty.disable()
-    httpretty.reset()
-
-# Test check version - pass
-
-
-def test_check_version_pass(api, json_response, doc_params):
-    httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
-                           body=json_response, status=200, content_type="application/json")
-
-    result = api.categories(doc_params)
-
-    assert result["versionChecked"] is True
     httpretty.disable()
     httpretty.reset()
 
