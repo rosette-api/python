@@ -346,7 +346,6 @@ class EndpointCaller:
         self.user_key = api.user_key
         self.logger = api.logger
         self.useMultipart = False
-        self.checker = lambda: api.check_version()
         self.suburl = suburl
         self.debug = api.debug
         self.api = api
@@ -374,26 +373,13 @@ class EndpointCaller:
         @return: A dictionary telling server version and other
         identifying data."""
         url = self.service_url + "info"
-        headers = {'Accept': 'application/json'}
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._get_http(url, headers=headers)
-        return self.__finish_result(r, "info")
-
-    def checkVersion(self):
-        """Issues a special "info" request to the L{EndpointCaller}'s specific endpoint.
-        @return: A dictionary containing server version as well as version check"""
-        url = self.service_url + "info?clientVersion=" + _BINDING_VERSION
-        headers = {'Accept': 'application/json'}
-        if self.debug:
-            headers["X-RosetteAPI-Devel"] = 'true'
-        self.logger.info('info: ' + url)
-        if self.user_key is not None:
-            headers["X-RosetteAPI-Key"] = self.user_key
-        r = self.api._post_http(url, None, headers)
         return self.__finish_result(r, "info")
 
     def ping(self):
@@ -403,7 +389,7 @@ class EndpointCaller:
         signalled."""
 
         url = self.service_url + 'ping'
-        headers = {'Accept': 'application/json'}
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
@@ -443,14 +429,14 @@ class EndpointCaller:
                     "Text-only input only works for DocumentParameter endpoints",
                     self.suburl)
 
-        self.checker()
-
         self.useMultipart = parameters.useMultipart
         url = self.service_url + self.suburl
         params_to_serialize = parameters.serialize()
         headers = {}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
+            headers["X-RosetteAPI-Binding"] = "python"
+            headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
         if self.useMultipart:
             params = dict(
                 (key,
@@ -513,7 +499,6 @@ class API:
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
-        self.version_checked = False
 
         if (retries < 1):
             retries = 1
@@ -628,23 +613,6 @@ class API:
             rdata = gzip.GzipFile(fileobj=buf).read()
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
-
-    def check_version(self):
-        """
-        Info call to check binding version against the current Rosette API
-        """
-        if self.version_checked:
-            return True
-        op = EndpointCaller(self, None)
-        result = op.checkVersion()
-        if 'versionChecked' not in result or result['versionChecked'] is False:
-            raise RosetteException(
-                "incompatibleVersion",
-                "The server version is not compatible with binding version " +
-                _BINDING_VERSION,
-                '')
-        self.version_checked = True
-        return True
 
     def ping(self):
         """
