@@ -636,7 +636,7 @@ class API:
         """
         Clears all options
         """
-        self.options.clear();
+        self.options.clear()
 
     def ping(self):
         """
