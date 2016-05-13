@@ -8,16 +8,16 @@ import argparse
 import json
 import os
 
-from rosette.api import API, RelationshipsParameters
+from rosette.api import API, DocumentParameters
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
     relationships_text_data = "The Ghostbusters movie was filmed in Boston."
-    params = RelationshipsParameters()
+    params = DocumentParameters()
     params["content"] = relationships_text_data
-    params["options"] = {"accuracyMode": "PRECISION"}
+    api.setOption('accuracyMode', 'PRECISION')
     return api.relationships(params)
 
 

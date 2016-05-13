@@ -143,7 +143,7 @@ class _DocumentParamSetBase(object):
     def validate(self):
         pass
 
-    def serialize(self):
+    def serialize(self, options):
         self.validate()
         v = {}
         for (key, val) in self.__params.items():
@@ -151,6 +151,10 @@ class _DocumentParamSetBase(object):
                 pass
             else:
                 v[key] = val
+
+        if options is not None and len(options) > 0:
+            v['options'] = options
+
         return v
 
 
@@ -201,10 +205,10 @@ class DocumentParameters(_DocumentParamSetBase):
                     "Cannot supply both Content and ContentUri",
                     "bad arguments")
 
-    def serialize(self):
+    def serialize(self, options):
         """Internal. Do not use."""
         self.validate()
-        slz = super(DocumentParameters, self).serialize()
+        slz = super(DocumentParameters, self).serialize(options)
         return slz
 
     def load_document_file(self, path):
@@ -225,18 +229,6 @@ class DocumentParameters(_DocumentParamSetBase):
         for subsequent analysis.
         """
         self["content"] = s
-
-
-class RelationshipsParameters(DocumentParameters):
-
-    """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
-    to specify the relationships-unique options parameter."""
-
-    def __init__(self):
-        """Create a L{RelationshipsParameters} object."""
-        self.useMultipart = False
-        _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "language", "options", "genre"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
@@ -405,7 +397,7 @@ class EndpointCaller:
         endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
         object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
         for C{name-similarity}, it must be an L{NameSimilarityParameters} object. For relationships,
-        it may be an L(DocumentParameters) or an L(RelationshipsParameters).
+        it may be an L(DocumentParameters).
 
         In all cases, the result is returned as a python dictionary
         conforming to the JSON object described in the endpoint's entry
@@ -431,7 +423,7 @@ class EndpointCaller:
 
         self.useMultipart = parameters.useMultipart
         url = self.service_url + self.suburl
-        params_to_serialize = parameters.serialize()
+        params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
@@ -509,6 +501,7 @@ class API:
         self.reuse_connection = reuse_connection
         self.connection_refresh_duration = refresh_duration
         self.http_connection = None
+        self.options = {}
 
     def _connect(self, parsedUrl):
         """ Simple connection method
@@ -614,6 +607,37 @@ class API:
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
+    def setOption(self, name, value):
+        """
+        Sets an option
+
+        @param name: name of option
+        @param value: value of option
+        """
+        if value is None:
+            self.options.pop(name, None)
+        else:
+            self.options[name] = value
+
+    def getOption(self, name):
+        """
+        Gets an option
+
+        @param name: name of option
+
+        @return: value of option
+        """
+        if name in self.options.keys():
+            return self.options[name]
+        else:
+            return None
+
+    def clearOptions(self):
+        """
+        Clears all options
+        """
+        self.options.clear();
+
     def ping(self):
         """
         Create a ping L{EndpointCaller} for the server and ping it.
@@ -715,7 +739,7 @@ class API:
         which it is applied and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the relationships identifier.
-        @type parameters: L{DocumentParameters}, L(RelationshipsParameters), or L{str}
+        @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of relationship extraction."""
         return EndpointCaller(self, "relationships").call(parameters)
 

@@ -30,7 +30,7 @@ try:
 except ImportError:
     from io import BytesIO as streamIO
 import gzip
-from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, RelationshipsParameters, RosetteException
+from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, RosetteException
 
 _IsPy3 = sys.version_info[0] == 3
 
@@ -64,9 +64,27 @@ def doc_params(scope="module"):
 # pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.  Use the old
 # enable/disable to avoid this.
 
+# Test the option set/get/clear
+
+
+def test_option_get_set_clear(api):
+    api.setOption('test', 'foo')
+    assert 'foo' == api.getOption('test')
+
+    api.clearOptions()
+    assert api.getOption('test') is None
+
+
+def test_option_clear_single_option(api):
+    api.setOption('test', 'foo')
+    assert 'foo' == api.getOption('test')
+
+    api.setOption('test', None)
+    assert api.getOption('test') is None
+
+
 # Test that pinging the API is working properly
 # @httpretty.activate
-
 
 def test_ping(api, json_response):
     httpretty.enable()
@@ -360,9 +378,9 @@ def test_the_relationships_endpoint(api, json_response):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/relationships",
                            body=json_response, status=200, content_type="application/json")
 
-    params = RelationshipsParameters()
+    params = DocumentParameters()
     params["content"] = "some text data"
-    params["options"] = {"accuracyMode": "PRECISION"}
+    api.setOption('accuracyMode', 'PRECISION')
     result = api.relationships(params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
