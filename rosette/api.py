@@ -18,18 +18,16 @@ limitations under the License.
 """
 
 from io import BytesIO
-import base64
 import gzip
 import json
 import logging
 import sys
 import time
 import os
-from socket import gethostbyname, gaierror
-from datetime import datetime
+from socket import gaierror
 import requests
 
-_BINDING_VERSION = "1.1"
+_BINDING_VERSION = "1.1.1"
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _IsPy3 = sys.version_info[0] == 3
@@ -145,7 +143,7 @@ class _DocumentParamSetBase(object):
     def validate(self):
         pass
 
-    def serialize(self):
+    def serialize(self, options):
         self.validate()
         v = {}
         for (key, val) in self.__params.items():
@@ -153,6 +151,10 @@ class _DocumentParamSetBase(object):
                 pass
             else:
                 v[key] = val
+
+        if options is not None and len(options) > 0:
+            v['options'] = options
+
         return v
 
 
@@ -203,10 +205,10 @@ class DocumentParameters(_DocumentParamSetBase):
                     "Cannot supply both Content and ContentUri",
                     "bad arguments")
 
-    def serialize(self):
+    def serialize(self, options):
         """Internal. Do not use."""
         self.validate()
-        slz = super(DocumentParameters, self).serialize()
+        slz = super(DocumentParameters, self).serialize(options)
         return slz
 
     def load_document_file(self, path):
@@ -227,18 +229,6 @@ class DocumentParameters(_DocumentParamSetBase):
         for subsequent analysis.
         """
         self["content"] = s
-
-
-class RelationshipsParameters(DocumentParameters):
-
-    """Parameter object for relationships endpoint. Inherits from L(DocumentParameters), but allows the user
-    to specify the relationships-unique options parameter."""
-
-    def __init__(self):
-        """Create a L{RelationshipsParameters} object."""
-        self.useMultipart = False
-        _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "language", "options", "genre"))
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
@@ -348,7 +338,6 @@ class EndpointCaller:
         self.user_key = api.user_key
         self.logger = api.logger
         self.useMultipart = False
-        self.checker = lambda: api.check_version()
         self.suburl = suburl
         self.debug = api.debug
         self.api = api
@@ -376,26 +365,13 @@ class EndpointCaller:
         @return: A dictionary telling server version and other
         identifying data."""
         url = self.service_url + "info"
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
-        headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._get_http(url, headers=headers)
-        return self.__finish_result(r, "info")
-
-    def checkVersion(self):
-        """Issues a special "info" request to the L{EndpointCaller}'s specific endpoint.
-        @return: A dictionary containing server version as well as version check"""
-        url = self.service_url + "info?clientVersion=" + _BINDING_VERSION
-        if self.debug:
-            headers["X-RosetteAPI-Devel"] = 'true'
-        self.logger.info('info: ' + url)
-        headers = {'Accept': 'application/json'}
-        if self.user_key is not None:
-            headers["X-RosetteAPI-Key"] = self.user_key
-        r = self.api._post_http(url, None, headers)
         return self.__finish_result(r, "info")
 
     def ping(self):
@@ -405,10 +381,10 @@ class EndpointCaller:
         signalled."""
 
         url = self.service_url + 'ping'
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
-        headers = {'Accept': 'application/json'}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
         r = self.api._get_http(url, headers=headers)
@@ -421,7 +397,7 @@ class EndpointCaller:
         endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
         object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
         for C{name-similarity}, it must be an L{NameSimilarityParameters} object. For relationships,
-        it may be an L(DocumentParameters) or an L(RelationshipsParameters).
+        it may be an L(DocumentParameters).
 
         In all cases, the result is returned as a python dictionary
         conforming to the JSON object described in the endpoint's entry
@@ -445,14 +421,14 @@ class EndpointCaller:
                     "Text-only input only works for DocumentParameter endpoints",
                     self.suburl)
 
-        self.checker()
-
         self.useMultipart = parameters.useMultipart
         url = self.service_url + self.suburl
-        params_to_serialize = parameters.serialize()
+        params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
+            headers["X-RosetteAPI-Binding"] = "python"
+            headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
         if self.useMultipart:
             params = dict(
                 (key,
@@ -515,7 +491,6 @@ class API:
         self.logger = logging.getLogger('rosette.api')
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
-        self.version_checked = False
 
         if (retries < 1):
             retries = 1
@@ -526,6 +501,7 @@ class API:
         self.reuse_connection = reuse_connection
         self.connection_refresh_duration = refresh_duration
         self.http_connection = None
+        self.options = {}
 
     def _connect(self, parsedUrl):
         """ Simple connection method
@@ -587,7 +563,7 @@ class API:
                         raise RosetteException(code, message, url)
                     except:
                         raise
-            except (httplib.BadStatusLine, gaierror) as e:
+            except (httplib.BadStatusLine, gaierror):
                 raise RosetteException(
                     "ConnectionError",
                     "Unable to establish connection to the Rosette API server",
@@ -631,22 +607,36 @@ class API:
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
-    def check_version(self):
+    def setOption(self, name, value):
         """
-        Info call to check binding version against the current Rosette API
+        Sets an option
+
+        @param name: name of option
+        @param value: value of option
         """
-        if self.version_checked:
-            return True
-        op = EndpointCaller(self, None)
-        result = op.checkVersion()
-        if 'versionChecked' not in result or result['versionChecked'] is False:
-            raise RosetteException(
-                "incompatibleVersion",
-                "The server version is not compatible with binding version " +
-                _BINDING_VERSION,
-                '')
-        self.version_checked = True
-        return True
+        if value is None:
+            self.options.pop(name, None)
+        else:
+            self.options[name] = value
+
+    def getOption(self, name):
+        """
+        Gets an option
+
+        @param name: name of option
+
+        @return: value of option
+        """
+        if name in self.options.keys():
+            return self.options[name]
+        else:
+            return None
+
+    def clearOptions(self):
+        """
+        Clears all options
+        """
+        self.options.clear()
 
     def ping(self):
         """
@@ -702,7 +692,7 @@ class API:
         @return: A python dictionary containing the results of morphological analysis."""
         return EndpointCaller(self, "morphology/" + facet).call(parameters)
 
-    def entities(self, parameters, linked=False):
+    def entities(self, parameters, resolve_entities=False):
         """
         Create an L{EndpointCaller}  to identify named entities found in the texts
         to which it is applied and call it. Linked entity information is optional, and
@@ -710,11 +700,11 @@ class API:
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the entity identifier.
         @type parameters: L{DocumentParameters} or L{str}
-        @param linked: Specifies whether or not linked entity information will
+        @param resolve_entities: Specifies whether or not linked entity information will
         be wanted.
-        @type linked: Boolean
+        @type resolve_entities: Boolean
         @return: A python dictionary containing the results of entity extraction."""
-        if linked:
+        if resolve_entities:
             return EndpointCaller(self, "entities/linked").call(parameters)
         else:
             return EndpointCaller(self, "entities").call(parameters)
@@ -749,7 +739,7 @@ class API:
         which it is applied and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the relationships identifier.
-        @type parameters: L{DocumentParameters}, L(RelationshipsParameters), or L{str}
+        @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of relationship extraction."""
         return EndpointCaller(self, "relationships").call(parameters)
 

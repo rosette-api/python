@@ -30,7 +30,7 @@ try:
 except ImportError:
     from io import BytesIO as streamIO
 import gzip
-from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, RelationshipsParameters, RosetteException
+from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, RosetteException
 
 _IsPy3 = sys.version_info[0] == 3
 
@@ -64,9 +64,27 @@ def doc_params(scope="module"):
 # pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.  Use the old
 # enable/disable to avoid this.
 
+# Test the option set/get/clear
+
+
+def test_option_get_set_clear(api):
+    api.setOption('test', 'foo')
+    assert 'foo' == api.getOption('test')
+
+    api.clearOptions()
+    assert api.getOption('test') is None
+
+
+def test_option_clear_single_option(api):
+    api.setOption('test', 'foo')
+    assert 'foo' == api.getOption('test')
+
+    api.setOption('test', None)
+    assert api.getOption('test') is None
+
+
 # Test that pinging the API is working properly
 # @httpretty.activate
-
 
 def test_ping(api, json_response):
     httpretty.enable()
@@ -88,38 +106,6 @@ def test_info(api, json_response):
 
     result = api.info()
     assert result["name"] == "Rosette API"
-    assert result["versionChecked"] is True
-    httpretty.disable()
-    httpretty.reset()
-
-# Test check version - fail
-
-
-def test_check_version_fails(api, doc_params):
-    httpretty.enable()
-    body = json.dumps({'name': 'Rosette API'})
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=body, status=200, content_type="application/json")
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.categories(doc_params)
-
-    assert e_rosette.value.status == "incompatibleVersion"
-    httpretty.disable()
-    httpretty.reset()
-
-# Test check version - pass
-
-
-def test_check_version_pass(api, json_response, doc_params):
-    httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
-                           body=json_response, status=200, content_type="application/json")
-
-    result = api.categories(doc_params)
-
-    assert result["versionChecked"] is True
     httpretty.disable()
     httpretty.reset()
 
@@ -392,9 +378,9 @@ def test_the_relationships_endpoint(api, json_response):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/relationships",
                            body=json_response, status=200, content_type="application/json")
 
-    params = RelationshipsParameters()
+    params = DocumentParameters()
     params["content"] = "some text data"
-    params["options"] = {"accuracyMode": "PRECISION"}
+    api.setOption('accuracyMode', 'PRECISION')
     result = api.relationships(params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
