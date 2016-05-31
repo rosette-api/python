@@ -74,9 +74,9 @@
           <td><span class="summary-sig"><a href="rosette.api.API-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">user_key</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">service_url</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">https://api.rosette.com/rest/v1/</code><code class="variable-quote">'</code></span>,
-        <span class="summary-sig-arg">retries</span>=<span class="summary-sig-default">3</span>,
+        <span class="summary-sig-arg">retries</span>=<span class="summary-sig-default">5</span>,
         <span class="summary-sig-arg">reuse_connection</span>=<span class="summary-sig-default">True</span>,
-        <span class="summary-sig-arg">refresh_duration</span>=<span class="summary-sig-default">86400</span>,
+        <span class="summary-sig-arg">refresh_duration</span>=<span class="summary-sig-default">0.5</span>,
         <span class="summary-sig-arg">debug</span>=<span class="summary-sig-default">False</span>)</span><br />
       Create an <a href="rosette.api.API-class.html" class="link">API</a> 
       object.</td>
@@ -95,9 +95,47 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="check_version"></a><span class="summary-sig-name">check_version</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#setOption" class="summary-sig-name">setOption</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Sets an option</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="rosette.api-pysrc.html#API.check_version">source&nbsp;code</a></span>
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.setOption">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="rosette.api.API-class.html#getOption" class="summary-sig-name">getOption</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Gets an option</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.getOption">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clearOptions"></a><span class="summary-sig-name">clearOptions</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clears all options</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="rosette.api-pysrc.html#API.clearOptions">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -230,7 +268,7 @@
         <tr>
           <td><span class="summary-sig"><a href="rosette.api.API-class.html#entities" class="summary-sig-name">entities</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">parameters</span>,
-        <span class="summary-sig-arg">linked</span>=<span class="summary-sig-default">False</span>)</span><br />
+        <span class="summary-sig-arg">resolve_entities</span>=<span class="summary-sig-default">False</span>)</span><br />
       Create an <a href="rosette.api.EndpointCaller-class.html" 
       class="link">EndpointCaller</a>  to identify named entities found in 
       the texts to which it is applied and call it.</td>
@@ -400,9 +438,9 @@
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">user_key</span>=<span class="sig-default">None</span>,
         <span class="sig-arg">service_url</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">https://api.rosette.com/rest/v1/</code><code class="variable-quote">'</code></span>,
-        <span class="sig-arg">retries</span>=<span class="sig-default">3</span>,
+        <span class="sig-arg">retries</span>=<span class="sig-default">5</span>,
         <span class="sig-arg">reuse_connection</span>=<span class="sig-default">True</span>,
-        <span class="sig-arg">refresh_duration</span>=<span class="sig-default">86400</span>,
+        <span class="sig-arg">refresh_duration</span>=<span class="sig-default">0.5</span>,
         <span class="sig-arg">debug</span>=<span class="sig-default">False</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
@@ -421,6 +459,58 @@
           The default Rosette server requires authentication. to the 
           server.</li>
     </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setOption"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setOption</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.setOption">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets an option</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> - name of option</li>
+        <li><strong class="pname"><code>value</code></strong> - value of option</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getOption"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getOption</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="rosette.api-pysrc.html#API.getOption">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets an option</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> - name of option</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>value of option</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -611,7 +701,7 @@
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">entities</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">parameters</span>,
-        <span class="sig-arg">linked</span>=<span class="sig-default">False</span>)</span>
+        <span class="sig-arg">resolve_entities</span>=<span class="sig-default">False</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="rosette.api-pysrc.html#API.entities">source&nbsp;code</a></span>&nbsp;
@@ -630,7 +720,7 @@
           class="link">DocumentParameters</a> or <code 
           class="link">str</code>) - An object specifying the data, and possible metadata, to be 
           processed by the entity identifier.</li>
-        <li><strong class="pname"><code>linked</code></strong> (Boolean) - Specifies whether or not linked entity information will be 
+        <li><strong class="pname"><code>resolve_entities</code></strong> (Boolean) - Specifies whether or not linked entity information will be 
           wanted.</li>
     </ul></dd>
     <dt>Returns:</dt>
@@ -723,8 +813,8 @@
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>parameters</code></strong> (<a href="rosette.api.DocumentParameters-class.html" 
-          class="link">DocumentParameters</a>, L(RelationshipsParameters), 
-          or <code class="link">str</code>) - An object specifying the data, and possible metadata, to be 
+          class="link">DocumentParameters</a> or <code 
+          class="link">str</code>) - An object specifying the data, and possible metadata, to be 
           processed by the relationships identifier.</li>
     </ul></dd>
     <dt>Returns:</dt>
@@ -877,7 +967,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Mar 28 14:26:13 2016
+    Generated by Epydoc 3.0.1 on Tue May 31 18:33:50 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
