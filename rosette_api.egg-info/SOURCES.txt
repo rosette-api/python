@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+rosette/__init__.py
+rosette/api.py
+rosette_api.egg-info/PKG-INFO
+rosette_api.egg-info/SOURCES.txt
+rosette_api.egg-info/dependency_links.txt
+rosette_api.egg-info/requires.txt
+rosette_api.egg-info/top_level.txt
