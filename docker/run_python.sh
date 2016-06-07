@@ -10,8 +10,6 @@ function HELP {
     echo "  API_KEY       - Rosette API key (required)"
     echo "  FILENAME      - Python source file (optional)"
     echo "  ALT_URL       - Alternate service URL (optional)"
-    echo "  GIT_USERNAME  - Git username where you would like to push regenerated gh-pages (optional)"
-    echo "  VERSION       - Build version (optional)"
     echo "Compiles and runs the source file(s) using the local development source."
     exit 1
 }
@@ -69,7 +67,7 @@ function runExample() {
 #------------------ Functions End ------------------------------------------------
 
 #Gets API_KEY, FILENAME and ALT_URL if present
-while getopts ":API_KEY:FILENAME:ALT_URL:GIT_USERNAME:VERSION" arg; do
+while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
     case "${arg}" in
         API_KEY)
             API_KEY=${OPTARG}
@@ -79,12 +77,6 @@ while getopts ":API_KEY:FILENAME:ALT_URL:GIT_USERNAME:VERSION" arg; do
             ;;
         FILENAME)
             FILENAME=${OPTARG}
-            ;;
-        GIT_USERNAME)
-            GIT_USERNAME=${OPTARG}
-            ;;
-        VERSION)
-            VERSION=${OPTARG}
             ;;
     esac
 done
