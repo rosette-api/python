@@ -186,7 +186,7 @@ class DocumentParameters(_DocumentParamSetBase):
     def __init__(self):
         """Create a L{DocumentParameters} object."""
         _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "language", "genre"))
+            self, ("content", "contentUri", "language", "genre", "customHeaders"))
         self.file_name = ""
         self.useMultipart = False
 
@@ -268,7 +268,8 @@ class NameTranslationParameters(_DocumentParamSetBase):
              "sourceScript",
              "targetScript",
              "targetScheme",
-             "genre"))
+             "genre",
+             "customHeaders"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -301,7 +302,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.useMultipart = False
-        _DocumentParamSetBase.__init__(self, ("name1", "name2"))
+        _DocumentParamSetBase.__init__(self, ("name1", "name2", "customHeaders"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -426,6 +427,12 @@ class EndpointCaller:
         params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
+
+            if parameters["customHeaders"] is not None:
+                for h in parameters["customHeaders"]:
+                    headers[h[0]] = h[1]
+                parameters["customHeaders"] = None
+
             headers["X-RosetteAPI-Key"] = self.user_key
             headers["X-RosetteAPI-Binding"] = "python"
             headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
