@@ -73,23 +73,18 @@ while getopts ":API_KEY:FILENAME:ALT_URL:GIT_USERNAME:VERSION" arg; do
     case "${arg}" in
         API_KEY)
             API_KEY=${OPTARG}
-            usage
             ;;
         ALT_URL)
             ALT_URL=${OPTARG}
-            usage
             ;;
         FILENAME)
             FILENAME=${OPTARG}
-            usage
             ;;
         GIT_USERNAME)
             GIT_USERNAME=${OPTARG}
-            usage
             ;;
         VERSION)
-            VERSION={OPTARG}
-            usage
+            VERSION=${OPTARG}
             ;;
     esac
 done
@@ -122,22 +117,5 @@ fi
 #Run unit tests
 cd /python-dev
 tox
-
-#Generate gh-pages and push them to git account (if git username is provided)
-if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
-    #clone python git repo
-    cd /
-    git clone git@github.com:${GIT_USERNAME}/python.git
-    cd python
-    git checkout origin/gh-pages -b gh-pages
-    git branch -d develop
-    #generate gh-pages and set ouput dir to git repo (gh-pages branch)
-    cd /python-dev
-    .tox/py27/bin/epydoc -v --no-private --no-frames --css epydoc.css -o /python rosette/*.py
-    cd /python
-    git add .
-    git commit -a -m "publish python apidocs ${VERSION}"
-    git push
-fi
 
 exit ${retcode}
