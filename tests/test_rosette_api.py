@@ -82,9 +82,34 @@ def test_option_clear_single_option(api):
     api.setOption('test', None)
     assert api.getOption('test') is None
 
+# Test the custom header set/get/clear
+
+
+def test_custom_header_get_set_clear(api):
+    key = 'X-RosetteAPI-Test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+    assert value == api.getCustomHeaders()[key]
+
+    api.clearCustomHeaders()
+    assert len(api.getCustomHeaders()) is 0
+
+# Test for invalid header name
+
+
+def test_invalid_header(api):
+    key = 'test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.info()
+
+    assert e_rosette.value.status == 'badHeader'
 
 # Test that pinging the API is working properly
 # @httpretty.activate
+
 
 def test_ping(api, json_response):
     httpretty.enable()
