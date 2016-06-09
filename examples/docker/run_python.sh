@@ -73,15 +73,12 @@ while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
     case "${arg}" in
         API_KEY)
             API_KEY=${OPTARG}
-            usage
             ;;
         FILENAME)
             FILENAME=${OPTARG}
-            usage
             ;;
         ALT_URL)
             ALT_URL=${OPTARG}
-            usage
             ;;
     esac
 done
