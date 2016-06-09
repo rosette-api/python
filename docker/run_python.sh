@@ -2,6 +2,7 @@
 
 retcode=0
 ping_url="https://api.rosette.com/rest/v1"
+errors=( "Exception" "processingFailure" "badRequest" "ParseError" "ValueError" "SyntaxError" "AttributeError" "ImportError" )
 
 #------------------ Functions ----------------------------------------------------
 #Gets called when the user doesn't provide any args
@@ -13,6 +14,10 @@ function HELP {
     echo "Compiles and runs the source file(s) using the local development source."
     exit 1
 }
+
+if [ ! -z ${ALT_URL} ]; then
+    ping_url=${ALT_URL}
+fi
 
 #Checks if Rosette API key is valid
 function checkAPI {
@@ -53,16 +58,11 @@ function runExample() {
     fi
     echo "${result}"
     echo -e "\n---------- ${1} end -------------"
-    if [[ "${result}" == *"Exception"* ]]; then
-        echo "Exception found"
-        retcode=1
-    elif [[ "$result" == *"processingFailure"* ]]; then
-        retcode=1
-    elif [[ "$result" == *"AttributeError"* ]]; then
-        retcode=1
-    elif [[ "$result" == *"ImportError"* ]]; then
-        retcode=1
-    fi
+    for err in "${errors[@]}"; do 
+        if [[ ${result} == *"${err}"* ]]; then
+            retcode=1
+        fi
+    done
 }
 #------------------ Functions End ------------------------------------------------
 
@@ -96,8 +96,10 @@ if [ ! -z ${API_KEY} ]; then
     python /python-dev/setup.py install
     cd /python-dev/examples
     if [ ! -z ${FILENAME} ]; then
+        echo -e "\nRunning example against: ${ping_url}\n"
         runExample ${FILENAME}
     else
+        echo -e "\nRunning examples against: ${ping_url}\n"
         for file in *.py; do
             runExample ${file}
         done

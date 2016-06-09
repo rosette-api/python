@@ -10,6 +10,6 @@ RUN chmod 755 /python/examples/run_python.sh
 WORKDIR /python/examples
 
 # allow interactive bash inside docker container
-CMD ./run_python.sh $API_KEY $FILENAME $ALT_URL
+CMD ./run_python.sh
 
 VOLUME ["/source"]
