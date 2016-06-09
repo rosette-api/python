@@ -457,7 +457,7 @@ class EndpointCaller:
                     if pattern.match(key) is not None:
                         headers[key] = customHeaders[key]
                     else:
-                        raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key);
+                        raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
                 self.api.clearCustomHeaders()
 
             headers["X-RosetteAPI-Key"] = self.user_key
