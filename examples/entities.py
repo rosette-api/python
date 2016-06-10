@@ -17,6 +17,9 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS"
     params = DocumentParameters()
     params["content"] = entities_text_data
+    params["genre"] = "social-media"
+    # to improve performance, and if you don't need the QID, set this option
+    # api.setOption("linkEntities", False)
     return api.entities(params)  # entity linking is turned off
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
