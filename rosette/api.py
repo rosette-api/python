@@ -26,6 +26,7 @@ import time
 import os
 from socket import gaierror
 import requests
+import re
 
 _BINDING_VERSION = '1.1.1'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
@@ -366,6 +367,17 @@ class EndpointCaller:
         identifying data."""
         url = self.service_url + "info"
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
+
+        customHeaders = self.api.getCustomHeaders()
+        pattern = re.compile('^X-RosetteAPI-')
+        if customHeaders is not None:
+            for key in customHeaders.keys():
+                if pattern.match(key) is not None:
+                    headers[key] = customHeaders[key]
+                else:
+                    raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
+            self.api.clearCustomHeaders()
+
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
@@ -382,6 +394,17 @@ class EndpointCaller:
 
         url = self.service_url + 'ping'
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
+
+        customHeaders = self.api.getCustomHeaders()
+        pattern = re.compile('^X-RosetteAPI-')
+        if customHeaders is not None:
+            for key in customHeaders.keys():
+                if pattern.match(key) is not None:
+                    headers[key] = customHeaders[key]
+                else:
+                    raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
+            self.api.clearCustomHeaders()
+
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
@@ -426,9 +449,21 @@ class EndpointCaller:
         params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
+
+            customHeaders = self.api.getCustomHeaders()
+            pattern = re.compile('^X-RosetteAPI-')
+            if customHeaders is not None:
+                for key in customHeaders.keys():
+                    if pattern.match(key) is not None:
+                        headers[key] = customHeaders[key]
+                    else:
+                        raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
+                self.api.clearCustomHeaders()
+
             headers["X-RosetteAPI-Key"] = self.user_key
             headers["X-RosetteAPI-Binding"] = "python"
             headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
+
         if self.useMultipart:
             params = dict(
                 (key,
@@ -502,6 +537,7 @@ class API:
         self.connection_refresh_duration = refresh_duration
         self.http_connection = None
         self.options = {}
+        self.customHeaders = {}
 
     def _connect(self, parsedUrl):
         """ Simple connection method
@@ -637,6 +673,30 @@ class API:
         Clears all options
         """
         self.options.clear()
+
+    def setCustomHeaders(self, name, value):
+        """
+        Sets custom headers
+
+        @param headers: array of custom headers to be set
+        """
+        if value is None:
+            self.customHeaders.pop(name, None)
+        else:
+            self.customHeaders[name] = value
+
+    def getCustomHeaders(self):
+        """
+        Get custom headers
+        """
+        return self.customHeaders
+
+    def clearCustomHeaders(self):
+        """
+        Clears custom headers
+        """
+
+        self.customHeaders.clear()
 
     def ping(self):
         """
