@@ -18,7 +18,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = entities_text_data
     params["genre"] = "social-media"
-    return api.entities(params) 
+    return api.entities(params)
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
 parser.add_argument('-k', '--key', help='Rosette API Key', required=True)
