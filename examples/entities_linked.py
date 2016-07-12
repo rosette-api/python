@@ -19,7 +19,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = entities_linked_text_data
     params["genre"] = "social-media"
-    #This syntax is deprecated, call api.entities(params) 
+    # This syntax is deprecated, call api.entities(params)
     return api.entities(params, True)
 
 

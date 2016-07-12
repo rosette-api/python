@@ -766,7 +766,7 @@ class API:
         @type resolve_entities: Boolean
         @return: A python dictionary containing the results of entity extraction."""
         if resolve_entities:
-            warnings.warn_explicit("entities(params,resolve_entities) is deprecated and replaced by entities(params).", DeprecationWarning)
+            warnings.warn("entities(params,resolve_entities) is deprecated and replaced by entities(params).", DeprecationWarning)
             return EndpointCaller(self, "entities/linked").call(parameters)
         else:
             return EndpointCaller(self, "entities").call(parameters)
