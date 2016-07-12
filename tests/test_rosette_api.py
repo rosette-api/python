@@ -307,6 +307,21 @@ def test_the_entities_endpoint(api, json_response, doc_params):
     httpretty.disable()
     httpretty.reset()
 
+# Test the entities/linked endpoint
+
+
+def test_the_entities_linked_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities/linked",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.entities(doc_params, True)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
 # Test the categories endpoint
 
 
