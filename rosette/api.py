@@ -27,6 +27,7 @@ import os
 from socket import gaierror
 import requests
 import re
+import warnings
 
 _BINDING_VERSION = '1.1.1'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
@@ -765,11 +766,10 @@ class API:
         @type resolve_entities: Boolean
         @return: A python dictionary containing the results of entity extraction."""
         if resolve_entities:
-            warnings.warn_explicit("the /entities/linked endpoint is replaced by /entities.", DeprecationWarning)
+            warnings.warn_explicit("entities(params,resolve_entities) is deprecated and replaced by entities(params).", DeprecationWarning)
             return EndpointCaller(self, "entities/linked").call(parameters)
         else:
             return EndpointCaller(self, "entities").call(parameters)
-
 
     def categories(self, parameters):
         """
