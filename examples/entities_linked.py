@@ -19,7 +19,8 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = entities_linked_text_data
     params["genre"] = "social-media"
-    return api.entities(params, True)  # entity linking is turned on
+    # This syntax is deprecated, call api.entities(params)
+    return api.entities(params, True)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')

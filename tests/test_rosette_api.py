@@ -54,6 +54,12 @@ def json_429(scope="module"):
 
 
 @pytest.fixture
+def json_409(scope="module"):
+    body = json.dumps({'code': 'incompatibleClientVersion', 'message': 'the version of client library used is not compatible with this server', 'versionChecked': True})
+    return body
+
+
+@pytest.fixture
 def doc_params(scope="module"):
     params = DocumentParameters()
     params['content'] = 'Sample test string'
@@ -82,9 +88,34 @@ def test_option_clear_single_option(api):
     api.setOption('test', None)
     assert api.getOption('test') is None
 
+# Test the custom header set/get/clear
+
+
+def test_custom_header_get_set_clear(api):
+    key = 'X-RosetteAPI-Test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+    assert value == api.getCustomHeaders()[key]
+
+    api.clearCustomHeaders()
+    assert len(api.getCustomHeaders()) is 0
+
+# Test for invalid header name
+
+
+def test_invalid_header(api):
+    key = 'test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.info()
+
+    assert e_rosette.value.status == 'badHeader'
 
 # Test that pinging the API is working properly
 # @httpretty.activate
+
 
 def test_ping(api, json_response):
     httpretty.enable()
@@ -121,6 +152,21 @@ def test_for_429(api, json_429):
         result = api.info()
 
     assert e_rosette.value.status == 429
+    httpretty.disable()
+    httpretty.reset()
+
+# Test for 429
+
+
+def test_for_409(api, json_409):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+                           body=json_409, status=409, content_type="application/json")
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.info()
+
+    assert e_rosette.value.status == 'incompatibleClientVersion'
     httpretty.disable()
     httpretty.reset()
 

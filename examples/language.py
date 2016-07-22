@@ -17,8 +17,8 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
 
     language_data = "Por favor Señorita, says the man."
     params = DocumentParameters()
-
     params["content"] = language_data
+    api.setCustomHeaders("X-RosetteAPI-App", "python-app")
     return api.language(params)
 
 
