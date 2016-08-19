@@ -546,8 +546,6 @@ class API:
         else:
             self.session.mount('http://', adapter)
 
-
-
     def _make_request(self, op, url, data, headers):
         """
         Handles the actual request, retrying if a 429 is encountered
@@ -579,7 +577,6 @@ class API:
                     if dict_headers['x-rosetteapi-concurrency'] != self.maxPoolSize:
                         self.maxPoolSize = dict_headers['x-rosetteapi-concurrency']
                         self._set_pool_size()
-
 
                 if status == 200:
                     return rdata, status, response_headers
