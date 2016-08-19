@@ -569,24 +569,24 @@ class API:
         code = "unknownError"
         rdata = None
         response_headers = {}
+
+        request = requests.Request(op, url, data=data, headers=headers)
+        prepared_request = request.prepare()
+        session = requests.Session()
+
         for i in range(self.num_retries + 1):
             try:
-                self.http_connection.request(op, url, data, headers)
-                response = self.http_connection.getresponse()
-                status = response.status
-                rdata = response.read()
-                response_headers["responseHeaders"] = (
-                    dict(response.getheaders()))
+                response = session.send(prepared_request)
+                status = response.status_code
+                rdata = response.content
+                response_headers = {"responseHeaders": dict(response.headers)}
+
                 if status == 200:
-                    if not self.reuse_connection:
-                        self.http_connection.close()
                     return rdata, status, response_headers
                 if status == 429:
                     code = status
                     message = "{0} ({1})".format(rdata, i)
                     time.sleep(self.connection_refresh_duration)
-                    self.http_connection.close()
-                    self._connect(parsedUrl)
                     continue
                 if rdata is not None:
                     try:
@@ -600,9 +600,9 @@ class API:
                         raise RosetteException(code, message, url)
                     except:
                         raise
-            except (httplib.BadStatusLine, gaierror):
+            except requests.exceptions.RequestException as e:
                 raise RosetteException(
-                    "ConnectionError",
+                    e.message,
                     "Unable to establish connection to the Rosette API server",
                     url)
 
