@@ -29,7 +29,7 @@ import requests
 import re
 import warnings
 
-_BINDING_VERSION = '1.1.1'
+_BINDING_VERSION = '1.2.0'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _IsPy3 = sys.version_info[0] == 3
