@@ -843,3 +843,11 @@ class API:
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
+
+    def text_embedding(self, parameters):
+        """
+        Create an L{EndpointCaller}  to identify text vectors found in the texts
+        to which it is applied and call it.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of text embedding."""
+        return EndpointCaller(self, "text-embedding").call(parameters)
