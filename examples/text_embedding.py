@@ -17,7 +17,6 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     embeddings_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
     params["content"] = embeddings_data
-    params["genre"] = "social-media"
     return api.text_embedding(params)
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
