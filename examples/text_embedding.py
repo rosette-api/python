@@ -14,9 +14,9 @@ from rosette.api import API, DocumentParameters
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
-    entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS"
+    embeddings_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
-    params["content"] = entities_text_data
+    params["content"] = embeddings_data
     params["genre"] = "social-media"
     return api.text_embedding(params)
 
