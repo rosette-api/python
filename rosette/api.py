@@ -24,7 +24,6 @@ import logging
 import sys
 import time
 import os
-from socket import gaierror
 import requests
 import re
 import warnings
@@ -34,15 +33,6 @@ _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _IsPy3 = sys.version_info[0] == 3
 
-
-try:
-    import urlparse
-except ImportError:
-    import urllib.parse as urlparse
-try:
-    import httplib
-except ImportError:
-    import http.client as httplib
 
 if _IsPy3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
@@ -843,3 +833,11 @@ class API:
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
+
+    def text_embedding(self, parameters):
+        """
+        Create an L{EndpointCaller}  to identify text vectors found in the texts
+        to which it is applied and call it.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of text embedding."""
+        return EndpointCaller(self, "text-embedding").call(parameters)
