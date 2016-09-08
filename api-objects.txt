@@ -9,6 +9,7 @@ rosette.api._GZIP_BYTEARRAY	rosette.api-module.html#_GZIP_BYTEARRAY
 rosette.api._IsPy3	rosette.api-module.html#_IsPy3
 rosette.api._BINDING_VERSION	rosette.api-module.html#_BINDING_VERSION
 rosette.api.API	rosette.api.API-class.html
+rosette.api.API._set_pool_size	rosette.api.API-class.html#_set_pool_size
 rosette.api.API.name_translation	rosette.api.API-class.html#name_translation
 rosette.api.API.clearCustomHeaders	rosette.api.API-class.html#clearCustomHeaders
 rosette.api.API.setCustomHeaders	rosette.api.API-class.html#setCustomHeaders
@@ -28,12 +29,13 @@ rosette.api.API.__init__	rosette.api.API-class.html#__init__
 rosette.api.API.getCustomHeaders	rosette.api.API-class.html#getCustomHeaders
 rosette.api.API.getOption	rosette.api.API-class.html#getOption
 rosette.api.API.tokens	rosette.api.API-class.html#tokens
+rosette.api.API.getPoolSize	rosette.api.API-class.html#getPoolSize
 rosette.api.API.categories	rosette.api.API-class.html#categories
 rosette.api.API.info	rosette.api.API-class.html#info
-rosette.api.API._connect	rosette.api.API-class.html#_connect
 rosette.api.API.language	rosette.api.API-class.html#language
 rosette.api.API._post_http	rosette.api.API-class.html#_post_http
 rosette.api.API._make_request	rosette.api.API-class.html#_make_request
+rosette.api.API.text_embedding	rosette.api.API-class.html#text_embedding
 rosette.api.DocumentParameters	rosette.api.DocumentParameters-class.html
 rosette.api.DocumentParameters.load_document_file	rosette.api.DocumentParameters-class.html#load_document_file
 rosette.api.DocumentParameters.serialize	rosette.api.DocumentParameters-class.html#serialize
