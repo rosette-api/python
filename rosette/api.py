@@ -24,25 +24,15 @@ import logging
 import sys
 import time
 import os
-from socket import gaierror
 import requests
 import re
 import warnings
 
-_BINDING_VERSION = '1.1.1'
+_BINDING_VERSION = '1.3.0'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _IsPy3 = sys.version_info[0] == 3
 
-
-try:
-    import urlparse
-except ImportError:
-    import urllib.parse as urlparse
-try:
-    import httplib
-except ImportError:
-    import http.client as httplib
 
 if _IsPy3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
@@ -482,8 +472,8 @@ class EndpointCaller:
                     'application/json')}
             request = requests.Request(
                 'POST', url, files=files, headers=headers)
-            prepared_request = request.prepare()
             session = requests.Session()
+            prepared_request = session.prepare_request(request)
             resp = session.send(prepared_request)
             rdata = resp.content
             response_headers = {"responseHeaders": dict(resp.headers)}
@@ -512,7 +502,6 @@ class API:
             user_key=None,
             service_url='https://api.rosette.com/rest/v1/',
             retries=5,
-            reuse_connection=True,
             refresh_duration=0.5,
             debug=False):
         """ Create an L{API} object.
@@ -534,22 +523,18 @@ class API:
             refresh_duration = 0
 
         self.num_retries = retries
-        self.reuse_connection = reuse_connection
         self.connection_refresh_duration = refresh_duration
-        self.http_connection = None
         self.options = {}
         self.customHeaders = {}
+        self.maxPoolSize = 1
+        self.session = requests.Session()
 
-    def _connect(self, parsedUrl):
-        """ Simple connection method
-        @param parsedUrl: The URL on which to process
-        """
-        if not self.reuse_connection or self.http_connection is None:
-            loc = parsedUrl.netloc
-            if parsedUrl.scheme == "https":
-                self.http_connection = httplib.HTTPSConnection(loc)
-            else:
-                self.http_connection = httplib.HTTPConnection(loc)
+    def _set_pool_size(self):
+        adapter = requests.adapters.HTTPAdapter(pool_maxsize=self.maxPoolSize)
+        if 'https:' in self.service_url:
+            self.session.mount('https://', adapter)
+        else:
+            self.session.mount('http://', adapter)
 
     def _make_request(self, op, url, data, headers):
         """
@@ -561,32 +546,34 @@ class API:
         @param headers: request headers
         """
         headers['User-Agent'] = "RosetteAPIPython/" + _BINDING_VERSION
-        parsedUrl = urlparse.urlparse(url)
-
-        self._connect(parsedUrl)
 
         message = None
         code = "unknownError"
         rdata = None
         response_headers = {}
+
+        request = requests.Request(op, url, data=data, headers=headers)
+        session = requests.Session()
+        prepared_request = session.prepare_request(request)
+
         for i in range(self.num_retries + 1):
             try:
-                self.http_connection.request(op, url, data, headers)
-                response = self.http_connection.getresponse()
-                status = response.status
-                rdata = response.read()
-                response_headers["responseHeaders"] = (
-                    dict(response.getheaders()))
+                response = session.send(prepared_request)
+                status = response.status_code
+                rdata = response.content
+                dict_headers = dict(response.headers)
+                response_headers = {"responseHeaders": dict_headers}
+                if 'x-rosetteapi-concurrency' in dict_headers:
+                    if dict_headers['x-rosetteapi-concurrency'] != self.maxPoolSize:
+                        self.maxPoolSize = dict_headers['x-rosetteapi-concurrency']
+                        self._set_pool_size()
+
                 if status == 200:
-                    if not self.reuse_connection:
-                        self.http_connection.close()
                     return rdata, status, response_headers
                 if status == 429:
                     code = status
                     message = "{0} ({1})".format(rdata, i)
                     time.sleep(self.connection_refresh_duration)
-                    self.http_connection.close()
-                    self._connect(parsedUrl)
                     continue
                 if rdata is not None:
                     try:
@@ -598,16 +585,14 @@ class API:
                         else:
                             code = status
                         raise RosetteException(code, message, url)
+
                     except:
                         raise
-            except (httplib.BadStatusLine, gaierror):
+            except requests.exceptions.RequestException as e:
                 raise RosetteException(
-                    "ConnectionError",
+                    e.message,
                     "Unable to establish connection to the Rosette API server",
                     url)
-
-        if not self.reuse_connection:
-            self.http_connection.close()
 
         raise RosetteException(code, message, url)
 
@@ -643,6 +628,12 @@ class API:
             rdata = gzip.GzipFile(fileobj=buf).read()
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
+
+    def getPoolSize(self):
+        """
+        Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
+        """
+        return int(self.maxPoolSize)
 
     def setOption(self, name, value):
         """
@@ -842,3 +833,11 @@ class API:
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
+
+    def text_embedding(self, parameters):
+        """
+        Create an L{EndpointCaller}  to identify text vectors found in the texts
+        to which it is applied and call it.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of text embedding."""
+        return EndpointCaller(self, "text-embedding").call(parameters)

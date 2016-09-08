@@ -170,6 +170,24 @@ def test_for_409(api, json_409):
     httpretty.disable()
     httpretty.reset()
 
+# Test the maxPoolSize
+
+
+def test_the_max_pool_size(json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
+                           body=json_response, status=200, content_type="application/json",
+                           adding_headers={
+                               'x-rosetteapi-concurrency': 5
+                           })
+    api = API('bogus_key')
+    assert api.getPoolSize() == 1
+    result = api.language(doc_params)
+    assert result["name"] == "Rosette API"
+    assert api.getPoolSize() == 5
+    httpretty.disable()
+    httpretty.reset()
+
 # Test the language endpoint
 
 
@@ -559,5 +577,16 @@ def test_for_name_translation_required_parameters(api, json_response):
     result = api.name_translation(params)
     assert result["name"] == "Rosette API"
 
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_the_text_embedded_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/text-embedding",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.text_embedding(doc_params)
+    assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
