@@ -841,3 +841,11 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of text embedding."""
         return EndpointCaller(self, "text-embedding").call(parameters)
+
+    def syntax_dependencies(self, parameters):
+        """
+        Create an L{EndpointCaller} to identify the syntactic dependencies in the texts
+        to which it is applied and call it.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of syntactic dependencies identification"""
+        return EndpointCaller(self, "syntax/dependencies").call(parameters)

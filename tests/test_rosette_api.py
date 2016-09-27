@@ -590,3 +590,14 @@ def test_the_text_embedded_endpoint(api, json_response, doc_params):
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
+
+
+def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/syntax/dependencies",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.syntax_dependencies(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
