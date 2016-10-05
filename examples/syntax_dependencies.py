@@ -12,7 +12,7 @@ from rosette.api import API, DocumentParameters
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
-    syntax_dependencies_data = "Sony Pictures is planning to shoot a good portion of the new \"Ghostbusters\" in Boston as well."
+    syntax_dependencies_data = "Yoshinori Ohsumi, a Japanese cell biologist, was awarded the Nobel Prize in Physiology or Medicine on Monday."
     params = DocumentParameters()
     params["content"] = syntax_dependencies_data
     params["genre"] = "social-media"

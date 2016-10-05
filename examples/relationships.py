@@ -14,7 +14,7 @@ from rosette.api import API, DocumentParameters
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
-    relationships_text_data = "The Ghostbusters movie was filmed in Boston."
+    relationships_text_data = "Bill Gates, Microsoft's former CEO, is a philanthropist."
     params = DocumentParameters()
     params["content"] = relationships_text_data
     api.setOption('accuracyMode', 'PRECISION')
