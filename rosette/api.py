@@ -522,7 +522,6 @@ class API:
         if (refresh_duration < 0):
             refresh_duration = 0
 
-        self.num_retries = retries
         self.connection_refresh_duration = refresh_duration
         self.options = {}
         self.customHeaders = {}
@@ -538,8 +537,6 @@ class API:
 
     def _make_request(self, op, url, data, headers):
         """
-        Handles the actual request, retrying if a 429 is encountered
-
         @param op: POST or GET
         @param url: endpoing URL
         @param data: request data
@@ -556,43 +553,39 @@ class API:
         session = requests.Session()
         prepared_request = session.prepare_request(request)
 
-        for i in range(self.num_retries + 1):
-            try:
-                response = session.send(prepared_request)
-                status = response.status_code
-                rdata = response.content
-                dict_headers = dict(response.headers)
-                response_headers = {"responseHeaders": dict_headers}
-                if 'x-rosetteapi-concurrency' in dict_headers:
-                    if dict_headers['x-rosetteapi-concurrency'] != self.maxPoolSize:
-                        self.maxPoolSize = dict_headers['x-rosetteapi-concurrency']
-                        self._set_pool_size()
+        try:
+            response = session.send(prepared_request)
+            status = response.status_code
+            rdata = response.content
+            dict_headers = dict(response.headers)
+            response_headers = {"responseHeaders": dict_headers}
+            if 'x-rosetteapi-concurrency' in dict_headers:
+                if dict_headers['x-rosetteapi-concurrency'] != self.maxPoolSize:
+                    self.maxPoolSize = dict_headers['x-rosetteapi-concurrency']
+                    self._set_pool_size()
 
-                if status == 200:
-                    return rdata, status, response_headers
-                if status == 429:
-                    code = status
-                    message = "{0} ({1})".format(rdata, i)
-                    time.sleep(self.connection_refresh_duration)
-                    continue
-                if rdata is not None:
-                    try:
-                        the_json = _my_loads(rdata, response_headers)
-                        if 'message' in the_json:
-                            message = the_json['message']
-                        if "code" in the_json:
-                            code = the_json['code']
-                        else:
-                            code = status
-                        raise RosetteException(code, message, url)
+            if status == 200:
+                return rdata, status, response_headers
+            if rdata is not None:
+                try:
+                    the_json = _my_loads(rdata, response_headers)
+                    if 'message' in the_json:
+                        message = the_json['message']
+                    if "code" in the_json:
+                        code = the_json['code']
+                    else:
+                        code = status
+                        if not message:
+                            message = rdata
+                    raise RosetteException(code, message, url)
 
-                    except:
-                        raise
-            except requests.exceptions.RequestException as e:
-                raise RosetteException(
-                    e.message,
-                    "Unable to establish connection to the Rosette API server",
-                    url)
+                except:
+                    raise
+        except requests.exceptions.RequestException as e:
+            raise RosetteException(
+                e.message,
+                "Unable to establish connection to the Rosette API server",
+                url)
 
         raise RosetteException(code, message, url)
 
