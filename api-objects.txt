@@ -24,6 +24,7 @@ rosette.api.API._get_http	rosette.api.API-class.html#_get_http
 rosette.api.API.setOption	rosette.api.API-class.html#setOption
 rosette.api.API.ping	rosette.api.API-class.html#ping
 rosette.api.API.translated_name	rosette.api.API-class.html#translated_name
+rosette.api.API.syntax_dependencies	rosette.api.API-class.html#syntax_dependencies
 rosette.api.API.entities	rosette.api.API-class.html#entities
 rosette.api.API.__init__	rosette.api.API-class.html#__init__
 rosette.api.API.getCustomHeaders	rosette.api.API-class.html#getCustomHeaders
