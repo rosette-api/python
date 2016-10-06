@@ -48,12 +48,6 @@ def api():
 
 
 @pytest.fixture
-def json_429(scope="module"):
-    body = json.dumps({'message': 'too many requests', 'versionChecked': True})
-    return body
-
-
-@pytest.fixture
 def json_409(scope="module"):
     body = json.dumps({'code': 'incompatibleClientVersion', 'message': 'the version of client library used is not compatible with this server', 'versionChecked': True})
     return body
@@ -140,22 +134,8 @@ def test_info(api, json_response):
     httpretty.disable()
     httpretty.reset()
 
-# Test for 429
 
-
-def test_for_429(api, json_429):
-    httpretty.enable()
-    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
-                           body=json_429, status=429, content_type="application/json")
-
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.info()
-
-    assert e_rosette.value.status == 429
-    httpretty.disable()
-    httpretty.reset()
-
-# Test for 429
+# Test for 409
 
 
 def test_for_409(api, json_409):
@@ -587,6 +567,17 @@ def test_the_text_embedded_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.text_embedding(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/syntax/dependencies",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.syntax_dependencies(doc_params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
