@@ -82,6 +82,24 @@ def test_option_clear_single_option(api):
     api.setOption('test', None)
     assert api.getOption('test') is None
 
+# Test the URL parameter set/get/clear
+
+
+def test_UrlParameter_get_set_clear(api):
+    api.setUrlParameter('test', 'foo')
+    assert 'foo' == api.getUrlParameter('test')
+
+    api.clearUrlParameters()
+    assert api.getUrlParameter('test') is None
+
+
+def test_UrlParameter_clear_single_option(api):
+    api.setUrlParameter('test', 'foo')
+    assert 'foo' == api.getUrlParameter('test')
+
+    api.setUrlParameter('test', None)
+    assert api.getUrlParameter('test') is None
+
 # Test the custom header set/get/clear
 
 
