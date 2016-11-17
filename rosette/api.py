@@ -525,6 +525,7 @@ class API:
         self.connection_refresh_duration = refresh_duration
         self.options = {}
         self.customHeaders = {}
+        self.urlParameters = {}
         self.maxPoolSize = 1
         self.session = requests.Session()
 
@@ -549,7 +550,11 @@ class API:
         rdata = None
         response_headers = {}
 
-        request = requests.Request(op, url, data=data, headers=headers)
+        payload = None
+        if (self.urlParameters):
+            payload = self.urlParameters
+
+        request = requests.Request(op, url, data=data, headers=headers, params=payload)
         session = requests.Session()
         prepared_request = session.prepare_request(request)
 
@@ -658,6 +663,37 @@ class API:
         Clears all options
         """
         self.options.clear()
+
+    def setUrlParameter(self, name, value):
+        """
+        Sets a URL parameter
+
+        @param name: name of parameter
+        @param value: value of parameter
+        """
+        if value is None:
+            self.urlParameters.pop(name, None)
+        else:
+            self.urlParameters[name] = value
+
+    def getUrlParameter(self, name):
+        """
+        Gets a URL parameter
+
+        @param name: name of parameter
+
+        @return: value of parameter
+        """
+        if name in self.urlParameters.keys():
+            return self.urlParameters[name]
+        else:
+            return None
+
+    def clearUrlParameters(self):
+        """
+        Clears all options
+        """
+        self.urlParameters.clear()
 
     def setCustomHeaders(self, name, value):
         """
