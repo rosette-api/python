@@ -456,6 +456,10 @@ class EndpointCaller:
             headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
 
         if self.useMultipart:
+            payload = None
+            if (self.api.urlParameters):
+                payload = self.api.urlParameters
+
             params = dict(
                 (key,
                  value) for key,
@@ -471,7 +475,7 @@ class EndpointCaller:
                     json.dumps(params),
                     'application/json')}
             request = requests.Request(
-                'POST', url, files=files, headers=headers)
+                'POST', url, files=files, headers=headers, params=payload)
             session = requests.Session()
             prepared_request = session.prepare_request(request)
             resp = session.send(prepared_request)
