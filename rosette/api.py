@@ -777,7 +777,7 @@ class API:
         @return: A python dictionary containing the results of morphological analysis."""
         return EndpointCaller(self, "morphology/" + facet).call(parameters)
 
-    def entities(self, parameters, resolve_entities=False):
+    def entities(self, parameters):
         """
         Create an L{EndpointCaller}  to identify named entities found in the texts
         to which it is applied and call it. Linked entity information is optional, and
@@ -785,15 +785,9 @@ class API:
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the entity identifier.
         @type parameters: L{DocumentParameters} or L{str}
-        @param resolve_entities: Specifies whether or not linked entity information will
-        be wanted.
-        @type resolve_entities: Boolean
         @return: A python dictionary containing the results of entity extraction."""
-        if resolve_entities:
-            warnings.warn("entities(params,resolve_entities) is deprecated and replaced by entities(params).", DeprecationWarning)
-            return EndpointCaller(self, "entities/linked").call(parameters)
-        else:
-            return EndpointCaller(self, "entities").call(parameters)
+
+        return EndpointCaller(self, "entities").call(parameters)
 
     def categories(self, parameters):
         """

@@ -24,7 +24,6 @@ Each example, when run, prints its output to the console.
 | -------------                 |-------------                                        | 
 | categories.py                    | Gets the category of a document at a URL              | 
 | entities.py                      | Gets the entities from a piece of text                | 
-| entities_linked.py               | Gets the linked (to Wikipedia) entities from a piece of text |
 | info.py                          | Gets information about Rosette API                    | 
 | language.py                      | Gets the language of a piece of text                  | 
 | matched-name.py                  | Gets the similarity score of two names                | 
