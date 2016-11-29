@@ -780,8 +780,7 @@ class API:
     def entities(self, parameters):
         """
         Create an L{EndpointCaller}  to identify named entities found in the texts
-        to which it is applied and call it. Linked entity information is optional, and
-        its need must be specified at the time the operator is created.
+        to which it is applied and call it.
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the entity identifier.
         @type parameters: L{DocumentParameters} or L{str}
