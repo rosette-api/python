@@ -65,7 +65,7 @@ The samples use the following procedure:
  `NameSimilarityParameters`; Other parameters are optional.
 
 6. Invoke the `API` method for the endpoint you are calling. The methods are
-    * `entities(linked)` where `linked` is `False` for entity extraction and `True` for entity linking.
+    * `entities()` 
     * `categories()`
     * `sentiment()`
     * `language()`
