@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, DocumentParameters, MorphologyOutput
+from rosette.api import API, DocumentParameters, MorphologyOutput, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -18,7 +18,10 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     morphology_han_readings_data = "北京大学生物系主任办公室内部会议"
     params = DocumentParameters()
     params["content"] = morphology_han_readings_data
-    return api.morphology(params, MorphologyOutput.HAN_READINGS)
+    try:
+        return api.morphology(params, MorphologyOutput.HAN_READINGS)
+    except RosetteException as e:
+        print(e)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')

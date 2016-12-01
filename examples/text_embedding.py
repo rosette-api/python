@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, DocumentParameters
+from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -17,7 +17,11 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     embeddings_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
     params["content"] = embeddings_data
-    return api.text_embedding(params)
+    try:
+        return api.text_embedding(params)
+    except RosetteException as e:
+        print(e)
+
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
 parser.add_argument('-k', '--key', help='Rosette API Key', required=True)
