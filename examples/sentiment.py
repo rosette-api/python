@@ -9,7 +9,7 @@ import json
 import os
 import tempfile
 
-from rosette.api import API, DocumentParameters
+from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -28,10 +28,13 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
 
     # Use an HTML file to load data instead of a string
     params.load_document_file(f.name)
-    result = api.sentiment(params)
-
-    # Clean up the file
-    f.close()
+    try:
+        result = api.sentiment(params)
+    except RosetteException as e:
+        print(e)
+    finally:
+        # Clean up the file
+        f.close()
 
     return result
 

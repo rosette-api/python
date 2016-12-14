@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, DocumentParameters
+from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -19,7 +19,10 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = language_data
     api.setCustomHeaders("X-RosetteAPI-App", "python-app")
-    return api.language(params)
+    try:
+        return api.language(params)
+    except RosetteException as e:
+        print(e)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')

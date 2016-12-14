@@ -8,14 +8,17 @@ import argparse
 import json
 import os
 
-from rosette.api import API
+from rosette.api import API, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
-    return api.ping()
+    try:
+        return api.ping()
+    except RosetteException as e:
+        print(e)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')

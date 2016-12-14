@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, NameSimilarityParameters
+from rosette.api import API, NameSimilarityParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -20,7 +20,10 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = NameSimilarityParameters()
     params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
-    return api.name_similarity(params)
+    try:
+        return api.name_similarity(params)
+    except RosetteException as e:
+        print(e)
 
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description='Calls the ' + os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
