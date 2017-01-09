@@ -15,7 +15,6 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     syntax_dependencies_data = "Yoshinori Ohsumi, a Japanese cell biologist, was awarded the Nobel Prize in Physiology or Medicine on Monday."
     params = DocumentParameters()
     params["content"] = syntax_dependencies_data
-    params["genre"] = "social-media"
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
     try:
