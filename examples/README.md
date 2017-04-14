@@ -39,4 +39,5 @@ Each example, when run, prints its output to the console.
 | sentiment.py                     | Gets the sentiment of a local file                    |
 | tokens.py                        | Gets the tokens (words) from a piece of text          |
 | translated-name.py               | Translates a name from one language to another        |
+| transliteration.py               | Transliterates the given text |
 

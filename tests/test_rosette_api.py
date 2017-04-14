@@ -30,7 +30,13 @@ try:
 except ImportError:
     from io import BytesIO as streamIO
 import gzip
-from rosette.api import API, DocumentParameters, NameTranslationParameters, NameSimilarityParameters, NameDeduplicationParameters, RosetteException
+from rosette.api import API,
+                        DocumentParameters,
+                        NameTranslationParameters,
+                        NameSimilarityParameters,
+                        NameDeduplicationParameters,
+                        TransliterationParameters,
+                        RosetteException
 
 _IsPy3 = sys.version_info[0] == 3
 
@@ -418,6 +424,40 @@ def test_the_name_similarity_endpoint(api, json_response):
 # Test the name deduplication endpoint
 
 
+def test_for_name_deduplicatation_required_parameters(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-deduplication",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = NameDeduplicationParameters()
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_deduplication(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name De-Duplication parameter, names, not supplied'
+
+    params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_deduplication(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Name De-Duplication parameter, threshold, not supplied'
+
+    params["threshold"] = 0.75
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_deduplication(params)
+
+    result = api.name_deduplication(params)
+    assert result["name"] == "Rosette API"
+
+    httpretty.disable()
+    httpretty.reset()
+
 def test_the_name_deduplication_endpoint(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
@@ -602,6 +642,79 @@ def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.syntax_dependencies(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
+
+# Test the transliteration endpoint
+
+
+def test_for_transliteration_required_parameters(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = TransliterateParameters()
+    params["content"] = "Random text"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.transliteration(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Transliteration parameter, sourceLanguage, not supplied'
+
+    params["sourceLanguage"] = "eng"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.transliteration(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Transliteration parameter, sourceScript, not supplied'
+
+    params["sourceScript"] = "Latn"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.transliteration(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Transliteration parameter, targetLanguage, not supplied'
+
+    params["targetLanguage"] = "zho"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.transliteration(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Transliteration parameter, targetScript, not supplied'
+
+    params["targetScript"] = "Hani"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.transliteration(params)
+
+    result = api.transliteration(params)
+    assert result["name"] == "Rosette API"
+
+    httpretty.disable()
+    httpretty.reset()
+
+def test_the_transliteration_endpoint(api, json_response, doc_params):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = TransliterationParameters()
+    params["content"] = "Some test content"
+    params["sourceLanguage"] = "eng"
+    params["sourceScript"] = "Latn"
+    params["targetLanguage"] = "zho"
+    params["targetScript"] = "Hani"
+    result = api.transliteration(doc_params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
