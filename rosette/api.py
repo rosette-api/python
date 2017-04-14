@@ -304,6 +304,26 @@ class NameSimilarityParameters(_DocumentParamSetBase):
                     "Required Name Similarity parameter not supplied",
                     repr(n))
 
+class NameDeduplicationParameters(_DocumentParamSetBase):
+    """Parameter object for C{name-deduplication} endpoint.
+    Required:
+    C{names} A list of C{name} objects
+    C{threshold} Threshold to use to restrict cluster size
+    """
+
+    def __init__(self):
+        self.useMultipart = False
+        _DocumentParamSetBase.__init__(self, ("names", "threshold"))
+
+    def validate(self):
+        """Internal. Do not use."""
+        for n in ("names", "threshold"): # required
+            if self[n] is None:
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Name De-Duplication parameter not supplied",
+                    repr(n))
+
 
 class EndpointCaller:
     """L{EndpointCaller} objects are invoked via their instance methods to obtain results
@@ -859,6 +879,15 @@ class API:
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
+
+    def name_deduplication(self, parameters):
+        """
+        Fuzzy de-duplication of a list of names
+        @param parameters: An object specifying a list of names as well
+        as a threshold
+        @type parameters: L{NameDeduplicationParameters}
+        @return: A python dictionary containing the results of de-duplication"""
+        return EndpointCaller(self, "name-deduplication").call(parameters)
 
     def text_embedding(self, parameters):
         """

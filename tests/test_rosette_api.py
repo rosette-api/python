@@ -415,6 +415,27 @@ def test_the_name_similarity_endpoint(api, json_response):
     httpretty.disable()
     httpretty.reset()
 
+# Test the name deduplication endpoint
+
+
+def test_the_name_deduplication_endpoint(api, json_response):
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-deduplication",
+                           body=json_response, status=200, content_type="application/json")
+
+    dedup_list = ["John Smith", "Johnathon Smith", "Fred Jones"]
+    threshold = 0.75
+    params = NameDeduplicationParameters()
+    params["names"] = dedup_list
+    params["threshold"] = threshold
+
+    result = api.name_deduplication(params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
+
 # Test the relationships endpoint
 
 
