@@ -304,6 +304,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
                     "Required Name Similarity parameter not supplied",
                     repr(n))
 
+
 class NameDeduplicationParameters(_DocumentParamSetBase):
     """Parameter object for C{name-deduplication} endpoint.
     Required:
@@ -317,7 +318,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for n in ("names", "threshold"): # required
+        for n in ("names", "threshold"):  # required
             if self[n] is None:
                 raise RosetteException(
                     "missingParameter",
