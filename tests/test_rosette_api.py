@@ -31,12 +31,12 @@ except ImportError:
     from io import BytesIO as streamIO
 import gzip
 from rosette.api import API,
-                        DocumentParameters,
-                        NameTranslationParameters,
-                        NameSimilarityParameters,
-                        NameDeduplicationParameters,
-                        TransliterationParameters,
-                        RosetteException
+     DocumentParameters,
+     NameTranslationParameters,
+     NameSimilarityParameters,
+     NameDeduplicationParameters,
+     TransliterationParameters,
+     RosetteException
 
 _IsPy3 = sys.version_info[0] == 3
 
