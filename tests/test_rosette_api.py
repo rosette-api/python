@@ -18,31 +18,23 @@ limitations under the License.
 
 # To run tests, run `py.test test_rosette_api.py`
 
-import glob
-import httpretty
 import json
-import os
-import pytest
-import re
 import sys
-try:
-    from StringIO import StringIO as streamIO
-except ImportError:
-    from io import BytesIO as streamIO
-import gzip
+import httpretty
+import pytest
 from rosette.api import(API,
-DocumentParameters,
-NameTranslationParameters,
-NameSimilarityParameters,
-NameDeduplicationParameters,
-TransliterationParameters,
-RosetteException)
+                        DocumentParameters,
+                        NameTranslationParameters,
+                        NameSimilarityParameters,
+                        NameDeduplicationParameters,
+                        TransliterationParameters,
+                        RosetteException)
 
-_IsPy3 = sys.version_info[0] == 3
+_ISPY3 = sys.version_info[0] == 3
 
 
 @pytest.fixture
-def json_response(scope="module"):
+def json_response():
     """ fixture to return info body"""
     body = json.dumps({'name': 'Rosette API', 'versionChecked': True})
     return body
@@ -51,20 +43,22 @@ def json_response(scope="module"):
 @pytest.fixture
 def api():
     """ fixture to return api key"""
-    api = API('bogus_key')
-    return api
+    tmp_api = API('bogus_key')
+    return tmp_api
 
 
 @pytest.fixture
-def json_409(scope="module"):
+def json_409():
     """ fixture to return 409 body"""
     body = json.dumps({'code': 'incompatibleClientVersion',
-                       'message': 'the version of client library used is not compatible with this server', 'versionChecked': True})
+                       'message': 'the version of client library used'
+                                  ' is not compatible with this server',
+                       'versionChecked': True})
     return body
 
 
 @pytest.fixture
-def doc_params(scope="module"):
+def doc_params():
     """ fixture to return basic DocumentParameters"""
     params = DocumentParameters()
     params['content'] = 'Sample test string'
@@ -79,16 +73,18 @@ def doc_params(scope="module"):
 
 
 def test_option_get_set_clear(api):
+    """Tests the get/set/clear methods"""
     api.set_option('test', 'foo')
-    assert 'foo' == api.get_option('test')
+    assert api.get_option('test') == 'foo'
 
     api.clear_options()
     assert api.get_option('test') is None
 
 
 def test_option_clear_single_option(api):
+    """Test the clear single option"""
     api.set_option('test', 'foo')
-    assert 'foo' == api.get_option('test')
+    assert api.get_option('test') == 'foo'
 
     api.set_option('test', None)
     assert api.get_option('test') is None
@@ -96,17 +92,19 @@ def test_option_clear_single_option(api):
 # Test the URL parameter set/get/clear
 
 
-def test_UrlParameter_get_set_clear(api):
+def test_url_parameter_getsetclear(api):
+    """Tests get/set/clear url parameter"""
     api.set_url_parameter('test', 'foo')
-    assert 'foo' == api.get_url_parameter('test')
+    assert api.get_url_parameter('test') == 'foo'
 
     api.clearurl_parameters()
     assert api.get_url_parameter('test') is None
 
 
-def test_UrlParameter_clear_single_option(api):
+def test_url_parameter_clear_single(api):
+    """Test the clearing of a single url parameter"""
     api.set_url_parameter('test', 'foo')
-    assert 'foo' == api.get_url_parameter('test')
+    assert api.get_url_parameter('test') == 'foo'
 
     api.set_url_parameter('test', None)
     assert api.get_url_parameter('test') is None
@@ -114,7 +112,8 @@ def test_UrlParameter_clear_single_option(api):
 # Test the custom header set/get/clear
 
 
-def test_custom_header_get_set_clear(api):
+def test_custom_header_props(api):
+    """Test custom header get/set/clear"""
     key = 'X-RosetteAPI-Test'
     value = 'foo'
     api.setcustom_headers(key, value)
@@ -127,12 +126,13 @@ def test_custom_header_get_set_clear(api):
 
 
 def test_invalid_header(api):
+    """Test for invalid header"""
     key = 'test'
     value = 'foo'
     api.setcustom_headers(key, value)
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.info()
+        api.info()
 
     assert e_rosette.value.status == 'badHeader'
 
@@ -141,6 +141,7 @@ def test_invalid_header(api):
 
 
 def test_ping(api, json_response):
+    """Test ping"""
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/ping",
                            body=json_response, status=200, content_type="application/json")
@@ -154,6 +155,7 @@ def test_ping(api, json_response):
 
 
 def test_info(api, json_response):
+    """Test info"""
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -168,6 +170,7 @@ def test_info(api, json_response):
 
 
 def test_for_409(api, json_409):
+    """Test for 409 handling"""
     httpretty.enable()
     httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
                            body=json_409, status=409, content_type="application/json")
@@ -183,6 +186,7 @@ def test_for_409(api, json_409):
 
 
 def test_the_max_pool_size(json_response, doc_params):
+    """Test max pool size"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
                            body=json_response, status=200, content_type="application/json",
@@ -201,6 +205,7 @@ def test_the_max_pool_size(json_response, doc_params):
 
 
 def test_the_language_endpoint(api, json_response, doc_params):
+    """Test language endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -216,6 +221,7 @@ def test_the_language_endpoint(api, json_response, doc_params):
 
 
 def test_the_sentences_endpoint(api, json_response, doc_params):
+    """Test the sentences endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -231,6 +237,7 @@ def test_the_sentences_endpoint(api, json_response, doc_params):
 
 
 def test_the_tokens_endpoint(api, json_response, doc_params):
+    """Test the tokens endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -246,6 +253,7 @@ def test_the_tokens_endpoint(api, json_response, doc_params):
 
 
 def test_the_morphology_complete_endpoint(api, json_response, doc_params):
+    """Test the morphology complete endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -261,6 +269,7 @@ def test_the_morphology_complete_endpoint(api, json_response, doc_params):
 
 
 def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
+    """Test the morphology lemmas endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -275,8 +284,8 @@ def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
 # Test the morphology parts-of-speech endpoint
 
 
-def test_the_morphology_parts_of_speech_endpoint(
-        api, json_response, doc_params):
+def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params):
+    """Test the morphology parts-of-speech endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -291,8 +300,8 @@ def test_the_morphology_parts_of_speech_endpoint(
 # Test the morphology compound-components endpoint
 
 
-def test_the_morphology_compound_components_endpoint(
-        api, json_response, doc_params):
+def test_the_morphology_compound_components_endpoint(api, json_response, doc_params):
+    """Test the morphology compound-components endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -308,6 +317,7 @@ def test_the_morphology_compound_components_endpoint(
 
 
 def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
+    """Test the morphology han-reading endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -323,6 +333,7 @@ def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
 
 
 def test_the_entities_endpoint(api, json_response, doc_params):
+    """Test the entities endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -338,6 +349,7 @@ def test_the_entities_endpoint(api, json_response, doc_params):
 
 
 def test_the_categories_endpoint(api, json_response, doc_params):
+    """Test the categories endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -353,6 +365,7 @@ def test_the_categories_endpoint(api, json_response, doc_params):
 
 
 def test_the_sentiment_endpoint(api, json_response, doc_params):
+    """Test the sentiment endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -368,15 +381,16 @@ def test_the_sentiment_endpoint(api, json_response, doc_params):
 
 
 def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
+    """Test multipart"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
                            body=json_response, status=200, content_type="application/json")
 
-    p = tmpdir.mkdir("sub").join("testfile.txt")
-    p.write(json_response)
-    doc_params.load_document_file = p
+    tmp_file = tmpdir.mkdir("sub").join("testfile.txt")
+    tmp_file.write(json_response)
+    doc_params.load_document_file = tmp_file
     result = api.sentiment(doc_params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
@@ -386,6 +400,7 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
 
 
 def test_the_name_translation_endpoint(api, json_response):
+    """Test the name translation endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -406,6 +421,7 @@ def test_the_name_translation_endpoint(api, json_response):
 
 
 def test_the_name_similarity_endpoint(api, json_response):
+    """Test the name similarity endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -429,7 +445,8 @@ def test_the_name_similarity_endpoint(api, json_response):
 # Test the name deduplication endpoint
 
 
-def test_for_name_deduplicatation_required_parameters(api, json_response):
+def test_name_deduplicatation_parameters(api, json_response):
+    """Test the Name Deduplication Parameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -450,7 +467,8 @@ def test_for_name_deduplicatation_required_parameters(api, json_response):
         result = api.name_deduplication(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name De-Duplication parameter, threshold, not supplied'
+    assert e_rosette.value.message == ('Required Name De-Duplication parameter,'
+                                       ' threshold, not supplied')
 
     params["threshold"] = 0.75
 
@@ -465,6 +483,7 @@ def test_for_name_deduplicatation_required_parameters(api, json_response):
 
 
 def test_the_name_deduplication_endpoint(api, json_response):
+    """Test the name deduplication endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -486,6 +505,7 @@ def test_the_name_deduplication_endpoint(api, json_response):
 
 
 def test_the_relationships_endpoint(api, json_response):
+    """Test the relationships endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -504,6 +524,7 @@ def test_the_relationships_endpoint(api, json_response):
 
 
 def test_for_404(api, json_response):
+    """Test for 404 handling"""
     httpretty.enable()
     body = json.dumps({'message': 'not found'})
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
@@ -512,7 +533,7 @@ def test_for_404(api, json_response):
                            body=body, status=404, content_type="application/json")
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.info()
+        api.info()
 
     assert e_rosette.value.status == 404
     assert e_rosette.value.message == 'not found'
@@ -523,6 +544,7 @@ def test_for_404(api, json_response):
 
 
 def test_for_content_and_contentUri(api, json_response, doc_params):
+    """Test for content and contentUri in DocumentParameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -531,7 +553,7 @@ def test_for_content_and_contentUri(api, json_response, doc_params):
 
     doc_params['contentUri'] = 'http://google.com'
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.entities(doc_params)
+        api.entities(doc_params)
 
     assert e_rosette.value.status == 'badArgument'
     assert e_rosette.value.message == 'Cannot supply both Content and ContentUri'
@@ -542,6 +564,7 @@ def test_for_content_and_contentUri(api, json_response, doc_params):
 
 
 def test_for_no_content_or_contentUri(api, json_response, doc_params):
+    """Test for missing content and contentUri in DocumentParameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -550,7 +573,7 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
 
     doc_params['content'] = None
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.entities(doc_params)
+        api.entities(doc_params)
 
     assert e_rosette.value.status == 'badArgument'
     assert e_rosette.value.message == 'Must supply one of Content or ContentUri'
@@ -561,6 +584,7 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
 
 
 def test_for_name_similarity_required_parameters(api, json_response):
+    """Test name similarity parameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -598,6 +622,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
 
 
 def test_for_name_translation_required_parameters(api, json_response):
+    """Test name translation parameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
@@ -632,6 +657,7 @@ def test_for_name_translation_required_parameters(api, json_response):
 
 
 def test_the_text_embedded_endpoint(api, json_response, doc_params):
+    """Test text embedded endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/text-embedding",
                            body=json_response, status=200, content_type="application/json")
@@ -643,6 +669,7 @@ def test_the_text_embedded_endpoint(api, json_response, doc_params):
 
 
 def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
+    """Test syntax dependencies endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/syntax/dependencies",
                            body=json_response, status=200, content_type="application/json")
@@ -657,20 +684,22 @@ def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
 
 
 def test_for_transliteration_required_parameters(api, json_response):
+    """Test transliteration parameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
                            body=json_response, status=200, content_type="application/json")
 
-    params = TransliterateParameters()
+    params = TransliterationParameters()
     params["content"] = "Random text"
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.transliteration(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Transliteration parameter, sourceLanguage, not supplied'
+    assert e_rosette.value.message == ('Required Transliteration parameter, '
+                                       'sourceLanguage, not supplied')
 
     params["sourceLanguage"] = "eng"
 
@@ -678,7 +707,8 @@ def test_for_transliteration_required_parameters(api, json_response):
         result = api.transliteration(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Transliteration parameter, sourceScript, not supplied'
+    assert e_rosette.value.message == ('Required Transliteration parameter, '
+                                       'sourceScript, not supplied')
 
     params["sourceScript"] = "Latn"
 
@@ -686,7 +716,8 @@ def test_for_transliteration_required_parameters(api, json_response):
         result = api.transliteration(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Transliteration parameter, targetLanguage, not supplied'
+    assert e_rosette.value.message == ('Required Transliteration parameter, '
+                                       'targetLanguage, not supplied')
 
     params["targetLanguage"] = "zho"
 
@@ -694,7 +725,8 @@ def test_for_transliteration_required_parameters(api, json_response):
         result = api.transliteration(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Transliteration parameter, targetScript, not supplied'
+    assert e_rosette.value.message == ('Required Transliteration parameter, '
+                                       'targetScript, not supplied')
 
     params["targetScript"] = "Hani"
 
@@ -708,7 +740,8 @@ def test_for_transliteration_required_parameters(api, json_response):
     httpretty.reset()
 
 
-def test_the_transliteration_endpoint(api, json_response, doc_params):
+def test_the_transliteration_endpoint(api, json_response):
+    """Test the transliteration endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")

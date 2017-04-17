@@ -318,7 +318,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name De-Duplication parameter," + option + ", not supplied",
+                    "Required Name De-Duplication parameter, " + option + ", not supplied",
                     repr(option))
 
 
@@ -477,8 +477,8 @@ class EndpointCaller:
 
         if not isinstance(parameters, _DocumentParamSetBase):
             if self.suburl != ENDPOINTS['NAME_SIMILARITY'] \
-            and self.suburl != ENDPOINTS['NAME_TRANSLATION'] \
-            and self.suburl != ENDPOINTS['NAME_DEDUPLICATION']:
+               and self.suburl != ENDPOINTS['NAME_TRANSLATION'] \
+               and self.suburl != ENDPOINTS['NAME_DEDUPLICATION']:
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
