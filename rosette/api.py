@@ -78,33 +78,6 @@ class RosetteException(Exception):
             sst = repr(sst)
         return sst + ": " + self.message + ":\n  " + self.response_message
 
-MORPHOLOGY_OUTPUT = {
-    'LEMMAS': 'lemmas',
-    'PARTS_OF_SPEECH': 'parts-of-speech',
-    'COMPOUND_COMPONENTS': 'compound-components',
-    'HAN_READINGS': 'han-readings',
-    'COMPLETE': 'complete'
-}
-
-ENDPOINTS = {
-    'CATEGORIES': 'categories',
-    'ENTITIES': 'entities',
-    'INFO': 'info',
-    'LANGUAGE': 'language',
-    'MORPHOLOGY': 'morphology',
-    'NAME_TRANSLATION': 'name-translation',
-    'NAME_SIMILARITY': 'name-similarity',
-    'NAME_DEDUPLICATION': 'name-deduplication',
-    'PING': 'ping',
-    'RELATIONSHIPS': 'relationships',
-    'SENTENCES': 'sentences',
-    'SENTIMENT': 'sentiment',
-    'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
-    'TEXT_EMBEDDING': 'text-embedding',
-    'TOKENS': 'tokens',
-    'TRANSLITERATION': 'transliteration'
-}
-
 
 class _DocumentParamSetBase(object):
 
@@ -399,7 +372,7 @@ class EndpointCaller:
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary telling server version and other
         identifying data."""
-        url = self.service_url + ENDPOINTS["INFO"]
+        url = self.service_url + self.api.endpoints["INFO"]
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
                    'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
@@ -429,7 +402,7 @@ class EndpointCaller:
         or is not the right server or some other error occurs, it will be
         signalled."""
 
-        url = self.service_url + ENDPOINTS['PING']
+        url = self.service_url + self.api.endpoints['PING']
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
                    'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
@@ -476,9 +449,9 @@ class EndpointCaller:
         """
 
         if not isinstance(parameters, _DocumentParamSetBase):
-            if self.suburl != ENDPOINTS['NAME_SIMILARITY'] \
-               and self.suburl != ENDPOINTS['NAME_TRANSLATION'] \
-               and self.suburl != ENDPOINTS['NAME_DEDUPLICATION']:
+            if self.suburl != self.api.endpoints['NAME_SIMILARITY'] \
+               and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
+               and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION']:
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
@@ -537,7 +510,8 @@ class EndpointCaller:
             rdata = resp.content
             response_headers = {"responseHeaders": dict(resp.headers)}
             status = resp.status_code
-            response = _ReturnObject(_my_loads(rdata, response_headers), status)
+            response = _ReturnObject(
+                _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
                 headers['X-RosetteAPI-Devel'] = True
@@ -588,8 +562,36 @@ class API:
         self.max_pool_size = 1
         self.session = requests.Session()
 
+        self.morphology_output = {
+            'LEMMAS': 'lemmas',
+            'PARTS_OF_SPEECH': 'parts-of-speech',
+            'COMPOUND_COMPONENTS': 'compound-components',
+            'HAN_READINGS': 'han-readings',
+            'COMPLETE': 'complete'
+        }
+
+        self.endpoints = {
+            'CATEGORIES': 'categories',
+            'ENTITIES': 'entities',
+            'INFO': 'info',
+            'LANGUAGE': 'language',
+            'MORPHOLOGY': 'morphology',
+            'NAME_TRANSLATION': 'name-translation',
+            'NAME_SIMILARITY': 'name-similarity',
+            'NAME_DEDUPLICATION': 'name-deduplication',
+            'PING': 'ping',
+            'RELATIONSHIPS': 'relationships',
+            'SENTENCES': 'sentences',
+            'SENTIMENT': 'sentiment',
+            'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
+            'TEXT_EMBEDDING': 'text-embedding',
+            'TOKENS': 'tokens',
+            'TRANSLITERATION': 'transliteration'
+        }
+
     def _set_pool_size(self):
-        adapter = requests.adapters.HTTPAdapter(pool_maxsize=self.max_pool_size)
+        adapter = requests.adapters.HTTPAdapter(
+            pool_maxsize=self.max_pool_size)
         if 'https:' in self.service_url:
             self.session.mount('https://', adapter)
         else:
@@ -613,7 +615,8 @@ class API:
         if self.url_parameters:
             payload = self.url_parameters
 
-        request = requests.Request(operation, url, data=data, headers=headers, params=payload)
+        request = requests.Request(
+            operation, url, data=data, headers=headers, params=payload)
         session = requests.Session()
         prepared_request = session.prepare_request(request)
 
@@ -800,7 +803,7 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of language
         identification."""
-        return EndpointCaller(self, ENDPOINTS['LANGUAGE']).call(parameters)
+        return EndpointCaller(self, self.endpoints['LANGUAGE']).call(parameters)
 
     def sentences(self, parameters):
         """
@@ -809,7 +812,7 @@ class API:
         and possible metadata, to be processed by the sentence identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of sentence identification."""
-        return EndpointCaller(self, ENDPOINTS['SENTENCES']).call(parameters)
+        return EndpointCaller(self, self.endpoints['SENTENCES']).call(parameters)
 
     def tokens(self, parameters):
         """
@@ -818,9 +821,9 @@ class API:
         and possible metadata, to be processed by the tokens identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of tokenization."""
-        return EndpointCaller(self, ENDPOINTS['TOKENS']).call(parameters)
+        return EndpointCaller(self, self.endpoints['TOKENS']).call(parameters)
 
-    def morphology(self, parameters, facet=MORPHOLOGY_OUTPUT['COMPLETE']):
+    def morphology(self, parameters, facet=""):
         """
         Create an L{EndpointCaller} to returns a specific facet
         of the morphological analyses of texts to which it is applied and call it.
@@ -830,7 +833,9 @@ class API:
         @param facet: The facet desired, to be returned by the created L{EndpointCaller}.
         @type facet: An element of L{MorphologyOutput}.
         @return: A python dictionary containing the results of morphological analysis."""
-        return EndpointCaller(self, ENDPOINTS['MORPHOLOGY'] + "/" + facet).call(parameters)
+        if facet == "":
+            facet = self.morphology_output['COMPLETE']
+        return EndpointCaller(self, self.endpoints['MORPHOLOGY'] + "/" + facet).call(parameters)
 
     def entities(self, parameters):
         """
@@ -841,7 +846,7 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of entity extraction."""
 
-        return EndpointCaller(self, ENDPOINTS['ENTITIES']).call(parameters)
+        return EndpointCaller(self, self.endpoints['ENTITIES']).call(parameters)
 
     def categories(self, parameters):
         """
@@ -851,7 +856,7 @@ class API:
         and possible metadata, to be processed by the category identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of categorization."""
-        return EndpointCaller(self, ENDPOINTS['CATEGORIES']).call(parameters)
+        return EndpointCaller(self, self.endpoints['CATEGORIES']).call(parameters)
 
     def sentiment(self, parameters):
         """
@@ -865,7 +870,7 @@ class API:
         to which is applied.
         @return: An L{EndpointCaller} object which can return sentiments
         of texts to which it is applied."""
-        return EndpointCaller(self, ENDPOINTS['SENTIMENT']).call(parameters)
+        return EndpointCaller(self, self.endpoints['SENTIMENT']).call(parameters)
 
     def relationships(self, parameters):
         """
@@ -875,7 +880,7 @@ class API:
         and possible metadata, to be processed by the relationships identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of relationship extraction."""
-        return EndpointCaller(self, ENDPOINTS['RELATIONSHIPS']).call(parameters)
+        return EndpointCaller(self, self.endpoints['RELATIONSHIPS']).call(parameters)
 
     def name_translation(self, parameters):
         """
@@ -885,7 +890,7 @@ class API:
         and possible metadata, to be processed by the name translator.
         @type parameters: L{NameTranslationParameters}
         @return: A python dictionary containing the results of name translation."""
-        return EndpointCaller(self, ENDPOINTS['NAME_TRANSLATION']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_TRANSLATION']).call(parameters)
 
     def translated_name(self, parameters):
         """ deprecated
@@ -904,7 +909,7 @@ class API:
         and possible metadata, to be processed by the name matcher.
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
-        return EndpointCaller(self, ENDPOINTS['NAME_SIMILARITY']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_SIMILARITY']).call(parameters)
 
     def matched_name(self, parameters):
         """ deprecated
@@ -922,7 +927,7 @@ class API:
         as a threshold
         @type parameters: L{NameDeduplicationParameters}
         @return: A python dictionary containing the results of de-duplication"""
-        return EndpointCaller(self, ENDPOINTS['NAME_DEDUPLICATION']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters)
 
     def text_embedding(self, parameters):
         """
@@ -930,7 +935,7 @@ class API:
         to which it is applied and call it.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of text embedding."""
-        return EndpointCaller(self, ENDPOINTS['TEXT_EMBEDDING']).call(parameters)
+        return EndpointCaller(self, self.endpoints['TEXT_EMBEDDING']).call(parameters)
 
     def syntax_dependencies(self, parameters):
         """
@@ -939,11 +944,11 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of syntactic dependencies
         identification"""
-        return EndpointCaller(self, ENDPOINTS['SYNTAX_DEPENDENCIES']).call(parameters)
+        return EndpointCaller(self, self.endpoints['SYNTAX_DEPENDENCIES']).call(parameters)
 
     def transliteration(self, parameters):
         """
         Transliterate given context
         @type parameters: L{TransliterationParameters}
         @return: A python dictionary containing the results of the transliteration"""
-        return EndpointCaller(self, ENDPOINTS['TRANSLITERATION']).call(parameters)
+        return EndpointCaller(self, self.endpoints['TRANSLITERATION']).call(parameters)

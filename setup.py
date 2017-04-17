@@ -25,6 +25,7 @@ def read(*filenames, **kwargs):
             buf.append(the_file.read())
     return sep.join(buf)
 
+
 LONG_DESCRIPTION = read('README.md')
 
 setup(name=NAME,
