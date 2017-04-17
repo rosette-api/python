@@ -264,7 +264,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Translation parameter," + option + ", not supplied",
+                    "Required Name Translation parameter, " + option + ", not supplied",
                     repr(option))
 
 
@@ -297,7 +297,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Similarity parameter," + option + ", not supplied",
+                    "Required Name Similarity parameter, " + option + ", not supplied",
                     repr(option))
 
 
