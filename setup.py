@@ -21,8 +21,8 @@ def read(*filenames, **kwargs):
     sep = kwargs.get('sep', '\n')
     buf = []
     for filename in filenames:
-        with io.open(filename, encoding=encoding) as f:
-            buf.append(f.read())
+        with io.open(filename, encoding=encoding) as the_file:
+            buf.append(the_file.read())
     return sep.join(buf)
 
 LONG_DESCRIPTION = read('README.md')
