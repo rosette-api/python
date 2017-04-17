@@ -344,7 +344,7 @@ class TransliterationParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Transliteration parameter," + option + ", not supplied",
+                    "Required Transliteration parameter, " + option + ", not supplied",
                     repr(option))
 
 

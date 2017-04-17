@@ -472,9 +472,6 @@ def test_name_deduplicatation_parameters(api, json_response):
 
     params["threshold"] = 0.75
 
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_deduplication(params)
-
     result = api.name_deduplication(params)
     assert result["name"] == "Rosette API"
 
@@ -599,7 +596,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
         result = api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter, name1, not supplied'
 
     params["name1"] = {
         "text": matched_name_data1,
@@ -609,7 +606,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
         result = api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter, name2, not supplied'
 
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
@@ -637,7 +634,7 @@ def test_for_name_translation_required_parameters(api, json_response):
         result = api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Translation parameter not supplied'
+    assert e_rosette.value.message == 'Required Name Translation parameter, name, not supplied'
 
     params["name"] = "some data to translate"
 
@@ -645,7 +642,8 @@ def test_for_name_translation_required_parameters(api, json_response):
         result = api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Translation parameter not supplied'
+    assert e_rosette.value.message == ('Required Name Translation parameter, '
+                                       'targetLanguage, not supplied')
 
     params["targetLanguage"] = "eng"
 
