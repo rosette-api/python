@@ -728,9 +728,6 @@ def test_for_transliteration_required_parameters(api, json_response):
 
     params["targetScript"] = "Hani"
 
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.transliteration(params)
-
     result = api.transliteration(params)
     assert result["name"] == "Rosette API"
 
