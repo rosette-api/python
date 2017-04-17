@@ -47,5 +47,4 @@ setup(name=NAME,
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Apache Software License',
           'Operating System :: OS Independent',
-          'Topic :: Software Development :: Libraries :: Python Modules']
-     )
+          'Topic :: Software Development :: Libraries :: Python Modules'])
