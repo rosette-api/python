@@ -17,7 +17,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     relationships_text_data = "Bill Gates, Microsoft's former CEO, is a philanthropist."
     params = DocumentParameters()
     params["content"] = relationships_text_data
-    api.setOption('accuracyMode', 'PRECISION')
+    api.set_option('accuracyMode', 'PRECISION')
     try:
         return api.relationships(params)
     except RosetteException as e:

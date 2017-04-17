@@ -30,81 +30,86 @@ try:
 except ImportError:
     from io import BytesIO as streamIO
 import gzip
-from rosette.api import API,
-     DocumentParameters,
-     NameTranslationParameters,
-     NameSimilarityParameters,
-     NameDeduplicationParameters,
-     TransliterationParameters,
-     RosetteException
+from rosette.api import(API,
+DocumentParameters,
+NameTranslationParameters,
+NameSimilarityParameters,
+NameDeduplicationParameters,
+TransliterationParameters,
+RosetteException)
 
 _IsPy3 = sys.version_info[0] == 3
 
 
 @pytest.fixture
 def json_response(scope="module"):
+    """ fixture to return info body"""
     body = json.dumps({'name': 'Rosette API', 'versionChecked': True})
     return body
 
 
 @pytest.fixture
 def api():
+    """ fixture to return api key"""
     api = API('bogus_key')
     return api
 
 
 @pytest.fixture
 def json_409(scope="module"):
-    body = json.dumps({'code': 'incompatibleClientVersion', 'message': 'the version of client library used is not compatible with this server', 'versionChecked': True})
+    """ fixture to return 409 body"""
+    body = json.dumps({'code': 'incompatibleClientVersion',
+                       'message': 'the version of client library used is not compatible with this server', 'versionChecked': True})
     return body
 
 
 @pytest.fixture
 def doc_params(scope="module"):
+    """ fixture to return basic DocumentParameters"""
     params = DocumentParameters()
     params['content'] = 'Sample test string'
     return params
 
 # Of Note: httpretty provides a short hand decorator, @httpretty.activate, that wraps the decorated
-# function with httpretty.enable() and ends it with httpretty.disable().  However, when combined with
-# pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.  Use the old
-# enable/disable to avoid this.
+# function with httpretty.enable() and ends it with httpretty.disable().  However, when combined
+# with pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.
+# Use the old enable/disable to avoid this.
 
 # Test the option set/get/clear
 
 
 def test_option_get_set_clear(api):
-    api.setOption('test', 'foo')
-    assert 'foo' == api.getOption('test')
+    api.set_option('test', 'foo')
+    assert 'foo' == api.get_option('test')
 
-    api.clearOptions()
-    assert api.getOption('test') is None
+    api.clear_options()
+    assert api.get_option('test') is None
 
 
 def test_option_clear_single_option(api):
-    api.setOption('test', 'foo')
-    assert 'foo' == api.getOption('test')
+    api.set_option('test', 'foo')
+    assert 'foo' == api.get_option('test')
 
-    api.setOption('test', None)
-    assert api.getOption('test') is None
+    api.set_option('test', None)
+    assert api.get_option('test') is None
 
 # Test the URL parameter set/get/clear
 
 
 def test_UrlParameter_get_set_clear(api):
-    api.setUrlParameter('test', 'foo')
-    assert 'foo' == api.getUrlParameter('test')
+    api.set_url_parameter('test', 'foo')
+    assert 'foo' == api.get_url_parameter('test')
 
-    api.clearUrlParameters()
-    assert api.getUrlParameter('test') is None
+    api.clearurl_parameters()
+    assert api.get_url_parameter('test') is None
 
 
 def test_UrlParameter_clear_single_option(api):
-    api.setUrlParameter('test', 'foo')
-    assert 'foo' == api.getUrlParameter('test')
+    api.set_url_parameter('test', 'foo')
+    assert 'foo' == api.get_url_parameter('test')
 
-    api.setUrlParameter('test', None)
-    assert api.getUrlParameter('test') is None
+    api.set_url_parameter('test', None)
+    assert api.get_url_parameter('test') is None
 
 # Test the custom header set/get/clear
 
@@ -112,11 +117,11 @@ def test_UrlParameter_clear_single_option(api):
 def test_custom_header_get_set_clear(api):
     key = 'X-RosetteAPI-Test'
     value = 'foo'
-    api.setCustomHeaders(key, value)
-    assert value == api.getCustomHeaders()[key]
+    api.setcustom_headers(key, value)
+    assert value == api.getcustom_headers()[key]
 
-    api.clearCustomHeaders()
-    assert len(api.getCustomHeaders()) is 0
+    api.clearcustom_headers()
+    assert len(api.getcustom_headers()) is 0
 
 # Test for invalid header name
 
@@ -124,7 +129,7 @@ def test_custom_header_get_set_clear(api):
 def test_invalid_header(api):
     key = 'test'
     value = 'foo'
-    api.setCustomHeaders(key, value)
+    api.setcustom_headers(key, value)
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.info()
@@ -174,7 +179,7 @@ def test_for_409(api, json_409):
     httpretty.disable()
     httpretty.reset()
 
-# Test the maxPoolSize
+# Test the max_pool_size
 
 
 def test_the_max_pool_size(json_response, doc_params):
@@ -185,10 +190,10 @@ def test_the_max_pool_size(json_response, doc_params):
                                'x-rosetteapi-concurrency': 5
                            })
     api = API('bogus_key')
-    assert api.getPoolSize() == 1
+    assert api.get_pool_size() == 1
     result = api.language(doc_params)
     assert result["name"] == "Rosette API"
-    assert api.getPoolSize() == 5
+    assert api.get_pool_size() == 5
     httpretty.disable()
     httpretty.reset()
 
@@ -458,6 +463,7 @@ def test_for_name_deduplicatation_required_parameters(api, json_response):
     httpretty.disable()
     httpretty.reset()
 
+
 def test_the_name_deduplication_endpoint(api, json_response):
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
@@ -488,7 +494,7 @@ def test_the_relationships_endpoint(api, json_response):
 
     params = DocumentParameters()
     params["content"] = "some text data"
-    api.setOption('accuracyMode', 'PRECISION')
+    api.set_option('accuracyMode', 'PRECISION')
     result = api.relationships(params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
@@ -700,6 +706,7 @@ def test_for_transliteration_required_parameters(api, json_response):
 
     httpretty.disable()
     httpretty.reset()
+
 
 def test_the_transliteration_endpoint(api, json_response, doc_params):
     httpretty.enable()
