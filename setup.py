@@ -47,4 +47,4 @@ setup(name=NAME,
           'License :: OSI Approved :: Apache Software License',
           'Operating System :: OS Independent',
           'Topic :: Software Development :: Libraries :: Python Modules']
-)
+     )
