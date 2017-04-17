@@ -749,7 +749,7 @@ def test_the_transliteration_endpoint(api, json_response):
     params["sourceScript"] = "Latn"
     params["targetLanguage"] = "zho"
     params["targetScript"] = "Hani"
-    result = api.transliteration(doc_params)
+    result = api.transliteration(params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
