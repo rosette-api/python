@@ -680,61 +680,6 @@ def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
 
 # Test the transliteration endpoint
 
-
-def test_for_transliteration_required_parameters(api, json_response):
-    """Test transliteration parameters"""
-    httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
-                           body=json_response, status=200, content_type="application/json")
-
-    params = TransliterationParameters()
-    params["content"] = "Random text"
-
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.transliteration(params)
-
-    assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Transliteration parameter, '
-                                       'sourceLanguage, not supplied')
-
-    params["sourceLanguage"] = "eng"
-
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.transliteration(params)
-
-    assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Transliteration parameter, '
-                                       'sourceScript, not supplied')
-
-    params["sourceScript"] = "Latn"
-
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.transliteration(params)
-
-    assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Transliteration parameter, '
-                                       'targetLanguage, not supplied')
-
-    params["targetLanguage"] = "zho"
-
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.transliteration(params)
-
-    assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Transliteration parameter, '
-                                       'targetScript, not supplied')
-
-    params["targetScript"] = "Hani"
-
-    result = api.transliteration(params)
-    assert result["name"] == "Rosette API"
-
-    httpretty.disable()
-    httpretty.reset()
-
-
 def test_the_transliteration_endpoint(api, json_response):
     """Test the transliteration endpoint"""
     httpretty.enable()
@@ -743,12 +688,8 @@ def test_the_transliteration_endpoint(api, json_response):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
                            body=json_response, status=200, content_type="application/json")
 
-    params = TransliterationParameters()
+    params = DocumentParameters()
     params["content"] = "Some test content"
-    params["sourceLanguage"] = "eng"
-    params["sourceScript"] = "Latn"
-    params["targetLanguage"] = "zho"
-    params["targetScript"] = "Hani"
     result = api.transliteration(params)
     assert result["name"] == "Rosette API"
     httpretty.disable()

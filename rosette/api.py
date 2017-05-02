@@ -295,32 +295,6 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
                     repr(option))
 
 
-class TransliterationParameters(_DocumentParamSetBase):
-    """Parameter object for C{transliteration} endpoint.
-    Required:
-    C{content} Textual content
-    C{sourceLanguage} Source language code
-    C{sourceScript} Source language script
-    C{targetLanguage} Target language code
-    C{targetScript} Target language script
-    """
-
-    def __init__(self):
-        self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("content", "sourceLanguage", "sourceScript",
-                                              "targetLanguage", "targetScript"))
-
-    def validate(self):
-        """Internal. Do not use."""
-        for option in ("content", "sourceLanguage", "sourceScript", "targetLanguage",
-                       "targetScript"):
-            if self[option] is None:
-                raise RosetteException(
-                    "missingParameter",
-                    "Required Transliteration parameter, " + option + ", not supplied",
-                    repr(option))
-
-
 class EndpointCaller:
     """L{EndpointCaller} objects are invoked via their instance methods to obtain results
     from the Rosette server described by the L{API} object from which they
@@ -949,6 +923,6 @@ class API:
     def transliteration(self, parameters):
         """
         Transliterate given context
-        @type parameters: L{TransliterationParameters}
+        @type parameters: L{DocumentParameters}
         @return: A python dictionary containing the results of the transliteration"""
         return EndpointCaller(self, self.endpoints['TRANSLITERATION']).call(parameters)

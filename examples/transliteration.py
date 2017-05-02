@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, TransliterationParameters, RosetteException
+from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -16,12 +16,8 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     api = API(user_key=key, service_url=altUrl)
 
     transliteration_data = "Some random text"
-    params = TransliterationParameters()
+    params = DocumentParameters()
     params["content"] = transliteration_data
-    params["sourceLanguage"] = "eng"
-    params["sourceScript"] = "Latn"
-    params["targetLanguage"] = "zho"
-    params["targetScript"] = "Hani"
 
     try:
         return api.transliterate(params)
