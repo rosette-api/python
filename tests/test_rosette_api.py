@@ -27,7 +27,6 @@ from rosette.api import(API,
                         NameTranslationParameters,
                         NameSimilarityParameters,
                         NameDeduplicationParameters,
-                        TransliterationParameters,
                         RosetteException)
 
 _ISPY3 = sys.version_info[0] == 3
