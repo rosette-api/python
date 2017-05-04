@@ -20,7 +20,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params["content"] = transliteration_data
 
     try:
-        return api.transliterate(params)
+        return api.transliteration(params)
     except RosetteException as e:
         print(e)
 
