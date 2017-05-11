@@ -1,25 +1,27 @@
 # -*- coding: utf-8 -*-
 
 """
-Example code to call Rosette API to get lemmas for words in a piece of text.
+Example code to call Rosette API to deduplicate a list of names.
 """
 
 import argparse
 import json
 import os
 
-from rosette.api import API, DocumentParameters, RosetteException
+from rosette.api import API, NameDeduplicationParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
-    morphology_lemmas_data = "The fact is that the geese just went back to get a rest and I'm not banking on their return soon"
-    params = DocumentParameters()
-    params["content"] = morphology_lemmas_data
+    dedup_list = ["John Smith", "Johnathon Smith", "Fred Jones"]
+    threshold = 0.75
+    params = NameDeduplicationParameters()
+    params["names"] = dedup_list
+    params["threshold"] = threshold
     try:
-        return api.morphology(params, api.morphology_output['LEMMAS'])
+        return api.name_deduplication(params)
     except RosetteException as e:
         print(e)
 

@@ -22,19 +22,17 @@ import gzip
 import json
 import logging
 import sys
-import time
 import os
-import requests
 import re
-import warnings
+import requests
 
 _BINDING_VERSION = '1.5.0'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
-_IsPy3 = sys.version_info[0] == 3
+_ISPY3 = sys.version_info[0] == 3
 
 
-if _IsPy3:
+if _ISPY3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
 else:
     _GZIP_SIGNATURE = str(_GZIP_BYTEARRAY)
@@ -47,18 +45,19 @@ class _ReturnObject:
         self.status_code = code
 
     def json(self):
+        """ return  json"""
         return self._json
 
 
 def _my_loads(obj, response_headers):
-    if _IsPy3:
-        d1 = json.loads(obj.decode("utf-8")).copy()
-        d1.update(response_headers)
-        return d1  # if py3, need chars.
+    if _ISPY3:
+        temp = json.loads(obj.decode("utf-8")).copy()
+        temp.update(response_headers)
+        return temp  # if py3, need chars.
     else:
-        d2 = json.loads(obj).copy()
-        d2.update(response_headers)
-        return d2
+        temp = json.loads(obj).copy()
+        temp.update(response_headers)
+        return temp
 
 
 class RosetteException(Exception):
@@ -68,49 +67,16 @@ class RosetteException(Exception):
     """
 
     def __init__(self, status, message, response_message):
+        super(RosetteException, self).__init__(message)
         self.status = status
         self.message = message
         self.response_message = response_message
 
     def __str__(self):
         sst = self.status
-        if not (isinstance(sst, str)):
+        if not isinstance(sst, str):
             sst = repr(sst)
         return sst + ": " + self.message + ":\n  " + self.response_message
-
-
-class _PseudoEnum:
-
-    def __init__(self):
-        pass
-
-    @classmethod
-    def validate(cls, value, name):
-        values = []
-        for (k, v) in vars(cls).items():
-            if not k.startswith("__"):
-                values += [v]
-
-        # this is still needed to make sure that the parameter NAMES are known.
-        # If python didn't allow setting unknown values, this would be a
-        # language error.
-        if value not in values:
-            raise RosetteException(
-                "unknownVariable",
-                "The value supplied for " +
-                name +
-                " is not one of " +
-                ", ".join(values) +
-                ".",
-                repr(value))
-
-
-class MorphologyOutput(_PseudoEnum):
-    LEMMAS = "lemmas"
-    PARTS_OF_SPEECH = "parts-of-speech"
-    COMPOUND_COMPONENTS = "compound-components"
-    HAN_READINGS = "han-readings"
-    COMPLETE = "complete"
 
 
 class _DocumentParamSetBase(object):
@@ -133,31 +99,33 @@ class _DocumentParamSetBase(object):
         return self.__params[key]
 
     def validate(self):
+        """validation"""
         pass
 
     def serialize(self, options):
+        """serialize keys with values"""
         self.validate()
-        v = {}
+        values = {}
         for (key, val) in self.__params.items():
             if val is None:
                 pass
             else:
-                v[key] = val
+                values[key] = val
 
         if options is not None and len(options) > 0:
-            v['options'] = options
+            values['options'] = options
 
-        return v
+        return values
 
 
-def _byteify(s):  # py 3 only
-    l = len(s)
-    b = bytearray(l)
-    for ix in range(l):
-        oc = ord(s[ix])
-        assert (oc < 256)
-        b[ix] = oc
-    return b
+def _byteify(value):  # py 3 only
+    length = len(value)
+    byte_array = bytearray(length)
+    for index in range(length):
+        ordinal = ord(value[index])
+        assert ordinal < 256
+        byte_array[index] = ordinal
+    return byte_array
 
 
 class DocumentParameters(_DocumentParamSetBase):
@@ -180,7 +148,7 @@ class DocumentParameters(_DocumentParamSetBase):
         _DocumentParamSetBase.__init__(
             self, ("content", "contentUri", "language", "genre"))
         self.file_name = ""
-        self.useMultipart = False
+        self.use_multipart = False
 
     def validate(self):
         """Internal. Do not use."""
@@ -209,27 +177,28 @@ class DocumentParameters(_DocumentParamSetBase):
         be determined by the server.
         @parameter path: Pathname of a file acceptable to the C{open} function.
         """
-        self.useMultipart = True
+        self.use_multipart = True
         self.file_name = path
         self.load_document_string(open(path, "rb").read())
 
-    def load_document_string(self, s):
+    def load_document_string(self, content_as_string):
         """Loads a string into the object.
         The string will be taken as bytes or as Unicode dependent upon
         its native python type.
         @parameter s: A string, possibly a unicode-string, to be loaded
         for subsequent analysis.
         """
-        self["content"] = s
+        self["content"] = content_as_string
 
 
 class NameTranslationParameters(_DocumentParamSetBase):
     """Parameter object for C{name-translation} endpoint.
-    The following values may be set by the indexing (i.e.,C{ parms["name"]}) operator.  The values are all
-    strings (when not C{None}).
+    The following values may be set by the indexing (i.e.,C{ parms["name"]}) operator.
+    The values are all strings (when not C{None}).
     All are optional except C{name} and C{targetLanguage}.  Scripts are in
-    ISO15924 codes, and languages in ISO639 (two- or three-letter) codes.  See the Name Translation documentation for
-    more description of these terms, as well as the content of the return result.
+    ISO15924 codes, and languages in ISO639 (two- or three-letter) codes.  See the Name
+    Translation documentation for more description of these terms, as well as the
+    content of the return result.
 
     C{name} The name to be translated.
 
@@ -249,7 +218,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
     """
 
     def __init__(self):
-        self.useMultipart = False
+        self.use_multipart = False
         _DocumentParamSetBase.__init__(
             self,
             ("name",
@@ -264,12 +233,12 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for n in ("name", "targetLanguage"):  # required
-            if self[n] is None:
+        for option in ("name", "targetLanguage"):  # required
+            if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Translation parameter not supplied",
-                    repr(n))
+                    "Required Name Translation parameter, " + option + ", not supplied",
+                    repr(option))
 
 
 class NameSimilarityParameters(_DocumentParamSetBase):
@@ -292,17 +261,38 @@ class NameSimilarityParameters(_DocumentParamSetBase):
     """
 
     def __init__(self):
-        self.useMultipart = False
+        self.use_multipart = False
         _DocumentParamSetBase.__init__(self, ("name1", "name2"))
 
     def validate(self):
         """Internal. Do not use."""
-        for n in ("name1", "name2"):  # required
-            if self[n] is None:
+        for option in ("name1", "name2"):  # required
+            if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Similarity parameter not supplied",
-                    repr(n))
+                    "Required Name Similarity parameter, " + option + ", not supplied",
+                    repr(option))
+
+
+class NameDeduplicationParameters(_DocumentParamSetBase):
+    """Parameter object for C{name-deduplication} endpoint.
+    Required:
+    C{names} A list of C{name} objects
+    C{threshold} Threshold to use to restrict cluster size
+    """
+
+    def __init__(self):
+        self.use_multipart = False
+        _DocumentParamSetBase.__init__(self, ("names", "threshold"))
+
+    def validate(self):
+        """Internal. Do not use."""
+        for option in ("names", "threshold"):  # required
+            if self[option] is None:
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Name De-Duplication parameter, " + option + ", not supplied",
+                    repr(option))
 
 
 class EndpointCaller:
@@ -329,14 +319,14 @@ class EndpointCaller:
         self.service_url = api.service_url
         self.user_key = api.user_key
         self.logger = api.logger
-        self.useMultipart = False
+        self.use_multipart = False
         self.suburl = suburl
         self.debug = api.debug
         self.api = api
 
-    def __finish_result(self, r, ename):
-        code = r.status_code
-        the_json = r.json()
+    def __finish_result(self, response, ename):
+        code = response.status_code
+        the_json = response.json()
         if code == 200:
             return the_json
         else:
@@ -356,26 +346,29 @@ class EndpointCaller:
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary telling server version and other
         identifying data."""
-        url = self.service_url + "info"
-        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
+        url = self.service_url + self.api.endpoints["INFO"]
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
+                   'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
-        customHeaders = self.api.getCustomHeaders()
+        custom_headers = self.api.getcustom_headers()
         pattern = re.compile('^X-RosetteAPI-')
-        if customHeaders is not None:
-            for key in customHeaders.keys():
+        if custom_headers is not None:
+            for key in custom_headers.keys():
                 if pattern.match(key) is not None:
-                    headers[key] = customHeaders[key]
+                    headers[key] = custom_headers[key]
                 else:
-                    raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
-            self.api.clearCustomHeaders()
+                    raise RosetteException("badHeader",
+                                           "Custom header name must begin with \"X-RosetteAPI-\"",
+                                           key)
+            self.api.clearcustom_headers()
 
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('info: ' + url)
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
-        r = self.api._get_http(url, headers=headers)
-        return self.__finish_result(r, "info")
+        response = self.api.get_http(url, headers=headers)
+        return self.__finish_result(response, "info")
 
     def ping(self):
         """Issues a "ping" request to the L{EndpointCaller}'s (server-wide) endpoint.
@@ -383,34 +376,38 @@ class EndpointCaller:
         or is not the right server or some other error occurs, it will be
         signalled."""
 
-        url = self.service_url + 'ping'
-        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python', 'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
+        url = self.service_url + self.api.endpoints['PING']
+        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
+                   'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
-        customHeaders = self.api.getCustomHeaders()
+        custom_headers = self.api.getcustom_headers()
         pattern = re.compile('^X-RosetteAPI-')
-        if customHeaders is not None:
-            for key in customHeaders.keys():
+        if custom_headers is not None:
+            for key in custom_headers.keys():
                 if pattern.match(key) is not None:
-                    headers[key] = customHeaders[key]
+                    headers[key] = custom_headers[key]
                 else:
-                    raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
-            self.api.clearCustomHeaders()
+                    raise RosetteException("badHeader",
+                                           "Custom header name must begin with \"X-RosetteAPI-\"",
+                                           key)
+            self.api.clearcustom_headers()
 
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
         self.logger.info('Ping: ' + url)
         if self.user_key is not None:
             headers["X-RosetteAPI-Key"] = self.user_key
-        r = self.api._get_http(url, headers=headers)
-        return self.__finish_result(r, "ping")
+        response = self.api.get_http(url, headers=headers)
+        return self.__finish_result(response, "ping")
 
     def call(self, parameters):
         """Invokes the endpoint to which this L{EndpointCaller} is bound.
         Passes data and metadata specified by C{parameters} to the server
         endpoint to which this L{EndpointCaller} object is bound.  For all
-        endpoints except C{name-translation} and C{name-similarity}, it must be a L{DocumentParameters}
-        object or a string; for C{name-translation}, it must be an L{NameTranslationParameters} object;
-        for C{name-similarity}, it must be an L{NameSimilarityParameters} object. For relationships,
+        endpoints except C{name-translation} and C{name-similarity}, it must be
+        a L{DocumentParameters} object or a string; for C{name-translation}, it
+        must be an L{NameTranslationParameters} object; for C{name-similarity},
+        it must be an L{NameSimilarityParameters} object. For relationships,
         it may be an L(DocumentParameters).
 
         In all cases, the result is returned as a python dictionary
@@ -420,12 +417,15 @@ class EndpointCaller:
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the endpoint.  See the
         details for those object types.
-        @type parameters: For C{name-translation}, L{NameTranslationParameters}, otherwise L{DocumentParameters} or L{str}
+        @type parameters: For C{name-translation}, L{NameTranslationParameters},
+        otherwise L{DocumentParameters} or L{str}
         @return: A python dictionary expressing the result of the invocation.
         """
 
         if not isinstance(parameters, _DocumentParamSetBase):
-            if self.suburl != "name-similarity" and self.suburl != "name-translation":
+            if self.suburl != self.api.endpoints['NAME_SIMILARITY'] \
+               and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
+               and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION']:
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
@@ -435,35 +435,37 @@ class EndpointCaller:
                     "Text-only input only works for DocumentParameter endpoints",
                     self.suburl)
 
-        self.useMultipart = parameters.useMultipart
+        self.use_multipart = parameters.use_multipart
         url = self.service_url + self.suburl
         params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
-
-            customHeaders = self.api.getCustomHeaders()
+            custom_headers = self.api.getcustom_headers()
             pattern = re.compile('^X-RosetteAPI-')
-            if customHeaders is not None:
-                for key in customHeaders.keys():
+            if custom_headers is not None:
+                for key in custom_headers.keys():
                     if pattern.match(key) is not None:
-                        headers[key] = customHeaders[key]
+                        headers[key] = custom_headers[key]
                     else:
-                        raise RosetteException("badHeader", "Custom header name must begin with \"X-RosetteAPI-\"", key)
-                self.api.clearCustomHeaders()
+                        raise RosetteException("badHeader",
+                                               "Custom header name must "
+                                               "begin with \"X-RosetteAPI-\"",
+                                               key)
+                self.api.clearcustom_headers()
 
             headers["X-RosetteAPI-Key"] = self.user_key
             headers["X-RosetteAPI-Binding"] = "python"
             headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
 
-        if self.useMultipart:
+        if self.use_multipart:
             payload = None
-            if (self.api.urlParameters):
-                payload = self.api.urlParameters
+            if self.api.url_parameters:
+                payload = self.api.url_parameters
 
             params = dict(
                 (key,
                  value) for key,
-                value in params_to_serialize.iteritems() if key == 'language')
+                value in params_to_serialize.items() if key == 'language')
             files = {
                 'content': (
                     os.path.basename(
@@ -482,7 +484,8 @@ class EndpointCaller:
             rdata = resp.content
             response_headers = {"responseHeaders": dict(resp.headers)}
             status = resp.status_code
-            r = _ReturnObject(_my_loads(rdata, response_headers), status)
+            response = _ReturnObject(
+                _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
                 headers['X-RosetteAPI-Devel'] = True
@@ -490,8 +493,8 @@ class EndpointCaller:
             headers['Accept'] = "application/json"
             headers['Accept-Encoding'] = "gzip"
             headers['Content-Type'] = "application/json"
-            r = self.api._post_http(url, params_to_serialize, headers)
-        return self.__finish_result(r, "operate")
+            response = self.api.post_http(url, params_to_serialize, headers)
+        return self.__finish_result(response, "operate")
 
 
 class API:
@@ -509,9 +512,9 @@ class API:
             refresh_duration=0.5,
             debug=False):
         """ Create an L{API} object.
-        @param user_key: (Optional; required for servers requiring authentication.) An authentication string to be sent
-         as user_key with all requests.  The default Rosette server requires authentication.
-         to the server.
+        @param user_key: (Optional; required for servers requiring authentication.)
+        An authentication string to be sent as user_key with all requests.  The
+        default Rosette server requires authentication to the server.
         """
         # logging.basicConfig(filename="binding.log", filemode="w", level=logging.DEBUG)
         self.user_key = user_key
@@ -521,28 +524,56 @@ class API:
         self.logger.info('Initialized on ' + self.service_url)
         self.debug = debug
 
-        if (retries < 1):
+        if retries < 1:
             retries = 1
-        if (refresh_duration < 0):
+        if refresh_duration < 0:
             refresh_duration = 0
 
         self.connection_refresh_duration = refresh_duration
         self.options = {}
-        self.customHeaders = {}
-        self.urlParameters = {}
-        self.maxPoolSize = 1
+        self.custom_headers = {}
+        self.url_parameters = {}
+        self.max_pool_size = 1
         self.session = requests.Session()
 
+        self.morphology_output = {
+            'LEMMAS': 'lemmas',
+            'PARTS_OF_SPEECH': 'parts-of-speech',
+            'COMPOUND_COMPONENTS': 'compound-components',
+            'HAN_READINGS': 'han-readings',
+            'COMPLETE': 'complete'
+        }
+
+        self.endpoints = {
+            'CATEGORIES': 'categories',
+            'ENTITIES': 'entities',
+            'INFO': 'info',
+            'LANGUAGE': 'language',
+            'MORPHOLOGY': 'morphology',
+            'NAME_TRANSLATION': 'name-translation',
+            'NAME_SIMILARITY': 'name-similarity',
+            'NAME_DEDUPLICATION': 'name-deduplication',
+            'PING': 'ping',
+            'RELATIONSHIPS': 'relationships',
+            'SENTENCES': 'sentences',
+            'SENTIMENT': 'sentiment',
+            'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
+            'TEXT_EMBEDDING': 'text-embedding',
+            'TOKENS': 'tokens',
+            'TRANSLITERATION': 'transliteration'
+        }
+
     def _set_pool_size(self):
-        adapter = requests.adapters.HTTPAdapter(pool_maxsize=self.maxPoolSize)
+        adapter = requests.adapters.HTTPAdapter(
+            pool_maxsize=self.max_pool_size)
         if 'https:' in self.service_url:
             self.session.mount('https://', adapter)
         else:
             self.session.mount('http://', adapter)
 
-    def _make_request(self, op, url, data, headers):
+    def _make_request(self, operation, url, data, headers):
         """
-        @param op: POST or GET
+        @param operation: POST or GET
         @param url: endpoing URL
         @param data: request data
         @param headers: request headers
@@ -555,10 +586,11 @@ class API:
         response_headers = {}
 
         payload = None
-        if (self.urlParameters):
-            payload = self.urlParameters
+        if self.url_parameters:
+            payload = self.url_parameters
 
-        request = requests.Request(op, url, data=data, headers=headers, params=payload)
+        request = requests.Request(
+            operation, url, data=data, headers=headers, params=payload)
         session = requests.Session()
         prepared_request = session.prepare_request(request)
 
@@ -569,8 +601,8 @@ class API:
             dict_headers = dict(response.headers)
             response_headers = {"responseHeaders": dict_headers}
             if 'x-rosetteapi-concurrency' in dict_headers:
-                if dict_headers['x-rosetteapi-concurrency'] != self.maxPoolSize:
-                    self.maxPoolSize = dict_headers['x-rosetteapi-concurrency']
+                if dict_headers['x-rosetteapi-concurrency'] != self.max_pool_size:
+                    self.max_pool_size = dict_headers['x-rosetteapi-concurrency']
                     self._set_pool_size()
 
             if status == 200:
@@ -590,15 +622,15 @@ class API:
 
                 except:
                     raise
-        except requests.exceptions.RequestException as e:
+        except requests.exceptions.RequestException as exception:
             raise RosetteException(
-                e.message,
+                exception,
                 "Unable to establish connection to the Rosette API server",
                 url)
 
         raise RosetteException(code, message, url)
 
-    def _get_http(self, url, headers):
+    def get_http(self, url, headers):
         """
         Simple wrapper for the GET request
 
@@ -609,7 +641,7 @@ class API:
             "GET", url, None, headers)
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
-    def _post_http(self, url, data, headers):
+    def post_http(self, url, data, headers):
         """
         Simple wrapper for the POST request
 
@@ -631,13 +663,13 @@ class API:
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
-    def getPoolSize(self):
+    def get_pool_size(self):
         """
         Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
         """
-        return int(self.maxPoolSize)
+        return int(self.max_pool_size)
 
-    def setOption(self, name, value):
+    def set_option(self, name, value):
         """
         Sets an option
 
@@ -649,7 +681,7 @@ class API:
         else:
             self.options[name] = value
 
-    def getOption(self, name):
+    def get_option(self, name):
         """
         Gets an option
 
@@ -662,13 +694,13 @@ class API:
         else:
             return None
 
-    def clearOptions(self):
+    def clear_options(self):
         """
         Clears all options
         """
         self.options.clear()
 
-    def setUrlParameter(self, name, value):
+    def set_url_parameter(self, name, value):
         """
         Sets a URL parameter
 
@@ -676,11 +708,11 @@ class API:
         @param value: value of parameter
         """
         if value is None:
-            self.urlParameters.pop(name, None)
+            self.url_parameters.pop(name, None)
         else:
-            self.urlParameters[name] = value
+            self.url_parameters[name] = value
 
-    def getUrlParameter(self, name):
+    def get_url_parameter(self, name):
         """
         Gets a URL parameter
 
@@ -688,40 +720,40 @@ class API:
 
         @return: value of parameter
         """
-        if name in self.urlParameters.keys():
-            return self.urlParameters[name]
+        if name in self.url_parameters.keys():
+            return self.url_parameters[name]
         else:
             return None
 
-    def clearUrlParameters(self):
+    def clearurl_parameters(self):
         """
         Clears all options
         """
-        self.urlParameters.clear()
+        self.url_parameters.clear()
 
-    def setCustomHeaders(self, name, value):
+    def setcustom_headers(self, name, value):
         """
         Sets custom headers
 
         @param headers: array of custom headers to be set
         """
         if value is None:
-            self.customHeaders.pop(name, None)
+            self.custom_headers.pop(name, None)
         else:
-            self.customHeaders[name] = value
+            self.custom_headers[name] = value
 
-    def getCustomHeaders(self):
+    def getcustom_headers(self):
         """
         Get custom headers
         """
-        return self.customHeaders
+        return self.custom_headers
 
-    def clearCustomHeaders(self):
+    def clearcustom_headers(self):
         """
         Clears custom headers
         """
 
-        self.customHeaders.clear()
+        self.custom_headers.clear()
 
     def ping(self):
         """
@@ -745,7 +777,7 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of language
         identification."""
-        return EndpointCaller(self, "language").call(parameters)
+        return EndpointCaller(self, self.endpoints['LANGUAGE']).call(parameters)
 
     def sentences(self, parameters):
         """
@@ -754,7 +786,7 @@ class API:
         and possible metadata, to be processed by the sentence identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of sentence identification."""
-        return EndpointCaller(self, "sentences").call(parameters)
+        return EndpointCaller(self, self.endpoints['SENTENCES']).call(parameters)
 
     def tokens(self, parameters):
         """
@@ -763,9 +795,9 @@ class API:
         and possible metadata, to be processed by the tokens identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of tokenization."""
-        return EndpointCaller(self, "tokens").call(parameters)
+        return EndpointCaller(self, self.endpoints['TOKENS']).call(parameters)
 
-    def morphology(self, parameters, facet=MorphologyOutput.COMPLETE):
+    def morphology(self, parameters, facet=""):
         """
         Create an L{EndpointCaller} to returns a specific facet
         of the morphological analyses of texts to which it is applied and call it.
@@ -775,7 +807,9 @@ class API:
         @param facet: The facet desired, to be returned by the created L{EndpointCaller}.
         @type facet: An element of L{MorphologyOutput}.
         @return: A python dictionary containing the results of morphological analysis."""
-        return EndpointCaller(self, "morphology/" + facet).call(parameters)
+        if facet == "":
+            facet = self.morphology_output['COMPLETE']
+        return EndpointCaller(self, self.endpoints['MORPHOLOGY'] + "/" + facet).call(parameters)
 
     def entities(self, parameters):
         """
@@ -786,7 +820,7 @@ class API:
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of entity extraction."""
 
-        return EndpointCaller(self, "entities").call(parameters)
+        return EndpointCaller(self, self.endpoints['ENTITIES']).call(parameters)
 
     def categories(self, parameters):
         """
@@ -796,7 +830,7 @@ class API:
         and possible metadata, to be processed by the category identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of categorization."""
-        return EndpointCaller(self, "categories").call(parameters)
+        return EndpointCaller(self, self.endpoints['CATEGORIES']).call(parameters)
 
     def sentiment(self, parameters):
         """
@@ -810,7 +844,7 @@ class API:
         to which is applied.
         @return: An L{EndpointCaller} object which can return sentiments
         of texts to which it is applied."""
-        return EndpointCaller(self, "sentiment").call(parameters)
+        return EndpointCaller(self, self.endpoints['SENTIMENT']).call(parameters)
 
     def relationships(self, parameters):
         """
@@ -820,7 +854,7 @@ class API:
         and possible metadata, to be processed by the relationships identifier.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of relationship extraction."""
-        return EndpointCaller(self, "relationships").call(parameters)
+        return EndpointCaller(self, self.endpoints['RELATIONSHIPS']).call(parameters)
 
     def name_translation(self, parameters):
         """
@@ -830,7 +864,7 @@ class API:
         and possible metadata, to be processed by the name translator.
         @type parameters: L{NameTranslationParameters}
         @return: A python dictionary containing the results of name translation."""
-        return EndpointCaller(self, "name-translation").call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_TRANSLATION']).call(parameters)
 
     def translated_name(self, parameters):
         """ deprecated
@@ -849,7 +883,7 @@ class API:
         and possible metadata, to be processed by the name matcher.
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
-        return EndpointCaller(self, "name-similarity").call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_SIMILARITY']).call(parameters)
 
     def matched_name(self, parameters):
         """ deprecated
@@ -860,18 +894,35 @@ class API:
         @return: A python dictionary containing the results of name matching."""
         return self.name_similarity(parameters)
 
+    def name_deduplication(self, parameters):
+        """
+        Fuzzy de-duplication of a list of names
+        @param parameters: An object specifying a list of names as well
+        as a threshold
+        @type parameters: L{NameDeduplicationParameters}
+        @return: A python dictionary containing the results of de-duplication"""
+        return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters)
+
     def text_embedding(self, parameters):
         """
         Create an L{EndpointCaller}  to identify text vectors found in the texts
         to which it is applied and call it.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of text embedding."""
-        return EndpointCaller(self, "text-embedding").call(parameters)
+        return EndpointCaller(self, self.endpoints['TEXT_EMBEDDING']).call(parameters)
 
     def syntax_dependencies(self, parameters):
         """
         Create an L{EndpointCaller} to identify the syntactic dependencies in the texts
         to which it is applied and call it.
         @type parameters: L{DocumentParameters} or L{str}
-        @return: A python dictionary containing the results of syntactic dependencies identification"""
-        return EndpointCaller(self, "syntax/dependencies").call(parameters)
+        @return: A python dictionary containing the results of syntactic dependencies
+        identification"""
+        return EndpointCaller(self, self.endpoints['SYNTAX_DEPENDENCIES']).call(parameters)
+
+    def transliteration(self, parameters):
+        """
+        Transliterate given context
+        @type parameters: L{DocumentParameters}
+        @return: A python dictionary containing the results of the transliteration"""
+        return EndpointCaller(self, self.endpoints['TRANSLITERATION']).call(parameters)

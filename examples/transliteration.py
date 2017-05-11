@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Example code to call Rosette API to get lemmas for words in a piece of text.
+Example code to call Rosette API to transliterate a piece of text.
 """
 
 import argparse
@@ -15,11 +15,12 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
-    morphology_lemmas_data = "The fact is that the geese just went back to get a rest and I'm not banking on their return soon"
+    transliteration_data = "Some random text"
     params = DocumentParameters()
-    params["content"] = morphology_lemmas_data
+    params["content"] = transliteration_data
+
     try:
-        return api.morphology(params, api.morphology_output['LEMMAS'])
+        return api.transliteration(params)
     except RosetteException as e:
         print(e)
 

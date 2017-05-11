@@ -8,7 +8,7 @@ import argparse
 import json
 import os
 
-from rosette.api import API, DocumentParameters, MorphologyOutput, RosetteException
+from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, altUrl='https://api.rosette.com/rest/v1/'):
@@ -19,7 +19,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = morphology_parts_of_speech_data
     try:
-        return api.morphology(params, MorphologyOutput.PARTS_OF_SPEECH)
+        return api.morphology(params, api.morphology_output['PARTS_OF_SPEECH'])
     except RosetteException as e:
         print(e)
 
