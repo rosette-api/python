@@ -15,10 +15,10 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=altUrl)
 
-    dedup_list = ["John Smith", "Johnathon Smith", "Fred Jones"]
+    name_dedupe_data = 'John Smith,Johnathon Smith,Fred Jones'
     threshold = 0.75
     params = NameDeduplicationParameters()
-    params["names"] = dedup_list
+    params["names"] = name_dedupe_data.split(',')
     params["threshold"] = threshold
     try:
         return api.name_deduplication(params)
