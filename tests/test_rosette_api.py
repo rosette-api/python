@@ -462,15 +462,6 @@ def test_name_deduplicatation_parameters(api, json_response):
 
     params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
 
-    with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_deduplication(params)
-
-    assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Name De-Duplication parameter,'
-                                       ' threshold, not supplied')
-
-    params["threshold"] = 0.75
-
     result = api.name_deduplication(params)
     assert result["name"] == "Rosette API"
 

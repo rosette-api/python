@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2015 Basis Technology Corporation.
+Copyright (c) 2014-2017 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -278,7 +278,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
     """Parameter object for C{name-deduplication} endpoint.
     Required:
     C{names} A list of C{name} objects
-    C{threshold} Threshold to use to restrict cluster size
+    C{threshold} Threshold to use to restrict cluster size. Can be null to use default value.
     """
 
     def __init__(self):
@@ -287,12 +287,11 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("names", "threshold"):  # required
-            if self[option] is None:
-                raise RosetteException(
-                    "missingParameter",
-                    "Required Name De-Duplication parameter, " + option + ", not supplied",
-                    repr(option))
+        if self["names"] is None:  # required
+            raise RosetteException(
+                "missingParameter",
+                "Required Name De-Duplication parameter, names, not supplied",
+                repr("names"))
 
 
 class EndpointCaller:
