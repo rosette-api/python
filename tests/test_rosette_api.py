@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2014-2015 Basis Technology Corporation.
+Copyright (c) 2014-2017 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -71,12 +71,30 @@ def doc_params():
 # Test the option set/get/clear
 
 
+def test_option_get_set_clear_deprecated(api):
+    """Tests the deprecated get/set/clear Options methods"""
+    api.setOption('test', 'foo')
+    assert api.getOption('test') == 'foo'
+
+    api.clearOptions()
+    assert api.getOption('test') is None
+
+
 def test_option_get_set_clear(api):
     """Tests the get/set/clear methods"""
     api.set_option('test', 'foo')
     assert api.get_option('test') == 'foo'
 
     api.clear_options()
+    assert api.get_option('test') is None
+
+
+def test_option_clear_single_option_deprecated(api):
+    """Test the deprecated clear single option"""
+    api.setOption('test', 'foo')
+    assert api.getOption('test') == 'foo'
+
+    api.set_option('test', None)
     assert api.get_option('test') is None
 
 
@@ -88,7 +106,15 @@ def test_option_clear_single_option(api):
     api.set_option('test', None)
     assert api.get_option('test') is None
 
+
 # Test the URL parameter set/get/clear
+def test_url_parameter_getsetclear_deprecated(api):
+    """Tests get/set/clear url parameter"""
+    api.setUrlParameter('test', 'foo')
+    assert api.getUrlParameter('test') == 'foo'
+
+    api.clearUrlParameters()
+    assert api.getUrlParameter('test') is None
 
 
 def test_url_parameter_getsetclear(api):
@@ -96,8 +122,17 @@ def test_url_parameter_getsetclear(api):
     api.set_url_parameter('test', 'foo')
     assert api.get_url_parameter('test') == 'foo'
 
-    api.clearurl_parameters()
+    api.clear_url_parameters()
     assert api.get_url_parameter('test') is None
+
+
+def test_url_parameter_clear_single_deprecated(api):
+    """Test the deprecated clearing of a single url parameter"""
+    api.setUrlParameter('test', 'foo')
+    assert api.getUrlParameter('test') == 'foo'
+
+    api.setUrlParameter('test', None)
+    assert api.getUrlParameter('test') is None
 
 
 def test_url_parameter_clear_single(api):
@@ -111,24 +146,47 @@ def test_url_parameter_clear_single(api):
 # Test the custom header set/get/clear
 
 
+def test_custom_header_props_deprecated(api):
+    """Test custom header get/set/clear"""
+    key = 'X-RosetteAPI-Test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+    assert value == api.getCustomHeaders()[key]
+
+    api.clearCustomHeaders()
+    assert len(api.getCustomHeaders()) is 0
+
+
 def test_custom_header_props(api):
     """Test custom header get/set/clear"""
     key = 'X-RosetteAPI-Test'
     value = 'foo'
-    api.setcustom_headers(key, value)
-    assert value == api.getcustom_headers()[key]
+    api.set_custom_headers(key, value)
+    assert value == api.get_custom_headers()[key]
 
-    api.clearcustom_headers()
-    assert len(api.getcustom_headers()) is 0
+    api.clear_custom_headers()
+    assert len(api.get_custom_headers()) is 0
 
 # Test for invalid header name
+
+
+def test_invalid_header_deprecated(api):
+    """Test for invalid header"""
+    key = 'test'
+    value = 'foo'
+    api.setCustomHeaders(key, value)
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.info()
+
+    assert e_rosette.value.status == 'badHeader'
 
 
 def test_invalid_header(api):
     """Test for invalid header"""
     key = 'test'
     value = 'foo'
-    api.setcustom_headers(key, value)
+    api.set_custom_headers(key, value)
 
     with pytest.raises(RosetteException) as e_rosette:
         api.info()
