@@ -18,7 +18,7 @@ def run(key, altUrl='https://api.rosette.com/rest/v1/'):
     language_data = "Por favor Señorita, says the man."
     params = DocumentParameters()
     params["content"] = language_data
-    api.setcustom_headers("X-RosetteAPI-App", "python-app")
+    api.set_custom_headers("X-RosetteAPI-App", "python-app")
     try:
         return api.language(params)
     except RosetteException as e:

@@ -24,9 +24,10 @@ import logging
 import sys
 import os
 import re
+import warnings
 import requests
 
-_BINDING_VERSION = '1.5.0'
+_BINDING_VERSION = '1.6.0'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
@@ -36,6 +37,8 @@ if _ISPY3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
 else:
     _GZIP_SIGNATURE = str(_GZIP_BYTEARRAY)
+
+warnings.simplefilter('always')
 
 
 class _ReturnObject:
@@ -77,6 +80,46 @@ class RosetteException(Exception):
         if not isinstance(sst, str):
             sst = repr(sst)
         return sst + ": " + self.message + ":\n  " + self.response_message
+
+
+class _PseudoEnum:
+    """ Base class for MorphologyOutput """
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def validate(cls, value, name):
+        """ validation method """
+        values = []
+        for (key, value) in vars(cls).items():
+            if not key.startswith("__"):
+                values += [value]
+
+        # this is still needed to make sure that the parameter NAMES are known.
+        # If python didn't allow setting unknown values, this would be a
+        # language error.
+        if value not in values:
+            raise RosetteException(
+                "unknownVariable",
+                "The value supplied for " +
+                name +
+                " is not one of " +
+                ", ".join(values) +
+                ".",
+                repr(value))
+
+
+class MorphologyOutput(_PseudoEnum):
+    """ Class to provide Morphology sub-endpoints """
+    warnings.warn('MorphologyOutput to be removed in version 1.9.0. '
+                  'Please use API.morphology_output',
+                  DeprecationWarning)
+    LEMMAS = "lemmas"
+    PARTS_OF_SPEECH = "parts-of-speech"
+    COMPOUND_COMPONENTS = "compound-components"
+    HAN_READINGS = "han-readings"
+    COMPLETE = "complete"
 
 
 class _DocumentParamSetBase(object):
@@ -349,7 +392,7 @@ class EndpointCaller:
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
                    'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
-        custom_headers = self.api.getcustom_headers()
+        custom_headers = self.api.get_custom_headers()
         pattern = re.compile('^X-RosetteAPI-')
         if custom_headers is not None:
             for key in custom_headers.keys():
@@ -359,7 +402,7 @@ class EndpointCaller:
                     raise RosetteException("badHeader",
                                            "Custom header name must begin with \"X-RosetteAPI-\"",
                                            key)
-            self.api.clearcustom_headers()
+            self.api.clear_custom_headers()
 
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
@@ -379,7 +422,7 @@ class EndpointCaller:
         headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
                    'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
 
-        custom_headers = self.api.getcustom_headers()
+        custom_headers = self.api.get_custom_headers()
         pattern = re.compile('^X-RosetteAPI-')
         if custom_headers is not None:
             for key in custom_headers.keys():
@@ -389,7 +432,7 @@ class EndpointCaller:
                     raise RosetteException("badHeader",
                                            "Custom header name must begin with \"X-RosetteAPI-\"",
                                            key)
-            self.api.clearcustom_headers()
+            self.api.clear_custom_headers()
 
         if self.debug:
             headers['X-RosetteAPI-Devel'] = 'true'
@@ -439,7 +482,7 @@ class EndpointCaller:
         params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
-            custom_headers = self.api.getcustom_headers()
+            custom_headers = self.api.get_custom_headers()
             pattern = re.compile('^X-RosetteAPI-')
             if custom_headers is not None:
                 for key in custom_headers.keys():
@@ -450,7 +493,7 @@ class EndpointCaller:
                                                "Custom header name must "
                                                "begin with \"X-RosetteAPI-\"",
                                                key)
-                self.api.clearcustom_headers()
+                self.api.clear_custom_headers()
 
             headers["X-RosetteAPI-Key"] = self.user_key
             headers["X-RosetteAPI-Binding"] = "python"
@@ -662,11 +705,30 @@ class API:
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
+    def getPoolSize(self):
+        """
+        Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
+        """
+        warnings.warn('Method renamed to API.get_pool_size(). To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.get_pool_size()
+
     def get_pool_size(self):
         """
         Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
         """
         return int(self.max_pool_size)
+
+    def setOption(self, name, value):
+        """
+        Sets an option
+
+        @param name: name of option
+        @param value: value of option
+        """
+        warnings.warn('Method renamed to API.set_option().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.set_option(name, value)
 
     def set_option(self, name, value):
         """
@@ -679,6 +741,18 @@ class API:
             self.options.pop(name, None)
         else:
             self.options[name] = value
+
+    def getOption(self, name):
+        """
+        Gets an option
+
+        @param name: name of option
+
+        @return: value of option
+        """
+        warnings.warn('Method renamed to API.get_option().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.get_option(name)
 
     def get_option(self, name):
         """
@@ -693,11 +767,30 @@ class API:
         else:
             return None
 
+    def clearOptions(self):
+        """
+        Clears all options
+        """
+        warnings.warn('Method renamed to API.clear_options().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        self.clear_options()
+
     def clear_options(self):
         """
         Clears all options
         """
         self.options.clear()
+
+    def setUrlParameter(self, name, value):
+        """
+        Sets a URL parameter
+
+        @param name: name of parameter
+        @param value: value of parameter
+        """
+        warnings.warn('Method renamed to API.set_url_parameter().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.set_url_parameter(name, value)
 
     def set_url_parameter(self, name, value):
         """
@@ -710,6 +803,18 @@ class API:
             self.url_parameters.pop(name, None)
         else:
             self.url_parameters[name] = value
+
+    def getUrlParameter(self, name):
+        """
+        Gets a URL parameter
+
+        @param name: name of parameter
+
+        @return: value of parameter
+        """
+        warnings.warn('Method renamed to API.get_url_parameter().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.get_url_parameter(name)
 
     def get_url_parameter(self, name):
         """
@@ -724,13 +829,32 @@ class API:
         else:
             return None
 
-    def clearurl_parameters(self):
+    def clearUrlParameters(self):
+        """
+        Clears all options
+        """
+        warnings.warn('Method renamed to API.clear_url_parameters(). '
+                      'To be removed in version 1.9.0',
+                      DeprecationWarning)
+        self.clear_url_parameters()
+
+    def clear_url_parameters(self):
         """
         Clears all options
         """
         self.url_parameters.clear()
 
-    def setcustom_headers(self, name, value):
+    def setCustomHeaders(self, name, value):
+        """
+        Sets custom headers
+
+        @param headers: array of custom headers to be set
+        """
+        warnings.warn('Method renamed to API.set_custom_headers().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.set_custom_headers(name, value)
+
+    def set_custom_headers(self, name, value):
         """
         Sets custom headers
 
@@ -741,13 +865,30 @@ class API:
         else:
             self.custom_headers[name] = value
 
-    def getcustom_headers(self):
+    def getCustomHeaders(self):
+        """
+        Get custom headers
+        """
+        warnings.warn('Method renamed to API.get_custom_headers().  To be removed in version 1.9.0',
+                      DeprecationWarning)
+        return self.get_custom_headers()
+
+    def get_custom_headers(self):
         """
         Get custom headers
         """
         return self.custom_headers
 
-    def clearcustom_headers(self):
+    def clearCustomHeaders(self):
+        """
+        Clears custom headers
+        """
+        warnings.warn('Method renamed to API.clear_custom_headers(). '
+                      'To be removed in version 1.9.0',
+                      DeprecationWarning)
+        self.clear_custom_headers()
+
+    def clear_custom_headers(self):
         """
         Clears custom headers
         """
