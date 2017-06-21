@@ -112,9 +112,12 @@ class _PseudoEnum:
 
 class MorphologyOutput(_PseudoEnum):
     """ Class to provide Morphology sub-endpoints """
-    warnings.warn('MorphologyOutput to be removed in version 1.9.0. '
-                  'Please use API.morphology_output',
-                  DeprecationWarning)
+
+    def __init__(self):
+        warnings.warn('MorphologyOutput to be removed in version 1.9.0. '
+                      'Please use API.morphology_output',
+                      DeprecationWarning)
+
     LEMMAS = "lemmas"
     PARTS_OF_SPEECH = "parts-of-speech"
     COMPOUND_COMPONENTS = "compound-components"
@@ -604,6 +607,9 @@ class API:
             'TOKENS': 'tokens',
             'TRANSLITERATION': 'transliteration'
         }
+
+    def __del__(self):
+        self.session.close()
 
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
