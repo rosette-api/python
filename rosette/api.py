@@ -605,6 +605,9 @@ class API:
             'TRANSLITERATION': 'transliteration'
         }
 
+    def __del__(self):
+        self.session.close()
+
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
             pool_maxsize=self.max_pool_size)
