@@ -609,7 +609,10 @@ class API:
         }
 
     def __del__(self):
-        self.session.close()
+        try:
+            self.session.close()
+        except ReferenceError:
+            pass
 
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
