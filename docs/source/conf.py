@@ -167,6 +167,3 @@ texinfo_documents = [
      author, 'PythonBinding', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
