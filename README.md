@@ -10,6 +10,15 @@ The Python binding requires Python 2.6 or greater and is available through pip:
 
 `pip install rosette_api`
 
+If the version you are using is not [the latest from PyPI](https://pypi.org/project/rosette_api/#history),
+please check for its [**compatibilty with api.rosette.com**](https://developer.rosette.com/features-and-functions?python).
+If you have an on-premise version of Rosette API server, please contact support for
+binding compatibility with your installation.
+
+To check your installed version:
+
+`pip show rosette_api`
+
 Basic Usage
 -----------
 
