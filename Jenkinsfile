@@ -8,7 +8,7 @@ node {
         }
         stage("Checkout Code") {
             checkout scm
-            echo ${sourceDir}
+            echo "${sourceDir}"
         }
         stage("Test with Docker") {
             withEnv(["API_KEY=env.ROSETTE_API_KEY"]) {
