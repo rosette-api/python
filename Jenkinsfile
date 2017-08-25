@@ -9,7 +9,7 @@ node {
         stage("Test with Docker") {
             withEnv(["API_KEY=env.ROSETTE_API_KEY"]) {
                 docker.image('rosetteapi/docker-python').inside {
-                    sh '.docker-entrypoint.sh'
+                    sh './docker-entrypoint.sh'
                 }
             }
         }
