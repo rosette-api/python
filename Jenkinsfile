@@ -1,4 +1,5 @@
 node {
+    def sourceDir = pwd()
     try {
         stage("Clean up") {
             step([$class: 'WsCleanup'])
@@ -7,10 +8,10 @@ node {
             checkout scm
         }
         stage("Test with Docker") {
-            withEnv(["API_KEY=env.ROSETTE_API_KEY"]) {
+            withEnv(["API_KEY=env.ROSETTE_API_KEY", "sourceDir=${pwd()}"]) {
                 docker.image('rosetteapi/docker-python').run([
                     "-e API_KEY=${API_KEY}",
-                    "-v $(pwd):/source"
+                    "-v ${sourceDir}:/source"
                 ])
             }
         }
