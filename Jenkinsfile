@@ -10,7 +10,7 @@ node {
             withEnv(["API_KEY=env.ROSETTE_API_KEY"]) {
                 docker.image('rosetteapi/docker-python').run([
                     "-e API_KEY=${API_KEY}",
-                    "-v ${pwd}:/source"
+                    "-v $(pwd):/source"
                 ])
             }
         }
