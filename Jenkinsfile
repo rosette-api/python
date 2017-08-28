@@ -10,7 +10,7 @@ node {
         }
         stage("Test with Docker") {
             withEnv(["API_KEY=env.ROSETTE_API_KEY"]) {
-                docker.image('rosetteapi/docker-python').run()
+                sh "docker run --rm -it -e API_KEY=${API_KEY} -v ${SOURCEDIR}:/source rosetteapi/docker-python"
             }
         }
         slack(true)
