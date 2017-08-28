@@ -1,7 +1,5 @@
 node {
-    environment {
-        SOURCEDIR = pwd()
-    }
+    def SOURCEDIR = pwd()
     try {
         stage("Clean up") {
             step([$class: 'WsCleanup'])
