@@ -9,7 +9,7 @@ node {
             checkout scm
         }
         stage("Build Dockerfile") {
-            dir ('./docker') {
+            dir ('./examples/docker') {
                 docker.build("${TEST_CONTAINER}")
             }
         }
