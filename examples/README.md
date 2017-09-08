@@ -38,6 +38,7 @@ Each example, when run, prints its output to the console.
 | sentences.py                     | Gets the sentences from a piece of text               |
 | sentiment.py                     | Gets the sentiment of a local file                    |
 | tokens.py                        | Gets the tokens (words) from a piece of text          |
+| topics.py | Returns key phrases and concepts from provided content |
 | translated-name.py               | Translates a name from one language to another        |
 | transliteration.py               | Transliterates the given text |
 
