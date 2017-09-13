@@ -525,11 +525,14 @@ class EndpointCaller:
                 'POST', url, files=files, headers=headers, params=payload)
             session = requests.Session()
             prepared_request = session.prepare_request(request)
-            settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
-            resp = session.send(prepared_request, **settings)
-            rdata = resp.content
-            response_headers = {"responseHeaders": dict(resp.headers)}
-            status = resp.status_code
+            # settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
+            if self.api.proxies:
+                response = session.send(prepared_request, proxies=self.api.proxies)
+            else:
+                response = session.send(prepared_request)
+            rdata = response.content
+            response_headers = {"responseHeaders": dict(response.headers)}
+            status = response.status_code
             response = _ReturnObject(
                 _my_loads(rdata, response_headers), status)
         else:
