@@ -525,7 +525,8 @@ class EndpointCaller:
                 'POST', url, files=files, headers=headers, params=payload)
             session = requests.Session()
             prepared_request = session.prepare_request(request)
-            resp = session.send(prepared_request)
+            settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
+            resp = session.send(prepared_request, **settings)
             rdata = resp.content
             response_headers = {"responseHeaders": dict(resp.headers)}
             status = resp.status_code
@@ -579,6 +580,7 @@ class API:
         self.custom_headers = {}
         self.url_parameters = {}
         self.max_pool_size = 1
+        self.proxies = {}
         self.session = requests.Session()
 
         self.morphology_output = {
@@ -608,11 +610,21 @@ class API:
             'TRANSLITERATION': 'transliteration'
         }
 
+        self._check_for_proxies()
+
     def __del__(self):
         try:
             self.session.close()
         except ReferenceError:
             pass
+
+    def _check_for_proxies(self):
+        https_proxy = os.environ.get('HTTPS_PROXY')
+        http_proxy = os.environ.get('HTTP_PROXY')
+        if https_proxy:
+            self.proxies['https'] = https_proxy
+        if http_proxy:
+            self.proxies['http'] = http_proxy
 
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
@@ -644,9 +656,16 @@ class API:
             operation, url, data=data, headers=headers, params=payload)
         session = requests.Session()
         prepared_request = session.prepare_request(request)
+        # Take into account environment settings, e.g. HTTP_PROXY and HTTPS_PROXY
+        # The commented out call is documented, but fails as missing when running it.
+        #settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
 
         try:
-            response = session.send(prepared_request)
+            if self.proxies:
+                response = session.send(prepared_request, proxies=self.proxies)
+            else:
+                response = session.send(prepared_request)
+
             status = response.status_code
             rdata = response.content
             dict_headers = dict(response.headers)
