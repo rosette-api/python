@@ -659,7 +659,7 @@ class API:
         # Take into account environment settings, e.g. HTTP_PROXY and HTTPS_PROXY
         # The commented out call is documented, but fails as missing when running it.
         # Providing the proxies manually.
-        #settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
+        # settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
 
         try:
             if self.proxies:
