@@ -662,14 +662,15 @@ class API:
         # Take into account environment settings, e.g. HTTP_PROXY and HTTPS_PROXY
         # The commented out call is documented, but fails as missing when running it.
         # Providing the proxies manually.
-        # settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
+        settings = session.merge_environment_settings(prepared_request.url, {}, {}, {}, {})
 
         try:
-            if self.proxies:
-                response = session.send(prepared_request, proxies=self.proxies)
-            else:
-                response = session.send(prepared_request)
+            # if self.proxies:
+            #    response = session.send(prepared_request, proxies=self.proxies)
+            # else:
+            #    response = session.send(prepared_request)
 
+            response = session.send(prepared_request, **settings)
             status = response.status_code
             rdata = response.content
             dict_headers = dict(response.headers)
