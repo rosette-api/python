@@ -22,7 +22,7 @@ RUN mkdir -p /.cache && chmod 777 /.cache
 RUN mkdir -p /.local && chmod 777 /.local
 
 RUN pip install --upgrade tox
-RUN pip install --upgrade autopep8 requests kitchen rosette_api
+RUN pip install --upgrade autopep8 requests rosette_api
 
 COPY run_python.sh /python/examples/run_python.sh
 RUN chmod 755 /python/examples/run_python.sh
