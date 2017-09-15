@@ -580,7 +580,6 @@ class API:
         self.custom_headers = {}
         self.url_parameters = {}
         self.max_pool_size = 1
-        self.proxies = {}
         self.session = requests.Session()
 
         self.morphology_output = {
@@ -610,21 +609,11 @@ class API:
             'TRANSLITERATION': 'transliteration'
         }
 
-        self._check_for_proxies()
-
     def __del__(self):
         try:
             self.session.close()
         except ReferenceError:
             pass
-
-    def _check_for_proxies(self):
-        https_proxy = os.environ.get('HTTPS_PROXY')
-        http_proxy = os.environ.get('HTTP_PROXY')
-        if https_proxy:
-            self.proxies['https'] = https_proxy
-        if http_proxy:
-            self.proxies['http'] = http_proxy
 
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
