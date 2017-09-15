@@ -525,11 +525,8 @@ class EndpointCaller:
                 'POST', url, files=files, headers=headers, params=payload)
             session = requests.Session()
             prepared_request = session.prepare_request(request)
-            # settings = session.merge_environment_settings(prepared_request.url, None, None, None, None)
-            if self.api.proxies:
-                response = session.send(prepared_request, proxies=self.api.proxies)
-            else:
-                response = session.send(prepared_request)
+            settings = session.merge_environment_settings(prepared_request.url, {}, {}, {}, {})
+            response = session.send(prepared_request, **settings)
             rdata = response.content
             response_headers = {"responseHeaders": dict(response.headers)}
             status = response.status_code
@@ -660,16 +657,9 @@ class API:
         session = requests.Session()
         prepared_request = session.prepare_request(request)
         # Take into account environment settings, e.g. HTTP_PROXY and HTTPS_PROXY
-        # The commented out call is documented, but fails as missing when running it.
-        # Providing the proxies manually.
         settings = session.merge_environment_settings(prepared_request.url, {}, {}, {}, {})
 
         try:
-            # if self.proxies:
-            #    response = session.send(prepared_request, proxies=self.proxies)
-            # else:
-            #    response = session.send(prepared_request)
-
             response = session.send(prepared_request, **settings)
             status = response.status_code
             rdata = response.content
