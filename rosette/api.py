@@ -41,7 +41,7 @@ else:
 warnings.simplefilter('always')
 
 
-class _ReturnObject:
+class _ReturnObject(object):
 
     def __init__(self, js, code):
         self._json = js
@@ -82,7 +82,7 @@ class RosetteException(Exception):
         return sst + ": " + self.message + ":\n  " + self.response_message
 
 
-class _PseudoEnum:
+class _PseudoEnum(object):
     """ Base class for MorphologyOutput """
 
     def __init__(self):
@@ -117,6 +117,7 @@ class MorphologyOutput(_PseudoEnum):
         warnings.warn('MorphologyOutput to be removed in version 1.9.0. '
                       'Please use API.morphology_output',
                       DeprecationWarning)
+        _PseudoEnum.__init__()
 
     LEMMAS = "lemmas"
     PARTS_OF_SPEECH = "parts-of-speech"
@@ -340,7 +341,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
                 repr("names"))
 
 
-class EndpointCaller:
+class EndpointCaller(object):
     """L{EndpointCaller} objects are invoked via their instance methods to obtain results
     from the Rosette server described by the L{API} object from which they
     are created.  Each L{EndpointCaller} object communicates with a specific endpoint
@@ -542,7 +543,7 @@ class EndpointCaller:
         return self.__finish_result(response, "operate")
 
 
-class API:
+class API(object):
     """
     Rosette Python Client Binding API; representation of a Rosette server.
     Call instance methods upon this object to obtain L{EndpointCaller} objects
@@ -605,6 +606,7 @@ class API:
             'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
             'TEXT_EMBEDDING': 'text-embedding',
             'TOKENS': 'tokens',
+            'TOPICS': 'topics',
             'TRANSLITERATION': 'transliteration'
         }
 
@@ -1076,3 +1078,10 @@ class API:
         @type parameters: L{DocumentParameters}
         @return: A python dictionary containing the results of the transliteration"""
         return EndpointCaller(self, self.endpoints['TRANSLITERATION']).call(parameters)
+
+    def topics(self, parameters):
+        """
+        Topics returns keyphrases and concepts related to the provided content
+        @type parameters: DocumentParameters
+        @return; A python dictionary containing the results"""
+        return EndpointCaller(self, self.endpoints['TOPICS']).call(parameters)

@@ -742,3 +742,19 @@ def test_the_transliteration_endpoint(api, json_response):
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()
+
+
+# Test the topics endpoint
+
+def test_the_topics_endpoint(api, json_response, doc_params):
+    """Test the topics endpoint"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/topics",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.topics(doc_params)
+    assert result["name"] == "Rosette API"
+    httpretty.disable()
+    httpretty.reset()
