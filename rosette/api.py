@@ -524,12 +524,12 @@ class EndpointCaller(object):
                     'application/json')}
             request = requests.Request(
                 'POST', url, files=files, headers=headers, params=payload)
-            session = requests.Session()
-            prepared_request = session.prepare_request(request)
-            resp = session.send(prepared_request)
-            rdata = resp.content
-            response_headers = {"responseHeaders": dict(resp.headers)}
-            status = resp.status_code
+            prepared_request = self.api.session.prepare_request(request)
+            settings = self.api.session.merge_environment_settings(prepared_request.url, {}, {}, {}, {})
+            response = self.api.session.send(prepared_request, **settings)
+            rdata = response.content
+            response_headers = {"responseHeaders": dict(response.headers)}
+            status = response.status_code
             response = _ReturnObject(
                 _my_loads(rdata, response_headers), status)
         else:
@@ -644,11 +644,12 @@ class API(object):
 
         request = requests.Request(
             operation, url, data=data, headers=headers, params=payload)
-        session = requests.Session()
-        prepared_request = session.prepare_request(request)
+        prepared_request = self.session.prepare_request(request)
+        # Take into account environment settings, e.g. HTTP_PROXY and HTTPS_PROXY
+        settings = self.session.merge_environment_settings(prepared_request.url, {}, {}, {}, {})
 
         try:
-            response = session.send(prepared_request)
+            response = self.session.send(prepared_request, **settings)
             status = response.status_code
             rdata = response.content
             dict_headers = dict(response.headers)

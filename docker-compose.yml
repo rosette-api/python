@@ -1,0 +1,15 @@
+application:
+  image: rosetteapi/docker-python
+  environment:
+    - API_KEY=$API_KEY
+    - HTTP_PROXY=http://squid:3128
+    - HTTPS_PROXY=https://squid:3128
+  volumes:
+    - .:/source
+  links:
+    - proxy:squid
+
+proxy:
+  image: datadog/squid
+  ports:
+  - 3128:3128
