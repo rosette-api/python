@@ -11,7 +11,7 @@ node {
         }
         stage("Build Dockerfile") {
             dir ("${DOCKERFILE_DIR}") {
-                sh "docker build --no-cache -t ${TEST_CONTAINER}"
+                sh "docker build --no-cache -t ${TEST_CONTAINER} ."
             }
         }
         stage("Run Examples") {
