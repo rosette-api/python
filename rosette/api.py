@@ -27,7 +27,7 @@ import re
 import warnings
 import requests
 
-_BINDING_VERSION = '1.8.0'
+_BINDING_VERSION = '1.8.1'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
