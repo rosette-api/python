@@ -226,7 +226,8 @@ class DocumentParameters(_DocumentParamSetBase):
         """
         self.use_multipart = True
         self.file_name = path
-        self.load_document_string(open(path, "rb").read())
+        with open(path, "rb") as f:
+            self.load_document_string(f.read())
 
     def load_document_string(self, content_as_string):
         """Loads a string into the object.
