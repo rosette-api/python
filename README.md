@@ -5,7 +5,7 @@ Please check out the [wiki](https://github.com/rosette-api/python/wiki) for addi
 
 ### Installation
 
-The Python binding requires Python 2.6 or greater and is available through pip:
+The Python binding requires Python 2.7+ or 3.4+ and is available through pip:
 
 `pip install rosette_api`
 
