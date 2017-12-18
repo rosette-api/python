@@ -26,6 +26,7 @@ import os
 import re
 import warnings
 import requests
+import platform
 
 _BINDING_VERSION = '1.8.2'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
@@ -80,50 +81,6 @@ class RosetteException(Exception):
         if not isinstance(sst, str):
             sst = repr(sst)
         return sst + ": " + self.message + ":\n  " + self.response_message
-
-
-class _PseudoEnum(object):
-    """ Base class for MorphologyOutput """
-
-    def __init__(self):
-        pass
-
-    @classmethod
-    def validate(cls, value, name):
-        """ validation method """
-        values = []
-        for (key, value) in vars(cls).items():
-            if not key.startswith("__"):
-                values += [value]
-
-        # this is still needed to make sure that the parameter NAMES are known.
-        # If python didn't allow setting unknown values, this would be a
-        # language error.
-        if value not in values:
-            raise RosetteException(
-                "unknownVariable",
-                "The value supplied for " +
-                name +
-                " is not one of " +
-                ", ".join(values) +
-                ".",
-                repr(value))
-
-
-class MorphologyOutput(_PseudoEnum):
-    """ Class to provide Morphology sub-endpoints """
-
-    def __init__(self):
-        warnings.warn('MorphologyOutput to be removed in version 1.9.0. '
-                      'Please use API.morphology_output',
-                      DeprecationWarning)
-        _PseudoEnum.__init__()
-
-    LEMMAS = "lemmas"
-    PARTS_OF_SPEECH = "parts-of-speech"
-    COMPOUND_COMPONENTS = "compound-components"
-    HAN_READINGS = "han-readings"
-    COMPLETE = "complete"
 
 
 class _DocumentParamSetBase(object):
@@ -582,6 +539,7 @@ class API(object):
         self.url_parameters = {}
         self.max_pool_size = 1
         self.session = requests.Session()
+        self.user_agent_string = 'RosetteAPIPython/' + _BINDING_VERSION + '/' + platform.python_version()
 
         self.morphology_output = {
             'LEMMAS': 'lemmas',
@@ -617,6 +575,10 @@ class API(object):
         except ReferenceError:
             pass
 
+    def get_user_agent_string(self):
+        """ Return the User-Agent string """
+        return self.user_agent_string
+
     def _set_pool_size(self):
         adapter = requests.adapters.HTTPAdapter(
             pool_maxsize=self.max_pool_size)
@@ -632,7 +594,7 @@ class API(object):
         @param data: request data
         @param headers: request headers
         """
-        headers['User-Agent'] = "RosetteAPIPython/" + _BINDING_VERSION
+        headers['User-Agent'] = self.get_user_agent_string()
 
         message = None
         code = "unknownError"
@@ -718,30 +680,11 @@ class API(object):
 
         return _ReturnObject(_my_loads(rdata, response_headers), status)
 
-    def getPoolSize(self):
-        """
-        Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
-        """
-        warnings.warn('Method renamed to API.get_pool_size(). To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.get_pool_size()
-
     def get_pool_size(self):
         """
         Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value
         """
         return int(self.max_pool_size)
-
-    def setOption(self, name, value):
-        """
-        Sets an option
-
-        @param name: name of option
-        @param value: value of option
-        """
-        warnings.warn('Method renamed to API.set_option().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.set_option(name, value)
 
     def set_option(self, name, value):
         """
@@ -754,18 +697,6 @@ class API(object):
             self.options.pop(name, None)
         else:
             self.options[name] = value
-
-    def getOption(self, name):
-        """
-        Gets an option
-
-        @param name: name of option
-
-        @return: value of option
-        """
-        warnings.warn('Method renamed to API.get_option().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.get_option(name)
 
     def get_option(self, name):
         """
@@ -780,30 +711,11 @@ class API(object):
         else:
             return None
 
-    def clearOptions(self):
-        """
-        Clears all options
-        """
-        warnings.warn('Method renamed to API.clear_options().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        self.clear_options()
-
     def clear_options(self):
         """
         Clears all options
         """
         self.options.clear()
-
-    def setUrlParameter(self, name, value):
-        """
-        Sets a URL parameter
-
-        @param name: name of parameter
-        @param value: value of parameter
-        """
-        warnings.warn('Method renamed to API.set_url_parameter().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.set_url_parameter(name, value)
 
     def set_url_parameter(self, name, value):
         """
@@ -816,18 +728,6 @@ class API(object):
             self.url_parameters.pop(name, None)
         else:
             self.url_parameters[name] = value
-
-    def getUrlParameter(self, name):
-        """
-        Gets a URL parameter
-
-        @param name: name of parameter
-
-        @return: value of parameter
-        """
-        warnings.warn('Method renamed to API.get_url_parameter().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.get_url_parameter(name)
 
     def get_url_parameter(self, name):
         """
@@ -842,30 +742,11 @@ class API(object):
         else:
             return None
 
-    def clearUrlParameters(self):
-        """
-        Clears all options
-        """
-        warnings.warn('Method renamed to API.clear_url_parameters(). '
-                      'To be removed in version 1.9.0',
-                      DeprecationWarning)
-        self.clear_url_parameters()
-
     def clear_url_parameters(self):
         """
         Clears all options
         """
         self.url_parameters.clear()
-
-    def setCustomHeaders(self, name, value):
-        """
-        Sets custom headers
-
-        @param headers: array of custom headers to be set
-        """
-        warnings.warn('Method renamed to API.set_custom_headers().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.set_custom_headers(name, value)
 
     def set_custom_headers(self, name, value):
         """
@@ -878,28 +759,11 @@ class API(object):
         else:
             self.custom_headers[name] = value
 
-    def getCustomHeaders(self):
-        """
-        Get custom headers
-        """
-        warnings.warn('Method renamed to API.get_custom_headers().  To be removed in version 1.9.0',
-                      DeprecationWarning)
-        return self.get_custom_headers()
-
     def get_custom_headers(self):
         """
         Get custom headers
         """
         return self.custom_headers
-
-    def clearCustomHeaders(self):
-        """
-        Clears custom headers
-        """
-        warnings.warn('Method renamed to API.clear_custom_headers(). '
-                      'To be removed in version 1.9.0',
-                      DeprecationWarning)
-        self.clear_custom_headers()
 
     def clear_custom_headers(self):
         """
