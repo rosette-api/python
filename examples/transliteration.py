@@ -16,7 +16,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    transliteration_data = "Some random text"
+    transliteration_data = "ana r2ye7 el gam3a el sa3a 3 el 3asr"
     params = DocumentParameters()
     params["content"] = transliteration_data
 

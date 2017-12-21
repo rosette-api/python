@@ -15,7 +15,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
-    entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS"
+    entities_text_data = "The Securities and Exchange Commission today announced the leadership of the agency’s trial unit.  Bridget Fitzpatrick has been named Chief Litigation Counsel of the SEC and David Gottesman will continue to serve as the agency’s Deputy Chief Litigation Counsel. Since December 2016, Ms. Fitzpatrick and Mr. Gottesman have served as Co-Acting Chief Litigation Counsel.  In that role, they were jointly responsible for supervising the trial unit at the agency’s Washington D.C. headquarters as well as coordinating with litigators in the SEC’s 11 regional offices around the country."
     params = DocumentParameters()
     params["content"] = entities_text_data
     params["genre"] = "social-media"

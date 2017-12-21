@@ -16,7 +16,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    name_dedupe_data = 'John Smith,Johnathon Smith,Fred Jones'
+    name_dedupe_data = "Alice Terry,Alice Thierry,Betty Grable,Betty Gable,Norma Shearer,Norm Shearer,Brigitte Helm,Bridget Helem,Judy Holliday,Julie Halliday"
     threshold = 0.75
     params = NameDeduplicationParameters()
     params["names"] = name_dedupe_data.split(',')
