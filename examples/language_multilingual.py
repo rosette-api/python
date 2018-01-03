@@ -20,7 +20,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     params = DocumentParameters()
     params["content"] = language_multilingual_data
     api.set_custom_headers("X-RosetteAPI-App", "python-app")
-    api.set_option('multilingual', 'true')
+    api.set_option('multilingual', True)
 
     try:
         return api.language(params)
