@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>rosette package &#8212;  1.8.2 documentation</title>
+    <title>rosette package &#8212;  1.9.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.8.2',
+        VERSION:     '1.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -75,24 +75,6 @@ and possible metadata, to be processed by the category identifier.
 </dd></dl>
 
 <dl class="method">
-<dt id="rosette.api.API.clearCustomHeaders">
-<code class="descname">clearCustomHeaders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clearCustomHeaders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears custom headers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.clearOptions">
-<code class="descname">clearOptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clearOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears all options</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.clearUrlParameters">
-<code class="descname">clearUrlParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clearUrlParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clears all options</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="rosette.api.API.clear_custom_headers">
 <code class="descname">clear_custom_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_custom_headers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears custom headers</p>
@@ -119,34 +101,6 @@ to which it is applied and call it.
 and possible metadata, to be processed by the entity identifier.
 &#64;type parameters: L{DocumentParameters} or L{str}
 &#64;return: A python dictionary containing the results of entity extraction.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.getCustomHeaders">
-<code class="descname">getCustomHeaders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.getCustomHeaders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get custom headers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.getOption">
-<code class="descname">getOption</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.getOption" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an option</p>
-<p>&#64;param name: name of option</p>
-<p>&#64;return: value of option</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.getPoolSize">
-<code class="descname">getPoolSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.getPoolSize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.getUrlParameter">
-<code class="descname">getUrlParameter</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.getUrlParameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a URL parameter</p>
-<p>&#64;param name: name of parameter</p>
-<p>&#64;return: value of parameter</p>
 </dd></dl>
 
 <dl class="method">
@@ -183,6 +137,12 @@ and possible metadata, to be processed by the entity identifier.
 <dd><p>Gets a URL parameter</p>
 <p>&#64;param name: name of parameter</p>
 <p>&#64;return: value of parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rosette.api.API.get_user_agent_string">
+<code class="descname">get_user_agent_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_user_agent_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the User-Agent string</p>
 </dd></dl>
 
 <dl class="method">
@@ -304,29 +264,6 @@ which it is applied and call it.
 and possible metadata, to be processed by the sentiment identifier.
 &#64;type parameters: L{DocumentParameters} or L{str}
 &#64;return: A python dictionary containing the results of sentiment identification.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.setCustomHeaders">
-<code class="descname">setCustomHeaders</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.setCustomHeaders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets custom headers</p>
-<p>&#64;param headers: array of custom headers to be set</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.setOption">
-<code class="descname">setOption</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.setOption" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets an option</p>
-<p>&#64;param name: name of option
-&#64;param value: value of option</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rosette.api.API.setUrlParameter">
-<code class="descname">setUrlParameter</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.setUrlParameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets a URL parameter</p>
-<p>&#64;param name: name of parameter
-&#64;param value: value of parameter</p>
 </dd></dl>
 
 <dl class="method">
@@ -516,38 +453,6 @@ signalled.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="rosette.api.MorphologyOutput">
-<em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">MorphologyOutput</code><a class="headerlink" href="#rosette.api.MorphologyOutput" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._PseudoEnum</span></code></p>
-<p>Class to provide Morphology sub-endpoints</p>
-<dl class="attribute">
-<dt id="rosette.api.MorphologyOutput.COMPLETE">
-<code class="descname">COMPLETE</code><em class="property"> = 'complete'</em><a class="headerlink" href="#rosette.api.MorphologyOutput.COMPLETE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rosette.api.MorphologyOutput.COMPOUND_COMPONENTS">
-<code class="descname">COMPOUND_COMPONENTS</code><em class="property"> = 'compound-components'</em><a class="headerlink" href="#rosette.api.MorphologyOutput.COMPOUND_COMPONENTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rosette.api.MorphologyOutput.HAN_READINGS">
-<code class="descname">HAN_READINGS</code><em class="property"> = 'han-readings'</em><a class="headerlink" href="#rosette.api.MorphologyOutput.HAN_READINGS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rosette.api.MorphologyOutput.LEMMAS">
-<code class="descname">LEMMAS</code><em class="property"> = 'lemmas'</em><a class="headerlink" href="#rosette.api.MorphologyOutput.LEMMAS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rosette.api.MorphologyOutput.PARTS_OF_SPEECH">
-<code class="descname">PARTS_OF_SPEECH</code><em class="property"> = 'parts-of-speech'</em><a class="headerlink" href="#rosette.api.MorphologyOutput.PARTS_OF_SPEECH" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="rosette.api.NameDeduplicationParameters">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">NameDeduplicationParameters</code><a class="headerlink" href="#rosette.api.NameDeduplicationParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
@@ -679,7 +584,7 @@ limitations under the License.</p>
       &copy;2017, Basis Technology.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
