@@ -31,7 +31,6 @@ from rosette.api import(API,
                         RosetteException)
 
 _ISPY3 = sys.version_info[0] == 3
-_BINDING_VERSION = '1.8.2'
 
 
 @pytest.fixture
@@ -138,7 +137,7 @@ def test_invalid_header(api):
 
 def test_user_agent(api):
     """ Test user agent """
-    value = "RosetteAPIPython/" + _BINDING_VERSION + "/" + platform.python_version()
+    value = "RosetteAPIPython/" + api.get_binding_version() + "/" + platform.python_version()
     assert value == api.get_user_agent_string()
 
 # Test that pinging the API is working properly

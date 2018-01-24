@@ -575,6 +575,10 @@ class API(object):
         except ReferenceError:
             pass
 
+    def get_binding_version(self):
+        """ Return the current binding version """
+        return _BINDING_VERSION
+
     def get_user_agent_string(self):
         """ Return the User-Agent string """
         return self.user_agent_string
