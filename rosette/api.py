@@ -84,6 +84,7 @@ class RosetteException(Exception):
 
 
 class _DocumentParamSetBase(object):
+    """ Primary parameter class """
 
     def __init__(self, repertoire):
         self.__params = {}
