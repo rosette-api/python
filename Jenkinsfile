@@ -1,3 +1,7 @@
+properties([
+    pipelineTriggers([[$class: "SCMTrigger", scmpoll_spec: "H/5 * * * *"]])
+])
+
 node {
     def SOURCEDIR = pwd()
     try {
