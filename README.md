@@ -2,7 +2,7 @@
    
 ## This is the Python client binding for Rosette API.
 Please check out the [wiki](https://github.com/rosette-api/python/wiki) for additional information
-
+   
 ### Installation
 
 The Python binding requires Python 2.7+ or 3.4+ and is available through pip:
