@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2017 Basis Technology Corporation.
+Copyright (c) 2014-2018 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -84,6 +84,7 @@ class RosetteException(Exception):
 
 
 class _DocumentParamSetBase(object):
+    """ Primary parameter class """
 
     def __init__(self, repertoire):
         self.__params = {}
