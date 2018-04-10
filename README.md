@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=master)](https://travis-ci.org/rosette-api/python)
+[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python)
    
 ## This is the Python client binding for Rosette API.
 Please check out the [wiki](https://github.com/rosette-api/python/wiki) for additional information
