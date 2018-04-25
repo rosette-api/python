@@ -2,7 +2,7 @@ properties([
     pipelineTriggers([[$class: "SCMTrigger", scmpoll_spec: "H/15 * * * *"]])
 ])
 
-node {
+node ("docker-light") {
     def SOURCEDIR = pwd()
     try {
         stage("Clean up") {
