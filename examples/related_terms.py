@@ -16,10 +16,9 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
     term = "dog"
-    opts = {"resultLanguages": ['spa', 'deu', 'jpn']}
+    api.set_option("resultLanguages": ['spa', 'deu', 'jpn'])
     params = DocumentParameters()
     params["content"] = term
-    params["options"] = opts
     try:
         return api.related_terms(params)
     except RosetteException as exception:
