@@ -956,7 +956,7 @@ class API(object):
         @return; A python dictionary containing the results"""
         return EndpointCaller(self, self.endpoints['TOPICS']).call(parameters)
 
-    def relatedTerms(self, parameters):
+    def related_terms(self, parameters):
         """
         RelatedTerms returns terms similar to the input term in the requested languages
         @type parameters: DocumentParameters
