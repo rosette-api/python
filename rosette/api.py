@@ -559,7 +559,7 @@ class API(object):
             'NAME_SIMILARITY': 'name-similarity',
             'NAME_DEDUPLICATION': 'name-deduplication',
             'PING': 'ping',
-            'RELATED_TERMS': 'semantics/similar'
+            'RELATED_TERMS': 'semantics/similar',
             'RELATIONSHIPS': 'relationships',
             'SENTENCES': 'sentences',
             'SENTIMENT': 'sentiment',
