@@ -652,7 +652,7 @@ def test_for_name_translation_required_parameters(api, json_response):
 def test_the_text_embedded_endpoint(api, json_response, doc_params):
     """Test text embedded endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantic/vector",
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/vector",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.text_embedding(doc_params)
