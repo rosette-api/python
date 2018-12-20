@@ -15,7 +15,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
-    term = "dog"
+    term = "spy"
     api.set_option("resultLanguages": ['spa', 'deu', 'jpn'])
     params = DocumentParameters()
     params["content"] = term
