@@ -559,11 +559,12 @@ class API(object):
             'NAME_SIMILARITY': 'name-similarity',
             'NAME_DEDUPLICATION': 'name-deduplication',
             'PING': 'ping',
+            'RELATED_TERMS': 'semantics/similar',
             'RELATIONSHIPS': 'relationships',
             'SENTENCES': 'sentences',
             'SENTIMENT': 'sentiment',
             'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
-            'TEXT_EMBEDDING': 'text-embedding',
+            'TEXT_EMBEDDING': 'semantics/vector',
             'TOKENS': 'tokens',
             'TOPICS': 'topics',
             'TRANSLITERATION': 'transliteration'
@@ -954,3 +955,12 @@ class API(object):
         @type parameters: DocumentParameters
         @return; A python dictionary containing the results"""
         return EndpointCaller(self, self.endpoints['TOPICS']).call(parameters)
+
+    def related_terms(self, parameters):
+        """
+        Create an L{EndpointCaller} to identify terms most related to the input in
+        the requested languages
+        :param parameters: DocumentParameters
+        :return: A python dictionary containing the related terms and their similarity
+        """
+        return EndpointCaller(self, self.endpoints['RELATED_TERMS']).call(parameters)
