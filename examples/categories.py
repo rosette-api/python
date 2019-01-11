@@ -12,13 +12,22 @@ import os
 
 from rosette.api import API, DocumentParameters, RosetteException
 
-
 def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
-    categories_url_data = "https://onlocationvacations.com/2015/03/05/the-new-ghostbusters-movie-begins-filming-in-boston-in-june/"
+    categories_url_data = "https://onlocationvacations.com/2018/02/06/downton-abbey-exhibition-extended-april-2-nyc/"
     url = categories_url_data
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
+
+    # Set selected API options. 
+    # For more information on the functionality of these 
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#categorization
+
+    #api.set_option('singleLabel', 'true')
+    #api.set_option('scoreThreshold',- 0.20)
+ 
+
     params = DocumentParameters()
 
     # Use a URL to input data instead of a string

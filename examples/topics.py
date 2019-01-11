@@ -16,6 +16,14 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
+    # Set selected API options. 
+    # For more information on the functionality of these 
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#topic-extraction
+ 
+    #api.set_option('keyphraseSalienceThreshold','.5') 
+    #api.set_option('conceptSalienceThreshold','.1') 
+
     topics_data = "Lily Collins is in talks to join Nicholas Hoult in Chernin Entertainment and Fox Searchlight's J.R.R. Tolkien biopic Tolkien. Anthony Boyle, known for playing Scorpius Malfoy in the British play Harry Potter and the Cursed Child, also has signed on for the film centered on the famed author. In Tolkien, Hoult will play the author of the Hobbit and Lord of the Rings book series that were later adapted into two Hollywood trilogies from Peter Jackson. Dome Karukoski is directing the project."
     params = DocumentParameters()
     params["content"] = topics_data
