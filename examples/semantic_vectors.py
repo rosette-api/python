@@ -15,11 +15,19 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
+
+    # Set selected API options.
+    # For more information on the functionality of these
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#semantic-vectors
+
+    #api.set_option('perToken', 'true')
+
     embeddings_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
     params["content"] = embeddings_data
     try:
-        return api.text_embedding(params)
+        return api.semantic_vectors(params)
     except RosetteException as exception:
         print(exception)
 

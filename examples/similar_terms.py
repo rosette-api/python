@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Example code to call Rosette API to get related terms for an input token.
+Example code to call Rosette API to get similar terms for an input.
 """
 from __future__ import print_function
 
@@ -15,12 +15,19 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
-    term = "spy"
+
+    # Set selected API options.
+    # For more information on the functionality of these
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#similar-terms
+
     api.set_option("resultLanguages", ['spa', 'deu', 'jpn'])
+
+    term = "spy"
     params = DocumentParameters()
     params["content"] = term
     try:
-        return api.related_terms(params)
+        return api.similar_terms(params)
     except RosetteException as exception:
         print(exception)
 
