@@ -707,16 +707,16 @@ def test_the_topics_endpoint(api, json_response, doc_params):
     httpretty.reset()
 
 
-# Test the related-terms endpoint
+# Test the similar-terms endpoint
 
-def test_the_related_terms_endpoint(api, json_response, doc_params):
-    """Test the related-terms endpoint"""
+def test_the_similar_terms_endpoint(api, json_response, doc_params):
+    """Test the similar terms endpoint"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/similar",
                            body=json_response, status=200, content_type="application/json")
 
     api.set_option("resultLanguages", ["spa", "jpn", "deu"])
-    result = api.related_terms(doc_params)
+    result = api.similar_terms(doc_params)
     assert result["name"] == "Rosette API"
     httpretty.disable()
     httpretty.reset()

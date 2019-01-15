@@ -21,7 +21,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # and other available options, see Rosette Features & Functions
     # https://developer.rosette.com/features-and-functions#semantic-vectors
 
-    #api.set_option('perToken', 'true')
+    # api.set_option('perToken', 'true')
 
     embeddings_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
