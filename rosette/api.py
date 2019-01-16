@@ -560,10 +560,12 @@ class API(object):
             'NAME_DEDUPLICATION': 'name-deduplication',
             'PING': 'ping',
             'RELATIONSHIPS': 'relationships',
+            'SEMANTIC_VECTORS': 'semantics/vector',
             'SENTENCES': 'sentences',
             'SENTIMENT': 'sentiment',
+            'SIMILAR_TERMS': 'semantics/similar',
             'SYNTAX_DEPENDENCIES': 'syntax/dependencies',
-            'TEXT_EMBEDDING': 'text-embedding',
+            'TEXT_EMBEDDING': 'semantics/vector',
             'TOKENS': 'tokens',
             'TOPICS': 'topics',
             'TRANSLITERATION': 'transliteration'
@@ -932,6 +934,14 @@ class API(object):
         @return: A python dictionary containing the results of text embedding."""
         return EndpointCaller(self, self.endpoints['TEXT_EMBEDDING']).call(parameters)
 
+    def semantic_vectors(self, parameters):
+        """
+        Create an L{EndpointCaller}  to identify text vectors found in the texts
+        to which it is applied and call it.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of semantic vectors."""
+        return EndpointCaller(self, self.endpoints['SEMANTIC_VECTORS']).call(parameters)
+
     def syntax_dependencies(self, parameters):
         """
         Create an L{EndpointCaller} to identify the syntactic dependencies in the texts
@@ -954,3 +964,12 @@ class API(object):
         @type parameters: DocumentParameters
         @return; A python dictionary containing the results"""
         return EndpointCaller(self, self.endpoints['TOPICS']).call(parameters)
+
+    def similar_terms(self, parameters):
+        """
+        Create an L{EndpointCaller} to identify terms most similar to the input in
+        the requested languages
+        :param parameters: DocumentParameters
+        :return: A python dictionary containing the similar terms and their similarity
+        """
+        return EndpointCaller(self, self.endpoints['SIMILAR_TERMS']).call(parameters)
