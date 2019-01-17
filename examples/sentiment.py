@@ -24,6 +24,12 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
+    # Set selected API options.
+    # For more information on the functionality of these
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#sentiment-analysis
+
+    # api.set_option('modelType','dnn') #Valid for English only
 
     params = DocumentParameters()
     params["language"] = "eng"

@@ -16,6 +16,13 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
+    # Set selected API options.
+    # For more information on the functionality of these
+    # and other available options, see Rosette Features & Functions
+    # https://developer.rosette.com/features-and-functions#morphological-analysis-introduction
+
+    # api.set_option('modelType','perceptron') # Valid for Chinese and Japanese only
+
     morphology_parts_of_speech_data = "The fact is that the geese just went back to get a rest and I'm not banking on their return soon"
     params = DocumentParameters()
     params["content"] = morphology_parts_of_speech_data
