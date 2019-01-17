@@ -16,14 +16,13 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    # Set selected API options. 
-    # For more information on the functionality of these 
+    # Set selected API options.
+    # For more information on the functionality of these
     # and other available options, see Rosette Features & Functions
     # https://developer.rosette.com/features-and-functions#transliteration
- 
-    #To transliterate from native Arabic script to Arabizi add:
-    #api.set_option('reversed','True')
 
+    # To transliterate from native Arabic script to Arabizi add:
+    # api.set_option('reversed','True')
 
     transliteration_data = "ana r2ye7 el gam3a el sa3a 3 el 3asr"
     params = DocumentParameters()
