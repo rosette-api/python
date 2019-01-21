@@ -23,7 +23,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     # api.set_option('perToken', 'true')
 
-    embeddings_data = "Cambridge, Massachusetts"
+    semantic_vectors_data = "Cambridge, England"
     params = DocumentParameters()
     params["content"] = embeddings_data
     try:
