@@ -23,7 +23,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     api.set_option("resultLanguages", ['spa', 'deu', 'jpn'])
 
-    similar_terms_data = "spook"
+    similar_terms_data = "spy"
     params = DocumentParameters()
     params["content"] = similar_terms_data
     try:
