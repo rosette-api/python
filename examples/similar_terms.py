@@ -23,9 +23,9 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     api.set_option("resultLanguages", ['spa', 'deu', 'jpn'])
 
-    term = "spy"
+    similar_terms_data = "spy"
     params = DocumentParameters()
-    params["content"] = term
+    params["content"] = similar_terms_data
     try:
         return api.similar_terms(params)
     except RosetteException as exception:

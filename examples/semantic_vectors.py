@@ -23,9 +23,9 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     # api.set_option('perToken', 'true')
 
-    embeddings_data = "Cambridge, Massachusetts"
+    semantic_vectors_data = "Cambridge, Massachusetts"
     params = DocumentParameters()
-    params["content"] = embeddings_data
+    params["content"] = semantic_vectors_data
     try:
         return api.semantic_vectors(params)
     except RosetteException as exception:
