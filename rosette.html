@@ -4,23 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>rosette package &#8212;  1.9.0 documentation</title>
+    <title>rosette package &#8212;  1.12.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.9.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -29,13 +22,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="rosette-package">
@@ -59,7 +53,7 @@ limitations under the License.</p>
 <dl class="class">
 <dt id="rosette.api.API">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">API</code><span class="sig-paren">(</span><em>user_key=None</em>, <em>service_url='https://api.rosette.com/rest/v1/'</em>, <em>retries=5</em>, <em>refresh_duration=0.5</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Rosette Python Client Binding API; representation of a Rosette server.
 Call instance methods upon this object to obtain L{EndpointCaller} objects
 which can communicate with particular Rosette server endpoints.</p>
@@ -101,6 +95,12 @@ to which it is applied and call it.
 and possible metadata, to be processed by the entity identifier.
 &#64;type parameters: L{DocumentParameters} or L{str}
 &#64;return: A python dictionary containing the results of entity extraction.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rosette.api.API.get_binding_version">
+<code class="descname">get_binding_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_binding_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current binding version</p>
 </dd></dl>
 
 <dl class="method">
@@ -246,6 +246,15 @@ and possible metadata, to be processed by the relationships identifier.
 </dd></dl>
 
 <dl class="method">
+<dt id="rosette.api.API.semantic_vectors">
+<code class="descname">semantic_vectors</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.semantic_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an L{EndpointCaller}  to identify text vectors found in the texts
+to which it is applied and call it.
+&#64;type parameters: L{DocumentParameters} or L{str}
+&#64;return: A python dictionary containing the results of semantic vectors.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="rosette.api.API.sentences">
 <code class="descname">sentences</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.sentences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to break a text into sentences and call it.
@@ -287,6 +296,15 @@ and possible metadata, to be processed by the sentiment identifier.
 <dd><p>Sets a URL parameter</p>
 <p>&#64;param name: name of parameter
 &#64;param value: value of parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rosette.api.API.similar_terms">
+<code class="descname">similar_terms</code><span class="sig-paren">(</span><em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.similar_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an L{EndpointCaller} to identify terms most similar to the input in
+the requested languages
+:param parameters: DocumentParameters
+:return: A python dictionary containing the similar terms and their similarity</p>
 </dd></dl>
 
 <dl class="method">
@@ -351,7 +369,7 @@ and possible metadata, to be processed by the name translator.
 <dl class="class">
 <dt id="rosette.api.DocumentParameters">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">DocumentParameters</code><a class="headerlink" href="#rosette.api.DocumentParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for all operations requiring input other than
 translated_name.
 Two fields, C{content} and C{inputUri}, are set via
@@ -398,7 +416,7 @@ for subsequent analysis.</p>
 <dl class="class">
 <dt id="rosette.api.EndpointCaller">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">EndpointCaller</code><span class="sig-paren">(</span><em>api</em>, <em>suburl</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>L{EndpointCaller} objects are invoked via their instance methods to obtain results
 from the Rosette server described by the L{API} object from which they
 are created.  Each L{EndpointCaller} object communicates with a specific endpoint
@@ -455,7 +473,7 @@ signalled.</p>
 <dl class="class">
 <dt id="rosette.api.NameDeduplicationParameters">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">NameDeduplicationParameters</code><a class="headerlink" href="#rosette.api.NameDeduplicationParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-deduplication} endpoint.
 Required:
 C{names} A list of C{name} objects
@@ -471,7 +489,7 @@ C{threshold} Threshold to use to restrict cluster size. Can be null to use defau
 <dl class="class">
 <dt id="rosette.api.NameSimilarityParameters">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">NameSimilarityParameters</code><a class="headerlink" href="#rosette.api.NameSimilarityParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-similarity} endpoint.
 All are required.</p>
 <p>C{name1} The name to be matched, a C{name} object.</p>
@@ -492,7 +510,7 @@ All are required.</p>
 <dl class="class">
 <dt id="rosette.api.NameTranslationParameters">
 <em class="property">class </em><code class="descclassname">rosette.api.</code><code class="descname">NameTranslationParameters</code><a class="headerlink" href="#rosette.api.NameTranslationParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-translation} endpoint.
 The following values may be set by the indexing (i.e.,C{ parms[“name”]}) operator.
 The values are all strings (when not C{None}).
@@ -519,7 +537,7 @@ content of the return result.</p>
 <dl class="exception">
 <dt id="rosette.api.RosetteException">
 <em class="property">exception </em><code class="descclassname">rosette.api.</code><code class="descname">RosetteException</code><span class="sig-paren">(</span><em>status</em>, <em>message</em>, <em>response_message</em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.RosetteException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown by all Rosette API operations for errors local and remote.</p>
 <p>TBD. Right now, the only valid operation is conversion to __str__.</p>
 </dd></dl>
@@ -543,6 +561,7 @@ limitations under the License.</p>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -568,14 +587,24 @@ limitations under the License.</p>
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -584,8 +613,8 @@ limitations under the License.</p>
       &copy;2017, Basis Technology.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/rosette.rst.txt"
