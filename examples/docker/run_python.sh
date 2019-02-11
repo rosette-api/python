@@ -42,11 +42,13 @@ function cleanURL() {
 }
 
 function validateURL() {
-    match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" -H "user_key: ${API_KEY}" |  grep -o "Rosette API")
-    if [ "${match}" = "" ]; then
-        echo -e "\n${ping_url} server not responding\n"
+    output_file=validate_url_out.log
+    http_status_code=$(curl -s -o "${output_file}" -w "%{http_code}" -H "X-RosetteAPI-Key: ${API_KEY}" "${ping_url}/ping")
+    if [ "${http_status_code}" != "200" ]; then
+        echo -e "\n${ping_url} server not responding.  Output is:\n"
+        cat "${output_file}"
         exit 1
-    fi  
+    fi
 }
 
 function runExample() {
