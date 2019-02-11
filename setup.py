@@ -2,7 +2,7 @@
 """setup.py"""
 import os
 import io
-from setuptools import setup
+from setuptools import find_packages,setup
 import rosette
 
 NAME = "rosette_api"
@@ -35,7 +35,7 @@ setup(name=NAME,
       license='Apache License',
       long_description=LONG_DESCRIPTION,
       long_description_content_type='text/markdown',
-      packages=setuptools.find_packages(),
+      packages=find_packages(),
       install_requires=['requests'],
       platforms='any',
       url=HOMEPAGE,
