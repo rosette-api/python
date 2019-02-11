@@ -8,8 +8,8 @@ import rosette
 NAME = "rosette_api"
 DESCRIPTION = "Rosette API Python client SDK"
 AUTHOR = "Basis Technology Corp."
-AUTHOR_EMAIL = "rosette_api@basistech.com"
-HOMEPAGE = "https://developer.rosette.com"
+AUTHOR_EMAIL = "support@rosette.com"
+HOMEPAGE = "https://github.com/rosette-api/python"
 VERSION = rosette.__version__
 
 HERE = os.path.abspath(os.path.dirname(__file__))
@@ -28,23 +28,31 @@ def read(*filenames, **kwargs):
 
 LONG_DESCRIPTION = read('README.md')
 
-setup(name=NAME,
-      author=AUTHOR,
-      author_email=AUTHOR_EMAIL,
-      description=DESCRIPTION,
-      license='Apache License',
-      long_description=LONG_DESCRIPTION,
-      packages=['rosette'],
-      install_requires=['requests'],
-      platforms='any',
-      url=HOMEPAGE,
-      version=VERSION,
-      classifiers=[
-          'Programming Language :: Python',
-          'Development Status :: 4 - Beta',
-          'Natural Language :: English',
-          'Environment :: Web Environment',
-          'Intended Audience :: Developers',
-          'License :: OSI Approved :: Apache Software License',
-          'Operating System :: OS Independent',
-          'Topic :: Software Development :: Libraries :: Python Modules'])
+setup(
+    name=NAME,
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
+    description=DESCRIPTION,
+    license='Apache License',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type='text/markdown',
+    packages=['rosette'],
+    install_requires=['requests'],
+    platforms='any',
+    url=HOMEPAGE,
+    version=VERSION,
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Software Development :: Libraries :: Python Modules'
+    ]
+)
