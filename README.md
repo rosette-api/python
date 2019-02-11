@@ -34,13 +34,20 @@ For help in how to call the various endpoints, please refer to the [examples](ht
 - name translation
 - ping
 - relationships
+- semantic similarity
+- semantic vectors
 - sentences
 - sentiment
 - syntax dependencies
-- text embedding
 - tokens
 - topics
 - transliteration
+
+### API Documentation
+See [documentation](http://rosette-api.github.io/python)
+
+### Release Notes
+See [wiki](https://github.com/rosette-api/python/wiki/Release-Notes)
 
 ### Docker
 A Docker image for running the examples against the compiled source library is available on Docker Hub.
@@ -48,12 +55,6 @@ A Docker image for running the examples against the compiled source library is a
 Command: `docker run -e API_KEY=api-key -v "<binding root directory>:/source" rosetteapi/docker-python`
 
 Additional environment settings:
-`-e ALT_URL=<alternative URL>`
-`-e FILENAME=<single filename>`
-
-### API Documentation
-See [documentation](http://rosette-api.github.io/python)
-
-### Release Notes
-See [wiki](https://github.com/rosette-api/python/wiki/Release-Notes)
+- `-e ALT_URL=<alternative URL>`
+- `-e FILENAME=<single filename>`
 
