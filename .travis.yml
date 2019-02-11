@@ -1,4 +1,5 @@
 language: python
+dist: xenial
 # Reflect version changes in setup.py classifiers
 # 2.7 EOL - January 2020
 # 3.4 EOL - March 2019
