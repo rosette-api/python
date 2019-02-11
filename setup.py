@@ -2,7 +2,7 @@
 """setup.py"""
 import os
 import io
-from setuptools import find_packages,setup
+from setuptools import setup
 import rosette
 
 NAME = "rosette_api"
@@ -28,30 +28,32 @@ def read(*filenames, **kwargs):
 
 LONG_DESCRIPTION = read('README.md')
 
-setup(name=NAME,
-      author=AUTHOR,
-      author_email=AUTHOR_EMAIL,
-      description=DESCRIPTION,
-      license='Apache License',
-      long_description=LONG_DESCRIPTION,
-      long_description_content_type='text/markdown',
-      packages=find_packages(),
-      install_requires=['requests'],
-      platforms='any',
-      url=HOMEPAGE,
-      version=VERSION,
-      classifiers=[
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3.4',
-          'Programming Language :: Python :: 3.5',
-          'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7',
-          'Development Status :: 5 - Production/Stable',
-          'Natural Language :: English',
-          'Environment :: Web Environment',
-          'Intended Audience :: Developers',
-          'License :: OSI Approved :: Apache Software License',
-          'Operating System :: OS Independent',
-          'Topic :: Software Development :: Libraries :: Python Modules'])
-
+setup(
+    name=NAME,
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
+    description=DESCRIPTION,
+    license='Apache License',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type='text/markdown',
+    packages=['rosette'],
+    install_requires=['requests'],
+    platforms='any',
+    url=HOMEPAGE,
+    version=VERSION,
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Topic :: Software Development :: Libraries :: Python Modules'
+    ]
+)
