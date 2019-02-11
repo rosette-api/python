@@ -8,8 +8,8 @@ import rosette
 NAME = "rosette_api"
 DESCRIPTION = "Rosette API Python client SDK"
 AUTHOR = "Basis Technology Corp."
-AUTHOR_EMAIL = "rosette_api@basistech.com"
-HOMEPAGE = "https://developer.rosette.com"
+AUTHOR_EMAIL = "support@rosette.com"
+HOMEPAGE = "https://github.com/rosette-api/python"
 VERSION = rosette.__version__
 
 HERE = os.path.abspath(os.path.dirname(__file__))
@@ -34,17 +34,19 @@ setup(name=NAME,
       description=DESCRIPTION,
       license='Apache License',
       long_description=LONG_DESCRIPTION,
-      packages=['rosette'],
+      long_description_content_type='text/markdown',
+      packages=setuptools.find_packages(),
       install_requires=['requests'],
       platforms='any',
       url=HOMEPAGE,
       version=VERSION,
       classifiers=[
           'Programming Language :: Python',
-          'Development Status :: 4 - Beta',
+          'Development Status :: 5 - Production/Stable',
           'Natural Language :: English',
           'Environment :: Web Environment',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Apache Software License',
           'Operating System :: OS Independent',
           'Topic :: Software Development :: Libraries :: Python Modules'])
+

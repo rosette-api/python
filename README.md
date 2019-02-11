@@ -1,7 +1,8 @@
-[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python)
+[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python) [![PyPI version](https://badge.fury.io/py/rosette_api.svg)](https://badge.fury.io/py/rosette_api)
    
 ## This is the Python client binding for Rosette API.
-Please check out the [wiki](https://github.com/rosette-api/python/wiki) for additional information
+You can get an API Key and learn more [here](https://developer.rosette.com).
+For more detailed information check out our [features and functions page](https://developer.rosette.com/features-and-functions).
    
 ### Installation
 
@@ -56,5 +57,3 @@ See [documentation](http://rosette-api.github.io/python)
 ### Release Notes
 See [wiki](https://github.com/rosette-api/python/wiki/Release-Notes)
 
-### Additional Information
-Visit [Rosette API site](https://developer.rosette.com)
