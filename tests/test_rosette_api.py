@@ -36,7 +36,7 @@ _ISPY3 = sys.version_info[0] == 3
 @pytest.fixture
 def json_response():
     """ fixture to return info body"""
-    body = json.dumps({'name': 'Rosette API', 'versionChecked': True})
+    body = json.dumps({'name': 'Rosette', 'versionChecked': True})
     return body
 
 
@@ -151,7 +151,7 @@ def test_ping(api, json_response):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.ping()
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -165,7 +165,7 @@ def test_info(api, json_response):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.info()
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -200,7 +200,7 @@ def test_the_max_pool_size(json_response, doc_params):
     api = API('bogus_key')
     assert api.get_pool_size() == 1
     result = api.language(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     assert api.get_pool_size() == 5
     httpretty.disable()
     httpretty.reset()
@@ -217,7 +217,7 @@ def test_the_language_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.language(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -233,7 +233,7 @@ def test_the_sentences_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.sentences(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -249,7 +249,7 @@ def test_the_tokens_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.tokens(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -265,7 +265,7 @@ def test_the_morphology_complete_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -281,7 +281,7 @@ def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'lemmas')
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -297,7 +297,7 @@ def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params)
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'parts-of-speech')
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -313,7 +313,7 @@ def test_the_morphology_compound_components_endpoint(api, json_response, doc_par
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'compound-components')
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -329,7 +329,7 @@ def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'han-readings')
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -345,7 +345,7 @@ def test_the_entities_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.entities(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -361,7 +361,7 @@ def test_the_categories_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.categories(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -377,7 +377,7 @@ def test_the_sentiment_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.sentiment(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -396,7 +396,7 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     tmp_file.write(json_response)
     doc_params.load_document_file = tmp_file
     result = api.sentiment(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -417,7 +417,7 @@ def test_the_name_translation_endpoint(api, json_response):
     params["targetLanguage"] = "eng"
     params["targetScript"] = "Latn"
     result = api.name_translation(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -442,7 +442,7 @@ def test_the_name_similarity_endpoint(api, json_response):
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -468,7 +468,7 @@ def test_name_deduplicatation_parameters(api, json_response):
     params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
 
     result = api.name_deduplication(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
 
     httpretty.disable()
     httpretty.reset()
@@ -489,7 +489,7 @@ def test_the_name_deduplication_endpoint(api, json_response):
     params["threshold"] = threshold
 
     result = api.name_deduplication(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -508,7 +508,7 @@ def test_the_relationships_endpoint(api, json_response):
     params["content"] = "some text data"
     api.set_option('accuracyMode', 'PRECISION')
     result = api.relationships(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -606,7 +606,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -643,7 +643,7 @@ def test_for_name_translation_required_parameters(api, json_response):
     params["targetLanguage"] = "eng"
 
     result = api.name_translation(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
 
     httpretty.disable()
     httpretty.reset()
@@ -656,7 +656,7 @@ def test_the_semantic_vectors_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.semantic_vectors(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -668,7 +668,7 @@ def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.syntax_dependencies(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -686,7 +686,7 @@ def test_the_transliteration_endpoint(api, json_response):
     params = DocumentParameters()
     params["content"] = "Some test content"
     result = api.transliteration(params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -702,7 +702,7 @@ def test_the_topics_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.topics(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()
 
@@ -717,6 +717,6 @@ def test_the_similar_terms_endpoint(api, json_response, doc_params):
 
     api.set_option("resultLanguages", ["spa", "jpn", "deu"])
     result = api.similar_terms(doc_params)
-    assert result["name"] == "Rosette API"
+    assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()

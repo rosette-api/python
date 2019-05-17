@@ -3,12 +3,12 @@ dist: xenial
 # Reflect version changes in setup.py classifiers
 # 2.7 EOL - January 2020
 # 3.4 EOL - March 2019
-# RCB-562 for 3.7 support
 python:
   - "2.7"
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
 install:
   - pip install tox
 script:
