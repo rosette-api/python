@@ -3,7 +3,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
 
 ---
-<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png /></a>
+<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" /></a>
 
 ## Rosette API
 The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
@@ -31,5 +31,5 @@ in the [examples](https://github.com/rosette-api/python/tree/develop/examples) d
 - Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
 - Rosette Enterprise [Evaluation](https://www.rosette.com/product-eval/)
 
-## Developer Information
+## Binding Developer Information
 If you are modifying the binding code, please refer to the [developer README](https://github.com/rosette-api/python/tree/develop/DEVELOPER.md) file.
