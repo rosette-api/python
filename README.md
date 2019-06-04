@@ -3,7 +3,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
 
 ---
-<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" /></a>
+<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
 
 ## Rosette API
 The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
