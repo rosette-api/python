@@ -1,60 +1,35 @@
-[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python) [![PyPI version](https://badge.fury.io/py/rosette-api.svg)](https://badge.fury.io/py/rosette-api) [![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
-   
-## This is the Python client binding for Rosette API.
-You can get an API Key and learn more [here](https://developer.rosette.com).
-For more detailed information check out our [features and functions page](https://developer.rosette.com/features-and-functions).
-   
-### Installation
+[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python)
+[![PyPI version](https://badge.fury.io/py/rosette-api.svg)](https://badge.fury.io/py/rosette-api)
+[![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
 
-The Python binding requires Python 2.7+ or 3.4+ and is available through pip:
+---
+<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png /></a>
 
+## Rosette API
+The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
+analyze unstructured and semi-structured text across 364 language-encoding-script combinations, revealing valuable
+information and actionable data. Rosette provides endpoints for extracting entities and relationships, translating and
+comparing the similarity of names, categorizing and adding linguistic tags to text and more.
+
+## Quick Start
+
+#### Installation
 `pip install rosette_api`
 
-If the version you are using is not [the latest from PyPI](https://pypi.org/project/rosette_api/#history),
-please check for its [**compatibilty with api.rosette.com**](https://developer.rosette.com/features-and-functions?python).
-If you have an on-premise version of Rosette API server, please contact support for
-binding compatibility with your installation.
+#### Examples
+There is an example call for each Rosette endpoint, using this binding,
+in the [examples](https://github.com/rosette-api/python/tree/develop/examples) directory.
 
-To check your installed version:
+#### Documentation & Support
+- [Binding API](https://rosette-api.github.io/python/)
+- [Rosette Platform API](https://developer.rosette.com/features-and-functions)
+- [Release Notes](https://github.com/rosette-api/python/wiki/Release-Notes)
+- [Binding/Platform Compatibility](https://developer.rosette.com/features-and-functions?python#)
+- [Support](https://support.rosette.com)
 
-`pip show rosette_api`
+## Rosette API Access
+- Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
+- Rosette Enterprise [Evaluation](https://www.rosette.com/product-eval/)
 
-### Basic Usage
-
-For help in how to call the various endpoints, please refer to the [examples](https://github.com/rosette-api/python/tree/develop/examples).
-
-### Supported Endpoints
-- categories
-- entities
-- info
-- language
-- morphology (complete, compound components, han readings, lemmas, parts of speech)
-- name deduplication
-- name similarity
-- name translation
-- ping
-- relationships
-- semantic similarity
-- semantic vectors
-- sentences
-- sentiment
-- syntax dependencies
-- tokens
-- topics
-- transliteration
-
-### API Documentation
-See [documentation](http://rosette-api.github.io/python)
-
-### Release Notes
-See [wiki](https://github.com/rosette-api/python/wiki/Release-Notes)
-
-### Docker
-A Docker image for running the examples against the compiled source library is available on Docker Hub.
-
-Command: `docker run -e API_KEY=api-key -v "<binding root directory>:/source" rosetteapi/docker-python`
-
-Additional environment settings:
-- `-e ALT_URL=<alternative URL>`
-- `-e FILENAME=<single filename>`
-
+## Developer Information
+If you are modifying the binding code, please refer to the [developer README](https://github.com/rosette-api/python/tree/develop/DEVELOPER.md) file.
