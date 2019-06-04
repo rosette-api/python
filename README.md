@@ -1,9 +1,10 @@
+<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
+
+---
+
 [![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python)
 [![PyPI version](https://badge.fury.io/py/rosette-api.svg)](https://badge.fury.io/py/rosette-api)
 [![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
-
----
-<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
 
 ## Rosette API
 The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
@@ -26,6 +27,7 @@ in the [examples](https://github.com/rosette-api/python/tree/develop/examples) d
 - [Release Notes](https://github.com/rosette-api/python/wiki/Release-Notes)
 - [Binding/Platform Compatibility](https://developer.rosette.com/features-and-functions?python#)
 - [Support](https://support.rosette.com)
+- [Binding License: Apache 2.0](https://github.com/rosette-api/python/blob/develop/LICENSE.txt)
 
 ## Rosette API Access
 - Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
