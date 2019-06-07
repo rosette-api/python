@@ -12,13 +12,17 @@ analyze unstructured and semi-structured text across 364 language-encoding-scrip
 information and actionable data. Rosette provides endpoints for extracting entities and relationships, translating and
 comparing the similarity of names, categorizing and adding linguistic tags to text and more.
 
+## Rosette API Access
+- Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
+- Rosette Enterprise [Evaluation](https://www.rosette.com/product-eval/)
+
 ## Quick Start
 
 #### Installation
 `pip install rosette_api`
 
 #### Examples
-There is an example call for each Rosette endpoint, using this binding,
+View small example programs for each Rosette endpoint
 in the [examples](https://github.com/rosette-api/python/tree/develop/examples) directory.
 
 #### Documentation & Support
@@ -28,10 +32,6 @@ in the [examples](https://github.com/rosette-api/python/tree/develop/examples) d
 - [Binding/Platform Compatibility](https://developer.rosette.com/features-and-functions?python#)
 - [Support](https://support.rosette.com)
 - [Binding License: Apache 2.0](https://github.com/rosette-api/python/blob/develop/LICENSE.txt)
-
-## Rosette API Access
-- Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
-- Rosette Enterprise [Evaluation](https://www.rosette.com/product-eval/)
 
 ## Binding Developer Information
 If you are modifying the binding code, please refer to the [developer README](https://github.com/rosette-api/python/tree/develop/DEVELOPER.md) file.
