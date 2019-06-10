@@ -28,7 +28,8 @@ in the [examples](https://github.com/rosette-api/python/tree/develop/examples) d
 #### Documentation & Support
 - [Binding API](https://rosette-api.github.io/python/)
 - [Rosette Platform API](https://developer.rosette.com/features-and-functions)
-- [Release Notes](https://github.com/rosette-api/python/wiki/Release-Notes)
+- [Binding Release Notes](https://github.com/rosette-api/python/wiki/Release-Notes)
+- [Platform Release Notes](https://support.rosette.com/hc/en-us/articles/360018354971-Release-Notes)
 - [Binding/Platform Compatibility](https://developer.rosette.com/features-and-functions?python#)
 - [Support](https://support.rosette.com)
 - [Binding License: Apache 2.0](https://github.com/rosette-api/python/blob/develop/LICENSE.txt)
