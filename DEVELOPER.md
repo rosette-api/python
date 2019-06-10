@@ -1,22 +1,42 @@
 ## Developer Information
 
-###
-Docker
-A Docker image for running the examples against the compiled source library is available on Docker Hub.
+### Testing
+To test changes you have made to the binding, you can use a pre-configured Docker environment.  This environment will:
+- Compile the binding within the container.
+- Install the binding within the container.
+- Execute one or more example files using the installed binding.
+- The example files can be executed against a Cloud release or an Enterprise release.
+- If a test suite exists, it will also be executed.
 
-Command: docker run -e API_KEY=api-key -v "<binding root directory>:/source" rosetteapi/docker-python
+```
+git clone git@github.com:rosette-api/python.git
+cd python
+# Modify the binding...
+docker run -e API_KEY=$API_KEY -v $(pwd):/source rosetteapi/docker-python
+```
 
-Additional environment settings:
+Optional parameters for the `docker run` execution are:
 
--e ALT_URL=<alternative URL>
--e FILENAME=<single filename>
+- `-e ALT_URL=<alternative URL>`
+  - For testing against an Enterprise environment or the staging environment.
+- `-e FILENAME=<single filename>`
+  - For testing a single example file instead of all the example files.
 
+To alter the behavior of the pre-configured Docker environment, you can see the Dockerfile source and entry-point
+script [here](https://git.basistech.net/raas/rapid-development-tools/tree/master/binding-dockerfiles). 
 
-### Doc README
-
+### Documentation Generation
+The existing README for documentation generation is [here](docs/README.md).
+The next time the API documentation is touched, please refresh the README and migrate it here.
 
 ### Examples README
+There's an old [Docker README](examples/docker) in the examples directory that might be a candidate for removal.
 
+### Building A Release
+See the [instructions](https://git.basistech.net/raas/rapid-development-tools/tree/master/publish)
 
-### Build Release
-...
+### TODOs
+- Inconsistent references with `rosette_api` and `rosette-api`
+- Doc generation README cleanup?
+- Example Docker file still needed?
+- `docker-compose.yaml` still needed?
