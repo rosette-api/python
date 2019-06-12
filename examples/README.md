@@ -1,44 +1,50 @@
-Python Examples
-==================
+## Endpoint Examples
 
-These examples are scripts that can be run independently to demonstrate the Rosette API functionality.
+Each example file demonstrates one of the capabilities of the Rosette Platform.
 
-Prerequisite: Either run `pip install rosette_api` or run `python setup.py install` in the python top level folder.
+Here are some methods for running the examples.  Each example will also accept an optional `--url` parameter for
+overriding the default URL.
 
-Alternatively, you can run all the examples with the command line:
-`find -maxdepth 1 -name "*.py" -exec tox -- {} --key api-key --url alternate_url \;`
+A note on pre-requisites.  Rosette API only supports TLS 1.2 so ensure your toolchain also supports it.
 
-You can now run your desired _endpoint_.py file to see it in action.
-For example, run `python/examples/categories.py` if you want to see the categories
-functionality demonstrated.
+#### Virtualenv/Latest Release
+```
+git clone git@github.com:rosette-api/python.git
+cd python/examples
+virtualenv rosette_venv
+source rosette_venv/bin/activate
+pip install rosette_api
+python ping.py -k $API_KEY
+```
 
-All files require you to input your Rosette API User Key after --key to run.
-For example: `python ping.py --key 1234567890`
-All also allow you to input your own service URL if desired.
-For example: `python ping.py --key 1234567890 --service_url http://www.myurl.com`
-Some (specified below) allow an additional input of either a file (.html or .txt) or a URL with `--file` or `--url`
+#### Virtualenv/Local Source
+```
+git clone git@github.com:rosette-api/python.git
+cd python
+virtualenv rosette_venv
+source rosette_venv/bin/activate
+python setup.py install
+cd examples
+python ping.py -k $API_KEY
+```
 
-Each example, when run, prints its output to the console.
+#### Docker/Latest Release
+```
+git clone git@github.com:rosette-api/python.git
+cd python/examples
+docker run -it -v $(pwd):/source --entrypoint bash python:3.6-slim
+cd /source
+pip install rosette_api
+python ping.py -k $API_KEY
+```
 
-| File Name                     | What it does                                          |
-| -------------                 |-------------                                        |
-| categories.py                    | Gets the category of a document at a URL              |
-| entities.py                      | Gets the entities from a piece of text                |
-| info.py                          | Gets information about Rosette API                    |
-| language.py                      | Gets the language of a piece of text                  |
-| matched-name.py                  | Gets the similarity score of two names                |
-| morphology_complete.py               | Gets the complete morphological analysis of a piece of text|
-| morphology_compound-components.py    | Gets the de-compounded words from a piece of text     |
-| morphology_han-readings.py           | Gets the Chinese words from a piece of text           |
-| morphology_lemmas.py                 | Gets the lemmas of words from a piece of text         |
-| morphology_parts-of-speech.py        | Gets the part-of-speech tags for words in a piece of text |
-| name_deduplication.py                | De-duplicates a list of names |
-| ping.py                          | Pings the Rosette API to check for reachability       |
-| relationships.py                      | Gets the relationships between entities from a piece of text                |
-| sentences.py                     | Gets the sentences from a piece of text               |
-| sentiment.py                     | Gets the sentiment of a local file                    |
-| tokens.py                        | Gets the tokens (words) from a piece of text          |
-| topics.py | Returns key phrases and concepts from provided content |
-| translated-name.py               | Translates a name from one language to another        |
-| transliteration.py               | Transliterates the given text |
-
+#### Docker/Local Source
+```
+git clone git@github.com:rosette-api/python.git
+cd python
+docker run -it -v $(pwd):/source --entrypoint bash python:3.6-slim
+cd /source
+python setup.py install
+cd examples
+python ping.py -k $API_KEY
+```
