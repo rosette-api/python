@@ -28,7 +28,7 @@ import warnings
 import requests
 import platform
 
-_BINDING_VERSION = '1.12.1'
+_BINDING_VERSION = '1.14.3'
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
@@ -243,6 +243,32 @@ class NameTranslationParameters(_DocumentParamSetBase):
                 raise RosetteException(
                     "missingParameter",
                     "Required Name Translation parameter, " + option + ", not supplied",
+                    repr(option))
+
+
+class AddressSimilarityParameters(_DocumentParamSetBase):
+    """Parameter object for C{address-similarity} endpoint.
+    All are required.
+
+    C{address1} The address to be matched, a C{address} object.
+
+    C{address2} The address to be matched, a C{address} object.
+
+    The C{address} object contains these optional fields:
+      city, island, district, stateDistrict, state, countryRegion, country, worldRegion, postCode, poBox
+    """
+
+    def __init__(self):
+        self.use_multipart = False
+        _DocumentParamSetBase.__init__(self, ("address1", "address2"))
+
+    def validate(self):
+        """Internal. Do not use."""
+        for option in ("address1", "address2"):  # required
+            if self[option] is None:
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Address Similarity parameter, " + option + ", not supplied",
                     repr(option))
 
 
@@ -550,6 +576,7 @@ class API(object):
         }
 
         self.endpoints = {
+            'ADDRESS_SIMILARITY': 'address-similarity',
             'CATEGORIES': 'categories',
             'ENTITIES': 'entities',
             'INFO': 'info',
@@ -878,6 +905,15 @@ class API(object):
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of relationship extraction."""
         return EndpointCaller(self, self.endpoints['RELATIONSHIPS']).call(parameters)
+
+    def address_similarity(self, parameters):
+        """
+        Create an L{EndpointCaller} to perform address similarity scoring and call it.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the name matcher.
+        @type parameters: L{AddressSimilarityParameters}
+        @return: A python dictionary containing the results of name matching."""
+        return EndpointCaller(self, self.endpoints['ADDRESS_SIMILARITY']).call(parameters)
 
     def name_translation(self, parameters):
         """
