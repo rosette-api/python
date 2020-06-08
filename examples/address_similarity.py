@@ -18,7 +18,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     params = AddressSimilarityParameters()
     params["address1"] = {"houseNumber": "1600", "road": "Pennsylvania Ave NW", "city": "Washington", "state": "DC", "postCode": "20500"}
-    params["address2"] = {"houseNumber": "160", "road": "Pennsilvana Avenue", "city": "Washington", "state": "D.C.", "postCode": "20500"}
+    params["address2"] = "160 Pennsilvana Avenue, Washington, D.C., 20500"
 
     try:
         return api.address_similarity(params)
