@@ -250,9 +250,9 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{address-similarity} endpoint.
     All are required.
 
-    C{address1} The address to be matched, a C{address} object.
+    C{address1} The address to be matched, a C{address} object or address string.
 
-    C{address2} The address to be matched, a C{address} object.
+    C{address2} The address to be matched, a C{address} object or address string.
 
     The C{address} object contains these optional fields:
       city, island, district, stateDistrict, state, countryRegion, country, worldRegion, postCode, poBox
@@ -455,7 +455,8 @@ class EndpointCaller(object):
         if not isinstance(parameters, _DocumentParamSetBase):
             if self.suburl != self.api.endpoints['NAME_SIMILARITY'] \
                and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
-               and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION']:
+               and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION'] \
+               and self.suburl != self.api.self.api.endpoints['ADDRESS_SIMILARITY']:
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
