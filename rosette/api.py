@@ -613,9 +613,10 @@ class API(object):
         """ Return the User-Agent string """
         return self.user_agent_string
 
-    def _set_pool_size(self):
+    def set_pool_size(self, new_pool_size):
+        self.max_pool_size = new_pool_size
         adapter = requests.adapters.HTTPAdapter(
-            pool_maxsize=self.max_pool_size)
+            pool_maxsize=new_pool_size)
         if 'https:' in self.service_url:
             self.session.mount('https://', adapter)
         else:
@@ -651,10 +652,8 @@ class API(object):
             rdata = response.content
             dict_headers = dict(response.headers)
             response_headers = {"responseHeaders": dict_headers}
-            if 'x-rosetteapi-concurrency' in dict_headers:
-                if dict_headers['x-rosetteapi-concurrency'] != self.max_pool_size:
-                    self.max_pool_size = dict_headers['x-rosetteapi-concurrency']
-                    self._set_pool_size()
+            if 'x-rosetteapi-concurrency' in dict_headers and dict_headers['x-rosetteapi-concurrency'] != self.max_pool_size:
+                    self.set_pool_size(dict_headers['x-rosetteapi-concurrency'])
 
             if status == 200:
                 return rdata, status, response_headers
