@@ -614,6 +614,9 @@ class API(object):
         return self.user_agent_string
 
     def set_pool_size(self, new_pool_size):
+        """Sets the connection pool size.
+        @parameter new_pool_size: pool size to set
+        """
         self.max_pool_size = new_pool_size
         adapter = requests.adapters.HTTPAdapter(
             pool_maxsize=new_pool_size)
