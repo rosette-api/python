@@ -23,12 +23,13 @@ import sys
 import platform
 import httpretty
 import pytest
-from rosette.api import (API,
+from rosette.api import (AddressSimilarityParameters,
+                         API,
                          DocumentParameters,
                          NameTranslationParameters,
                          NameSimilarityParameters,
                          NameDeduplicationParameters,
-                         RosetteException, AddressSimilarityParameters)
+                         RosetteException)
 
 _ISPY3 = sys.version_info[0] == 3
 

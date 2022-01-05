@@ -23,6 +23,9 @@
   ```
 * Push the results to Sonar
   ```
+  sonar_host=https://sonar.basistech.net
+  sonar_token=<foo> # Generate a token at https://sonar.basistech.net/account/security/
+
   docker run \
       --rm \
       -e SONAR_HOST_URL="${sonar_host}" \
