@@ -23,12 +23,12 @@ import sys
 import platform
 import httpretty
 import pytest
-from rosette.api import(API,
-                        DocumentParameters,
-                        NameTranslationParameters,
-                        NameSimilarityParameters,
-                        NameDeduplicationParameters,
-                        RosetteException)
+from rosette.api import (API,
+                         DocumentParameters,
+                         NameTranslationParameters,
+                         NameSimilarityParameters,
+                         NameDeduplicationParameters,
+                         RosetteException, AddressSimilarityParameters)
 
 _ISPY3 = sys.version_info[0] == 3
 
@@ -118,7 +118,7 @@ def test_custom_header_props(api):
     assert value == api.get_custom_headers()[key]
 
     api.clear_custom_headers()
-    assert len(api.get_custom_headers()) is 0
+    assert len(api.get_custom_headers()) == 0
 
 # Test for invalid header name
 
@@ -460,10 +460,10 @@ def test_name_deduplicatation_parameters(api, json_response):
     params = NameDeduplicationParameters()
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_deduplication(params)
+        api.name_deduplication(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name De-Duplication parameter, names, not supplied'
+    assert e_rosette.value.message == 'Required Name De-Duplication parameter is missing: names'
 
     params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
 
@@ -572,6 +572,43 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
     httpretty.disable()
     httpretty.reset()
 
+
+def test_for_address_similarity_required_parameters(api, json_response):
+    """Test address similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/address-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = AddressSimilarityParameters()
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.address_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Address Similarity parameter is missing: address1'
+
+    params["address1"] = {"houseNumber": "1600",
+                          "road": "Pennsylvania Ave NW",
+                          "city": "Washington",
+                          "state": "DC",
+                          "postCode": "20500"}
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.address_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Address Similarity parameter is missing: address2'
+
+    params["address2"] = {"text": "160 Pennsilvana Avenue, Washington, D.C., 20500"}
+
+    result = api.address_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
 # Test for required Name Similarity parameters
 
 
@@ -588,20 +625,20 @@ def test_for_name_similarity_required_parameters(api, json_response):
     params = NameSimilarityParameters()
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_similarity(params)
+        api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter, name1, not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter is missing: name1'
 
     params["name1"] = {
         "text": matched_name_data1,
         "language": "eng",
         "entityType": "PERSON"}
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_similarity(params)
+        api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter, name2, not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter is missing: name2'
 
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
@@ -626,19 +663,18 @@ def test_for_name_translation_required_parameters(api, json_response):
     params["targetScript"] = "Latn"
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_translation(params)
+        api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Translation parameter, name, not supplied'
+    assert e_rosette.value.message == 'Required Name Translation parameter is missing: name'
 
     params["name"] = "some data to translate"
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_translation(params)
+        api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Name Translation parameter, '
-                                       'targetLanguage, not supplied')
+    assert e_rosette.value.message == 'Required Name Translation parameter is missing: targetLanguage'
 
     params["targetLanguage"] = "eng"
 
