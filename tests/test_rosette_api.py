@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2014-2019 Basis Technology Corporation.
+Copyright (c) 2014-2022 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -202,6 +202,8 @@ def test_the_max_pool_size(json_response, doc_params):
     result = api.language(doc_params)
     assert result["name"] == "Rosette"
     assert api.get_pool_size() == 5
+    api.set_pool_size(11)
+    assert api.get_pool_size() == 11
     httpretty.disable()
     httpretty.reset()
 
@@ -754,5 +756,59 @@ def test_the_similar_terms_endpoint(api, json_response, doc_params):
     api.set_option("resultLanguages", ["spa", "jpn", "deu"])
     result = api.similar_terms(doc_params)
     assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_the_deprecated_endpoints(api, json_response, doc_params):
+    """There are three deprecated endpoints.  Exercise them until they are deleted."""
+
+    # TEXT_EMBEDDING calls SEMANTIC_VECTORS
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/vector",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.text_embedding(doc_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+    # MATCHED_NAME calls NAME_SIMILARITY
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    name_similarity_params = NameSimilarityParameters()
+
+    name_similarity_params["name1"] = {
+        "text": "Michael Jackson",
+        "language": "eng",
+        "entityType": "PERSON"}
+
+    name_similarity_params["name2"] = {"text": "迈克尔·杰克逊", "entityType": "PERSON"}
+
+    result = api.matched_name(name_similarity_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+    # TRANSLATED_NAME calls NAME_TRANSLATION
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+                           body=json_response, status=200, content_type="application/json")
+
+    name_translation_params = NameTranslationParameters()
+    name_translation_params["entityType"] = "PERSON"
+    name_translation_params["targetScript"] = "Latn"
+    name_translation_params["name"] = "some data to translate"
+    name_translation_params["targetLanguage"] = "eng"
+
+    result = api.translated_name(name_translation_params)
+    assert result["name"] == "Rosette"
+
     httpretty.disable()
     httpretty.reset()

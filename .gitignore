@@ -75,3 +75,6 @@ target/
 
 settings.json
 *.orig
+
+# Sonar
+.scannerwork/

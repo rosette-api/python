@@ -1,5 +1,37 @@
 ## Developer Information
 
+#### Sonar Scanning
+* Uncomment the `sonar.branch.name` line in `sonar-project.properties` and adjust the value to match your branch name.
+* Install the `coverage` module in to your virtual environment.
+  ```
+  virtualenv -p python3 ~/venvs/python-binding-development
+  source ~/venvs/python-binding-development/bin/activate
+  pip install --upgrade pip
+  pip install coverage
+  ```
+* Generate the coverage data.
+  ```
+  coverage run --source=rosette -m pytest
+  ```
+* Check the results locally
+  ```
+  coverage report
+  ```
+* Generate the XML coverage report
+  ```
+  coverage xml
+  ```
+* Push the results to Sonar
+  ```
+  docker run \
+      --rm \
+      -e SONAR_HOST_URL="${sonar_host}" \
+      -e SONAR_LOGIN="${sonar_token}" \
+      -v "$(pwd):/usr/src" \
+      sonarsource/sonar-scanner-cli
+
+  ```
+
 ### Testing
 To test changes you have made to the binding, you can use a pre-configured Docker environment.  This environment will:
 - Compile the binding within the container.

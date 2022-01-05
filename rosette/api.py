@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2019 Basis Technology Corporation.
+Copyright (c) 2014-2022 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -599,7 +599,7 @@ class API(object):
         if 'https:' in self.service_url:
             self.session.mount('https://', adapter)
         else:
-            self.session.mount('http://', adapter)
+            self.session.mount('http://', adapter) # NOSONAR
 
     def __adjust_concurrency(self, dict_headers):
         if _CONCURRENCY_HEADER in dict_headers and dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
@@ -947,12 +947,12 @@ class API(object):
         return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters)
 
     def text_embedding(self, parameters):
-        """
+        """ deprecated
         Create an L{EndpointCaller}  to identify text vectors found in the texts
         to which it is applied and call it.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of text embedding."""
-        return EndpointCaller(self, self.endpoints['TEXT_EMBEDDING']).call(parameters)
+        return self.semantic_vectors(parameters)
 
     def semantic_vectors(self, parameters):
         """
