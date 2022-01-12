@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2019 Basis Technology Corporation.
+Copyright (c) 2014-2022 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -28,11 +28,15 @@ import warnings
 import requests
 import platform
 
-_BINDING_VERSION = '1.14.4'
+_APPLICATION_JSON = 'application/json'
+_BINDING_LANGUAGE = 'python'
+_BINDING_VERSION = '1.20.0'
+_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
+_CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
+_CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
-
 
 if _ISPY3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
@@ -49,7 +53,6 @@ class _ReturnObject(object):
         self.status_code = code
 
     def json(self):
-        """ return  json"""
         return self._json
 
 
@@ -112,7 +115,7 @@ class _DocumentParamSetBase(object):
         values = {}
         for (key, val) in self.__params.items():
             if val is None:
-                pass
+                continue
             else:
                 values[key] = val
 
@@ -242,7 +245,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Translation parameter, " + option + ", not supplied",
+                    "Required Name Translation parameter is missing: " + option,
                     repr(option))
 
 
@@ -268,7 +271,7 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Address Similarity parameter, " + option + ", not supplied",
+                    "Required Address Similarity parameter is missing: " + option,
                     repr(option))
 
 
@@ -301,7 +304,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Similarity parameter, " + option + ", not supplied",
+                    "Required Name Similarity parameter is missing: " + option,
                     repr(option))
 
 
@@ -321,7 +324,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
         if self["names"] is None:  # required
             raise RosetteException(
                 "missingParameter",
-                "Required Name De-Duplication parameter, names, not supplied",
+                "Required Name De-Duplication parameter is missing: names",
                 repr("names"))
 
 
@@ -372,31 +375,37 @@ class EndpointCaller(object):
             raise RosetteException(code, complaint_url +
                                    " : failed to communicate with Rosette", msg)
 
+    def __set_headers(self):
+        headers = {'Accept': _APPLICATION_JSON,
+                   _CUSTOM_HEADER_PREFIX + 'Binding': _BINDING_LANGUAGE,
+                   _CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION}
+
+        custom_headers = self.api.get_custom_headers()
+        if custom_headers is not None:
+            for key in custom_headers.keys():
+                if _CUSTOM_HEADER_PATTERN.match(key) is not None:
+                    headers[key] = custom_headers[key]
+                else:
+                    raise RosetteException("badHeader",
+                                           "Custom header name must begin with \"" + _CUSTOM_HEADER_PREFIX + "\"",
+                                           key)
+            self.api.clear_custom_headers()
+
+        if self.debug:
+            headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
+
+        if self.user_key is not None:
+            headers[_CUSTOM_HEADER_PREFIX + "Key"] = self.user_key
+
+        return headers
+
     def info(self):
         """Issues an "info" request to the L{EndpointCaller}'s specific endpoint.
         @return: A dictionary telling server version and other
         identifying data."""
         url = self.service_url + self.api.endpoints["INFO"]
-        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
-                   'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
-
-        custom_headers = self.api.get_custom_headers()
-        pattern = re.compile('^X-RosetteAPI-')
-        if custom_headers is not None:
-            for key in custom_headers.keys():
-                if pattern.match(key) is not None:
-                    headers[key] = custom_headers[key]
-                else:
-                    raise RosetteException("badHeader",
-                                           "Custom header name must begin with \"X-RosetteAPI-\"",
-                                           key)
-            self.api.clear_custom_headers()
-
-        if self.debug:
-            headers['X-RosetteAPI-Devel'] = 'true'
+        headers = self.__set_headers()
         self.logger.info('info: ' + url)
-        if self.user_key is not None:
-            headers["X-RosetteAPI-Key"] = self.user_key
         response = self.api.get_http(url, headers=headers)
         return self.__finish_result(response, "info")
 
@@ -407,26 +416,8 @@ class EndpointCaller(object):
         signalled."""
 
         url = self.service_url + self.api.endpoints['PING']
-        headers = {'Accept': 'application/json', 'X-RosetteAPI-Binding': 'python',
-                   'X-RosetteAPI-Binding-Version': _BINDING_VERSION}
-
-        custom_headers = self.api.get_custom_headers()
-        pattern = re.compile('^X-RosetteAPI-')
-        if custom_headers is not None:
-            for key in custom_headers.keys():
-                if pattern.match(key) is not None:
-                    headers[key] = custom_headers[key]
-                else:
-                    raise RosetteException("badHeader",
-                                           "Custom header name must begin with \"X-RosetteAPI-\"",
-                                           key)
-            self.api.clear_custom_headers()
-
-        if self.debug:
-            headers['X-RosetteAPI-Devel'] = 'true'
+        headers = self.__set_headers()
         self.logger.info('Ping: ' + url)
-        if self.user_key is not None:
-            headers["X-RosetteAPI-Key"] = self.user_key
         response = self.api.get_http(url, headers=headers)
         return self.__finish_result(response, "ping")
 
@@ -454,9 +445,9 @@ class EndpointCaller(object):
 
         if not isinstance(parameters, _DocumentParamSetBase):
             if self.suburl != self.api.endpoints['NAME_SIMILARITY'] \
-               and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
-               and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION'] \
-               and self.suburl != self.api.self.api.endpoints['ADDRESS_SIMILARITY']:
+                    and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
+                    and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION'] \
+                    and self.suburl != self.api.self.api.endpoints['ADDRESS_SIMILARITY']:
                 text = parameters
                 parameters = DocumentParameters()
                 parameters['content'] = text
@@ -471,22 +462,7 @@ class EndpointCaller(object):
         params_to_serialize = parameters.serialize(self.api.options)
         headers = {}
         if self.user_key is not None:
-            custom_headers = self.api.get_custom_headers()
-            pattern = re.compile('^X-RosetteAPI-')
-            if custom_headers is not None:
-                for key in custom_headers.keys():
-                    if pattern.match(key) is not None:
-                        headers[key] = custom_headers[key]
-                    else:
-                        raise RosetteException("badHeader",
-                                               "Custom header name must "
-                                               "begin with \"X-RosetteAPI-\"",
-                                               key)
-                self.api.clear_custom_headers()
-
-            headers["X-RosetteAPI-Key"] = self.user_key
-            headers["X-RosetteAPI-Binding"] = "python"
-            headers["X-RosetteAPI-Binding-Version"] = _BINDING_VERSION
+            headers = self.__set_headers()
 
         if self.use_multipart:
             payload = None
@@ -496,7 +472,7 @@ class EndpointCaller(object):
             params = dict(
                 (key,
                  value) for key,
-                value in params_to_serialize.items() if key == 'language')
+                            value in params_to_serialize.items() if key == 'language')
             files = {
                 'content': (
                     os.path.basename(
@@ -506,7 +482,7 @@ class EndpointCaller(object):
                 'request': (
                     'request_options',
                     json.dumps(params),
-                    'application/json')}
+                    _APPLICATION_JSON)}
             request = requests.Request(
                 'POST', url, files=files, headers=headers, params=payload)
             prepared_request = self.api.session.prepare_request(request)
@@ -519,11 +495,11 @@ class EndpointCaller(object):
                 _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                headers['X-RosetteAPI-Devel'] = True
+                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = True
             self.logger.info('operate: ' + url)
-            headers['Accept'] = "application/json"
+            headers['Accept'] = _APPLICATION_JSON
             headers['Accept-Encoding'] = "gzip"
-            headers['Content-Type'] = "application/json"
+            headers['Content-Type'] = _APPLICATION_JSON
             response = self.api.post_http(url, params_to_serialize, headers)
         return self.__finish_result(response, "operate")
 
@@ -613,13 +589,21 @@ class API(object):
         """ Return the User-Agent string """
         return self.user_agent_string
 
-    def _set_pool_size(self):
+    def set_pool_size(self, new_pool_size):
+        """Sets the connection pool size.
+        @parameter new_pool_size: pool size to set
+        """
+        self.max_pool_size = new_pool_size
         adapter = requests.adapters.HTTPAdapter(
-            pool_maxsize=self.max_pool_size)
+            pool_maxsize=new_pool_size)
         if 'https:' in self.service_url:
             self.session.mount('https://', adapter)
         else:
-            self.session.mount('http://', adapter)
+            self.session.mount('http://', adapter) # NOSONAR
+
+    def __adjust_concurrency(self, dict_headers):
+        if _CONCURRENCY_HEADER in dict_headers and dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
+            self.set_pool_size(dict_headers[_CONCURRENCY_HEADER])
 
     def _make_request(self, operation, url, data, headers):
         """
@@ -650,11 +634,8 @@ class API(object):
             status = response.status_code
             rdata = response.content
             dict_headers = dict(response.headers)
+            self.__adjust_concurrency(dict_headers)
             response_headers = {"responseHeaders": dict_headers}
-            if 'x-rosetteapi-concurrency' in dict_headers:
-                if dict_headers['x-rosetteapi-concurrency'] != self.max_pool_size:
-                    self.max_pool_size = dict_headers['x-rosetteapi-concurrency']
-                    self._set_pool_size()
 
             if status == 200:
                 return rdata, status, response_headers
@@ -670,9 +651,11 @@ class API(object):
                         if not message:
                             message = rdata
                     raise RosetteException(code, message, url)
-
-                except:
-                    raise
+                except json.JSONDecodeError as exception:
+                    raise RosetteException(
+                        exception,
+                        "Problem decoding JSON",
+                        rdata)
         except requests.exceptions.RequestException as exception:
             raise RosetteException(
                 exception,
@@ -964,12 +947,12 @@ class API(object):
         return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters)
 
     def text_embedding(self, parameters):
-        """
+        """ deprecated
         Create an L{EndpointCaller}  to identify text vectors found in the texts
         to which it is applied and call it.
         @type parameters: L{DocumentParameters} or L{str}
         @return: A python dictionary containing the results of text embedding."""
-        return EndpointCaller(self, self.endpoints['TEXT_EMBEDDING']).call(parameters)
+        return self.semantic_vectors(parameters)
 
     def semantic_vectors(self, parameters):
         """
