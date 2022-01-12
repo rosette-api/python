@@ -4,15 +4,15 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rosette package &#8212;  1.14.4 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>rosette package &#8212;  1.20.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -31,15 +31,15 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="rosette-package">
+  <section id="rosette-package">
 <h1>rosette package<a class="headerlink" href="#rosette-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
+<section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-rosette.api">
+</section>
+<section id="module-rosette.api">
 <span id="rosette-api-module"></span><h2>rosette.api module<a class="headerlink" href="#module-rosette.api" title="Permalink to this headline">¶</a></h2>
 <p>Python client for the Rosette API.</p>
-<p>Copyright (c) 2014-2019 Basis Technology Corporation.</p>
+<p>Copyright (c) 2014-2022 Basis Technology Corporation.</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,15 +50,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</p>
 <dl class="py class">
-<dt id="rosette.api.API">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">API</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">service_url</span><span class="o">=</span><span class="default_value">'https://api.rosette.com/rest/v1/'</span></em>, <em class="sig-param"><span class="n">retries</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">refresh_duration</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://api.rosette.com/rest/v1/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Rosette Python Client Binding API; representation of a Rosette server.
 Call instance methods upon this object to obtain L{EndpointCaller} objects
 which can communicate with particular Rosette server endpoints.</p>
 <dl class="py method">
-<dt id="rosette.api.API.address_similarity">
-<code class="sig-name descname">address_similarity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.address_similarity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.address_similarity">
+<span class="sig-name descname"><span class="pre">address_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.address_similarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to perform address similarity scoring and call it.
 &#64;param parameters: An object specifying the data,
 and possible metadata, to be processed by the name matcher.
@@ -67,8 +67,8 @@ and possible metadata, to be processed by the name matcher.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.categories">
-<code class="sig-name descname">categories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.categories" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.categories">
+<span class="sig-name descname"><span class="pre">categories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.categories" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to identify the category of the text to which
 it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -78,26 +78,26 @@ and possible metadata, to be processed by the category identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.clear_custom_headers">
-<code class="sig-name descname">clear_custom_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_custom_headers" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.clear_custom_headers">
+<span class="sig-name descname"><span class="pre">clear_custom_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_custom_headers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears custom headers</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.clear_options">
-<code class="sig-name descname">clear_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_options" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.clear_options">
+<span class="sig-name descname"><span class="pre">clear_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_options" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears all options</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.clear_url_parameters">
-<code class="sig-name descname">clear_url_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_url_parameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.clear_url_parameters">
+<span class="sig-name descname"><span class="pre">clear_url_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.clear_url_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears all options</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.entities">
-<code class="sig-name descname">entities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.entities" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.entities">
+<span class="sig-name descname"><span class="pre">entities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.entities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller}  to identify named entities found in the texts
 to which it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -107,63 +107,63 @@ and possible metadata, to be processed by the entity identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_binding_version">
-<code class="sig-name descname">get_binding_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_binding_version" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_binding_version">
+<span class="sig-name descname"><span class="pre">get_binding_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_binding_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the current binding version</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_custom_headers">
-<code class="sig-name descname">get_custom_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_custom_headers" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_custom_headers">
+<span class="sig-name descname"><span class="pre">get_custom_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_custom_headers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get custom headers</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_http">
-<code class="sig-name descname">get_http</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">headers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_http" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_http">
+<span class="sig-name descname"><span class="pre">get_http</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_http" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple wrapper for the GET request</p>
 <p>&#64;param url: endpoint URL
 &#64;param headers: request headers</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_option">
-<code class="sig-name descname">get_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_option" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_option">
+<span class="sig-name descname"><span class="pre">get_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_option" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets an option</p>
 <p>&#64;param name: name of option</p>
 <p>&#64;return: value of option</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_pool_size">
-<code class="sig-name descname">get_pool_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_pool_size" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_pool_size">
+<span class="sig-name descname"><span class="pre">get_pool_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_pool_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the maximum pool size, which is the returned x-rosetteapi-concurrency value</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_url_parameter">
-<code class="sig-name descname">get_url_parameter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_url_parameter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_url_parameter">
+<span class="sig-name descname"><span class="pre">get_url_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_url_parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a URL parameter</p>
 <p>&#64;param name: name of parameter</p>
 <p>&#64;return: value of parameter</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.get_user_agent_string">
-<code class="sig-name descname">get_user_agent_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_user_agent_string" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.get_user_agent_string">
+<span class="sig-name descname"><span class="pre">get_user_agent_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.get_user_agent_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the User-Agent string</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.info">
-<code class="sig-name descname">info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.info" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ping L{EndpointCaller} for the server and ping it.
 &#64;return: A python dictionary including the ping message of the L{API}</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.language">
-<code class="sig-name descname">language</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.language" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.language">
+<span class="sig-name descname"><span class="pre">language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} for language identification and call it.
 &#64;param parameters: An object specifying the data,
 and possible metadata, to be processed by the language identifier.
@@ -173,8 +173,8 @@ identification.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.matched_name">
-<code class="sig-name descname">matched_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.matched_name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.matched_name">
+<span class="sig-name descname"><span class="pre">matched_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.matched_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>deprecated
 Call name_similarity to perform name matching.
 &#64;param parameters: An object specifying the data,
@@ -184,8 +184,8 @@ and possible metadata, to be processed by the name matcher.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.morphology">
-<code class="sig-name descname">morphology</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">facet</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.morphology" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.morphology">
+<span class="sig-name descname"><span class="pre">morphology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.morphology" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to returns a specific facet
 of the morphological analyses of texts to which it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -197,8 +197,8 @@ and possible metadata, to be processed by the morphology analyzer.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.name_deduplication">
-<code class="sig-name descname">name_deduplication</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_deduplication" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.name_deduplication">
+<span class="sig-name descname"><span class="pre">name_deduplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_deduplication" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fuzzy de-duplication of a list of names
 &#64;param parameters: An object specifying a list of names as well
 as a threshold
@@ -207,8 +207,8 @@ as a threshold
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.name_similarity">
-<code class="sig-name descname">name_similarity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_similarity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.name_similarity">
+<span class="sig-name descname"><span class="pre">name_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_similarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to perform name similarity scoring and call it.
 &#64;param parameters: An object specifying the data,
 and possible metadata, to be processed by the name matcher.
@@ -217,8 +217,8 @@ and possible metadata, to be processed by the name matcher.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.name_translation">
-<code class="sig-name descname">name_translation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_translation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.name_translation">
+<span class="sig-name descname"><span class="pre">name_translation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.name_translation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to perform name analysis and translation
 upon the name to which it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -228,15 +228,15 @@ and possible metadata, to be processed by the name translator.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.ping">
-<code class="sig-name descname">ping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.ping" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.ping">
+<span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.ping" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a ping L{EndpointCaller} for the server and ping it.
 &#64;return: A python dictionary including the ping message of the L{API}</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.post_http">
-<code class="sig-name descname">post_http</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">headers</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.post_http" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.post_http">
+<span class="sig-name descname"><span class="pre">post_http</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.post_http" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple wrapper for the POST request</p>
 <p>&#64;param url: endpoint URL
 &#64;param data: request data
@@ -244,8 +244,8 @@ and possible metadata, to be processed by the name translator.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.relationships">
-<code class="sig-name descname">relationships</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.relationships" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.relationships">
+<span class="sig-name descname"><span class="pre">relationships</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.relationships" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to identify the relationships between entities in the text to
 which it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -255,8 +255,8 @@ and possible metadata, to be processed by the relationships identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.semantic_vectors">
-<code class="sig-name descname">semantic_vectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.semantic_vectors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.semantic_vectors">
+<span class="sig-name descname"><span class="pre">semantic_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.semantic_vectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller}  to identify text vectors found in the texts
 to which it is applied and call it.
 &#64;type parameters: L{DocumentParameters} or L{str}
@@ -264,8 +264,8 @@ to which it is applied and call it.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.sentences">
-<code class="sig-name descname">sentences</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.sentences" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.sentences">
+<span class="sig-name descname"><span class="pre">sentences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.sentences" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to break a text into sentences and call it.
 &#64;param parameters: An object specifying the data,
 and possible metadata, to be processed by the sentence identifier.
@@ -274,8 +274,8 @@ and possible metadata, to be processed by the sentence identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.sentiment">
-<code class="sig-name descname">sentiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.sentiment" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.sentiment">
+<span class="sig-name descname"><span class="pre">sentiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.sentiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to identify the sentiment of the text to
 which it is applied and call it.
 &#64;param parameters: An object specifying the data,
@@ -285,31 +285,38 @@ and possible metadata, to be processed by the sentiment identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.set_custom_headers">
-<code class="sig-name descname">set_custom_headers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_custom_headers" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.set_custom_headers">
+<span class="sig-name descname"><span class="pre">set_custom_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_custom_headers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets custom headers</p>
 <p>&#64;param headers: array of custom headers to be set</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.set_option">
-<code class="sig-name descname">set_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_option" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.set_option">
+<span class="sig-name descname"><span class="pre">set_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_option" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets an option</p>
 <p>&#64;param name: name of option
 &#64;param value: value of option</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.set_url_parameter">
-<code class="sig-name descname">set_url_parameter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_url_parameter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.set_pool_size">
+<span class="sig-name descname"><span class="pre">set_pool_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_pool_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_pool_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the connection pool size.
+&#64;parameter new_pool_size: pool size to set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosette.api.API.set_url_parameter">
+<span class="sig-name descname"><span class="pre">set_url_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.set_url_parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets a URL parameter</p>
 <p>&#64;param name: name of parameter
 &#64;param value: value of parameter</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.similar_terms">
-<code class="sig-name descname">similar_terms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.similar_terms" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.similar_terms">
+<span class="sig-name descname"><span class="pre">similar_terms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.similar_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to identify terms most similar to the input in
 the requested languages
 :param parameters: DocumentParameters
@@ -317,8 +324,8 @@ the requested languages
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.syntax_dependencies">
-<code class="sig-name descname">syntax_dependencies</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.syntax_dependencies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.syntax_dependencies">
+<span class="sig-name descname"><span class="pre">syntax_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.syntax_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to identify the syntactic dependencies in the texts
 to which it is applied and call it.
 &#64;type parameters: L{DocumentParameters} or L{str}
@@ -327,17 +334,18 @@ identification</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.text_embedding">
-<code class="sig-name descname">text_embedding</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.text_embedding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an L{EndpointCaller}  to identify text vectors found in the texts
+<dt class="sig sig-object py" id="rosette.api.API.text_embedding">
+<span class="sig-name descname"><span class="pre">text_embedding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.text_embedding" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated
+Create an L{EndpointCaller}  to identify text vectors found in the texts
 to which it is applied and call it.
 &#64;type parameters: L{DocumentParameters} or L{str}
 &#64;return: A python dictionary containing the results of text embedding.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.tokens">
-<code class="sig-name descname">tokens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.tokens" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.tokens">
+<span class="sig-name descname"><span class="pre">tokens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.tokens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an L{EndpointCaller} to break a text into tokens and call it.
 &#64;param parameters: An object specifying the data,
 and possible metadata, to be processed by the tokens identifier.
@@ -346,16 +354,16 @@ and possible metadata, to be processed by the tokens identifier.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.topics">
-<code class="sig-name descname">topics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.topics" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.topics">
+<span class="sig-name descname"><span class="pre">topics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.topics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Topics returns keyphrases and concepts related to the provided content
 &#64;type parameters: DocumentParameters
 &#64;return; A python dictionary containing the results</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.translated_name">
-<code class="sig-name descname">translated_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.translated_name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.translated_name">
+<span class="sig-name descname"><span class="pre">translated_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.translated_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>deprecated
 Call name_translation to perform name analysis and translation
 upon the name to which it is applied.
@@ -366,8 +374,8 @@ and possible metadata, to be processed by the name translator.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.API.transliteration">
-<code class="sig-name descname">transliteration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.transliteration" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.API.transliteration">
+<span class="sig-name descname"><span class="pre">transliteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.API.transliteration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transliterate given context
 &#64;type parameters: L{DocumentParameters}
 &#64;return: A python dictionary containing the results of the transliteration</p>
@@ -376,8 +384,8 @@ and possible metadata, to be processed by the name translator.
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.AddressSimilarityParameters">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">AddressSimilarityParameters</code><a class="headerlink" href="#rosette.api.AddressSimilarityParameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.AddressSimilarityParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">AddressSimilarityParameters</span></span><a class="headerlink" href="#rosette.api.AddressSimilarityParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{address-similarity} endpoint.
 All are required.</p>
@@ -388,16 +396,16 @@ All are required.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="rosette.api.AddressSimilarityParameters.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.AddressSimilarityParameters.validate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.AddressSimilarityParameters.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.AddressSimilarityParameters.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.DocumentParameters">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">DocumentParameters</code><a class="headerlink" href="#rosette.api.DocumentParameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.DocumentParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">DocumentParameters</span></span><a class="headerlink" href="#rosette.api.DocumentParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for all operations requiring input other than
 translated_name.
@@ -410,8 +418,8 @@ and L{DocumentParameters.load_document_string}.</p>
 protocols C{http, https, ftp, ftps} are accepted), the server will
 fetch the content from that web page.  In this case, C{content} may not be set.</p>
 <dl class="py method">
-<dt id="rosette.api.DocumentParameters.load_document_file">
-<code class="sig-name descname">load_document_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.load_document_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.DocumentParameters.load_document_file">
+<span class="sig-name descname"><span class="pre">load_document_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.load_document_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a file into the object.
 The file will be read as bytes; the appropriate conversion will
 be determined by the server.
@@ -419,8 +427,8 @@ be determined by the server.
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.DocumentParameters.load_document_string">
-<code class="sig-name descname">load_document_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content_as_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.load_document_string" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.DocumentParameters.load_document_string">
+<span class="sig-name descname"><span class="pre">load_document_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content_as_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.load_document_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a string into the object.
 The string will be taken as bytes or as Unicode dependent upon
 its native python type.
@@ -429,22 +437,22 @@ for subsequent analysis.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.DocumentParameters.serialize">
-<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.serialize" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.DocumentParameters.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.serialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.DocumentParameters.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.validate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.DocumentParameters.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.DocumentParameters.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.EndpointCaller">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">EndpointCaller</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">api</span></em>, <em class="sig-param"><span class="n">suburl</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.EndpointCaller">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">EndpointCaller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suburl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>L{EndpointCaller} objects are invoked via their instance methods to obtain results
 from the Rosette server described by the L{API} object from which they
@@ -459,8 +467,8 @@ an argument specifying the data to be processed and certain metadata.</p>
 keys and values correspond exactly to those of the corresponding
 JSON return value described in the Rosette web service documentation.</p>
 <dl class="py method">
-<dt id="rosette.api.EndpointCaller.call">
-<code class="sig-name descname">call</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.call" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.EndpointCaller.call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.call" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes the endpoint to which this L{EndpointCaller} is bound.
 Passes data and metadata specified by C{parameters} to the server
 endpoint to which this L{EndpointCaller} object is bound.  For all
@@ -481,16 +489,16 @@ otherwise L{DocumentParameters} or L{str}
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.EndpointCaller.info">
-<code class="sig-name descname">info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.info" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.EndpointCaller.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Issues an “info” request to the L{EndpointCaller}’s specific endpoint.
 &#64;return: A dictionary telling server version and other
 identifying data.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rosette.api.EndpointCaller.ping">
-<code class="sig-name descname">ping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.ping" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.EndpointCaller.ping">
+<span class="sig-name descname"><span class="pre">ping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.EndpointCaller.ping" title="Permalink to this definition">¶</a></dt>
 <dd><p>Issues a “ping” request to the L{EndpointCaller}’s (server-wide) endpoint.
 &#64;return: A dictionary if OK.  If the server cannot be reached,
 or is not the right server or some other error occurs, it will be
@@ -500,24 +508,24 @@ signalled.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.NameDeduplicationParameters">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">NameDeduplicationParameters</code><a class="headerlink" href="#rosette.api.NameDeduplicationParameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameDeduplicationParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameDeduplicationParameters</span></span><a class="headerlink" href="#rosette.api.NameDeduplicationParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-deduplication} endpoint.
 Required:
 C{names} A list of C{name} objects
 C{threshold} Threshold to use to restrict cluster size. Can be null to use default value.</p>
 <dl class="py method">
-<dt id="rosette.api.NameDeduplicationParameters.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameDeduplicationParameters.validate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameDeduplicationParameters.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameDeduplicationParameters.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.NameSimilarityParameters">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">NameSimilarityParameters</code><a class="headerlink" href="#rosette.api.NameSimilarityParameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameSimilarityParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameSimilarityParameters</span></span><a class="headerlink" href="#rosette.api.NameSimilarityParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-similarity} endpoint.
 All are required.</p>
@@ -529,16 +537,16 @@ All are required.</p>
 <p>C{script} The ISO15924 code of the name, optional.</p>
 <p>C{entityType} The entity type, can be “PERSON”, “LOCATION” or “ORGANIZATION”, optional.</p>
 <dl class="py method">
-<dt id="rosette.api.NameSimilarityParameters.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameSimilarityParameters.validate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameSimilarityParameters.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameSimilarityParameters.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="rosette.api.NameTranslationParameters">
-<em class="property">class </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">NameTranslationParameters</code><a class="headerlink" href="#rosette.api.NameTranslationParameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameTranslationParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameTranslationParameters</span></span><a class="headerlink" href="#rosette.api.NameTranslationParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-translation} endpoint.
 The following values may be set by the indexing (i.e.,C{ parms[“name”]}) operator.
@@ -556,26 +564,26 @@ content of the return result.</p>
 <p>C{targetScript} The script into which the name should be translated.</p>
 <p>C{targetScheme} The transliteration scheme by which the translated name should be rendered.</p>
 <dl class="py method">
-<dt id="rosette.api.NameTranslationParameters.validate">
-<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameTranslationParameters.validate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.NameTranslationParameters.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.NameTranslationParameters.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal. Do not use.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py exception">
-<dt id="rosette.api.RosetteException">
-<em class="property">exception </em><code class="sig-prename descclassname">rosette.api.</code><code class="sig-name descname">RosetteException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">status</span></em>, <em class="sig-param"><span class="n">message</span></em>, <em class="sig-param"><span class="n">response_message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.RosetteException" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rosette.api.RosetteException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">RosetteException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosette.api.RosetteException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Exception thrown by all Rosette API operations for errors local and remote.</p>
 <p>TBD. Right now, the only valid operation is conversion to __str__.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-rosette">
+</section>
+<section id="module-rosette">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rosette" title="Permalink to this headline">¶</a></h2>
 <p>Python client for the Rosette API.
-Copyright (c) 2014-2019 Basis Technology Corporation.
+Copyright (c) 2014-2022 Basis Technology Corporation.
 Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -585,8 +593,8 @@ distributed under the License is distributed on an “AS IS” BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -618,7 +626,7 @@ limitations under the License.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -637,10 +645,10 @@ limitations under the License.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2019, Basis Technology.
+      &copy;2022, Basis Technology.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
