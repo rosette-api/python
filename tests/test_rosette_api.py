@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2014-2019 Basis Technology Corporation.
+Copyright (c) 2014-2022 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -23,12 +23,13 @@ import sys
 import platform
 import httpretty
 import pytest
-from rosette.api import(API,
-                        DocumentParameters,
-                        NameTranslationParameters,
-                        NameSimilarityParameters,
-                        NameDeduplicationParameters,
-                        RosetteException)
+from rosette.api import (AddressSimilarityParameters,
+                         API,
+                         DocumentParameters,
+                         NameTranslationParameters,
+                         NameSimilarityParameters,
+                         NameDeduplicationParameters,
+                         RosetteException)
 
 _ISPY3 = sys.version_info[0] == 3
 
@@ -118,7 +119,7 @@ def test_custom_header_props(api):
     assert value == api.get_custom_headers()[key]
 
     api.clear_custom_headers()
-    assert len(api.get_custom_headers()) is 0
+    assert len(api.get_custom_headers()) == 0
 
 # Test for invalid header name
 
@@ -202,6 +203,8 @@ def test_the_max_pool_size(json_response, doc_params):
     result = api.language(doc_params)
     assert result["name"] == "Rosette"
     assert api.get_pool_size() == 5
+    api.set_pool_size(11)
+    assert api.get_pool_size() == 11
     httpretty.disable()
     httpretty.reset()
 
@@ -460,10 +463,10 @@ def test_name_deduplicatation_parameters(api, json_response):
     params = NameDeduplicationParameters()
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_deduplication(params)
+        api.name_deduplication(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name De-Duplication parameter, names, not supplied'
+    assert e_rosette.value.message == 'Required Name De-Duplication parameter is missing: names'
 
     params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
 
@@ -572,6 +575,43 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
     httpretty.disable()
     httpretty.reset()
 
+
+def test_for_address_similarity_required_parameters(api, json_response):
+    """Test address similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/address-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = AddressSimilarityParameters()
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.address_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Address Similarity parameter is missing: address1'
+
+    params["address1"] = {"houseNumber": "1600",
+                          "road": "Pennsylvania Ave NW",
+                          "city": "Washington",
+                          "state": "DC",
+                          "postCode": "20500"}
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.address_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Address Similarity parameter is missing: address2'
+
+    params["address2"] = {"text": "160 Pennsilvana Avenue, Washington, D.C., 20500"}
+
+    result = api.address_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
 # Test for required Name Similarity parameters
 
 
@@ -588,20 +628,20 @@ def test_for_name_similarity_required_parameters(api, json_response):
     params = NameSimilarityParameters()
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_similarity(params)
+        api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter, name1, not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter is missing: name1'
 
     params["name1"] = {
         "text": matched_name_data1,
         "language": "eng",
         "entityType": "PERSON"}
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_similarity(params)
+        api.name_similarity(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Similarity parameter, name2, not supplied'
+    assert e_rosette.value.message == 'Required Name Similarity parameter is missing: name2'
 
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
@@ -626,19 +666,18 @@ def test_for_name_translation_required_parameters(api, json_response):
     params["targetScript"] = "Latn"
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_translation(params)
+        api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == 'Required Name Translation parameter, name, not supplied'
+    assert e_rosette.value.message == 'Required Name Translation parameter is missing: name'
 
     params["name"] = "some data to translate"
 
     with pytest.raises(RosetteException) as e_rosette:
-        result = api.name_translation(params)
+        api.name_translation(params)
 
     assert e_rosette.value.status == 'missingParameter'
-    assert e_rosette.value.message == ('Required Name Translation parameter, '
-                                       'targetLanguage, not supplied')
+    assert e_rosette.value.message == 'Required Name Translation parameter is missing: targetLanguage'
 
     params["targetLanguage"] = "eng"
 
@@ -718,5 +757,59 @@ def test_the_similar_terms_endpoint(api, json_response, doc_params):
     api.set_option("resultLanguages", ["spa", "jpn", "deu"])
     result = api.similar_terms(doc_params)
     assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_the_deprecated_endpoints(api, json_response, doc_params):
+    """There are three deprecated endpoints.  Exercise them until they are deleted."""
+
+    # TEXT_EMBEDDING calls SEMANTIC_VECTORS
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/vector",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.text_embedding(doc_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+    # MATCHED_NAME calls NAME_SIMILARITY
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    name_similarity_params = NameSimilarityParameters()
+
+    name_similarity_params["name1"] = {
+        "text": "Michael Jackson",
+        "language": "eng",
+        "entityType": "PERSON"}
+
+    name_similarity_params["name2"] = {"text": "迈克尔·杰克逊", "entityType": "PERSON"}
+
+    result = api.matched_name(name_similarity_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+    # TRANSLATED_NAME calls NAME_TRANSLATION
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+                           body=json_response, status=200, content_type="application/json")
+
+    name_translation_params = NameTranslationParameters()
+    name_translation_params["entityType"] = "PERSON"
+    name_translation_params["targetScript"] = "Latn"
+    name_translation_params["name"] = "some data to translate"
+    name_translation_params["targetLanguage"] = "eng"
+
+    result = api.translated_name(name_translation_params)
+    assert result["name"] == "Rosette"
+
     httpretty.disable()
     httpretty.reset()
