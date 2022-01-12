@@ -59,6 +59,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+.scannerwork/
 
 # Translations
 *.mo
