@@ -2,7 +2,6 @@
 """
 Example code to call Rosette API to get match score (similarity) of two names.
 """
-from __future__ import print_function
 
 import argparse
 import json
