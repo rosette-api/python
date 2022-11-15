@@ -36,4 +36,4 @@ PARSER.add_argument('-u', '--url', help="Alternative API URL",
 if __name__ == '__main__':
     ARGS = PARSER.parse_args()
     RESULT = run(ARGS.key, ARGS.url)
-    print(json.dumps(RESULT, indent=2, ensure_ascii=False, sort_keys=True).encode("utf8"))
+    print(RESULT)
