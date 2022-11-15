@@ -153,7 +153,7 @@ class DocumentParameters(_DocumentParamSetBase):
     def __init__(self):
         """Create a L{DocumentParameters} object."""
         _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "language", "genre", "profileId"))
+            self, ("content", "contentUri", "language", "profileId"))
         self.file_name = ""
         self.use_multipart = False
 
@@ -236,8 +236,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
              "sourceLanguageOfUse",
              "sourceScript",
              "targetScript",
-             "targetScheme",
-             "genre"))
+             "targetScheme"))
 
     def validate(self):
         """Internal. Do not use."""
