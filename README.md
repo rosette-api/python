@@ -2,7 +2,6 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/rosette-api/python.svg?branch=develop)](https://travis-ci.org/rosette-api/python)
 [![PyPI version](https://badge.fury.io/py/rosette-api.svg)](https://badge.fury.io/py/rosette-api)
 [![Python Versions](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)](https://img.shields.io/pypi/pyversions/rosette-api.svg?color=dark%20green&label=Python%20Versions)
 
