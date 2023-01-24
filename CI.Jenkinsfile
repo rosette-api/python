@@ -23,21 +23,12 @@ node ("docker-light") {
                         echo \"------finish setup------\" && \
                         /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
                         -Dsonar.sources=/source \
-                        -Dsonar.host.url=${sonar_host} \
-                        -Dsonar.login=${sonar_token}\""
+                        -Dsonar.host.url=${env.SONAR_HOST_URL} \
+                        -Dsonar.login=${env.SONAR_AUTH_TOKEN}\""
             }
         }
-        slack(true)
     } catch (e) {
         currentBuild.result = "FAILED"
-        slack(false)
         throw e
     }
-}
-
-def slack(boolean success) {
-    def color = success ? "#00FF00" : "#FF0000"
-    def status = success ? "SUCCESSFUL" : "FAILED"
-    def message = status + ": Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-    slackSend(color: color, channel: "#p-n-c_jenkins", message: message)
 }
