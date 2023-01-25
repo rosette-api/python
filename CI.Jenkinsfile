@@ -9,10 +9,11 @@ node ("docker-light") {
         }
         stage("Build & Test") {
             withSonarQubeEnv {
-                sh "docker run -it --volume ${sourceDir}:/source python:3.6-slim bash -c \"apt-get update && \
-                        apt-get install -y python3-pip && \
-                        apt-get install -y wget unzip && \
-                        pip3 install tox && \
+                sh "docker run \
+                      --pull always \
+                      --rm --volume ${sourceDir}:/source \
+                      python:3.6-slim \
+                      bash -c \"pip3 install tox && \
                         cd /source && \
                         tox\""
             }
