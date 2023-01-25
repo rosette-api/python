@@ -16,10 +16,9 @@ node ("docker-light") {
                         cd /root/ && \
                         wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                         unzip sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        rm sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        ln -s sonar-scanner-4.8.0.2856/ sonar-scanner && \
-                        apt-get purge -y --auto-remove unzip && \
-                        rm -rf /var/lib/apt/lists/* && \
+                        echo \"------about to build------\" && \
+                        cd /source && \
+                        tox && \
                         echo \"------finish setup------\" && \
                         /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
                         -Dsonar.sources=/source \
