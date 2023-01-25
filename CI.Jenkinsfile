@@ -13,13 +13,8 @@ node ("docker-light") {
                         apt-get install -y python3-pip && \
                         apt-get install -y wget unzip && \
                         pip3 install tox && \
-                        cd /root/ && \
-                        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        unzip sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        echo \"------about to build------\" && \
                         cd /source && \
-                        tox && \
-                        echo \"------finish setup------\""
+                        tox\""
             }
         }
     } catch (e) {
