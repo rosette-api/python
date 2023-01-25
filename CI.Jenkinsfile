@@ -9,7 +9,7 @@ node ("docker-light") {
         }
         stage("Build & Test") {
             withSonarQubeEnv {
-                sh "docker run -it --env PATH=\"/root/sonar-scanner/bin:${PATH}\" --volume ${sourceDir}:/source python:3.6-slim bash -c \"apt-get update && \
+                sh "docker run -it --volume ${sourceDir}:/source python:3.6-slim bash -c \"apt-get update && \
                         apt-get install -y python3-pip && \
                         apt-get install -y wget unzip && \
                         pip3 install tox && \
@@ -19,11 +19,7 @@ node ("docker-light") {
                         echo \"------about to build------\" && \
                         cd /source && \
                         tox && \
-                        echo \"------finish setup------\" && \
-                        /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
-                        -Dsonar.sources=/source \
-                        -Dsonar.host.url=${env.SONAR_HOST_URL} \
-                        -Dsonar.login=${env.SONAR_AUTH_TOKEN}\""
+                        echo \"------finish setup------\""
             }
         }
     } catch (e) {
