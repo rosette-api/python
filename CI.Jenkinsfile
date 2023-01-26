@@ -1,3 +1,26 @@
+
+
+def versions = [3.11, 3.10, 3.9, 3.8, 3.7]
+
+def runSonnarForPythonVersion(ver){
+    sh "docker run \
+            --pull always \
+            --rm --volume ${sourceDir}:/source \
+            python:${ver}-slim \
+            bash -c \"apt-get update && \
+            apt-get install -y wget unzip && \
+            pip3 install tox && \
+            cd /root/ && \
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
+            unzip sonar-scanner-cli-4.8.0.2856-linux.zip && \
+            cd /source && \
+            tox && \
+            /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
+            -Dsonar.sources=/source \
+            -Dsonar.host.url=${env.SONAR_HOST_URL} \
+            -Dsonar.login=${env.SONAR_AUTH_TOKEN}\""
+}
+
 node ("docker-light") {
     def sourceDir = pwd()
     try {
@@ -9,22 +32,10 @@ node ("docker-light") {
         }
         stage("Build & Test") {
             withSonarQubeEnv {
-                sh "docker run \
-                      --pull always \
-                      --rm --volume ${sourceDir}:/source \
-                      python:3.6-slim \
-                      bash -c \"apt-get update && \
-                        apt-get install -y wget unzip && \
-                        pip3 install tox && \
-                        cd /root/ && \
-                        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        unzip sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                        cd /source && \
-                        tox && \
-                        /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
-                        -Dsonar.sources=/source \
-                        -Dsonar.host.url=${env.SONAR_HOST_URL} \
-                        -Dsonar.login=${env.SONAR_AUTH_TOKEN}\""
+                
+                versions.each { ver ->
+                    runSonnarForPythonVersion(ver)
+                }
             }
         }
     } catch (e) {
