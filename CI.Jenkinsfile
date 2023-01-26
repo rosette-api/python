@@ -2,7 +2,7 @@
 
 def versions = [3.11, 3.10, 3.9, 3.8, 3.7]
 
-def runSonnarForPythonVersion(ver){
+def runSonnarForPythonVersion(sourceDir, ver){
     sh "docker run \
             --pull always \
             --rm --volume ${sourceDir}:/source \
@@ -34,7 +34,7 @@ node ("docker-light") {
             withSonarQubeEnv {
                 
                 versions.each { ver ->
-                    runSonnarForPythonVersion(ver)
+                    runSonnarForPythonVersion(sourceDir, ver)
                 }
             }
         }
