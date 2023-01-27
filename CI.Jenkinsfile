@@ -17,6 +17,9 @@ def runSonnarForPythonVersion(sourceDir, ver){
             tox && \
             /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner \
             -Dsonar.sources=/source \
+            -Dsonar.pullrequest.key=${env.CHANGE_ID} \
+            -Dsonar.pullrequest.base=${env.CHANGE_TARGET}  \
+            -Dsonar.pullrequest.branch=${env.BRANCH_NAME} \
             -Dsonar.host.url=${env.SONAR_HOST_URL} \
             -Dsonar.login=${env.SONAR_AUTH_TOKEN}\""
 }
