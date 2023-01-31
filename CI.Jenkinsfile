@@ -3,7 +3,12 @@
 def versions = [3.11, 3.10, 3.9, 3.8, 3.7]
 
 def runSonnarForPythonVersion(sourceDir, ver){
-    mySonarOpts="-Dsonar.sources=/source -Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN} -Dsonar.pullrequest.key=${env.CHANGE_ID}"
+    mySonarOpts="-Dsonar.sources=/source -Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN} "
+    if ("${env.CHANGE_ID}" != "null"){
+        mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.key=${env.CHANGE_ID}"
+    } else {
+        mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.key=NO-PR"
+    }
     if ("${env.CHANGE_BRANCH}" != "null") {
         mySonarOpts="$mySonarOpts -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}"
     }
