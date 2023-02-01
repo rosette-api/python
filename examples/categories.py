@@ -3,7 +3,6 @@
 """
 Example code to call Rosette API to get the category of a document (at a given URL).
 """
-from __future__ import print_function
 
 import argparse
 import json
@@ -15,7 +14,7 @@ from rosette.api import API, DocumentParameters, RosetteException
 
 def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
-    categories_url_data = "https://rosette.com/about"
+    categories_url_data = "https://www.rosette.com/about/"
     url = categories_url_data
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
@@ -48,4 +47,4 @@ PARSER.add_argument('-u', '--url', help="Alternative API URL",
 if __name__ == '__main__':
     ARGS = PARSER.parse_args()
     RESULT = run(ARGS.key, ARGS.url)
-    print(json.dumps(RESULT, indent=2, ensure_ascii=False, sort_keys=True).encode("utf8"))
+    print(RESULT)

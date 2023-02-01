@@ -153,12 +153,14 @@ class DocumentParameters(_DocumentParamSetBase):
     def __init__(self):
         """Create a L{DocumentParameters} object."""
         _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "language", "genre", "profileId"))
+            self, ("content", "contentUri", "genre", "language", "profileId"))
         self.file_name = ""
         self.use_multipart = False
 
     def validate(self):
         """Internal. Do not use."""
+        if self["genre"] is not None:
+            warnings.warn("genre is deprecated and will be removed in the next release.")
         if self["content"] is None:
             if self["contentUri"] is None:
                 raise RosetteException(
@@ -236,8 +238,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
              "sourceLanguageOfUse",
              "sourceScript",
              "targetScript",
-             "targetScheme",
-             "genre"))
+             "targetScheme"))
 
     def validate(self):
         """Internal. Do not use."""
