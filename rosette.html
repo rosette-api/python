@@ -1,18 +1,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>rosette package &#8212;  1.20.0 documentation</title>
+    <title>rosette package &#8212;  1.24.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -32,12 +31,12 @@
           <div class="body" role="main">
             
   <section id="rosette-package">
-<h1>rosette package<a class="headerlink" href="#rosette-package" title="Permalink to this headline">¶</a></h1>
+<h1>rosette package<a class="headerlink" href="#rosette-package" title="Permalink to this heading">¶</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="module-rosette.api">
-<span id="rosette-api-module"></span><h2>rosette.api module<a class="headerlink" href="#module-rosette.api" title="Permalink to this headline">¶</a></h2>
+<span id="rosette-api-module"></span><h2>rosette.api module<a class="headerlink" href="#module-rosette.api" title="Permalink to this heading">¶</a></h2>
 <p>Python client for the Rosette API.</p>
 <p>Copyright (c) 2014-2022 Basis Technology Corporation.</p>
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
@@ -386,7 +385,7 @@ and possible metadata, to be processed by the name translator.
 <dl class="py class">
 <dt class="sig sig-object py" id="rosette.api.AddressSimilarityParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">AddressSimilarityParameters</span></span><a class="headerlink" href="#rosette.api.AddressSimilarityParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{address-similarity} endpoint.
 All are required.</p>
 <p>C{address1} The address to be matched, a C{address} object or address string.</p>
@@ -406,7 +405,7 @@ All are required.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rosette.api.DocumentParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">DocumentParameters</span></span><a class="headerlink" href="#rosette.api.DocumentParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_DocumentParamSetBase</span></code></p>
 <p>Parameter object for all operations requiring input other than
 translated_name.
 Two fields, C{content} and C{inputUri}, are set via
@@ -510,7 +509,7 @@ signalled.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rosette.api.NameDeduplicationParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameDeduplicationParameters</span></span><a class="headerlink" href="#rosette.api.NameDeduplicationParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-deduplication} endpoint.
 Required:
 C{names} A list of C{name} objects
@@ -526,7 +525,7 @@ C{threshold} Threshold to use to restrict cluster size. Can be null to use defau
 <dl class="py class">
 <dt class="sig sig-object py" id="rosette.api.NameSimilarityParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameSimilarityParameters</span></span><a class="headerlink" href="#rosette.api.NameSimilarityParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-similarity} endpoint.
 All are required.</p>
 <p>C{name1} The name to be matched, a C{name} object.</p>
@@ -547,7 +546,7 @@ All are required.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rosette.api.NameTranslationParameters">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosette.api.</span></span><span class="sig-name descname"><span class="pre">NameTranslationParameters</span></span><a class="headerlink" href="#rosette.api.NameTranslationParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rosette.api._DocumentParamSetBase</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_DocumentParamSetBase</span></code></p>
 <p>Parameter object for C{name-translation} endpoint.
 The following values may be set by the indexing (i.e.,C{ parms[“name”]}) operator.
 The values are all strings (when not C{None}).
@@ -581,7 +580,7 @@ content of the return result.</p>
 
 </section>
 <section id="module-rosette">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rosette" title="Permalink to this headline">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rosette" title="Permalink to this heading">¶</a></h2>
 <p>Python client for the Rosette API.
 Copyright (c) 2014-2022 Basis Technology Corporation.
 Licensed under the Apache License, Version 2.0 (the “License”);
@@ -631,7 +630,7 @@ limitations under the License.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -648,8 +647,8 @@ limitations under the License.</p>
       &copy;2022, Basis Technology.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
       <a href="_sources/rosette.rst.txt"
