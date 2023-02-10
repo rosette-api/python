@@ -1,5 +1,6 @@
 
 
+// TODO: find a way to skip the Sonar scan for all this version, but one (maybe the latest?).
 def versions = [3.11, 3.10, 3.9, 3.8, 3.7]
 
 def runSonnarForPythonVersion(sourceDir, ver){
