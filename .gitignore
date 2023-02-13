@@ -7,6 +7,9 @@
 ehthumbs.db
 Thumbs.db
 
+# VS Code
+.vscode
+
 # Jetbrains
 **/.idea/*
 !**/.idea/runConfigurations/
@@ -59,6 +62,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+.scannerwork/
 
 # Translations
 *.mo
