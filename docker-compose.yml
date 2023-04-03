@@ -1,5 +1,5 @@
 application:
-  image: rosetteapi/docker-python
+  image: rosette/docker-python
   environment:
     - API_KEY=$API_KEY
     - HTTP_PROXY=http://squid:3128
