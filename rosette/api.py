@@ -494,7 +494,7 @@ class EndpointCaller(object):
                 _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = True
+                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
             self.logger.info('operate: ' + url)
             headers['Accept'] = _APPLICATION_JSON
             headers['Accept-Encoding'] = "gzip"
