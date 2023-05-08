@@ -427,6 +427,48 @@ def test_the_name_translation_endpoint(api, json_response):
 # Test the name similarity endpoint
 
 
+def test_the_name_similarity_single_parameters(api, json_response):
+    """Test the name similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    matched_name_data1 = "John Mike Smith"
+    matched_name_data2 = "John Joe Smith"
+    params = NameSimilarityParameters()
+    params["name1"] = {"text": matched_name_data1}
+    params["name2"] = {"text": matched_name_data2}
+    params["parameters"] = {"conflictScore": "0.9"}
+
+    result = api.name_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_the_name_similarity_multiple_parameters(api, json_response):
+    """Test the name similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    matched_name_data1 = "John Mike Smith"
+    matched_name_data2 = "John Joe Smith"
+    params = NameSimilarityParameters()
+    params["name1"] = {"text": matched_name_data1}
+    params["name2"] = {"text": matched_name_data2}
+    params["parameters"] = {"conflictScore": "0.9", "deletionScore": "0.5"}
+
+    result = api.name_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
 def test_the_name_similarity_endpoint(api, json_response):
     """Test the name similarity endpoint"""
     httpretty.enable()
@@ -449,10 +491,11 @@ def test_the_name_similarity_endpoint(api, json_response):
     httpretty.disable()
     httpretty.reset()
 
+
 # Test the name deduplication endpoint
 
 
-def test_name_deduplicatation_parameters(api, json_response):
+def test_name_deduplication_parameters(api, json_response):
     """Test the Name Deduplication Parameters"""
     httpretty.enable()
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
@@ -605,6 +648,32 @@ def test_for_address_similarity_required_parameters(api, json_response):
     assert e_rosette.value.message == 'Required Address Similarity parameter is missing: address2'
 
     params["address2"] = {"text": "160 Pennsilvana Avenue, Washington, D.C., 20500"}
+
+    result = api.address_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
+def test_for_address_similarity_optional_parameters(api, json_response):
+    """Test address similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/address-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = AddressSimilarityParameters()
+
+    params["address1"] = {"houseNumber": "1600",
+                          "road": "Pennsylvania Ave NW",
+                          "city": "Washington",
+                          "state": "DC",
+                          "postCode": "20500"}
+
+    params["address2"] = {"text": "160 Pennsilvana Avenue, Washington, D.C., 20500"}
+
+    params["parameters"] = {"houseNumberAddressFieldWeight": "0.9"}
 
     result = api.address_similarity(params)
     assert result["name"] == "Rosette"

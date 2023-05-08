@@ -250,7 +250,10 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
 class AddressSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{address-similarity} endpoint.
-    All are required.
+
+    C{address1} and C{address2} are required.
+
+    `parameters` is optional.
 
     C{address1} The address to be matched, a C{address} object or address string.
 
@@ -258,11 +261,17 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
     The C{address} object contains these optional fields:
       city, island, district, stateDistrict, state, countryRegion, country, worldRegion, postCode, poBox
+
+    `parameters` is a dictionary listing any parameter overrides to include.  For example, `postCodeAddressFieldWeight`.
+    Setting `parameters` is not cumulative.  Define all overrides at once.  If defined multiple times, only the
+    final declaration is used.
+
+    See `examples/address_similarity.py`
     """
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("address1", "address2"))
+        _DocumentParamSetBase.__init__(self, ("address1", "address2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -276,7 +285,10 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
 class NameSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{name-similarity} endpoint.
-    All are required.
+
+    C{name1} and C{name2} are required.
+
+    `parameters` is optional.
 
     C{name1} The name to be matched, a C{name} object.
 
@@ -284,18 +296,24 @@ class NameSimilarityParameters(_DocumentParamSetBase):
 
     The C{name} object contains these fields:
 
-    C{text} Text of the name, required.
+        C{text} Text of the name, required.
 
-    C{language} Language of the name in ISO639 three-letter code, optional.
+        C{language} Language of the name in ISO639 three-letter code, optional.
 
-    C{script} The ISO15924 code of the name, optional.
+        C{script} The ISO15924 code of the name, optional.
 
-    C{entityType} The entity type, can be "PERSON", "LOCATION" or "ORGANIZATION", optional.
+        C{entityType} The entity type, can be "PERSON", "LOCATION" or "ORGANIZATION", optional.
+
+    `parameters` is a dictionary listing any parameter overrides to include.  For example, `deletionScore`.
+    Setting `parameters` is not cumulative.  Define all overrides at once.  If defined multiple times, only the
+    final declaration is used.
+
+    See `examples/name_similarity.py`
     """
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("name1", "name2"))
+        _DocumentParamSetBase.__init__(self, ("name1", "name2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
