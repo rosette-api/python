@@ -113,7 +113,7 @@ class _DocumentParamSetBase(object):
         """serialize keys with values"""
         self.validate()
         values = {}
-        for (key, val) in self.__params.items():
+        for key, val in self.__params.items():
             if val is None:
                 continue
             else:
@@ -240,7 +240,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("name", "targetLanguage"):  # required
+        for option in "name", "targetLanguage":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
@@ -275,7 +275,7 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("address1", "address2"):  # required
+        for option in "address1", "address2":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
@@ -317,7 +317,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("name1", "name2"):  # required
+        for option in "name1", "name2":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",

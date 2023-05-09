@@ -589,7 +589,7 @@ def test_for_content_and_contentUri(api, json_response, doc_params):
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
                            body=json_response, status=200, content_type="application/json")
 
-    doc_params['contentUri'] = 'http://google.com'
+    doc_params['contentUri'] = 'https://example.com'
     with pytest.raises(RosetteException) as e_rosette:
         api.entities(doc_params)
 
