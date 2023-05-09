@@ -14,7 +14,7 @@ def runSonnarForPythonVersion(sourceDir, ver){
     }
 
     // Only run Sonar once.
-    if($ver == 3.11) {
+    if(ver == 3.11) {
         sonarExec="cd /root/ && \
                    wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                    unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
