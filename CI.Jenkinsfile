@@ -1,6 +1,6 @@
 
 
-def versions = [3.11, 3.10, 3.9, 3.8, 3.7]
+def versions = [3.7, 3.8, 3.9, 3.10, 3.11]
 
 def runSonnarForPythonVersion(sourceDir, ver){
     mySonarOpts="-Dsonar.sources=/source -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -21,7 +21,7 @@ def runSonnarForPythonVersion(sourceDir, ver){
                    cd /source && \
                    /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts}"
     } else {
-        sonarExec=""
+        sonarExec="echo Skipping Sonar for this version."
     }
 
     sh "docker run \
