@@ -30,7 +30,7 @@ import platform
 
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
-_BINDING_VERSION = '1.24.0'
+_BINDING_VERSION = '1.25.1'
 _CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
 _CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
 _CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
