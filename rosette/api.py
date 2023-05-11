@@ -212,7 +212,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     C{targetLangauge} The language into which the name is to be translated.
 
-    C{entityType} The entity type (TBD) of the name.
+    C{entityType} The entity type of the name.  PERSON (default), LOCATION, or ORGANIZATION
 
     C{sourceLanguageOfOrigin} The language of origin of the name.
 
