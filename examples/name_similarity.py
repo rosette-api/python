@@ -20,6 +20,8 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     params = NameSimilarityParameters()
     params["name1"] = {"text": matched_name_data1, "language": "eng", "entityType": "PERSON"}
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
+    #params["parameters"] = {"conflictScore": "0.9", "deletionScore": "0.2"}
+
     try:
         return api.name_similarity(params)
     except RosetteException as exception:

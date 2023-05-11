@@ -47,7 +47,7 @@ To test changes you have made to the binding, you can use a pre-configured Docke
 git clone git@github.com:rosette-api/python.git
 cd python
 # Modify the binding...
-docker run -e API_KEY=$API_KEY -v $(pwd):/source rosetteapi/docker-python
+docker run -e API_KEY=$API_KEY -v $(pwd):/source rosette/docker-python
 ```
 
 Optional parameters for the `docker run` execution are:

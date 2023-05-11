@@ -7,6 +7,9 @@
 ehthumbs.db
 Thumbs.db
 
+# VS Code
+.vscode
+
 # Jetbrains
 **/.idea/*
 !**/.idea/runConfigurations/

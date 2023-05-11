@@ -30,7 +30,7 @@ import platform
 
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
-_BINDING_VERSION = '1.24.0'
+_BINDING_VERSION = '1.25.1'
 _CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
 _CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
 _CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
@@ -113,7 +113,7 @@ class _DocumentParamSetBase(object):
         """serialize keys with values"""
         self.validate()
         values = {}
-        for (key, val) in self.__params.items():
+        for key, val in self.__params.items():
             if val is None:
                 continue
             else:
@@ -153,14 +153,12 @@ class DocumentParameters(_DocumentParamSetBase):
     def __init__(self):
         """Create a L{DocumentParameters} object."""
         _DocumentParamSetBase.__init__(
-            self, ("content", "contentUri", "genre", "language", "profileId"))
+            self, ("content", "contentUri", "language", "profileId"))
         self.file_name = ""
         self.use_multipart = False
 
     def validate(self):
         """Internal. Do not use."""
-        if self["genre"] is not None:
-            warnings.warn("genre is deprecated and will be removed in the next release.")
         if self["content"] is None:
             if self["contentUri"] is None:
                 raise RosetteException(
@@ -214,7 +212,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     C{targetLangauge} The language into which the name is to be translated.
 
-    C{entityType} The entity type (TBD) of the name.
+    C{entityType} The entity type of the name.  PERSON (default), LOCATION, or ORGANIZATION
 
     C{sourceLanguageOfOrigin} The language of origin of the name.
 
@@ -242,7 +240,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("name", "targetLanguage"):  # required
+        for option in "name", "targetLanguage":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
@@ -252,7 +250,10 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
 class AddressSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{address-similarity} endpoint.
-    All are required.
+
+    C{address1} and C{address2} are required.
+
+    `parameters` is optional.
 
     C{address1} The address to be matched, a C{address} object or address string.
 
@@ -260,15 +261,21 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
     The C{address} object contains these optional fields:
       city, island, district, stateDistrict, state, countryRegion, country, worldRegion, postCode, poBox
+
+    `parameters` is a dictionary listing any parameter overrides to include.  For example, `postCodeAddressFieldWeight`.
+    Setting `parameters` is not cumulative.  Define all overrides at once.  If defined multiple times, only the
+    final declaration is used.
+
+    See `examples/address_similarity.py`
     """
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("address1", "address2"))
+        _DocumentParamSetBase.__init__(self, ("address1", "address2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("address1", "address2"):  # required
+        for option in "address1", "address2":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
@@ -278,7 +285,10 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
 class NameSimilarityParameters(_DocumentParamSetBase):
     """Parameter object for C{name-similarity} endpoint.
-    All are required.
+
+    C{name1} and C{name2} are required.
+
+    `parameters` is optional.
 
     C{name1} The name to be matched, a C{name} object.
 
@@ -286,22 +296,28 @@ class NameSimilarityParameters(_DocumentParamSetBase):
 
     The C{name} object contains these fields:
 
-    C{text} Text of the name, required.
+        C{text} Text of the name, required.
 
-    C{language} Language of the name in ISO639 three-letter code, optional.
+        C{language} Language of the name in ISO639 three-letter code, optional.
 
-    C{script} The ISO15924 code of the name, optional.
+        C{script} The ISO15924 code of the name, optional.
 
-    C{entityType} The entity type, can be "PERSON", "LOCATION" or "ORGANIZATION", optional.
+        C{entityType} The entity type, can be "PERSON", "LOCATION" or "ORGANIZATION", optional.
+
+    `parameters` is a dictionary listing any parameter overrides to include.  For example, `deletionScore`.
+    Setting `parameters` is not cumulative.  Define all overrides at once.  If defined multiple times, only the
+    final declaration is used.
+
+    See `examples/name_similarity.py`
     """
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("name1", "name2"))
+        _DocumentParamSetBase.__init__(self, ("name1", "name2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
-        for option in ("name1", "name2"):  # required
+        for option in "name1", "name2":  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
@@ -496,7 +512,7 @@ class EndpointCaller(object):
                 _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = True
+                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
             self.logger.info('operate: ' + url)
             headers['Accept'] = _APPLICATION_JSON
             headers['Accept-Encoding'] = "gzip"
