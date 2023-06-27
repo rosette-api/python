@@ -882,3 +882,19 @@ def test_the_deprecated_endpoints(api, json_response, doc_params):
 
     httpretty.disable()
     httpretty.reset()
+
+# Test the events endpoint
+
+
+def test_the_events_endpoint(api, json_response, doc_params):
+    """Test the events endpoint"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/events",
+                           body=json_response, status=200, content_type="application/json")
+
+    result = api.events(doc_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
