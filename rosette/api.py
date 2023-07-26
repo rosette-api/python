@@ -1014,8 +1014,10 @@ class API(object):
 
     def events(self, parameters):
         """
-        Topics returns events related to the provided content
-        :param parameters: DocumentParameters
-        :return: A python dictionary containing the results
+        Create an L{EndpointCaller} to identify events found in the texts.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the 'events' identifier.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of event extraction.
         """
         return EndpointCaller(self, self.endpoints['EVENTS']).call(parameters)
