@@ -589,7 +589,8 @@ class API(object):
             'TEXT_EMBEDDING': 'semantics/vector',
             'TOKENS': 'tokens',
             'TOPICS': 'topics',
-            'TRANSLITERATION': 'transliteration'
+            'TRANSLITERATION': 'transliteration',
+            'EVENTS': 'events'
         }
 
     def __del__(self):
@@ -1010,3 +1011,13 @@ class API(object):
         :return: A python dictionary containing the similar terms and their similarity
         """
         return EndpointCaller(self, self.endpoints['SIMILAR_TERMS']).call(parameters)
+
+    def events(self, parameters):
+        """
+        Create an L{EndpointCaller} to identify events found in the texts.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the 'events' identifier.
+        @type parameters: L{DocumentParameters} or L{str}
+        @return: A python dictionary containing the results of event extraction.
+        """
+        return EndpointCaller(self, self.endpoints['EVENTS']).call(parameters)
