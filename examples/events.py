@@ -15,15 +15,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    # Set selected API options.
-    # For more information on the functionality of these
-    # and other available options, see Rosette Features & Functions
-    # https://developer.rosette.com/features-and-functions#entity-extraction-and-linking
-
-    # api.set_option('calculateSalience','true')
-    # api.set_option('linkEntities','false')
-
-    events_text_data = "James wanted to test this awesome document."
+    events_text_data = "I am looking for flights to Super Bowl 2022 in Inglewood, LA."
     params = DocumentParameters()
     params["content"] = events_text_data
 
