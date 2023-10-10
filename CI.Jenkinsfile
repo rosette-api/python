@@ -17,10 +17,11 @@ def runSonnarForPythonVersion(sourceDir, ver){
     // Check for new versions at https://binaries.sonarsource.com/?prefix=Distribution/sonar-scanner-cli/
     if(ver == 3.11) {
         sonarExec="cd /root/ && \
-                   wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.1.3023-linux.zip && \
-                   unzip -q sonar-scanner-cli-4.8.1.3023-linux.zip && \
+                   sonar_version=4.8.1.3023 && \
+                   wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${sonar_version}-linux.zip && \
+                   unzip -q sonar-scanner-cli-${sonar_version}-linux.zip && \
                    cd /source && \
-                   /root/sonar-scanner-cli-4.8.1.3023-linux/bin/sonar-scanner ${mySonarOpts}"
+                   /root/sonar-scanner-${sonar_version}-linux/bin/sonar-scanner ${mySonarOpts}"
     } else {
         sonarExec="echo Skipping Sonar for this version."
     }
