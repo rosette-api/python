@@ -14,7 +14,7 @@ from rosette.api import API, DocumentParameters, RosetteException
 
 def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
-    categories_url_data = "https://rosette.com/about"
+    categories_url_data = "https://www.babelstreet.com/rosette/"
     url = categories_url_data
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
