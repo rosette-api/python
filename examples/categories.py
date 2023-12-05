@@ -12,10 +12,9 @@ import os
 from rosette.api import API, DocumentParameters, RosetteException
 
 
-def run(key, alt_url='https://api.rosette.com/rest/v1/'):
+def run(key, alt_url='http://localhost:8181/rest/v1/'):
     """ Run the example """
-    categories_url_data = "https://www.babelstreet.com/rosette/"
-    url = categories_url_data
+    categories_text_data = "If you are a fan of the British television series Downton Abbey and you are planning to be in New York anytime before April 2nd, there is a perfect stop for you while in town."
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
@@ -29,8 +28,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 
     params = DocumentParameters()
 
-    # Use a URL to input data instead of a string
-    params["contentUri"] = url
+    params["content"] = categories_text_data
     try:
         return api.categories(params)
     except RosetteException as exception:
