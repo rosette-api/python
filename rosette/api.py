@@ -86,7 +86,7 @@ class RosetteException(Exception):
         return sst + ": " + self.message + ":\n  " + self.response_message
 
 
-class _DocumentParamSetBase(object):
+class _RequestParametersBase(object):
 
     def __init__(self, repertoire):
         self.__params = {}
@@ -135,7 +135,7 @@ def _byteify(value):  # py 3 only
     return byte_array
 
 
-class DocumentParameters(_DocumentParamSetBase):
+class DocumentParameters(_RequestParametersBase):
     """Parameter object for all operations requiring input other than
     translated_name.
     Two fields, C{content} and C{inputUri}, are set via
@@ -152,7 +152,7 @@ class DocumentParameters(_DocumentParamSetBase):
 
     def __init__(self):
         """Create a L{DocumentParameters} object."""
-        _DocumentParamSetBase.__init__(
+        _RequestParametersBase.__init__(
             self, ("content", "contentUri", "language", "profileId"))
         self.file_name = ""
         self.use_multipart = False
@@ -199,7 +199,7 @@ class DocumentParameters(_DocumentParamSetBase):
         self["content"] = content_as_string
 
 
-class NameTranslationParameters(_DocumentParamSetBase):
+class NameTranslationParameters(_RequestParametersBase):
     """Parameter object for C{name-translation} endpoint.
     The following values may be set by the indexing (i.e.,C{ parms["name"]}) operator.
     The values are all strings (when not C{None}).
@@ -227,7 +227,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(
+        _RequestParametersBase.__init__(
             self,
             ("name",
              "targetLanguage",
@@ -248,7 +248,7 @@ class NameTranslationParameters(_DocumentParamSetBase):
                     repr(option))
 
 
-class AddressSimilarityParameters(_DocumentParamSetBase):
+class AddressSimilarityParameters(_RequestParametersBase):
     """Parameter object for C{address-similarity} endpoint.
 
     C{address1} and C{address2} are required.
@@ -271,7 +271,7 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("address1", "address2", "parameters"))
+        _RequestParametersBase.__init__(self, ("address1", "address2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -283,7 +283,7 @@ class AddressSimilarityParameters(_DocumentParamSetBase):
                     repr(option))
 
 
-class NameSimilarityParameters(_DocumentParamSetBase):
+class NameSimilarityParameters(_RequestParametersBase):
     """Parameter object for C{name-similarity} endpoint.
 
     C{name1} and C{name2} are required.
@@ -313,7 +313,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("name1", "name2", "parameters"))
+        _RequestParametersBase.__init__(self, ("name1", "name2", "parameters"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -325,7 +325,7 @@ class NameSimilarityParameters(_DocumentParamSetBase):
                     repr(option))
 
 
-class NameDeduplicationParameters(_DocumentParamSetBase):
+class NameDeduplicationParameters(_RequestParametersBase):
     """Parameter object for C{name-deduplication} endpoint.
     Required:
     C{names} A list of C{name} objects
@@ -334,7 +334,7 @@ class NameDeduplicationParameters(_DocumentParamSetBase):
 
     def __init__(self):
         self.use_multipart = False
-        _DocumentParamSetBase.__init__(self, ("names", "threshold"))
+        _RequestParametersBase.__init__(self, ("names", "threshold"))
 
     def validate(self):
         """Internal. Do not use."""
@@ -438,7 +438,7 @@ class EndpointCaller(object):
         response = self.api.get_http(url, headers=headers)
         return self.__finish_result(response, "ping")
 
-    def call(self, parameters):
+    def call(self, parameters, paramtype=None):
         """Invokes the endpoint to which this L{EndpointCaller} is bound.
         Passes data and metadata specified by C{parameters} to the server
         endpoint to which this L{EndpointCaller} object is bound.  For all
@@ -455,24 +455,26 @@ class EndpointCaller(object):
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the endpoint.  See the
         details for those object types.
-        @type parameters: For C{name-translation}, L{NameTranslationParameters},
-        otherwise L{DocumentParameters} or L{str}
+        @type parameters: Parameters types or L{str} for document request.
+        @param paramtype: Required parameters type.
         @return: A python dictionary expressing the result of the invocation.
         """
+        if paramtype and not isinstance(parameters, paramtype):
+            raise RosetteException(
+                "incompatible",
+                "The parameters must be " + str(paramtype),
+                self)
 
-        if not isinstance(parameters, _DocumentParamSetBase):
-            if self.suburl != self.api.endpoints['NAME_SIMILARITY'] \
-                    and self.suburl != self.api.self.api.endpoints['NAME_TRANSLATION'] \
-                    and self.suburl != self.api.self.api.endpoints['NAME_DEDUPLICATION'] \
-                    and self.suburl != self.api.self.api.endpoints['ADDRESS_SIMILARITY']:
-                text = parameters
-                parameters = DocumentParameters()
-                parameters['content'] = text
-            else:
-                raise RosetteException(
-                    "incompatible",
-                    "Text-only input only works for DocumentParameter endpoints",
-                    self.suburl)
+        if type(parameters) == str:
+            text = parameters
+            parameters = DocumentParameters()
+            parameters['content'] = text
+
+        if not isinstance(parameters, _RequestParametersBase):
+            raise RosetteException(
+                "incompatible",
+                "The parameters must be string or DocumentParameters",
+                self.suburl)
 
         self.use_multipart = parameters.use_multipart
         url = self.service_url + self.suburl
@@ -915,7 +917,7 @@ class API(object):
         and possible metadata, to be processed by the name matcher.
         @type parameters: L{AddressSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
-        return EndpointCaller(self, self.endpoints['ADDRESS_SIMILARITY']).call(parameters)
+        return EndpointCaller(self, self.endpoints['ADDRESS_SIMILARITY']).call(parameters, AddressSimilarityParameters)
 
     def name_translation(self, parameters):
         """
@@ -925,7 +927,7 @@ class API(object):
         and possible metadata, to be processed by the name translator.
         @type parameters: L{NameTranslationParameters}
         @return: A python dictionary containing the results of name translation."""
-        return EndpointCaller(self, self.endpoints['NAME_TRANSLATION']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_TRANSLATION']).call(parameters, NameTranslationParameters)
 
     def translated_name(self, parameters):
         """ deprecated
@@ -944,7 +946,7 @@ class API(object):
         and possible metadata, to be processed by the name matcher.
         @type parameters: L{NameSimilarityParameters}
         @return: A python dictionary containing the results of name matching."""
-        return EndpointCaller(self, self.endpoints['NAME_SIMILARITY']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_SIMILARITY']).call(parameters, NameSimilarityParameters)
 
     def matched_name(self, parameters):
         """ deprecated
@@ -962,7 +964,7 @@ class API(object):
         as a threshold
         @type parameters: L{NameDeduplicationParameters}
         @return: A python dictionary containing the results of de-duplication"""
-        return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters)
+        return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters, NameDeduplicationParameters)
 
     def text_embedding(self, parameters):
         """ deprecated
