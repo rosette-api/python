@@ -415,6 +415,29 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     httpretty.disable()
     httpretty.reset()
 
+
+def test_incompatible_type(api, json_response):
+    """Test the name translation endpoint"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = NameTranslationParameters()
+    params["name"] = "some data to translate"
+    params["entityType"] = "PERSON"
+    params["targetLanguage"] = "eng"
+    params["targetScript"] = "Latn"
+
+    # oops, called sentences
+    with pytest.raises(RosetteException) as e_rosette:
+        api.sentences(params)
+
+    httpretty.disable()
+    httpretty.reset()
+
+
 # Test the name translation endpoint
 
 
@@ -465,29 +488,6 @@ def test_the_name_requests_with_text(api, json_response):
     httpretty.reset()
 
  
-
-def test_the_name_similarity_single_parameters(api, json_response):
-    """Test the name similarity parameters"""
-    httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
-                           body=json_response, status=200, content_type="application/json")
-
-    matched_name_data1 = "John Mike Smith"
-    matched_name_data2 = "John Joe Smith"
-    params = NameSimilarityParameters()
-    params["name1"] = {"text": matched_name_data1}
-    params["name2"] = {"text": matched_name_data2}
-    params["parameters"] = {"conflictScore": "0.9"}
-
-    result = api.name_similarity(params)
-    assert result["name"] == "Rosette"
-    httpretty.disable()
-    httpretty.reset()
-
- 
-
 def test_the_name_similarity_single_parameters(api, json_response):
     """Test the name similarity parameters"""
     httpretty.enable()

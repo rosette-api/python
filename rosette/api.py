@@ -463,14 +463,14 @@ class EndpointCaller(object):
             raise RosetteException(
                 "incompatible",
                 "The parameters must be " + str(paramtype),
-                self)
+                self.suburl)
 
         if type(parameters) == str:
             text = parameters
             parameters = DocumentParameters()
             parameters['content'] = text
 
-        if not isinstance(parameters, _RequestParametersBase):
+        if not paramtype and not isinstance(parameters, DocumentParameters):
             raise RosetteException(
                 "incompatible",
                 "The parameters must be string or DocumentParameters",
