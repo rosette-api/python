@@ -65,6 +65,12 @@ def doc_params():
     params['content'] = 'Sample test string'
     return params
 
+@pytest.fixture
+def doc_map():
+    """ fixture for a simple map of doc request """
+    return {'content': 'Simple test string'}
+
+
 # Of Note: httpretty provides a short hand decorator, @httpretty.activate, that wraps the decorated
 # function with httpretty.enable() and ends it with httpretty.disable().  However, when combined
 # with pytest fixtures, the passed in fixture arguments are ignored, resulting in a TypeError.
@@ -211,32 +217,40 @@ def test_the_max_pool_size(json_response, doc_params):
 # Test the language endpoint
 
 
-def test_the_language_endpoint(api, json_response, doc_params):
+def test_the_language_endpoint(api, json_response, doc_params, doc_map):
     """Test language endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.language(doc_params)
     assert result["name"] == "Rosette"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.language(doc_map)
+    assert e_rosette.value.status == 'incompatible'
+
     httpretty.disable()
     httpretty.reset()
 
 # Test the sentences endpoint
 
 
-def test_the_sentences_endpoint(api, json_response, doc_params):
+def test_the_sentences_endpoint(api, json_response, doc_params, doc_map):
     """Test the sentences endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.sentences(doc_params)
     assert result["name"] == "Rosette"
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.sentences(doc_map)
+
+    assert e_rosette.value.status == 'incompatible'
+
+
     httpretty.disable()
     httpretty.reset()
 
@@ -246,8 +260,6 @@ def test_the_sentences_endpoint(api, json_response, doc_params):
 def test_the_tokens_endpoint(api, json_response, doc_params):
     """Test the tokens endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
     httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/tokens",
                            body=json_response, status=200, content_type="application/json")
 
@@ -403,6 +415,29 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     httpretty.disable()
     httpretty.reset()
 
+
+def test_incompatible_type(api, json_response):
+    """Test the name translation endpoint"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = NameTranslationParameters()
+    params["name"] = "some data to translate"
+    params["entityType"] = "PERSON"
+    params["targetLanguage"] = "eng"
+    params["targetScript"] = "Latn"
+
+    # oops, called sentences
+    with pytest.raises(RosetteException) as e_rosette:
+        api.sentences(params)
+
+    httpretty.disable()
+    httpretty.reset()
+
+
 # Test the name translation endpoint
 
 
@@ -426,7 +461,33 @@ def test_the_name_translation_endpoint(api, json_response):
 
 # Test the name similarity endpoint
 
+def test_the_name_requests_with_text(api, json_response):
+    """Test the name similarity with text"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
+                           body=json_response, status=200, content_type="application/json")
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+                           body=json_response, status=200, content_type="application/json")
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_similarity("should fail")
+    assert e_rosette.value.status == 'incompatible'
 
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_translation("should fail")
+    assert e_rosette.value.status == 'incompatible'
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.name_deduplication("should fail")
+    assert e_rosette.value.status == 'incompatible'
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.address_similarity("should fail")
+    assert e_rosette.value.status == 'incompatible'
+
+    httpretty.disable()
+    httpretty.reset()
+
+ 
 def test_the_name_similarity_single_parameters(api, json_response):
     """Test the name similarity parameters"""
     httpretty.enable()
