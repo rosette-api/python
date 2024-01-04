@@ -1,4 +1,4 @@
-<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
+<a href="https://www.babelstreet.com/rosette"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
 
 ---
 
@@ -13,7 +13,6 @@ comparing the similarity of names, categorizing and adding linguistic tags to te
 
 ## Rosette API Access
 - Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
-- Rosette Enterprise [Evaluation](https://www.rosette.com/product-eval/)
 
 ## Quick Start
 
