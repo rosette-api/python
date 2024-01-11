@@ -1,6 +1,6 @@
 
 
-def versions = [3.7, 3.8, 3.9, 3.10, 3.11]
+def versions = [3.8, 3.9, 3.10, 3.11, 3.12]
 
 def runSonnarForPythonVersion(sourceDir, ver){
     mySonarOpts="-Dsonar.sources=/source -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -14,12 +14,13 @@ def runSonnarForPythonVersion(sourceDir, ver){
     }
 
     // Only run Sonar once.
-    if(ver == 3.11) {
+    // Check for new versions at https://binaries.sonarsource.com/?prefix=Distribution/sonar-scanner-cli/
+    if(ver == 3.12) {
         sonarExec="cd /root/ && \
-                   wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
-                   unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
+                   wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.1.3023-linux.zip && \
+                   unzip -q sonar-scanner-cli-4.8.1.3023-linux.zip && \
                    cd /source && \
-                   /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts}"
+                   /root/sonar-scanner-4.8.1.3023-linux/bin/sonar-scanner ${mySonarOpts}"
     } else {
         sonarExec="echo Skipping Sonar for this version."
     }

@@ -1,39 +1,28 @@
 # -*- coding: utf-8 -*-
-
 """
-Example code to call Rosette API to get the category of a document (at a given URL).
+Example code to call Rosette API to get entities from a piece of text.
 """
 
 import argparse
 import json
 import os
 
-
 from rosette.api import API, DocumentParameters, RosetteException
 
 
 def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     """ Run the example """
-    categories_text_data = "If you are a fan of the British television series Downton Abbey and you are planning to be in New York anytime before April 2nd, there is a perfect stop for you while in town."
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    # Set selected API options
-    # For more information on the functionality of these
-    # and other available options, see Rosette Features & Functions
-    # https://developer.rosette.com/features-and-functions#categorization
-
-    # api.set_option('singleLabel', 'true')
-    # api.set_option('scoreThreshold',- 0.20)
-
+    events_text_data = "I am looking for flights to Super Bowl 2022 in Inglewood, LA."
     params = DocumentParameters()
+    params["content"] = events_text_data
 
-    params["content"] = categories_text_data
     try:
-        return api.categories(params)
+        return api.events(params)
     except RosetteException as exception:
         print(exception)
-
 
 PARSER = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                  description='Calls the ' +
