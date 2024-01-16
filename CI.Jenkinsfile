@@ -34,7 +34,10 @@ def runSonnarForPythonVersion(sourceDir, ver){
             pip3 install tox && \
             cd /source && \
             tox && \
-            ${sonarExec}\""
+            ${sonarExec} && \
+            echo && \
+            echo [INFO] Re-permission files for cleanup. && \
+            chown -R jenkins:jenkins /source\""
 }
 
 node ("docker-light") {
