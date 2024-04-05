@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Example code to call Rosette API to get entities from a piece of text.
+Example code to call Rosette API to get events from a piece of text.
 """
 
 import argparse
