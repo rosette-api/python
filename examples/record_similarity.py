@@ -34,8 +34,8 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
         }
     }
     properties = {
-        "threshold": 0.1,
-        "includeExplainInfo": False
+        "threshold": 0.7,
+        "includeExplainInfo": True
     }
     records = {
         "left": [

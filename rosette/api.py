@@ -344,6 +344,7 @@ class NameDeduplicationParameters(_RequestParametersBase):
                 "Required Name De-Duplication parameter is missing: names",
                 repr("names"))
 
+
 class RecordSimilarityParameters(_RequestParametersBase):
     """Parameter object for C{record-similarity} endpoint.
     Required:
@@ -362,7 +363,7 @@ class RecordSimilarityParameters(_RequestParametersBase):
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
-                    "Required Name Similarity parameter is missing: " + option,
+                    "Required Record Similarity parameter is missing: " + option,
                     repr(option))
 
 
