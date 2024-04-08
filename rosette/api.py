@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2022 Basis Technology Corporation.
+Copyright (c) 2014-2024 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import platform
 
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
-_BINDING_VERSION = '1.28.0'
+_BINDING_VERSION = '1.29.0'
 _CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
 _CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
 _CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
