@@ -91,8 +91,6 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     params["properties"] = properties
     params["records"] = records
 
-    #params["parameters"] = {"conflictScore": "0.9", "deletionScore": "0.2"}
-
     try:
         return api.record_similarity(params)
     except RosetteException as exception:
@@ -107,6 +105,6 @@ PARSER.add_argument('-u', '--url', help="Alternative API URL",
                     default='https://api.rosette.com/rest/v1/')
 
 if __name__ == '__main__':
-    # ARGS = PARSER.parse_args()
-    RESULT = run("key", "http://localhost:8181/rest/v1/")
+    ARGS = PARSER.parse_args()
+    RESULT = run(ARGS.key, ARGS.url)
     print(RESULT)

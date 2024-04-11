@@ -348,9 +348,10 @@ class NameDeduplicationParameters(_RequestParametersBase):
 class RecordSimilarityParameters(_RequestParametersBase):
     """Parameter object for C{record-similarity} endpoint.
     Required:
-    C{records} A list of C{record} objects
-    C{properties} A C{property} object
-    C{fields} A dictionary of C{field} objects
+    C{records} The records to be compared; where each left record is compared to the associated right record.
+    C{properties} Parameters used in the call
+    C{fields} The definition of the fields used in the comparison. There must be a minimum of 1 field and
+    can have a maximum of 5 fields.
     """
 
     def __init__(self):
