@@ -3,7 +3,7 @@
 """
 Python client for the Rosette API.
 
-Copyright (c) 2014-2022 Basis Technology Corporation.
+Copyright (c) 2014-2024 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import platform
 
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
-_BINDING_VERSION = '1.28.0'
+_BINDING_VERSION = '1.29.0'
 _CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
 _CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
 _CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
@@ -345,6 +345,29 @@ class NameDeduplicationParameters(_RequestParametersBase):
                 repr("names"))
 
 
+class RecordSimilarityParameters(_RequestParametersBase):
+    """Parameter object for C{record-similarity} endpoint.
+    Required:
+    C{records} The records to be compared; where each left record is compared to the associated right record.
+    C{properties} Parameters used in the call
+    C{fields} The definition of the fields used in the comparison. There must be a minimum of 1 field and
+    can have a maximum of 5 fields.
+    """
+
+    def __init__(self):
+        self.use_multipart = False
+        _RequestParametersBase.__init__(self, ("fields", "properties", "records"))
+
+    def validate(self):
+        """Internal. Do not use."""
+        for option in "fields", "properties", "records":  # required
+            if self[option] is None:
+                raise RosetteException(
+                    "missingParameter",
+                    "Required Record Similarity parameter is missing: " + option,
+                    repr(option))
+
+
 class EndpointCaller(object):
     """L{EndpointCaller} objects are invoked via their instance methods to obtain results
     from the Rosette server described by the L{API} object from which they
@@ -592,7 +615,8 @@ class API(object):
             'TOKENS': 'tokens',
             'TOPICS': 'topics',
             'TRANSLITERATION': 'transliteration',
-            'EVENTS': 'events'
+            'EVENTS': 'events',
+            'RECORD_SIMILARITY': 'record-similarity'
         }
 
     def __del__(self):
@@ -965,6 +989,15 @@ class API(object):
         @type parameters: L{NameDeduplicationParameters}
         @return: A python dictionary containing the results of de-duplication"""
         return EndpointCaller(self, self.endpoints['NAME_DEDUPLICATION']).call(parameters, NameDeduplicationParameters)
+
+    def record_similarity(self, parameters):
+        """
+        Create an L{EndpointCaller} to get similarity core between a list of records and call it.
+        @param parameters: An object specifying the data,
+        and possible metadata, to be processed by the record matcher.
+        @type parameters: L{RecordSimilarityParameters}
+        @return: A python dictionary containing the results of record matching."""
+        return EndpointCaller(self, self.endpoints['RECORD_SIMILARITY']).call(parameters, RecordSimilarityParameters)
 
     def text_embedding(self, parameters):
         """ deprecated
