@@ -32,7 +32,7 @@ python ping.py -k $API_KEY
 ```
 git clone git@github.com:rosette-api/python.git
 cd python/examples
-docker run -it -v $(pwd):/source --entrypoint bash python:3.6-slim
+docker run -it -v $(pwd):/source --entrypoint bash python:3.12-slim
 cd /source
 pip install rosette_api
 python ping.py -k $API_KEY
@@ -42,7 +42,7 @@ python ping.py -k $API_KEY
 ```
 git clone git@github.com:rosette-api/python.git
 cd python
-docker run -it -v $(pwd):/source --entrypoint bash python:3.6-slim
+docker run -it -v $(pwd):/source --entrypoint bash python:3.12-slim
 cd /source
 python setup.py install
 cd examples
