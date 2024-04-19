@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2014-2022 Basis Technology Corporation.
+Copyright (c) 2014-2024 Basis Technology Corporation.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ from rosette.api import (AddressSimilarityParameters,
                          NameTranslationParameters,
                          NameSimilarityParameters,
                          NameDeduplicationParameters,
+                         RecordSimilarityParameters,
                          RosetteException)
 
 _ISPY3 = sys.version_info[0] == 3
@@ -482,6 +483,10 @@ def test_the_name_requests_with_text(api, json_response):
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.address_similarity("should fail")
+    assert e_rosette.value.status == 'incompatible'
+
+    with pytest.raises(RosetteException) as e_rosette:
+        result = api.record_similarity("should fail")
     assert e_rosette.value.status == 'incompatible'
 
     httpretty.disable()
@@ -956,6 +961,63 @@ def test_the_events_endpoint(api, json_response, doc_params):
                            body=json_response, status=200, content_type="application/json")
 
     result = api.events(doc_params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+# Test the record similarity endpoint
+
+
+def test_the_record_similarity_endpoint(api, json_response):
+    """Test the record similarity endpoint"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/record-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = RecordSimilarityParameters()
+    params["fields"] = {}
+    params["properties"] = {}
+    params["records"] = {}
+    result = api.record_similarity(params)
+    assert result["name"] == "Rosette"
+    httpretty.disable()
+    httpretty.reset()
+
+
+# Tests for required record-similarities parameters
+def test_for_record_similarity_required_parameters(api, json_response):
+    """Test record similarity parameters"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/record-similarity",
+                           body=json_response, status=200, content_type="application/json")
+
+    params = RecordSimilarityParameters()
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.record_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Record Similarity parameter is missing: fields'
+
+    params["fields"] = {}
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.record_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Record Similarity parameter is missing: properties'
+
+    params["properties"] = {}
+
+    with pytest.raises(RosetteException) as e_rosette:
+        api.record_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Record Similarity parameter is missing: records'
+
+    params["records"] = {}
+
+    result = api.record_similarity(params)
     assert result["name"] == "Rosette"
     httpretty.disable()
     httpretty.reset()

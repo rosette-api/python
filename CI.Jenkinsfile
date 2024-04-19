@@ -37,7 +37,7 @@ def runSonnarForPythonVersion(sourceDir, ver){
             ${sonarExec} && \
             echo && \
             echo [INFO] Re-permission files for cleanup. && \
-            chown -R jenkins:jenkins /source\""
+            chown -R 9960:9960 /source\""
 }
 
 node ("docker-light") {

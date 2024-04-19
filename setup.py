@@ -7,8 +7,8 @@ import rosette
 
 NAME = "rosette_api"
 DESCRIPTION = "Rosette API Python client SDK"
-AUTHOR = "Basis Technology Corp."
-AUTHOR_EMAIL = "support@rosette.com"
+AUTHOR = "Rosette by Babel Street"
+AUTHOR_EMAIL = "helpdesk@babelstreet.com"
 HOMEPAGE = "https://github.com/rosette-api/python"
 VERSION = rosette.__version__
 
