@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>rosette &#8212;  1.28.0 documentation</title>
+    <title>rosette &#8212;  1.29.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <script src="_static/documentation_options.js?v=1226abbd"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=63f3e1e4"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -61,6 +61,7 @@
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.name_translation"><code class="docutils literal notranslate"><span class="pre">API.name_translation()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.ping"><code class="docutils literal notranslate"><span class="pre">API.ping()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.post_http"><code class="docutils literal notranslate"><span class="pre">API.post_http()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.record_similarity"><code class="docutils literal notranslate"><span class="pre">API.record_similarity()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.relationships"><code class="docutils literal notranslate"><span class="pre">API.relationships()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.semantic_vectors"><code class="docutils literal notranslate"><span class="pre">API.semantic_vectors()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.API.sentences"><code class="docutils literal notranslate"><span class="pre">API.sentences()</span></code></a></li>
@@ -107,6 +108,10 @@
 <li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.NameTranslationParameters.validate"><code class="docutils literal notranslate"><span class="pre">NameTranslationParameters.validate()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="rosette.html#rosette.api.RecordSimilarityParameters"><code class="docutils literal notranslate"><span class="pre">RecordSimilarityParameters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rosette.html#rosette.api.RecordSimilarityParameters.validate"><code class="docutils literal notranslate"><span class="pre">RecordSimilarityParameters.validate()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="rosette.html#rosette.api.RosetteException"><code class="docutils literal notranslate"><span class="pre">RosetteException</span></code></a></li>
 </ul>
 </li>
@@ -143,7 +148,7 @@
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -151,7 +156,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -166,10 +171,10 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2022, Basis Technology.
+      &#169;2024, Basis Technology.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
       &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
       
       |
