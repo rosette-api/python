@@ -15,7 +15,7 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     # Create an API instance
     api = API(user_key=key, service_url=alt_url)
 
-    events_text_data = "Alice has a flight to Budapest. She has not booked a hotel."
+    events_text_data = "I am looking for flights to Super Bowl 2022 in Inglewood, LA."
     params = DocumentParameters()
     params["content"] = events_text_data
 
