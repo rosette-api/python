@@ -977,7 +977,7 @@ def test_the_record_similarity_endpoint(api, json_response):
     params = RecordSimilarityParameters()
     params["fields"] = {}
     params["properties"] = {}
-    params["records"] = []
+    params["records"] = {}
     result = api.record_similarity(params)
     assert result["name"] == "Rosette"
     httpretty.disable()
@@ -1015,7 +1015,7 @@ def test_for_record_similarity_required_parameters(api, json_response):
     assert e_rosette.value.status == 'missingParameter'
     assert e_rosette.value.message == 'Required Record Similarity parameter is missing: records'
 
-    params["records"] = []
+    params["records"] = {}
 
     result = api.record_similarity(params)
     assert result["name"] == "Rosette"
