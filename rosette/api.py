@@ -360,7 +360,7 @@ class RecordSimilarityParameters(_RequestParametersBase):
 
     def validate(self):
         """Internal. Do not use."""
-        for option in "records":  # required
+        for option in ["records"]:  # required
             if self[option] is None:
                 raise RosetteException(
                     "missingParameter",
