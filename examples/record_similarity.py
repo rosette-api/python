@@ -50,7 +50,8 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
                 "dob": "1993-04-16",
                 "addr": "123 Roadlane Ave",
                 "dob2": {
-                    "date": "1993/04/16"
+                    "date": "04161993",
+                    "format": "MMddyyyy"
                 }
             },
             {
@@ -78,7 +79,8 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
                     "date": "1993-04-16"
                 },
                 "addr": {
-                  "address": "123 Roadlane Ave"
+                  "houseNumber": "123",
+                  "road": "Roadlane Ave"
                 },
                 "dob2": {
                     "date": "1993/04/16"
