@@ -6,8 +6,8 @@ from setuptools import setup
 import rosette
 
 NAME = "rosette_api"
-DESCRIPTION = "Rosette API Python client SDK"
-AUTHOR = "Rosette by Babel Street"
+DESCRIPTION = "Babel Street Analytics API Python client SDK"
+AUTHOR = "Analytics by Babel Street"
 AUTHOR_EMAIL = "helpdesk@babelstreet.com"
 HOMEPAGE = "https://github.com/rosette-api/python"
 VERSION = rosette.__version__
