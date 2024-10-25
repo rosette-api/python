@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Example code to call Rosette API to get the sentiment of a local file.
+Example code to call Analytics API to get the sentiment of a local file.
 """
 
 import argparse
@@ -12,7 +12,7 @@ import tempfile
 from rosette.api import API, DocumentParameters, RosetteException
 
 
-def run(key, alt_url='https://api.rosette.com/rest/v1/'):
+def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
     """ Run the example """
     # Create default file to read from
     temp_file = tempfile.NamedTemporaryFile(suffix=".html")
@@ -25,8 +25,8 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
     api = API(user_key=key, service_url=alt_url)
     # Set selected API options.
     # For more information on the functionality of these
-    # and other available options, see Rosette Features & Functions
-    # https://developer.rosette.com/features-and-functions#sentiment-analysis
+    # and other available options, see Analytics Features & Functions
+    # https://developer.babelstreet.com/features-and-functions#sentiment-analysis
 
     # api.set_option('modelType','dnn') #Valid for English only
 
@@ -49,9 +49,9 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 PARSER = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                  description='Calls the ' +
                                  os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
-PARSER.add_argument('-k', '--key', help='Rosette API Key', required=True)
+PARSER.add_argument('-k', '--key', help='Analytics API Key', required=True)
 PARSER.add_argument('-u', '--url', help="Alternative API URL",
-                    default='https://api.rosette.com/rest/v1/')
+                    default='https://analytics.babelstreet.com/rest/v1/')
 
 if __name__ == '__main__':
     ARGS = PARSER.parse_args()

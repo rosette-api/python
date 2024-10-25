@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Example code to call Rosette API to get the syntactic dependencies of a document (at a given URL).
+Example code to call Analytics API to get the syntactic dependencies of a document (at a given URL).
 """
 
 import argparse
@@ -10,7 +10,7 @@ import os
 from rosette.api import API, DocumentParameters, RosetteException
 
 
-def run(key, alt_url='https://api.rosette.com/rest/v1/'):
+def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
     """ Run the example """
     syntax_dependencies_data = "Yoshinori Ohsumi, a Japanese cell biologist, was awarded the Nobel Prize in Physiology or Medicine on Monday."
     params = DocumentParameters()
@@ -26,9 +26,9 @@ def run(key, alt_url='https://api.rosette.com/rest/v1/'):
 PARSER = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                  description='Calls the ' +
                                  os.path.splitext(os.path.basename(__file__))[0] + ' endpoint')
-PARSER.add_argument('-k', '--key', help='Rosette API Key', required=True)
+PARSER.add_argument('-k', '--key', help='Analytics API Key', required=True)
 PARSER.add_argument('-u', '--url', help="Alternative API URL",
-                    default='https://api.rosette.com/rest/v1/')
+                    default='https://analytics.babelstreet.com/rest/v1/')
 
 if __name__ == '__main__':
     ARGS = PARSER.parse_args()
