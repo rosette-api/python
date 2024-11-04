@@ -31,9 +31,12 @@ import platform
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
 _BINDING_VERSION = '1.30.0'
-_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
-_CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
-_CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
+# TODO Remove legacies in future release
+_LEGACY_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
+_CONCURRENCY_HEADER = 'x-babelstreetapi-concurrency'
+_LEGACY_CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
+_CUSTOM_HEADER_PREFIX = "X-BabelStreetAPI-"
+_CUSTOM_HEADER_PATTERN = re.compile('^(:?' + _CUSTOM_HEADER_PREFIX + '|' + _LEGACY_CUSTOM_HEADER_PREFIX + ')')
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
@@ -413,12 +416,15 @@ class EndpointCaller(object):
                 complaint_url = ename + " " + self.suburl
 
             raise RosetteException(code, complaint_url +
-                                   " : failed to communicate with Analytics", msg)
+                                   " : failed to communicate with Babel Street Analytics API", msg)
 
     def __set_headers(self):
         headers = {'Accept': _APPLICATION_JSON,
                    _CUSTOM_HEADER_PREFIX + 'Binding': _BINDING_LANGUAGE,
-                   _CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION}
+                   _CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION,
+                   #TODO Remove in future release
+                   _LEGACY_CUSTOM_HEADER_PREFIX + 'Binding': _BINDING_LANGUAGE,
+                   _LEGACY_CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION}
 
         custom_headers = self.api.get_custom_headers()
         if custom_headers is not None:
@@ -427,12 +433,13 @@ class EndpointCaller(object):
                     headers[key] = custom_headers[key]
                 else:
                     raise RosetteException("badHeader",
-                                           "Custom header name must begin with \"" + _CUSTOM_HEADER_PREFIX + "\"",
+                                           "Custom header name must begin with \"" + _CUSTOM_HEADER_PREFIX + "\" or \""
+                                           + _LEGACY_CUSTOM_HEADER_PREFIX + "\"",
                                            key)
             self.api.clear_custom_headers()
 
         if self.debug:
-            headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
+            headers[_LEGACY_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
 
         if self.user_key is not None:
             headers["X-BabelStreetAPI-Key"] = self.user_key
@@ -537,7 +544,7 @@ class EndpointCaller(object):
                 _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
+                headers[_LEGACY_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
             self.logger.info('operate: ' + url)
             headers['Accept'] = _APPLICATION_JSON
             headers['Accept-Encoding'] = "gzip"
@@ -584,7 +591,7 @@ class API(object):
         self.url_parameters = {}
         self.max_pool_size = 1
         self.session = requests.Session()
-        self.user_agent_string = 'RosetteAPIPython/' + _BINDING_VERSION + '/' + platform.python_version()
+        self.user_agent_string = 'Babel-Street-Analytics-API-Python/' + _BINDING_VERSION + '/' + platform.python_version()
 
         self.morphology_output = {
             'LEMMAS': 'lemmas',
@@ -646,8 +653,12 @@ class API(object):
             self.session.mount('http://', adapter) # NOSONAR
 
     def __adjust_concurrency(self, dict_headers):
-        if _CONCURRENCY_HEADER in dict_headers and dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
-            self.set_pool_size(dict_headers[_CONCURRENCY_HEADER])
+        if _CONCURRENCY_HEADER in dict_headers:
+            if dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
+                self.set_pool_size(dict_headers[_CONCURRENCY_HEADER])
+        elif _LEGACY_CONCURRENCY_HEADER in dict_headers:
+            if dict_headers[_LEGACY_CONCURRENCY_HEADER] != self.max_pool_size:
+                self.set_pool_size(dict_headers[_LEGACY_CONCURRENCY_HEADER])
 
     def _make_request(self, operation, url, data, headers):
         """
