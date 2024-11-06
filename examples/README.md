@@ -11,7 +11,7 @@ A note on prerequisites.  Analytics API only supports TLS 1.2 so ensure your too
 ```
 git clone git@github.com:rosette-api/python.git
 cd python/examples
-virtualenv analytics_venv
+python -m venv analytics_venv
 source analytics_venv/bin/activate
 pip install rosette_api
 python ping.py -k $API_KEY
@@ -21,7 +21,7 @@ python ping.py -k $API_KEY
 ```
 git clone git@github.com:rosette-api/python.git
 cd python
-virtualenv analytics_venv
+python -m venv analytics_venv
 source analytics_venv/bin/activate
 python setup.py install
 cd examples

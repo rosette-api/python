@@ -6,7 +6,7 @@
 
 Python Binding
 ==========================================
-This is the API documentation for the Babel Street Analytics API Python Binding.  For examples and usage, please refer to our `API Guide <http://developer.rosette.com/api-guide>`_.
+This is the API documentation for the Babel Street Analytics API Python Binding.  For examples and usage, please refer to our `API Guide <http://developer.babelstreet.com/api-guide>`_.
 
 .. toctree::
    :maxdepth: 2
