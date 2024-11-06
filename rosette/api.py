@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Python client for the Rosette API.
+Python client for the Babel Street Analytics API.
 
 Copyright (c) 2014-2024 Basis Technology Corporation.
 
@@ -31,9 +31,12 @@ import platform
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
 _BINDING_VERSION = '1.30.0'
-_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
-_CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
-_CUSTOM_HEADER_PATTERN = re.compile('^' + _CUSTOM_HEADER_PREFIX)
+# TODO Remove legacies in future release
+_LEGACY_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
+_CONCURRENCY_HEADER = 'x-babelstreetapi-concurrency'
+_LEGACY_CUSTOM_HEADER_PREFIX = 'X-RosetteAPI-'
+_CUSTOM_HEADER_PREFIX = "X-BabelStreetAPI-"
+_CUSTOM_HEADER_PATTERN = re.compile('^(:?' + _CUSTOM_HEADER_PREFIX + '|' + _LEGACY_CUSTOM_HEADER_PREFIX + ')')
 _GZIP_BYTEARRAY = bytearray([0x1F, 0x8b, 0x08])
 
 _ISPY3 = sys.version_info[0] == 3
@@ -68,7 +71,7 @@ def _my_loads(obj, response_headers):
 
 
 class RosetteException(Exception):
-    """Exception thrown by all Rosette API operations for errors local and remote.
+    """Exception thrown by all Analytics API operations for errors local and remote.
 
     TBD. Right now, the only valid operation is conversion to __str__.
     """
@@ -96,13 +99,13 @@ class _RequestParametersBase(object):
     def __setitem__(self, key, val):
         if key not in self.__params:
             raise RosetteException(
-                "badKey", "Unknown Rosette parameter key", repr(key))
+                "badKey", "Unknown Analytics parameter key", repr(key))
         self.__params[key] = val
 
     def __getitem__(self, key):
         if key not in self.__params:
             raise RosetteException(
-                "badKey", "Unknown Rosette parameter key", repr(key))
+                "badKey", "Unknown Analytics parameter key", repr(key))
         return self.__params[key]
 
     def validate(self):
@@ -370,9 +373,9 @@ class RecordSimilarityParameters(_RequestParametersBase):
 
 class EndpointCaller(object):
     """L{EndpointCaller} objects are invoked via their instance methods to obtain results
-    from the Rosette server described by the L{API} object from which they
+    from the Analytics server described by the L{API} object from which they
     are created.  Each L{EndpointCaller} object communicates with a specific endpoint
-    of the Rosette server, specified at its creation.  Use the specific
+    of the Analytics server, specified at its creation.  Use the specific
     instance methods of the L{API} object to create L{EndpointCaller} objects bound to
     corresponding endpoints.
 
@@ -382,7 +385,7 @@ class EndpointCaller(object):
 
     The results of all operations are returned as python dictionaries, whose
     keys and values correspond exactly to those of the corresponding
-    JSON return value described in the Rosette web service documentation.
+    JSON return value described in the Analytics web service documentation.
     """
 
     def __init__(self, api, suburl):
@@ -413,12 +416,15 @@ class EndpointCaller(object):
                 complaint_url = ename + " " + self.suburl
 
             raise RosetteException(code, complaint_url +
-                                   " : failed to communicate with Rosette", msg)
+                                   " : failed to communicate with Babel Street Analytics API", msg)
 
     def __set_headers(self):
         headers = {'Accept': _APPLICATION_JSON,
                    _CUSTOM_HEADER_PREFIX + 'Binding': _BINDING_LANGUAGE,
-                   _CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION}
+                   _CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION,
+                   #TODO Remove in future release
+                   _LEGACY_CUSTOM_HEADER_PREFIX + 'Binding': _BINDING_LANGUAGE,
+                   _LEGACY_CUSTOM_HEADER_PREFIX + 'Binding-Version': _BINDING_VERSION}
 
         custom_headers = self.api.get_custom_headers()
         if custom_headers is not None:
@@ -427,15 +433,16 @@ class EndpointCaller(object):
                     headers[key] = custom_headers[key]
                 else:
                     raise RosetteException("badHeader",
-                                           "Custom header name must begin with \"" + _CUSTOM_HEADER_PREFIX + "\"",
+                                           "Custom header name must begin with \"" + _CUSTOM_HEADER_PREFIX + "\" or \""
+                                           + _LEGACY_CUSTOM_HEADER_PREFIX + "\"",
                                            key)
             self.api.clear_custom_headers()
 
         if self.debug:
-            headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
+            headers[_LEGACY_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
 
         if self.user_key is not None:
-            headers[_CUSTOM_HEADER_PREFIX + "Key"] = self.user_key
+            headers["X-BabelStreetAPI-Key"] = self.user_key
 
         return headers
 
@@ -473,7 +480,7 @@ class EndpointCaller(object):
 
         In all cases, the result is returned as a python dictionary
         conforming to the JSON object described in the endpoint's entry
-        in the Rosette web service documentation.
+        in the Analytics web service documentation.
 
         @param parameters: An object specifying the data,
         and possible metadata, to be processed by the endpoint.  See the
@@ -537,7 +544,7 @@ class EndpointCaller(object):
                 _my_loads(rdata, response_headers), status)
         else:
             if self.debug:
-                headers[_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
+                headers[_LEGACY_CUSTOM_HEADER_PREFIX + 'Devel'] = 'true'
             self.logger.info('operate: ' + url)
             headers['Accept'] = _APPLICATION_JSON
             headers['Accept-Encoding'] = "gzip"
@@ -548,22 +555,22 @@ class EndpointCaller(object):
 
 class API(object):
     """
-    Rosette Python Client Binding API; representation of a Rosette server.
+    Analytics Python Client Binding API; representation of an Analytics server.
     Call instance methods upon this object to obtain L{EndpointCaller} objects
-    which can communicate with particular Rosette server endpoints.
+    which can communicate with particular Analytics server endpoints.
     """
 
     def __init__(
             self,
             user_key=None,
-            service_url='https://api.rosette.com/rest/v1/',
+            service_url='https://analytics.babelstreet.com/rest/v1/',
             retries=5,
             refresh_duration=0.5,
             debug=False):
         """ Create an L{API} object.
         @param user_key: (Optional; required for servers requiring authentication.)
         An authentication string to be sent as user_key with all requests.  The
-        default Rosette server requires authentication to the server.
+        default Analytics server requires authentication to the server.
         """
         # logging.basicConfig(filename="binding.log", filemode="w", level=logging.DEBUG)
         self.user_key = user_key
@@ -584,7 +591,7 @@ class API(object):
         self.url_parameters = {}
         self.max_pool_size = 1
         self.session = requests.Session()
-        self.user_agent_string = 'RosetteAPIPython/' + _BINDING_VERSION + '/' + platform.python_version()
+        self.user_agent_string = 'Babel-Street-Analytics-API-Python/' + _BINDING_VERSION + '/' + platform.python_version()
 
         self.morphology_output = {
             'LEMMAS': 'lemmas',
@@ -646,8 +653,12 @@ class API(object):
             self.session.mount('http://', adapter) # NOSONAR
 
     def __adjust_concurrency(self, dict_headers):
-        if _CONCURRENCY_HEADER in dict_headers and dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
-            self.set_pool_size(dict_headers[_CONCURRENCY_HEADER])
+        if _CONCURRENCY_HEADER in dict_headers:
+            if dict_headers[_CONCURRENCY_HEADER] != self.max_pool_size:
+                self.set_pool_size(dict_headers[_CONCURRENCY_HEADER])
+        elif _LEGACY_CONCURRENCY_HEADER in dict_headers:
+            if dict_headers[_LEGACY_CONCURRENCY_HEADER] != self.max_pool_size:
+                self.set_pool_size(dict_headers[_LEGACY_CONCURRENCY_HEADER])
 
     def _make_request(self, operation, url, data, headers):
         """
@@ -703,7 +714,7 @@ class API(object):
         except requests.exceptions.RequestException as exception:
             raise RosetteException(
                 exception,
-                "Unable to establish connection to the Rosette API server",
+                "Unable to establish connection to the Analytics API server",
                 url)
 
         raise RosetteException(code, message, url)

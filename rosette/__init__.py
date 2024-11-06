@@ -1,6 +1,6 @@
 """
-Python client for the Rosette API.
-Copyright (c) 2014-2022 Basis Technology Corporation.
+Python client for the Babel Street Analytics API.
+Copyright (c) 2014-2024 Basis Technology Corporation.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at

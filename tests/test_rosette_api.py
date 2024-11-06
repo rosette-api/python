@@ -38,7 +38,7 @@ _ISPY3 = sys.version_info[0] == 3
 @pytest.fixture
 def json_response():
     """ fixture to return info body"""
-    body = json.dumps({'name': 'Rosette', 'versionChecked': True})
+    body = json.dumps({'name': 'Babel Street Analytics', 'versionChecked': True})
     return body
 
 
@@ -120,7 +120,7 @@ def test_url_parameter_clear_single(api):
 
 def test_custom_header_props(api):
     """Test custom header get/set/clear"""
-    key = 'X-RosetteAPI-Test'
+    key = 'X-BabelStreetAPI-Test'
     value = 'foo'
     api.set_custom_headers(key, value)
     assert value == api.get_custom_headers()[key]
@@ -145,7 +145,7 @@ def test_invalid_header(api):
 
 def test_user_agent(api):
     """ Test user agent """
-    value = "RosetteAPIPython/" + api.get_binding_version() + "/" + platform.python_version()
+    value = "Babel-Street-Analytics-API-Python/" + api.get_binding_version() + "/" + platform.python_version()
     assert value == api.get_user_agent_string()
 
 # Test that pinging the API is working properly
@@ -155,11 +155,11 @@ def test_user_agent(api):
 def test_ping(api, json_response):
     """Test ping"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/ping",
+    httpretty.register_uri(httpretty.GET, "https://analytics.babelstreet.com/rest/v1/ping",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.ping()
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -169,11 +169,11 @@ def test_ping(api, json_response):
 def test_info(api, json_response):
     """Test info"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+    httpretty.register_uri(httpretty.GET, "https://analytics.babelstreet.com/rest/v1/info",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.info()
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -184,7 +184,7 @@ def test_info(api, json_response):
 def test_for_409(api, json_409):
     """Test for 409 handling"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+    httpretty.register_uri(httpretty.GET, "https://analytics.babelstreet.com/rest/v1/info",
                            body=json_409, status=409, content_type="application/json")
 
     with pytest.raises(RosetteException) as e_rosette:
@@ -197,10 +197,10 @@ def test_for_409(api, json_409):
 # Test the max_pool_size
 
 
-def test_the_max_pool_size(json_response, doc_params):
+def test_the_max_pool_size_rosette(json_response, doc_params):
     """Test max pool size"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/language",
                            body=json_response, status=200, content_type="application/json",
                            adding_headers={
                                'x-rosetteapi-concurrency': 5
@@ -208,8 +208,45 @@ def test_the_max_pool_size(json_response, doc_params):
     api = API('bogus_key')
     assert api.get_pool_size() == 1
     result = api.language(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     assert api.get_pool_size() == 5
+    api.set_pool_size(11)
+    assert api.get_pool_size() == 11
+    httpretty.disable()
+    httpretty.reset()
+
+def test_the_max_pool_size_babelstreet(json_response, doc_params):
+    """Test max pool size"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/language",
+                           body=json_response, status=200, content_type="application/json",
+                           adding_headers={
+                               'x-babelstreetapi-concurrency': 5
+                           })
+    api = API('bogus_key')
+    assert api.get_pool_size() == 1
+    result = api.language(doc_params)
+    assert result["name"] == "Babel Street Analytics"
+    assert api.get_pool_size() == 5
+    api.set_pool_size(11)
+    assert api.get_pool_size() == 11
+    httpretty.disable()
+    httpretty.reset()
+
+def test_the_max_pool_size_bot(json_response, doc_params):
+    """Test max pool size"""
+    httpretty.enable()
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/language",
+                           body=json_response, status=200, content_type="application/json",
+                           adding_headers={
+                               'x-rosetteapi-concurrency': 5,
+                               'x-babelstreetapi-concurrency': 8
+                           })
+    api = API('bogus_key')
+    assert api.get_pool_size() == 1
+    result = api.language(doc_params)
+    assert result["name"] == "Babel Street Analytics"
+    assert api.get_pool_size() == 8
     api.set_pool_size(11)
     assert api.get_pool_size() == 11
     httpretty.disable()
@@ -221,11 +258,11 @@ def test_the_max_pool_size(json_response, doc_params):
 def test_the_language_endpoint(api, json_response, doc_params, doc_map):
     """Test language endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/language",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/language",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.language(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.language(doc_map)
@@ -240,11 +277,11 @@ def test_the_language_endpoint(api, json_response, doc_params, doc_map):
 def test_the_sentences_endpoint(api, json_response, doc_params, doc_map):
     """Test the sentences endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/sentences",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.sentences(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
 
     with pytest.raises(RosetteException) as e_rosette:
         result = api.sentences(doc_map)
@@ -261,11 +298,11 @@ def test_the_sentences_endpoint(api, json_response, doc_params, doc_map):
 def test_the_tokens_endpoint(api, json_response, doc_params):
     """Test the tokens endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/tokens",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/tokens",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.tokens(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -275,13 +312,11 @@ def test_the_tokens_endpoint(api, json_response, doc_params):
 def test_the_morphology_complete_endpoint(api, json_response, doc_params):
     """Test the morphology complete endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/complete",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/morphology/complete",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -291,13 +326,11 @@ def test_the_morphology_complete_endpoint(api, json_response, doc_params):
 def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
     """Test the morphology lemmas endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/lemmas",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/morphology/lemmas",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'lemmas')
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -307,13 +340,11 @@ def test_the_morphology_lemmas_endpoint(api, json_response, doc_params):
 def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params):
     """Test the morphology parts-of-speech endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/parts-of-speech",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/morphology/parts-of-speech",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'parts-of-speech')
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -323,13 +354,11 @@ def test_the_morphology_parts_of_speech_endpoint(api, json_response, doc_params)
 def test_the_morphology_compound_components_endpoint(api, json_response, doc_params):
     """Test the morphology compound-components endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/compound-components",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/morphology/compound-components",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'compound-components')
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -339,13 +368,11 @@ def test_the_morphology_compound_components_endpoint(api, json_response, doc_par
 def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
     """Test the morphology han-reading endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/morphology/han-readings",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/morphology/han-readings",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.morphology(doc_params, 'han-readings')
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -355,13 +382,11 @@ def test_the_morphology_han_readings_endpoint(api, json_response, doc_params):
 def test_the_entities_endpoint(api, json_response, doc_params):
     """Test the entities endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/entities",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.entities(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -371,13 +396,11 @@ def test_the_entities_endpoint(api, json_response, doc_params):
 def test_the_categories_endpoint(api, json_response, doc_params):
     """Test the categories endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/categories",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/categories",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.categories(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -387,13 +410,11 @@ def test_the_categories_endpoint(api, json_response, doc_params):
 def test_the_sentiment_endpoint(api, json_response, doc_params):
     """Test the sentiment endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/sentiment",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.sentiment(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -403,16 +424,14 @@ def test_the_sentiment_endpoint(api, json_response, doc_params):
 def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
     """Test multipart"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentiment",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/sentiment",
                            body=json_response, status=200, content_type="application/json")
 
     tmp_file = tmpdir.mkdir("sub").join("testfile.txt")
     tmp_file.write(json_response)
     doc_params.load_document_file = tmp_file
     result = api.sentiment(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -420,9 +439,7 @@ def test_the_multipart_operation(api, json_response, doc_params, tmpdir):
 def test_incompatible_type(api, json_response):
     """Test the name translation endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/sentences",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/sentences",
                            body=json_response, status=200, content_type="application/json")
 
     params = NameTranslationParameters()
@@ -445,9 +462,7 @@ def test_incompatible_type(api, json_response):
 def test_the_name_translation_endpoint(api, json_response):
     """Test the name translation endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-translation",
                            body=json_response, status=200, content_type="application/json")
 
     params = NameTranslationParameters()
@@ -456,7 +471,7 @@ def test_the_name_translation_endpoint(api, json_response):
     params["targetLanguage"] = "eng"
     params["targetScript"] = "Latn"
     result = api.name_translation(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -465,9 +480,7 @@ def test_the_name_translation_endpoint(api, json_response):
 def test_the_name_requests_with_text(api, json_response):
     """Test the name similarity with text"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
     with pytest.raises(RosetteException) as e_rosette:
         result = api.name_similarity("should fail")
@@ -496,9 +509,7 @@ def test_the_name_requests_with_text(api, json_response):
 def test_the_name_similarity_single_parameters(api, json_response):
     """Test the name similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "John Mike Smith"
@@ -509,7 +520,7 @@ def test_the_name_similarity_single_parameters(api, json_response):
     params["parameters"] = {"conflictScore": "0.9"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -517,9 +528,7 @@ def test_the_name_similarity_single_parameters(api, json_response):
 def test_the_name_similarity_multiple_parameters(api, json_response):
     """Test the name similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "John Mike Smith"
@@ -530,7 +539,7 @@ def test_the_name_similarity_multiple_parameters(api, json_response):
     params["parameters"] = {"conflictScore": "0.9", "deletionScore": "0.5"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -538,9 +547,7 @@ def test_the_name_similarity_multiple_parameters(api, json_response):
 def test_the_name_similarity_endpoint(api, json_response):
     """Test the name similarity endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "Michael Jackson"
@@ -553,7 +560,7 @@ def test_the_name_similarity_endpoint(api, json_response):
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -564,9 +571,7 @@ def test_the_name_similarity_endpoint(api, json_response):
 def test_name_deduplication_parameters(api, json_response):
     """Test the Name Deduplication Parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-deduplication",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-deduplication",
                            body=json_response, status=200, content_type="application/json")
 
     params = NameDeduplicationParameters()
@@ -580,7 +585,7 @@ def test_name_deduplication_parameters(api, json_response):
     params["names"] = ["John Smith", "Johnathon Smith", "Fred Jones"]
 
     result = api.name_deduplication(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
 
     httpretty.disable()
     httpretty.reset()
@@ -589,9 +594,7 @@ def test_name_deduplication_parameters(api, json_response):
 def test_the_name_deduplication_endpoint(api, json_response):
     """Test the name deduplication endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-deduplication",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-deduplication",
                            body=json_response, status=200, content_type="application/json")
 
     dedup_list = ["John Smith", "Johnathon Smith", "Fred Jones"]
@@ -601,7 +604,7 @@ def test_the_name_deduplication_endpoint(api, json_response):
     params["threshold"] = threshold
 
     result = api.name_deduplication(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -611,16 +614,14 @@ def test_the_name_deduplication_endpoint(api, json_response):
 def test_the_relationships_endpoint(api, json_response):
     """Test the relationships endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/relationships",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/relationships",
                            body=json_response, status=200, content_type="application/json")
 
     params = DocumentParameters()
     params["content"] = "some text data"
     api.set_option('accuracyMode', 'PRECISION')
     result = api.relationships(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -631,9 +632,7 @@ def test_for_404(api, json_response):
     """Test for 404 handling"""
     httpretty.enable()
     body = json.dumps({'message': 'not found'})
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.GET, "https://api.rosette.com/rest/v1/info",
+    httpretty.register_uri(httpretty.GET, "https://analytics.babelstreet.com/rest/v1/info",
                            body=body, status=404, content_type="application/json")
 
     with pytest.raises(RosetteException) as e_rosette:
@@ -650,9 +649,7 @@ def test_for_404(api, json_response):
 def test_for_content_and_contentUri(api, json_response, doc_params):
     """Test for content and contentUri in DocumentParameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/entities",
                            body=json_response, status=200, content_type="application/json")
 
     doc_params['contentUri'] = 'https://example.com'
@@ -670,9 +667,7 @@ def test_for_content_and_contentUri(api, json_response, doc_params):
 def test_for_no_content_or_contentUri(api, json_response, doc_params):
     """Test for missing content and contentUri in DocumentParameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/entities",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/entities",
                            body=json_response, status=200, content_type="application/json")
 
     doc_params['content'] = None
@@ -688,9 +683,7 @@ def test_for_no_content_or_contentUri(api, json_response, doc_params):
 def test_for_address_similarity_required_parameters(api, json_response):
     """Test address similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/address-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/address-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     params = AddressSimilarityParameters()
@@ -716,7 +709,7 @@ def test_for_address_similarity_required_parameters(api, json_response):
     params["address2"] = {"text": "160 Pennsilvana Avenue, Washington, D.C., 20500"}
 
     result = api.address_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -724,9 +717,7 @@ def test_for_address_similarity_required_parameters(api, json_response):
 def test_for_address_similarity_optional_parameters(api, json_response):
     """Test address similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/address-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/address-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     params = AddressSimilarityParameters()
@@ -742,7 +733,7 @@ def test_for_address_similarity_optional_parameters(api, json_response):
     params["parameters"] = {"houseNumberAddressFieldWeight": "0.9"}
 
     result = api.address_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -753,9 +744,7 @@ def test_for_address_similarity_optional_parameters(api, json_response):
 def test_for_name_similarity_required_parameters(api, json_response):
     """Test name similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     matched_name_data1 = "Michael Jackson"
@@ -781,7 +770,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
     params["name2"] = {"text": matched_name_data2, "entityType": "PERSON"}
 
     result = api.name_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -791,9 +780,7 @@ def test_for_name_similarity_required_parameters(api, json_response):
 def test_for_name_translation_required_parameters(api, json_response):
     """Test name translation parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-translation",
                            body=json_response, status=200, content_type="application/json")
 
     params = NameTranslationParameters()
@@ -817,7 +804,7 @@ def test_for_name_translation_required_parameters(api, json_response):
     params["targetLanguage"] = "eng"
 
     result = api.name_translation(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
 
     httpretty.disable()
     httpretty.reset()
@@ -826,11 +813,11 @@ def test_for_name_translation_required_parameters(api, json_response):
 def test_the_semantic_vectors_endpoint(api, json_response, doc_params):
     """Test semantic vectors endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/vector",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/semantics/vector",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.semantic_vectors(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -838,11 +825,11 @@ def test_the_semantic_vectors_endpoint(api, json_response, doc_params):
 def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
     """Test syntax dependencies endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/syntax/dependencies",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/syntax/dependencies",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.syntax_dependencies(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -852,15 +839,13 @@ def test_the_syntax_dependencies_endpoint(api, json_response, doc_params):
 def test_the_transliteration_endpoint(api, json_response):
     """Test the transliteration endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/transliteration",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/transliteration",
                            body=json_response, status=200, content_type="application/json")
 
     params = DocumentParameters()
     params["content"] = "Some test content"
     result = api.transliteration(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -870,13 +855,11 @@ def test_the_transliteration_endpoint(api, json_response):
 def test_the_topics_endpoint(api, json_response, doc_params):
     """Test the topics endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/topics",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/topics",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.topics(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -886,12 +869,12 @@ def test_the_topics_endpoint(api, json_response, doc_params):
 def test_the_similar_terms_endpoint(api, json_response, doc_params):
     """Test the similar terms endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/similar",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/semantics/similar",
                            body=json_response, status=200, content_type="application/json")
 
     api.set_option("resultLanguages", ["spa", "jpn", "deu"])
     result = api.similar_terms(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -901,19 +884,17 @@ def test_the_deprecated_endpoints(api, json_response, doc_params):
 
     # TEXT_EMBEDDING calls SEMANTIC_VECTORS
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/semantics/vector",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/semantics/vector",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.text_embedding(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
     # MATCHED_NAME calls NAME_SIMILARITY
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     name_similarity_params = NameSimilarityParameters()
@@ -926,15 +907,13 @@ def test_the_deprecated_endpoints(api, json_response, doc_params):
     name_similarity_params["name2"] = {"text": "迈克尔·杰克逊", "entityType": "PERSON"}
 
     result = api.matched_name(name_similarity_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
     # TRANSLATED_NAME calls NAME_TRANSLATION
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/name-translation",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/name-translation",
                            body=json_response, status=200, content_type="application/json")
 
     name_translation_params = NameTranslationParameters()
@@ -944,7 +923,7 @@ def test_the_deprecated_endpoints(api, json_response, doc_params):
     name_translation_params["targetLanguage"] = "eng"
 
     result = api.translated_name(name_translation_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
 
     httpretty.disable()
     httpretty.reset()
@@ -955,13 +934,11 @@ def test_the_deprecated_endpoints(api, json_response, doc_params):
 def test_the_events_endpoint(api, json_response, doc_params):
     """Test the events endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/info",
-                           body=json_response, status=200, content_type="application/json")
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/events",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/events",
                            body=json_response, status=200, content_type="application/json")
 
     result = api.events(doc_params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -971,7 +948,7 @@ def test_the_events_endpoint(api, json_response, doc_params):
 def test_the_record_similarity_endpoint(api, json_response):
     """Test the record similarity endpoint"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/record-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/record-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     params = RecordSimilarityParameters()
@@ -979,7 +956,7 @@ def test_the_record_similarity_endpoint(api, json_response):
     params["properties"] = {}
     params["records"] = {}
     result = api.record_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()
 
@@ -988,7 +965,7 @@ def test_the_record_similarity_endpoint(api, json_response):
 def test_for_record_similarity_required_parameters(api, json_response):
     """Test record similarity parameters"""
     httpretty.enable()
-    httpretty.register_uri(httpretty.POST, "https://api.rosette.com/rest/v1/record-similarity",
+    httpretty.register_uri(httpretty.POST, "https://analytics.babelstreet.com/rest/v1/record-similarity",
                            body=json_response, status=200, content_type="application/json")
 
     params = RecordSimilarityParameters()
@@ -1002,6 +979,6 @@ def test_for_record_similarity_required_parameters(api, json_response):
     params["records"] = {}
 
     result = api.record_similarity(params)
-    assert result["name"] == "Rosette"
+    assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
     httpretty.reset()

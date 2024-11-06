@@ -1,18 +1,18 @@
 ## Endpoint Examples
 
-Each example file demonstrates one of the capabilities of the Rosette Platform.
+Each example file demonstrates one of the capabilities of the Babel Street Analytics Platform.
 
 Here are some methods for running the examples.  Each example will also accept an optional `--url` parameter for
 overriding the default URL.
 
-A note on prerequisites.  Rosette API only supports TLS 1.2 so ensure your toolchain also supports it.
+A note on prerequisites.  Analytics API only supports TLS 1.2 so ensure your toolchain also supports it.
 
 #### Virtualenv/Latest Release
 ```
 git clone git@github.com:rosette-api/python.git
 cd python/examples
-virtualenv rosette_venv
-source rosette_venv/bin/activate
+python -m venv analytics_venv
+source analytics_venv/bin/activate
 pip install rosette_api
 python ping.py -k $API_KEY
 ```
@@ -21,8 +21,8 @@ python ping.py -k $API_KEY
 ```
 git clone git@github.com:rosette-api/python.git
 cd python
-virtualenv rosette_venv
-source rosette_venv/bin/activate
+python -m venv analytics_venv
+source analytics_venv/bin/activate
 python setup.py install
 cd examples
 python ping.py -k $API_KEY
