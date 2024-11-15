@@ -978,6 +978,14 @@ def test_for_record_similarity_required_parameters(api, json_response):
 
     params["records"] = {}
 
+    with pytest.raises(RosetteException) as e_rosette:
+        api.record_similarity(params)
+
+    assert e_rosette.value.status == 'missingParameter'
+    assert e_rosette.value.message == 'Required Record Similarity parameter is missing: fields'
+
+    params["fields"] = {}
+
     result = api.record_similarity(params)
     assert result["name"] == "Babel Street Analytics"
     httpretty.disable()
