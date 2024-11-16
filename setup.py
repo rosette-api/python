@@ -8,7 +8,7 @@ import rosette
 NAME = "rosette_api"
 DESCRIPTION = "Babel Street Analytics API Python client SDK"
 AUTHOR = "Analytics by Babel Street"
-AUTHOR_EMAIL = "helpdesk@babelstreet.com"
+AUTHOR_EMAIL = "analyticssupport@babelstreet.com"
 HOMEPAGE = "https://github.com/rosette-api/python"
 VERSION = rosette.__version__
 
@@ -49,11 +49,11 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )
