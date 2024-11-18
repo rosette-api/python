@@ -8,9 +8,9 @@ Files in the source directory are generally static and should not need to be upd
 
 This will overwrite the *.rst files, which may then require some editing to provide the desired look.  Edits to date:
 1. index.rst: Changed the `Welcome ...` title to `Python Binding`
-1. index.rst: Added minor summary, "This is the API documentation for the Rosette API Python Binding.  For examples and usage, please refer to our `API Guide <http://developer.rosette.com/api-guide>`_."
+1. index.rst: Added minor summary, "This is the API documentation for the Babel Street Analytics API Python Binding.  For examples and usage, please refer to our `API Guide <http://developer.babelstreet.com/api-guide>`_."
 1. conf.py: removed blank line at end of file
-1. conf.py: added rosette logo
+1. conf.py: added Babel Street logo
 1. conf.py: blank project (let logo handle it)
 1. conf.py: added version (auto updated by publish)
 1. conf.py: added author
