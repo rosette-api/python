@@ -30,7 +30,7 @@ import platform
 
 _APPLICATION_JSON = 'application/json'
 _BINDING_LANGUAGE = 'python'
-_BINDING_VERSION = '1.30.0'
+_BINDING_VERSION = '1.31.0'
 # TODO Remove legacies in future release
 _LEGACY_CONCURRENCY_HEADER = 'x-rosetteapi-concurrency'
 _CONCURRENCY_HEADER = 'x-babelstreetapi-concurrency'
