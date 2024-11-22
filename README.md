@@ -2,7 +2,7 @@
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="https://charts.babelstreet.com/icon-dark.png">
   <source media="(prefers-color-scheme: dark)" srcset="https://charts.babelstreet.com/icon-light.png">
-  <img alt="Babel Street Logo" width="48" height="48">
+  <img src="https://charts.babelstreet.com/icon-dark.png" alt="Babel Street Logo" width="48" height="48">
 </picture>
 </a>
 
