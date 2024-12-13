@@ -24,7 +24,6 @@ import logging
 import sys
 import os
 import re
-import warnings
 import requests
 import platform
 
@@ -45,8 +44,6 @@ if _ISPY3:
     _GZIP_SIGNATURE = _GZIP_BYTEARRAY
 else:
     _GZIP_SIGNATURE = str(_GZIP_BYTEARRAY)
-
-warnings.simplefilter('always')
 
 
 class _ReturnObject(object):
