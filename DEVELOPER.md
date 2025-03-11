@@ -58,7 +58,7 @@ Optional parameters for the `docker run` execution are:
   - For testing a single example file instead of all the example files.
 
 To alter the behavior of the pre-configured Docker environment, you can see the Dockerfile source and entry-point
-script [here](https://git.basistech.net/raas/rapid-development-tools/tree/master/binding-dockerfiles). 
+script [here](https://github.com/RosetteTextAnalytics/rapid-development-tools/tree/master/binding-dockerfiles). 
 
 ### Documentation Generation
 The existing README for documentation generation is [here](docs/README.md).
@@ -68,7 +68,7 @@ The next time the API documentation is touched, please refresh the README and mi
 There's an old [Docker README](examples/docker) in the examples directory that might be a candidate for removal.
 
 ### Building A Release
-See the [instructions](https://git.basistech.net/raas/rapid-development-tools/tree/master/publish)
+See the [instructions](https://github.com/RosetteTextAnalytics/rapid-development-tools/tree/master/publish)
 
 ### TODOs
 - Inconsistent references with `rosette_api` and `rosette-api`
