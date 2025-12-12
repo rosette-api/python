@@ -31,6 +31,18 @@ def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
         "dob2": {
             "type": "rni_date",
             "weight": 0.1
+        },
+        "jobTitle": {
+            "type": "rni_string",
+            "weight": 0.2
+        },
+        "age": {
+            "type": "rni_number",
+            "weight": 0.4
+        },
+        "isRetired": {
+            "type": "rni_boolean",
+            "weight": 0.05
         }
     }
     properties = {
@@ -52,7 +64,8 @@ def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
                 "dob2": {
                     "date": "04161993",
                     "format": "MMddyyyy"
-                }
+                },
+                "jobTitle": "software engineer"
             },
             {
                 "dob": {
@@ -60,7 +73,9 @@ def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
                 },
                 "primaryName": {
                     "text": "Evan R"
-                }
+                },
+                "age": 47,
+                "isRetired": False
             }
         ],
         "right": [
@@ -71,7 +86,9 @@ def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
                 "primaryName": {
                     "text": "Seth R",
                     "language": "eng"
-                }
+                },
+                "jobTitle": "manager",
+                "isRetired": True
             },
             {
                 "primaryName": "Ivan R",
@@ -84,7 +101,9 @@ def run(key, alt_url='https://analytics.babelstreet.com/rest/v1/'):
                 },
                 "dob2": {
                     "date": "1993/04/16"
-                }
+                },
+                "age": 72,
+                "isRetired": True
             }
         ]
     }
