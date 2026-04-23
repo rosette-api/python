@@ -19,7 +19,7 @@ node ("docker-light") {
                 sh "docker run --rm -e API_KEY=${API_KEY} -e ALT_URL=${ALT_URL} -v ${SOURCEDIR}:/source rosette/docker-python"
             }
         }
-        slack(true)
+        postToTeams(true)
     } catch (e) {
         currentBuild.result = "FAILED"
         postToTeams(false)
