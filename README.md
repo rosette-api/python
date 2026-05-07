@@ -1,9 +1,5 @@
-<a href="https://www.babelstreet.com/rosette">
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://charts.babelstreet.com/icon-dark.png">
-  <source media="(prefers-color-scheme: dark)" srcset="https://charts.babelstreet.com/icon-light.png">
-  <img src="https://charts.babelstreet.com/icon-dark.png" alt="Babel Street Logo" width="48" height="48">
-</picture>
+<a href="https://www.babelstreet.com/modules">
+    <img src="https://charts.babelstreet.com/icon.png" width="48" height="48" alt="Babel Street Logo"/>
 </a>
 
 # Analytics by Babel Street
@@ -38,10 +34,10 @@ in the [examples](https://github.com/rosette-api/python/tree/develop/examples) d
 
 #### Documentation & Support
 - [Binding API](https://rosette-api.github.io/python/)
-- [Analytics Platform API](https://docs.babelstreet.com/API/en/index-en.html)
+- [Analytics Platform API](https://documentation.babelstreet.com/analytics)
 - [Binding Release Notes](https://github.com/rosette-api/python/wiki/Release-Notes)
-- [Analytics Platform Release Notes](https://docs.babelstreet.com/Release/en/rosette-cloud.html)
-- [Support](https://babelstreet.my.site.com/support/s/)
+- [Analytics Platform Release Notes](https://docs.babelstreet.com/r/Hosted-Services-Release-Notes)
+- [Support](https://babelstreet.my.site.com/support/s/contactsupport)
 - [Binding License: Apache 2.0](https://github.com/rosette-api/python/blob/develop/LICENSE.txt)
 
 ## Binding Developer Information
