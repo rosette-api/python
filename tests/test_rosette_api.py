@@ -679,6 +679,31 @@ def test_the_record_similarity_endpoint(api, json_response):
 
 
 @pook.on
+def test_record_similarity_comparison_method(api, json_response):
+    """Accept and serialize the optional comparison method."""
+    pook.post(url=get_base_url() + "v1/record-similarity",
+              response_json=json_response,
+              reply=200)
+
+    params = RecordSimilarityParameters()
+    params["fields"] = {}
+    params["records"] = {}
+    assert params["comparisonMethod"] is None
+    assert "comparisonMethod" not in params.serialize(None)
+
+    params["comparisonMethod"] = "one_to_n"
+    assert params["comparisonMethod"] == "one_to_n"
+    assert params.serialize(None) == {
+        "fields": {},
+        "records": {},
+        "comparisonMethod": "one_to_n"
+    }
+
+    result = api.record_similarity(params)
+    assert result["name"] == "Babel Street Analytics"
+
+
+@pook.on
 def test_for_record_similarity_required_parameters(api, json_response):
     pook.post(url=get_base_url() + "v1/record-similarity",
               response_json=json_response,
