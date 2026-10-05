@@ -3,7 +3,7 @@
 """
 Python client for the Babel Street Analytics API.
 
-Copyright (c) 2014-2024 Basis Technology Corporation.
+Copyright (c) 2014-2026 Babel Street Rosette Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -356,7 +356,7 @@ class RecordSimilarityParameters(_RequestParametersBase):
 
     def __init__(self):
         self.use_multipart = False
-        _RequestParametersBase.__init__(self, ("fields", "properties", "records"))
+        _RequestParametersBase.__init__(self, ("fields", "properties", "records", "comparisonMethod"))
 
     def validate(self):
         """Internal. Do not use."""

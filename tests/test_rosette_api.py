@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Copyright (c) 2014-2024 Basis Technology Corporation.
+Copyright (c) 2014-2026 Babel Street Rosette Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -248,46 +248,46 @@ def test_document_endpoints(api, json_response, doc_params, endpoint):
               response_json=json_response,
               reply=200)
 
-    # TODO:  Convert to match-case when minimum supported version is 3.10
-    if endpoint == "categories":
-        result = api.categories(doc_params)
-    elif endpoint == "entities":
-        result = api.entities(doc_params)
-    elif endpoint == "events":
-        result = api.events(doc_params)
-    elif endpoint == "language":
-        result = api.language(doc_params)
-    elif endpoint == "morphology/complete":
-        result = api.morphology(doc_params)
-    elif endpoint == "morphology/compound-components":
-        result = api.morphology(doc_params, "compound-components")
-    elif endpoint == "morphology/han-readings":
-        result = api.morphology(doc_params, "han-readings")
-    elif endpoint == "morphology/lemmas":
-        result = api.morphology(doc_params, "lemmas")
-    elif endpoint == "morphology/parts-of-speech":
-        result = api.morphology(doc_params, "parts-of-speech")
-    elif endpoint == "relationships":
-        api.set_option('accuracyMode', 'PRECISION')
-        result = api.relationships(doc_params)
-    elif endpoint == "semantics/similar":
-        result = api.similar_terms(doc_params)
-    elif endpoint == "semantics/vector":
-        result = api.semantic_vectors(doc_params)
-    elif endpoint == "sentences":
-        result = api.sentences(doc_params)
-    elif endpoint == "sentiment":
-        result = api.sentiment(doc_params)
-    elif endpoint == "syntax/dependencies":
-        result = api.syntax_dependencies(doc_params)
-    elif endpoint == "tokens":
-        result = api.tokens(doc_params)
-    elif endpoint == "topics":
-        result = api.topics(doc_params)
-    elif endpoint == "transliteration":
-        result = api.transliteration(doc_params)
-    else:
-        raise Exception("Unknown endpoint.")
+    match endpoint:
+        case "categories":
+            result = api.categories(doc_params)
+        case "entities":
+            result = api.entities(doc_params)
+        case "events":
+            result = api.events(doc_params)
+        case "language":
+            result = api.language(doc_params)
+        case "morphology/complete":
+            result = api.morphology(doc_params)
+        case "morphology/compound-components":
+            result = api.morphology(doc_params, "compound-components")
+        case "morphology/han-readings":
+            result = api.morphology(doc_params, "han-readings")
+        case "morphology/lemmas":
+            result = api.morphology(doc_params, "lemmas")
+        case "morphology/parts-of-speech":
+            result = api.morphology(doc_params, "parts-of-speech")
+        case "relationships":
+            api.set_option('accuracyMode', 'PRECISION')
+            result = api.relationships(doc_params)
+        case "semantics/similar":
+            result = api.similar_terms(doc_params)
+        case "semantics/vector":
+            result = api.semantic_vectors(doc_params)
+        case "sentences":
+            result = api.sentences(doc_params)
+        case "sentiment":
+            result = api.sentiment(doc_params)
+        case "syntax/dependencies":
+            result = api.syntax_dependencies(doc_params)
+        case "tokens":
+            result = api.tokens(doc_params)
+        case "topics":
+            result = api.topics(doc_params)
+        case "transliteration":
+            result = api.transliteration(doc_params)
+        case _:
+            raise Exception("Unknown endpoint.")
 
     assert result["name"] == "Babel Street Analytics"
 
@@ -674,6 +674,31 @@ def test_the_record_similarity_endpoint(api, json_response):
     params["fields"] = {}
     params["properties"] = {}
     params["records"] = {}
+    result = api.record_similarity(params)
+    assert result["name"] == "Babel Street Analytics"
+
+
+@pook.on
+def test_record_similarity_comparison_method(api, json_response):
+    """Accept and serialize the optional comparison method."""
+    pook.post(url=get_base_url() + "v1/record-similarity",
+              response_json=json_response,
+              reply=200)
+
+    params = RecordSimilarityParameters()
+    params["fields"] = {}
+    params["records"] = {}
+    assert params["comparisonMethod"] is None
+    assert "comparisonMethod" not in params.serialize(None)
+
+    params["comparisonMethod"] = "one_to_n"
+    assert params["comparisonMethod"] == "one_to_n"
+    assert params.serialize(None) == {
+        "fields": {},
+        "records": {},
+        "comparisonMethod": "one_to_n"
+    }
+
     result = api.record_similarity(params)
     assert result["name"] == "Babel Street Analytics"
 
